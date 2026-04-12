@@ -47,7 +47,9 @@ class GraphBuilder:
         self.constructor  = constructor
         self.k_turns      = config.memory.k_turns
         self.participants = participants or []
-        self.traj_path    = Path(config.run_dir) / "graph_trajectories.jsonl"
+        self._run_dir     = Path(config.run_dir)
+        # traj_path is set per-sample in build_from_sample to avoid parallel write conflicts
+        self.traj_path    = self._run_dir / "graph_trajectories.jsonl"
         self.traj_path.parent.mkdir(parents=True, exist_ok=True)
 
     # ------------------------------------------------------------------
@@ -61,6 +63,8 @@ class GraphBuilder:
             return
 
         sample_id: str = sessions[0].get("metadata", {}).get("sample_id", "unknown")
+        # Per-sample trajectory file avoids concurrent-write conflicts in parallel builds
+        self.traj_path = self._run_dir / f"graph_trajectories_{sample_id}.jsonl"
         done_batches = self._load_done_batches()
 
         total_batches = sum(
