@@ -1,0 +1,25 @@
+# GraphMemory build configuration — remaining 9 samples (conv-26 already built)
+data_path: data/locomo/locomo10.json
+dataset_name: locomo
+run_dir: runs/build
+
+vector_store:
+  path: runs/chroma
+  from_scratch: false     # conv-26 already built; only add new samples
+
+memory:
+  k_turns: 4
+  retrieval_topk: 5
+
+graph:
+  seed_top_k: 5
+  max_hops: 2
+  max_nodes: 20
+  max_edges: 30
+  retrieval_max_hop: 3
+  jump_budget: 5
+
+llm:
+  model: gpt-4o
+  temperature: 0.0
+  max_retries: 5
