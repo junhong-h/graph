@@ -1,0 +1,327 @@
+"""GraphConstructor: merged Construction + Update in a single LLM call (Step 4 + 5).
+
+The LLM receives the input text and the local subgraph, then outputs a sequence of
+graph edit operations.  This module both prompts the LLM and executes the operations
+against the GraphStore.
+
+Operations
+----------
+Construction side (propose new structure):
+  CreateEntity  — add a new Entity node
+  CreateEvent   — add a new Event node
+  Link          — add an edge between two nodes (at least one must be new)
+  AttachAttr    — attach key-value attribute to an existing node
+  Skip          — nothing worth graphizing
+
+Update side (align with existing graph):
+  MergeNode     — merge two nodes that refer to the same object (same_as)
+  ReviseAttr    — update an existing attribute on an existing node
+  AddEdge       — add an edge between two existing nodes
+  DeleteEdge    — remove an edge that is now wrong or stale
+  PruneNode     — remove a low-value or redundant node
+  KeepSeparate  — explicitly record that two similar nodes are distinct
+
+Node ID references in the prompt use the 8-char prefix of the full UUID.
+The LLM is instructed to use these prefixes; we resolve them back to full IDs here.
+"""
+
+from __future__ import annotations
+
+import json
+import re
+import uuid
+from typing import Any, Dict, List, Optional, Tuple
+
+from loguru import logger
+
+from graphmemory.graph_store import GraphStore, format_subgraph
+from graphmemory.llm_client import LLMClient
+
+
+# ---------------------------------------------------------------------------
+# Prompt templates
+# ---------------------------------------------------------------------------
+
+_SYSTEM_PROMPT = """\
+You are a graph-memory editor. Given a conversation excerpt and the current local subgraph, \
+output a sequence of graph edit operations.
+
+[Node ID convention]
+Each node in the subgraph is shown as [XXXXXXXX] (first 8 chars of its UUID). \
+Use these 8-char prefixes when referencing existing nodes. \
+Use NEW_<name> when referencing a node you are about to create (e.g. NEW_Jon, NEW_Meeting1).
+
+[Available Operations — output as a JSON array]
+Each operation is a JSON object with a "op" field plus operation-specific fields.
+
+Construction (new structure):
+  {{"op": "CreateEntity", "id": "NEW_<label>", "canonical_name": "...", "aliases": [...], "attrs": {{...}}}}
+  {{"op": "CreateEvent",  "id": "NEW_<label>", "canonical_name": "...", "attrs": {{...}}}}
+  {{"op": "Link",   "src": "<id>", "dst": "<id>", "family": "entity-event|entity-entity|event-event", "predicate": "..."}}
+  {{"op": "AttachAttr", "node": "<8-char-id>", "key": "...", "value": "..."}}
+  {{"op": "Skip", "reason": "..."}}
+
+Update (align with existing graph):
+  {{"op": "MergeNode",    "src": "<8-char-id>", "dst": "<8-char-id>"}}
+  {{"op": "ReviseAttr",   "node": "<8-char-id>", "key": "...", "value": "..."}}
+  {{"op": "AddEdge",      "src": "<8-char-id>", "dst": "<8-char-id>", "family": "...", "predicate": "..."}}
+  {{"op": "DeleteEdge",   "edge": "<8-char-edge-id>"}}
+  {{"op": "PruneNode",    "node": "<8-char-id>"}}
+  {{"op": "KeepSeparate", "node_a": "<8-char-id>", "node_b": "<8-char-id>", "reason": "..."}}
+
+[Decision rules]
+1. Prefer AttachAttr / ReviseAttr over creating new nodes — keep the graph lean.
+2. Only CreateEntity/CreateEvent if the object is a long-term anchor (will be referenced again).
+3. Use MergeNode when two nodes clearly refer to the same real-world object.
+4. Use KeepSeparate when nodes are similar but distinct — prevents future erroneous merges.
+5. Link/AddEdge: choose the correct family (entity-event / entity-entity / event-event).
+6. Output Skip if nothing in the excerpt warrants long-term graph changes.
+7. Do NOT output explanatory text — output ONLY the JSON array.
+
+[Output format]
+Return a single JSON array of operation objects, e.g.:
+[
+  {{"op": "CreateEntity", "id": "NEW_Jon", "canonical_name": "Jon", "aliases": [], "attrs": {{"job": "engineer"}}}},
+  {{"op": "CreateEvent",  "id": "NEW_Laid_off", "canonical_name": "Jon laid off", "attrs": {{"time": "July 2023"}}}},
+  {{"op": "Link", "src": "NEW_Jon", "dst": "NEW_Laid_off", "family": "entity-event", "predicate": "experienced"}}
+]\
+"""
+
+_USER_PROMPT = """\
+[Current local subgraph]
+{subgraph_text}
+
+[Input excerpt]
+{turn_text}
+
+Output the JSON array of graph edit operations:\
+"""
+
+
+# ---------------------------------------------------------------------------
+# GraphConstructor
+# ---------------------------------------------------------------------------
+
+class GraphConstructor:
+    """Calls LLM to propose + execute graph edits in one step."""
+
+    def __init__(self, llm: LLMClient, graph: GraphStore):
+        self.llm   = llm
+        self.graph = graph
+
+    def run(self, turn_text: str, local_subgraph: Dict[str, Any]) -> List[Dict]:
+        """
+        Prompt the LLM with turn_text + local_subgraph, parse the operations,
+        execute them against self.graph, and return the executed operation log.
+        """
+        subgraph_text = format_subgraph(local_subgraph) if local_subgraph.get("nodes") else "(empty)"
+        messages = [
+            {"role": "system", "content": _SYSTEM_PROMPT},
+            {"role": "user",   "content": _USER_PROMPT.format(
+                subgraph_text=subgraph_text,
+                turn_text=turn_text,
+            )},
+        ]
+        response = self.llm.complete(messages)
+        ops = _parse_ops(response)
+        logger.debug(f"GraphConstructor: {len(ops)} operations parsed.")
+        return self._execute_ops(ops, local_subgraph)
+
+    # ------------------------------------------------------------------
+    # Execution
+    # ------------------------------------------------------------------
+
+    def _execute_ops(
+        self,
+        ops: List[Dict],
+        local_subgraph: Dict[str, Any],
+    ) -> List[Dict]:
+        """
+        Execute operations in order. Track NEW_<label> → full node_id mapping
+        so later ops can reference just-created nodes.
+        """
+        id_map: Dict[str, str] = {}  # NEW_label or 8-char prefix → full node_id
+        # Pre-populate id_map with existing subgraph nodes
+        for full_id in local_subgraph.get("nodes", {}):
+            id_map[full_id[:8]] = full_id
+
+        log: List[Dict] = []
+        for op in ops:
+            result = self._dispatch(op, id_map, local_subgraph)
+            log.append(result)
+        return log
+
+    def _dispatch(
+        self,
+        op: Dict,
+        id_map: Dict[str, str],
+        local_subgraph: Dict[str, Any],
+    ) -> Dict:
+        name = op.get("op", "")
+        try:
+            if name == "CreateEntity":
+                return self._do_create_node("Entity", op, id_map)
+            elif name == "CreateEvent":
+                return self._do_create_node("Event", op, id_map)
+            elif name == "Link":
+                return self._do_link(op, id_map)
+            elif name == "AttachAttr":
+                return self._do_attach_attr(op, id_map)
+            elif name == "Skip":
+                return {"op": "Skip", "status": "ok", "reason": op.get("reason", "")}
+            elif name == "MergeNode":
+                return self._do_merge(op, id_map)
+            elif name == "ReviseAttr":
+                return self._do_revise_attr(op, id_map)
+            elif name == "AddEdge":
+                return self._do_add_edge(op, id_map)
+            elif name == "DeleteEdge":
+                return self._do_delete_edge(op, local_subgraph)
+            elif name == "PruneNode":
+                return self._do_prune_node(op, id_map)
+            elif name == "KeepSeparate":
+                return {"op": "KeepSeparate", "status": "ok",
+                        "node_a": op.get("node_a"), "node_b": op.get("node_b"),
+                        "reason": op.get("reason", "")}
+            else:
+                logger.warning(f"Unknown op: {name}")
+                return {"op": name, "status": "unknown_op"}
+        except Exception as exc:
+            logger.warning(f"Op {name} failed: {exc}")
+            return {"op": name, "status": "error", "error": str(exc)}
+
+    # ------------------------------------------------------------------
+    # Individual op handlers
+    # ------------------------------------------------------------------
+
+    def _do_create_node(self, node_type: str, op: Dict, id_map: Dict[str, str]) -> Dict:
+        label   = op.get("id", "")
+        c_name  = op.get("canonical_name", label)
+        aliases = op.get("aliases", [])
+        attrs   = op.get("attrs", {})
+        node_id = self.graph.add_node(node_type, c_name, aliases=aliases, attrs=attrs)
+        id_map[label] = node_id         # NEW_Jon → full uuid
+        id_map[node_id[:8]] = node_id   # also register 8-char prefix
+        logger.debug(f"Created {node_type} '{c_name}' → {node_id[:8]}")
+        return {"op": f"Create{node_type}", "status": "ok", "node_id": node_id,
+                "canonical_name": c_name}
+
+    def _do_link(self, op: Dict, id_map: Dict[str, str]) -> Dict:
+        src = _resolve(op.get("src", ""), id_map)
+        dst = _resolve(op.get("dst", ""), id_map)
+        if not src or not dst:
+            return {"op": "Link", "status": "error", "error": f"unresolved id: src={op.get('src')} dst={op.get('dst')}"}
+        eid = self.graph.add_edge(src, dst, op.get("family", "entity-entity"), op.get("predicate", "related"))
+        return {"op": "Link", "status": "ok", "edge_id": eid}
+
+    def _do_attach_attr(self, op: Dict, id_map: Dict[str, str]) -> Dict:
+        node_id = _resolve(op.get("node", ""), id_map)
+        if not node_id:
+            return {"op": "AttachAttr", "status": "error", "error": f"unresolved node: {op.get('node')}"}
+        self.graph.update_node(node_id, attrs_update={op["key"]: op["value"]})
+        return {"op": "AttachAttr", "status": "ok", "node_id": node_id,
+                "key": op.get("key"), "value": op.get("value")}
+
+    def _do_merge(self, op: Dict, id_map: Dict[str, str]) -> Dict:
+        src = _resolve(op.get("src", ""), id_map)
+        dst = _resolve(op.get("dst", ""), id_map)
+        if not src or not dst:
+            return {"op": "MergeNode", "status": "error", "error": "unresolved ids"}
+        self.graph.merge_nodes(src, dst)
+        id_map[src[:8]] = dst  # redirect future references
+        return {"op": "MergeNode", "status": "ok", "src": src, "dst": dst}
+
+    def _do_revise_attr(self, op: Dict, id_map: Dict[str, str]) -> Dict:
+        node_id = _resolve(op.get("node", ""), id_map)
+        if not node_id:
+            return {"op": "ReviseAttr", "status": "error", "error": f"unresolved node: {op.get('node')}"}
+        self.graph.update_node(node_id, attrs_update={op["key"]: op["value"]})
+        return {"op": "ReviseAttr", "status": "ok", "node_id": node_id,
+                "key": op.get("key"), "value": op.get("value")}
+
+    def _do_add_edge(self, op: Dict, id_map: Dict[str, str]) -> Dict:
+        src = _resolve(op.get("src", ""), id_map)
+        dst = _resolve(op.get("dst", ""), id_map)
+        if not src or not dst:
+            return {"op": "AddEdge", "status": "error", "error": "unresolved ids"}
+        eid = self.graph.add_edge(src, dst, op.get("family", "entity-entity"), op.get("predicate", "related"))
+        return {"op": "AddEdge", "status": "ok", "edge_id": eid}
+
+    def _do_delete_edge(self, op: Dict, local_subgraph: Dict) -> Dict:
+        prefix = op.get("edge", "")
+        # Resolve edge_id from local subgraph edges
+        edge_id = _resolve_edge(prefix, local_subgraph.get("edges", []))
+        if not edge_id:
+            return {"op": "DeleteEdge", "status": "error", "error": f"edge not found: {prefix}"}
+        self.graph.delete_edge(edge_id)
+        return {"op": "DeleteEdge", "status": "ok", "edge_id": edge_id}
+
+    def _do_prune_node(self, op: Dict, id_map: Dict[str, str]) -> Dict:
+        node_id = _resolve(op.get("node", ""), id_map)
+        if not node_id:
+            return {"op": "PruneNode", "status": "error", "error": f"unresolved node: {op.get('node')}"}
+        self.graph.delete_node(node_id)
+        return {"op": "PruneNode", "status": "ok", "node_id": node_id}
+
+
+# ---------------------------------------------------------------------------
+# Parsing helpers
+# ---------------------------------------------------------------------------
+
+def _parse_ops(response: str) -> List[Dict]:
+    """Extract a JSON array of operations from LLM response.
+
+    Tries JSON first; falls back to ast.literal_eval for Python-dict style output.
+    """
+    import ast
+
+    # Find the outermost [...] block
+    m = re.search(r"\[.*\]", response, re.DOTALL)
+    if not m:
+        logger.warning("GraphConstructor: no JSON array found in response.")
+        return []
+
+    raw = m.group()
+
+    # Attempt 1: strict JSON
+    try:
+        ops = json.loads(raw)
+        if isinstance(ops, list):
+            return ops
+        logger.warning("GraphConstructor: parsed JSON is not a list.")
+        return []
+    except json.JSONDecodeError:
+        pass
+
+    # Attempt 2: Python literal (single-quoted dicts)
+    try:
+        ops = ast.literal_eval(raw)
+        if isinstance(ops, list):
+            logger.debug("GraphConstructor: parsed via ast.literal_eval fallback.")
+            return ops
+    except (ValueError, SyntaxError, TypeError):
+        pass
+
+    logger.warning(f"GraphConstructor: failed to parse ops from response: {raw[:120]!r}")
+    return []
+
+
+def _resolve(ref: str, id_map: Dict[str, str]) -> Optional[str]:
+    """Resolve a NEW_label or 8-char prefix to a full node_id."""
+    if not ref:
+        return None
+    if ref in id_map:
+        return id_map[ref]
+    # Try prefix match in id_map values
+    for full_id in id_map.values():
+        if full_id.startswith(ref):
+            return full_id
+    return None
+
+
+def _resolve_edge(prefix: str, edges: List[Dict]) -> Optional[str]:
+    """Find a full edge_id by 8-char prefix."""
+    for edge in edges:
+        if edge.get("edge_id", "").startswith(prefix):
+            return edge["edge_id"]
+    return None

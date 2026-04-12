@@ -1,0 +1,27 @@
+# GraphMemory QA retrieval configuration
+# Pass with: python scripts/run_qa.py --config configs/run_qa.yaml
+
+data_path: data/locomo/locomo10.json
+dataset_name: locomo
+run_dir: runs/qa
+
+vector_store:
+  path: runs/chroma
+  from_scratch: false     # never wipe during retrieval
+
+memory:
+  k_turns: 4
+  retrieval_topk: 5       # top-K raw turns retrieved in raw_fallback
+
+graph:
+  seed_top_k: 5           # top-K seed nodes from vector search
+  max_hops: 2             # neighbourhood assembly depth
+  max_nodes: 20
+  max_edges: 30
+  retrieval_max_hop: 3    # max Jump hops before forced finish
+  jump_budget: 5          # max neighbours expanded per Jump step
+
+llm:
+  model: gpt-4o
+  temperature: 0.0
+  max_retries: 5

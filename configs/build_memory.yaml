@@ -1,0 +1,28 @@
+# GraphMemory build configuration
+# Pass with: python scripts/build_memory.py --config configs/build_memory.yaml
+
+data_path: data/locomo/locomo10.json
+dataset_name: locomo
+run_dir: runs/build
+
+vector_store:
+  path: runs/chroma
+  from_scratch: true      # true = wipe ChromaDB + graph.json and rebuild from scratch
+
+memory:
+  k_turns: 4              # conversation turns per construction batch
+  retrieval_topk: 5       # top-K turns retrieved during raw fallback
+
+graph:
+  seed_top_k: 5           # top-K seed nodes from vector search (Localize Step 3.1)
+  max_hops: 2             # BFS depth for neighbourhood assembly (Step 3.2)
+  max_nodes: 20           # max nodes in a candidate subgraph
+  max_edges: 30           # max edges in a candidate subgraph
+  retrieval_max_hop: 3    # max Jump hops before forced finish (Step 8)
+  jump_budget: 5          # max neighbours expanded per Jump step
+
+llm:
+  model: gpt-4o
+  temperature: 0.0
+  max_retries: 5
+  # api_key and base_url read from OPENAI_API_KEY / OPENAI_BASE_URL env vars
