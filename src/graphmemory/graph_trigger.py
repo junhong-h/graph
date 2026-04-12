@@ -25,23 +25,25 @@ from graphmemory.llm_client import LLMClient
 
 _SYSTEM_PROMPT = """\
 You are a graph-memory gatekeeper. Decide whether the following conversation excerpt \
-is likely to cause long-term changes to a knowledge graph.
+contains any information worth storing in a long-term knowledge graph.
 
 Answer ONLY with one of:
   TRIGGER
   SKIP
 
-Reasons to answer TRIGGER:
-- A new person, place, organisation, concept, or object appears.
-- A new event, action, or state change is described.
-- Existing information about an entity is updated or contradicted.
-- A new relationship between known entities is revealed.
-- The information would likely be needed to answer future questions.
+Answer TRIGGER if the excerpt contains ANY of the following — even just one sentence:
+- A person, place, object, or organisation (new or existing)
+- An event, activity, experience, or plan (past, present, or future)
+- A preference, hobby, skill, opinion, or personal fact
+- A date, time, or temporal reference tied to an event
+- A relationship or connection between people or things
+- An update, correction, or new detail about something already known
 
-Reasons to answer SKIP:
-- Pure small talk or pleasantries with no factual content.
-- Repetition of information already captured.
-- Questions without answers, or meta-conversation about the system.
+Answer SKIP ONLY when the excerpt is entirely:
+- Pure pleasantries / sign-off with zero factual content (e.g. "Great talking to you! Bye!")
+- Repetition of the exact same fact already in the graph summary with no new detail
+
+When in doubt, answer TRIGGER. It is better to process unnecessary content than to miss real facts.
 
 Respond with a single word: TRIGGER or SKIP.\
 """

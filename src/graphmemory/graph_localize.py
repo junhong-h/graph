@@ -53,15 +53,29 @@ class GraphLocalizer:
     # Public
     # ------------------------------------------------------------------
 
-    def localize(self, input_text: str) -> Dict[str, Any]:
+    def localize(
+        self,
+        input_text: str,
+        forced_seed_ids: List[str] | None = None,
+    ) -> Dict[str, Any]:
         """
         Return the best local subgraph as {"nodes": {...}, "edges": [...]}.
+        forced_seed_ids are always included in the seed set (e.g. main participants).
         Returns an empty subgraph if the graph is empty.
         """
         if self.graph.node_count() == 0:
             return {"nodes": {}, "edges": []}
 
         seed_ids = self._seed_retrieval(input_text)
+
+        # Merge forced seeds, dedup, keep them at front so they survive budget limits
+        if forced_seed_ids:
+            merged = list(forced_seed_ids)
+            for s in seed_ids:
+                if s not in merged:
+                    merged.append(s)
+            seed_ids = merged[: self.seed_top_k + len(forced_seed_ids)]
+
         if not seed_ids:
             logger.debug("GraphLocalizer: no seeds found, returning empty subgraph.")
             return {"nodes": {}, "edges": []}

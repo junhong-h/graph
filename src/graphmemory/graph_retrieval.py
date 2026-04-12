@@ -148,15 +148,7 @@ class GraphRetriever:
 
         # Step 7: SelectAnchor — LLM selects 1-3 anchors from local subgraph
         local_nodes = local_sub.get("nodes", {})
-        if not local_nodes:
-            # Empty graph: go straight to raw_fallback
-            hits = self.archive.search(question, top_k=self.retrieval_topk)
-            raw_ctx = [h["text"] for h in hits]
-            evidence_text = "--- Raw conversation context ---\n" + "\n".join(raw_ctx)
-            answer = self._forced_answer(question, evidence_text, answer_format)
-            return {"answer": answer, "traces": [{"hop": 0, "action": "raw_fallback_only"}]}
-
-        anchor_ids = self._select_anchor(question, local_sub)
+        anchor_ids = self._select_anchor(question, local_sub) if local_nodes else []
         frontier: Set[str] = set(anchor_ids)
         visited:  Set[str] = set(frontier)
         # Evidence starts with full local subgraph (not just anchors)
@@ -229,7 +221,7 @@ class GraphRetriever:
         Falls back to all nodes if LLM fails or subgraph is tiny.
         """
         nodes = local_sub.get("nodes", {})
-        if len(nodes) <= 3:
+        if len(nodes) <= 5:
             return list(nodes.keys())
 
         from graphmemory.graph_store import format_subgraph

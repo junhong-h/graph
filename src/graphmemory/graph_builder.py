@@ -38,14 +38,16 @@ class GraphBuilder:
         localizer: GraphLocalizer,
         constructor: GraphConstructor,
         config: BuildConfig,
+        participants: List[str] | None = None,
     ):
-        self.graph       = graph
-        self.archive     = archive
-        self.trigger     = trigger
-        self.localizer   = localizer
-        self.constructor = constructor
-        self.k_turns     = config.memory.k_turns
-        self.traj_path   = Path(config.run_dir) / "graph_trajectories.jsonl"
+        self.graph        = graph
+        self.archive      = archive
+        self.trigger      = trigger
+        self.localizer    = localizer
+        self.constructor  = constructor
+        self.k_turns      = config.memory.k_turns
+        self.participants = participants or []
+        self.traj_path    = Path(config.run_dir) / "graph_trajectories.jsonl"
         self.traj_path.parent.mkdir(parents=True, exist_ok=True)
 
     # ------------------------------------------------------------------
@@ -146,7 +148,13 @@ class GraphBuilder:
             return
 
         # ── Step 3: Localize ──────────────────────────────────────────
-        local_subgraph = self.localizer.localize(batch_text)
+        # Always include the main participants as anchor seeds so that
+        # existing entity nodes (Caroline, Melanie) are visible to the LLM
+        # and can be reused instead of duplicated.
+        participant_ids = self._find_participant_nodes(self.participants)
+        local_subgraph = self.localizer.localize(
+            batch_text, forced_seed_ids=participant_ids
+        )
         self._log(batch_id, session_id, "localize", op_id,
                   extra={
                       "subgraph_nodes": len(local_subgraph.get("nodes", {})),
@@ -161,6 +169,16 @@ class GraphBuilder:
             f"Batch {batch_id}: {len(op_log)} ops executed. "
             f"Graph: {self.graph.node_count()} nodes, {self.graph.edge_count()} edges."
         )
+
+    def _find_participant_nodes(self, names: List[str]) -> List[str]:
+        """Return node_ids for known participant names (case-insensitive match)."""
+        result = []
+        all_nodes = self.graph.get_all_nodes()
+        for nid, node in all_nodes.items():
+            cname = node.get("canonical_name", "").lower()
+            if any(cname == p.lower() for p in names):
+                result.append(nid)
+        return result
 
     def _load_done_batches(self) -> set:
         """Return batch_ids already logged to the trajectory file."""

@@ -104,6 +104,12 @@ def main() -> None:
 
         graph_path = graphs_dir / f"{sample_id}_graph.json"
 
+        # Extract main participants (speaker_a / speaker_b) from first session metadata
+        first_meta  = sample["conversation"][0].get("metadata", {})
+        participants = [
+            n for n in [first_meta.get("speaker_a"), first_meta.get("speaker_b")] if n
+        ]
+
         # Per-sample components
         graph     = GraphStore(graph_path, store, sample_id)
         archive   = RawArchive(store, sample_id)
@@ -115,13 +121,19 @@ def main() -> None:
             max_edges  = cfg.graph.max_edges,
         )
         constructor = GraphConstructor(llm, graph)
-        builder     = GraphBuilder(graph, archive, trigger, localizer, constructor, cfg)
+        builder     = GraphBuilder(
+            graph, archive, trigger, localizer, constructor, cfg,
+            participants=participants,
+        )
 
         try:
             builder.build_from_sample(sample)
+            # Post-build: merge duplicate entity nodes
+            merges = graph.dedup_entities()
             logger.info(
                 f"Sample {sample_id} done: "
-                f"{graph.node_count()} nodes, {graph.edge_count()} edges."
+                f"{graph.node_count()} nodes, {graph.edge_count()} edges "
+                f"(dedup merged {merges} nodes)."
             )
         except Exception as exc:
             logger.error(f"Sample {sample_id} failed: {exc}", exc_info=True)

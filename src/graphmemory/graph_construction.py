@@ -52,38 +52,41 @@ Use these 8-char prefixes when referencing existing nodes. \
 Use NEW_<name> when referencing a node you are about to create (e.g. NEW_Jon, NEW_Meeting1).
 
 [Available Operations — output as a JSON array]
-Each operation is a JSON object with a "op" field plus operation-specific fields.
+Each operation is a JSON object with an "op" field plus operation-specific fields.
 
 Construction (new structure):
-  {{"op": "CreateEntity", "id": "NEW_<label>", "canonical_name": "...", "aliases": [...], "attrs": {{...}}}}
-  {{"op": "CreateEvent",  "id": "NEW_<label>", "canonical_name": "...", "attrs": {{...}}}}
-  {{"op": "Link",   "src": "<id>", "dst": "<id>", "family": "entity-event|entity-entity|event-event", "predicate": "..."}}
-  {{"op": "AttachAttr", "node": "<8-char-id>", "key": "...", "value": "..."}}
-  {{"op": "Skip", "reason": "..."}}
+  {"op": "CreateEntity", "id": "NEW_<label>", "canonical_name": "...", "aliases": ["alt name", ...], "attrs": {"key": "value"}}
+  {"op": "CreateEvent",  "id": "NEW_<label>", "canonical_name": "...", "attrs": {"time": "YYYY-MM-DD or description", "key": "value"}}
+  {"op": "Link",         "src": "<id>", "dst": "<id>", "family": "entity-event|entity-entity|event-event", "predicate": "..."}
+  {"op": "AttachAttr",   "node": "<8-char-id>", "key": "...", "value": "..."}
+  {"op": "Skip",         "reason": "..."}
 
 Update (align with existing graph):
-  {{"op": "MergeNode",    "src": "<8-char-id>", "dst": "<8-char-id>"}}
-  {{"op": "ReviseAttr",   "node": "<8-char-id>", "key": "...", "value": "..."}}
-  {{"op": "AddEdge",      "src": "<8-char-id>", "dst": "<8-char-id>", "family": "...", "predicate": "..."}}
-  {{"op": "DeleteEdge",   "edge": "<8-char-edge-id>"}}
-  {{"op": "PruneNode",    "node": "<8-char-id>"}}
-  {{"op": "KeepSeparate", "node_a": "<8-char-id>", "node_b": "<8-char-id>", "reason": "..."}}
+  {"op": "MergeNode",    "src": "<8-char-id>", "dst": "<8-char-id>"}
+  {"op": "ReviseAttr",   "node": "<8-char-id>", "key": "...", "value": "..."}
+  {"op": "AddEdge",      "src": "<8-char-id>", "dst": "<8-char-id>", "family": "...", "predicate": "..."}
+  {"op": "DeleteEdge",   "edge": "<8-char-edge-id>"}
+  {"op": "PruneNode",    "node": "<8-char-id>"}
+  {"op": "KeepSeparate", "node_a": "<8-char-id>", "node_b": "<8-char-id>", "reason": "..."}
 
 [Decision rules]
-1. Prefer AttachAttr / ReviseAttr over creating new nodes — keep the graph lean.
+1. ALWAYS reuse existing nodes from the subgraph before creating new ones — check names carefully.
 2. Only CreateEntity/CreateEvent if the object is a long-term anchor (will be referenced again).
-3. Use MergeNode when two nodes clearly refer to the same real-world object.
-4. Use KeepSeparate when nodes are similar but distinct — prevents future erroneous merges.
-5. Link/AddEdge: choose the correct family (entity-event / entity-entity / event-event).
-6. Output Skip if nothing in the excerpt warrants long-term graph changes.
-7. Do NOT output explanatory text — output ONLY the JSON array.
+3. Every Event node MUST have a "time" attr — use exact date if stated, else "unknown".
+4. For Event-Event edges with chronological order, use predicate "before" or "after". \
+   Use "updates" when an event revises a prior one. Use "inspired" only for causal/creative links.
+5. Use MergeNode when two nodes clearly refer to the same real-world object.
+6. Use KeepSeparate when nodes are similar but distinct — prevents future erroneous merges.
+7. Link/AddEdge: choose the correct family (entity-event / entity-entity / event-event).
+8. Output Skip ONLY if the excerpt contains zero new long-term facts (pure small-talk).
+9. Do NOT output explanatory text — output ONLY the JSON array.
 
 [Output format]
-Return a single JSON array of operation objects, e.g.:
+Return a single valid JSON array. Example:
 [
-  {{"op": "CreateEntity", "id": "NEW_Jon", "canonical_name": "Jon", "aliases": [], "attrs": {{"job": "engineer"}}}},
-  {{"op": "CreateEvent",  "id": "NEW_Laid_off", "canonical_name": "Jon laid off", "attrs": {{"time": "July 2023"}}}},
-  {{"op": "Link", "src": "NEW_Jon", "dst": "NEW_Laid_off", "family": "entity-event", "predicate": "experienced"}}
+  {"op": "CreateEntity", "id": "NEW_Jon", "canonical_name": "Jon", "aliases": ["Jonathan"], "attrs": {"job": "engineer"}},
+  {"op": "CreateEvent",  "id": "NEW_Layoff", "canonical_name": "Jon laid off", "attrs": {"time": "July 2023"}},
+  {"op": "Link", "src": "NEW_Jon", "dst": "NEW_Layoff", "family": "entity-event", "predicate": "experienced"}
 ]\
 """
 

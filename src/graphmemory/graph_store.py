@@ -300,6 +300,35 @@ class GraphStore:
     def edge_count(self) -> int:
         return len(self._edges)
 
+    def dedup_entities(self) -> int:
+        """Merge Entity nodes that share the same canonical_name (case-insensitive).
+
+        Within each name group, keeps the node with the most edges as the canonical one
+        and merges all others into it. Returns the number of merges performed.
+        """
+        from collections import defaultdict
+        groups: dict = defaultdict(list)
+        for nid, node in list(self._nodes.items()):
+            if node["type"] == "Entity":
+                groups[node["canonical_name"].strip().lower()].append(nid)
+
+        merges = 0
+        for name, ids in groups.items():
+            if len(ids) < 2:
+                continue
+            # Pick the node with the most edges as the merge target
+            def edge_count_for(nid: str) -> int:
+                return sum(1 for e in self._edges if e["src"] == nid or e["dst"] == nid)
+            ids_sorted = sorted(ids, key=edge_count_for, reverse=True)
+            dst_id = ids_sorted[0]
+            for src_id in ids_sorted[1:]:
+                if src_id not in self._nodes:
+                    continue
+                self.merge_nodes(src_id, dst_id)
+                merges += 1
+                logger.info(f"Dedup: merged '{name}' [{src_id[:8]}] → [{dst_id[:8]}]")
+        return merges
+
     # ------------------------------------------------------------------
     # Persistence
     # ------------------------------------------------------------------
