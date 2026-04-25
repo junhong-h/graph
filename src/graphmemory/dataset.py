@@ -201,23 +201,32 @@ def load_locomo_sessions(path: str | Path) -> List[Dict[str, Any]]:
                 },
             })
 
-        # Format QA (filter category 5, resolve evidence turn ids)
+        # Format QA (include category 5 adversarial questions)
         formatted_qa: List[Dict[str, Any]] = []
         for qa_item in qa_list:
-            if qa_item.get("category") == 5:
-                continue
             evidence_turn_ids = [
                 dia_id_to_turn_id[d]
                 for d in (qa_item.get("evidence") or [])
                 if d in dia_id_to_turn_id
             ]
-            formatted_qa.append({
-                "sample_id": locomo_sample_id,
-                "question": qa_item.get("question"),
-                "answer": qa_item.get("answer", "I don't know."),
-                "evidence": evidence_turn_ids,
-                "category": qa_item.get("category"),
-            })
+            if qa_item.get("category") == 5:
+                # Adversarial questions: the premise is false; correct answer is to refuse
+                formatted_qa.append({
+                    "sample_id": locomo_sample_id,
+                    "question": qa_item.get("question"),
+                    "answer": "Not mentioned in the conversation",
+                    "adversarial_answer": qa_item.get("adversarial_answer", ""),
+                    "evidence": evidence_turn_ids,
+                    "category": qa_item.get("category"),
+                })
+            else:
+                formatted_qa.append({
+                    "sample_id": locomo_sample_id,
+                    "question": qa_item.get("question"),
+                    "answer": qa_item.get("answer", "I don't know."),
+                    "evidence": evidence_turn_ids,
+                    "category": qa_item.get("category"),
+                })
 
         samples.append({"conversation": formatted_sessions, "qa": formatted_qa})
 

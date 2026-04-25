@@ -1,0 +1,31 @@
+# GraphMemory QA configuration using local Ollama Qwen3-4B
+
+data_path: data/locomo/locomo10.json
+dataset_name: locomo
+run_dir: runs/qa_qwen3_local
+graph_dir: runs/build_qwen3_local/graphs
+
+vector_store:
+  path: runs/chroma_qwen3_local
+  from_scratch: false
+
+memory:
+  k_turns: 4
+  retrieval_topk: 5
+
+graph:
+  seed_top_k: 5
+  max_hops: 2
+  max_nodes: 20
+  max_edges: 30
+  retrieval_max_hop: 3
+  jump_budget: 5
+
+llm:
+  model: graphmemory-qwen3:4b-32k
+  api_key: ollama
+  base_url: http://127.0.0.1:11434/v1
+  temperature: 0.0
+  max_retries: 5
+  reasoning_effort: none
+  disable_thinking: true

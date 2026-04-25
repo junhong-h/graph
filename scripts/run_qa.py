@@ -64,7 +64,7 @@ def main() -> None:
     cfg     = BuildConfig.from_yaml(args.config)
     run_dir = Path(cfg.run_dir)
     run_dir.mkdir(parents=True, exist_ok=True)
-    graphs_dir = Path(cfg.run_dir).parent / "build" / "graphs"
+    graphs_dir = Path(cfg.graph_dir) if cfg.graph_dir else Path(cfg.run_dir).parent / "build" / "graphs"
     logger.add(run_dir / "qa.log", level="DEBUG", rotation="20 MB")
 
     # Load dataset
@@ -82,6 +82,9 @@ def main() -> None:
         base_url    = cfg.llm.base_url or None,
         temperature = cfg.llm.temperature,
         max_retries = cfg.llm.max_retries,
+        reasoning_effort = cfg.llm.reasoning_effort,
+        disable_thinking = cfg.llm.disable_thinking,
+        use_extra_body_thinking = cfg.llm.use_extra_body_thinking,
     )
     store = ChromaStore(path=cfg.vector_store.path, from_scratch=False)
 

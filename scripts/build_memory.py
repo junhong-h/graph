@@ -77,6 +77,9 @@ def _build_one_sample(
         base_url    = cfg.llm.base_url or None,
         temperature = cfg.llm.temperature,
         max_retries = cfg.llm.max_retries,
+        reasoning_effort = cfg.llm.reasoning_effort,
+        disable_thinking = cfg.llm.disable_thinking,
+        use_extra_body_thinking = cfg.llm.use_extra_body_thinking,
     )
     # from_scratch=False for workers: cleanup already done in the main process
     store   = ChromaStore(path=cfg.vector_store.path, from_scratch=False)
@@ -183,6 +186,9 @@ def main() -> None:
             base_url    = cfg.llm.base_url or None,
             temperature = cfg.llm.temperature,
             max_retries = cfg.llm.max_retries,
+            reasoning_effort = cfg.llm.reasoning_effort,
+            disable_thinking = cfg.llm.disable_thinking,
+            use_extra_body_thinking = cfg.llm.use_extra_body_thinking,
         )
         store   = ChromaStore(path=cfg.vector_store.path, from_scratch=False)
         trigger = GraphTrigger(llm)

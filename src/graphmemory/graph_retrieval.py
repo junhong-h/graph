@@ -93,6 +93,10 @@ knowledge graph and retrieving raw conversation turns.
 - After each Jump, decide: is the evidence enough to finish? If yes, call finish.
 - If the graph lacks key details (exact quotes, fine-grained facts), use raw_fallback.
 - You may use raw_fallback AND jump in the same session.
+- Only after you have jumped at least once and still find NO relevant evidence anywhere in the \
+graph, call finish with answer "Not mentioned in the conversation". \
+Do NOT say "Not mentioned" on the first hop — always Jump first to explore before concluding \
+the information is absent.
 - When max hops are reached you MUST call finish with your best guess.
 - Do NOT output any text outside the JSON object.
 

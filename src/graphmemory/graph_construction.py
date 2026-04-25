@@ -72,14 +72,45 @@ Update (align with existing graph):
 [Decision rules]
 1. ALWAYS reuse existing nodes from the subgraph before creating new ones — check names carefully.
 2. Only CreateEntity/CreateEvent if the object is a long-term anchor (will be referenced again).
+2b. Do NOT create generic session-container nodes like "Jon and Gina chat on [date]". \
+Every CreateEvent MUST represent a SPECIFIC fact, activity, trip, or occurrence — not a session summary. \
+Bad:  {"op": "CreateEvent", "canonical_name": "Jon and Gina chat on Jan 29", ...} \
+Good: {"op": "CreateEvent", "canonical_name": "Gina launches ad campaign", "attrs": {"time": "2023-01-29", ...}}
 3. Every Event node MUST have a "time" attr — use exact date if stated, else "unknown".
+3b. When time is expressed relatively ("next month", "last week", "in two weeks") and the session \
+date is visible in the input header, resolve it to an absolute date. \
+Example: session date = 2023-02-04, "competition next month" → time: "March 2023".
 4. For Event-Event edges with chronological order, use predicate "before" or "after". \
    Use "updates" when an event revises a prior one. Use "inspired" only for causal/creative links.
+4b. For event-event edges ONLY use these predicates: before / after / updates / inspired. \
+    Do NOT use: discussed / mentions / followed_by / spoke_to / participated / related_to. \
+    If two events are temporally ordered, always prefer "before" or "after" over any other label.
 5. Use MergeNode when two nodes clearly refer to the same real-world object.
 6. Use KeepSeparate when nodes are similar but distinct — prevents future erroneous merges.
 7. Link/AddEdge: choose the correct family (entity-event / entity-entity / event-event).
-8. Output Skip ONLY if the excerpt contains zero new long-term facts (pure small-talk).
+8. Output Skip ONLY if the excerpt is entirely pure pleasantries with ZERO factual content. \
+   When in doubt between creating nodes and skipping, ALWAYS prefer creating — it is better \
+   to have extra nodes than to lose information.
 9. Do NOT output explanatory text — output ONLY the JSON array.
+10. VOCABULARY PRESERVATION: For emotional words, adjectives, metaphors, similes, and \
+direct quotes, copy the EXACT original wording into attrs — do NOT paraphrase or generalize. \
+Example: if the text says "makes me happy", store attrs: {"feeling": "happy"}, NOT \
+{"feeling": "fulfilling"} or {"feeling": "brings joy"}. \
+If the text says "magical", store "magical", not "stress relief" or "uplifting".
+11. TEMPORAL BEHAVIORS: Any activity or behavior mentioned with a temporal anchor \
+(a date, month, season, or relative marker like "started", "began", "since", "for the first time") \
+MUST become its own separate Event node with the time attr set — do NOT merge it into \
+a broader Event that would lose the time. \
+Example: "Jon started going to the gym in March 2023" → separate Event node, \
+attrs: {"time": "March 2023", "activity": "going to the gym"}.
+12. ENTITY-EVENT LINKING: Every CreateEvent SHOULD be followed by at least one Link operation \
+connecting it to the relevant Entity node(s) via entity-event family. \
+Choose a specific predicate that describes the relationship: \
+  experienced / participated / visited / decided / launched / started / owns / achieved / attended \
+Avoid generic predicates: spoke_to / discussed / related_to (no semantic value). \
+If you are unsure which entity to link to, create the event node first and link to the closest entity. \
+Bad:  {"op":"Link","src":"NEW_Gina","dst":"NEW_AdCampaign","family":"entity-event","predicate":"spoke_to"} \
+Good: {"op":"Link","src":"NEW_Gina","dst":"NEW_AdCampaign","family":"entity-event","predicate":"launched"}
 
 [Output format]
 Return a single valid JSON array. Example:

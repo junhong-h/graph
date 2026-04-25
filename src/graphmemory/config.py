@@ -39,6 +39,9 @@ class LLMConfig:
     model: str = "gpt-4o"
     temperature: float = 0.0
     max_retries: int = 5
+    reasoning_effort: str = ""
+    disable_thinking: bool = False
+    use_extra_body_thinking: bool = False
     # api_key and base_url read from environment by default
     api_key: str = field(default_factory=lambda: os.getenv("OPENAI_API_KEY", ""))
     base_url: str = field(default_factory=lambda: os.getenv("OPENAI_BASE_URL", ""))
@@ -49,6 +52,7 @@ class BuildConfig:
     data_path: str = "data/locomo/locomo10.json"
     dataset_name: str = "locomo"
     run_dir: str = "runs/build"
+    graph_dir: str = ""
     vector_store: VectorStoreConfig = field(default_factory=VectorStoreConfig)
     memory: MemoryConfig = field(default_factory=MemoryConfig)
     graph: GraphConfig = field(default_factory=GraphConfig)

@@ -83,6 +83,34 @@ Generated answer: {pred}
 Provide one sentence reasoning, then conclude with CORRECT or WRONG.\
 """
 
+# Cat5: adversarial (unanswerable) questions — evaluate refusal, not content
+_CAT5_SYSTEM = """\
+Your task is to evaluate whether a system correctly handled an UNANSWERABLE question.
+
+The question asks about an event or fact that NEVER appeared in the conversation.
+The correct behavior is to REFUSE to answer or say it was not mentioned.
+
+Label as 'CORRECT' if the generated answer:
+- Says the event/fact was not mentioned, not found, or didn't happen
+- Expresses inability to answer due to lack of evidence
+- Uses phrases like "not mentioned", "no evidence", "I don't know", "didn't happen"
+
+Label as 'WRONG' if the generated answer:
+- Provides a specific factual answer (hallucination)
+- Makes up plausible-sounding content about the question
+
+Output ONLY a JSON object with keys "reasoning" and "label".
+Example: {"reasoning": "The answer correctly states the information is not in the conversation.", "label": "CORRECT"}\
+"""
+
+_CAT5_USER = """\
+Question: {question}
+Generated answer: {pred}
+
+Did the system correctly refuse to answer this unanswerable question?
+Provide one sentence reasoning, then conclude with CORRECT or WRONG.\
+"""
+
 
 def _parse_judge_output(text: str) -> Dict:
     try:
@@ -138,14 +166,25 @@ class Evaluator:
             record["judge_reasoning"] = "LLM judge not configured."
             return record
 
-        messages = [
-            {"role": "system", "content": _LOCOMO_SYSTEM},
-            {"role": "user",   "content": _LOCOMO_USER.format(
-                question=record.get("question", ""),
-                gold=gold_display,
-                pred=pred,
-            )},
-        ]
+        # Cat5 adversarial questions use a refusal-detection prompt
+        is_cat5 = str(record.get("category", "")) == "5"
+        if is_cat5:
+            messages = [
+                {"role": "system", "content": _CAT5_SYSTEM},
+                {"role": "user",   "content": _CAT5_USER.format(
+                    question=record.get("question", ""),
+                    pred=pred,
+                )},
+            ]
+        else:
+            messages = [
+                {"role": "system", "content": _LOCOMO_SYSTEM},
+                {"role": "user",   "content": _LOCOMO_USER.format(
+                    question=record.get("question", ""),
+                    gold=gold_display,
+                    pred=pred,
+                )},
+            ]
         try:
             response = self.llm.complete(messages, json_mode=True)
             result   = _parse_judge_output(response)
