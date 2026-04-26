@@ -189,6 +189,24 @@ def test_cat5_refusal_is_preserved(tmp_path):
     assert len(result["traces"]) == 1
 
 
+def test_answer_cat1_uses_union_localization(tmp_path):
+    graph = _make_graph(tmp_path)
+    archive = _make_archive()
+    localizer = GraphLocalizer(graph)
+    localizer.max_nodes = 20
+    localizer.max_edges = 30
+    localizer.localize = MagicMock(return_value={"nodes": {}, "edges": []})
+    localizer.localize_union = MagicMock(return_value={"nodes": {}, "edges": []})
+    llm = MagicMock()
+    llm.complete.return_value = '{"action": "finish", "answer": "poetry class"}'
+    retriever = GraphRetriever(graph=graph, archive=archive, localizer=localizer, llm=llm)
+
+    retriever.answer("What writing classes has Alice taken?", category="1")
+
+    localizer.localize_union.assert_called_once()
+    localizer.localize.assert_not_called()
+
+
 # ---------------------------------------------------------------------------
 # answer() — jump then finish
 # ---------------------------------------------------------------------------

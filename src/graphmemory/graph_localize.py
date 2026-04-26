@@ -13,7 +13,7 @@ most likely to contain answer evidence).  The `purpose` parameter selects the sc
 
 from __future__ import annotations
 
-from typing import Any, Dict, List, Set
+from typing import Any, Dict, List, Set, Tuple
 
 from loguru import logger
 
@@ -63,30 +63,55 @@ class GraphLocalizer:
         forced_seed_ids are always included in the seed set (e.g. main participants).
         Returns an empty subgraph if the graph is empty.
         """
-        if self.graph.node_count() == 0:
-            return {"nodes": {}, "edges": []}
-
-        seed_ids = self._seed_retrieval(input_text)
-
-        # Merge forced seeds, dedup, keep them at front so they survive budget limits
-        if forced_seed_ids:
-            merged = list(forced_seed_ids)
-            for s in seed_ids:
-                if s not in merged:
-                    merged.append(s)
-            seed_ids = merged[: self.seed_top_k + len(forced_seed_ids)]
-
-        if not seed_ids:
-            logger.debug("GraphLocalizer: no seeds found, returning empty subgraph.")
-            return {"nodes": {}, "edges": []}
-
-        candidates = self._neighbourhood_assembly(seed_ids)
-        best = self._subgraph_scoring(candidates, input_text, seed_ids)
+        ranked = self.localize_ranked(input_text, forced_seed_ids=forced_seed_ids, top_m=1)
+        best = ranked[0] if ranked else {"nodes": {}, "edges": []}
         logger.debug(
             f"GraphLocalizer: {len(best.get('nodes', {}))} nodes, "
             f"{len(best.get('edges', []))} edges selected."
         )
         return best
+
+    def localize_ranked(
+        self,
+        input_text: str,
+        forced_seed_ids: List[str] | None = None,
+        query_variants: List[str] | None = None,
+        top_m: int = 3,
+    ) -> List[Dict[str, Any]]:
+        """Return top-M candidate subgraphs ranked by relevance score."""
+        if self.graph.node_count() == 0:
+            return []
+
+        seed_ids = self._collect_seed_ids(input_text, forced_seed_ids, query_variants)
+        if not seed_ids:
+            logger.debug("GraphLocalizer: no seeds found, returning empty ranked list.")
+            return []
+
+        candidates = self._neighbourhood_assembly(seed_ids)
+        ranked = self._rank_subgraphs(candidates, input_text, seed_ids)
+        return ranked[:max(top_m, 1)]
+
+    def localize_union(
+        self,
+        input_text: str,
+        forced_seed_ids: List[str] | None = None,
+        query_variants: List[str] | None = None,
+        top_m: int = 3,
+        max_nodes: int | None = None,
+        max_edges: int | None = None,
+    ) -> Dict[str, Any]:
+        """Return a union of the top-M localized subgraphs for recall-heavy retrieval."""
+        ranked = self.localize_ranked(
+            input_text,
+            forced_seed_ids=forced_seed_ids,
+            query_variants=query_variants,
+            top_m=top_m,
+        )
+        return _merge_subgraphs(
+            ranked,
+            max_nodes=max_nodes or self.max_nodes,
+            max_edges=max_edges or self.max_edges,
+        )
 
     # ------------------------------------------------------------------
     # Step 3.1 — Seed Retrieval
@@ -95,6 +120,29 @@ class GraphLocalizer:
     def _seed_retrieval(self, input_text: str) -> List[str]:
         """Return seed node_ids via vector similarity search."""
         return self.graph.search_nodes(input_text, top_k=self.seed_top_k)
+
+    def _collect_seed_ids(
+        self,
+        input_text: str,
+        forced_seed_ids: List[str] | None,
+        query_variants: List[str] | None,
+    ) -> List[str]:
+        queries = [input_text]
+        for q in query_variants or []:
+            if q and q not in queries:
+                queries.append(q)
+
+        seed_ids: List[str] = []
+        if forced_seed_ids:
+            seed_ids.extend(forced_seed_ids)
+        for query in queries:
+            for seed_id in self._seed_retrieval(query):
+                if seed_id not in seed_ids:
+                    seed_ids.append(seed_id)
+
+        if forced_seed_ids:
+            return seed_ids[: self.seed_top_k * len(queries) + len(forced_seed_ids)]
+        return seed_ids[: self.seed_top_k * len(queries)]
 
     # ------------------------------------------------------------------
     # Step 3.2 — Neighbourhood Assembly
@@ -157,8 +205,20 @@ class GraphLocalizer:
             return {"nodes": {}, "edges": []}
 
         input_lower = input_text.lower()
-        best_sub, best_score = candidates[0], -1.0
+        ranked = self._rank_subgraphs(candidates, input_text, seed_ids)
+        return ranked[0] if ranked else {"nodes": {}, "edges": []}
 
+    def _rank_subgraphs(
+        self,
+        candidates: List[Dict],
+        input_text: str,
+        seed_ids: List[str],
+    ) -> List[Dict[str, Any]]:
+        if not candidates:
+            return []
+
+        input_lower = input_text.lower()
+        scored: List[Tuple[float, Dict[str, Any]]] = []
         for sub in candidates:
             nodes = sub.get("nodes", {})
             edges = sub.get("edges", [])
@@ -166,28 +226,47 @@ class GraphLocalizer:
             if n == 0:
                 continue
 
-            # Factor 1: seed coverage
             seed_in_sub = sum(1 for s in seed_ids if s in nodes)
             f1 = seed_in_sub / max(len(seed_ids), 1)
-
-            # Factor 2: mention density
             mentioned = sum(
                 1 for node in nodes.values()
                 if node["canonical_name"].lower() in input_lower
                 or any(a.lower() in input_lower for a in node.get("aliases", []))
             )
             f2 = mentioned / n
-
-            # Factor 3: connectivity
             max_edges_possible = n * (n - 1) / 2
             f3 = len(edges) / max_edges_possible if max_edges_possible > 0 else 0.0
-
-            # Factor 4: size penalty (prefer smaller focused subgraphs)
             f4 = 1.0 - (n / self.max_nodes)
-
             score = (f1 + f2 + f3 + f4) / 4.0
-            if score > best_score:
-                best_score = score
-                best_sub = sub
+            scored.append((score, sub))
 
-        return best_sub
+        scored.sort(key=lambda item: item[0], reverse=True)
+        return [sub for _, sub in scored]
+
+
+def _merge_subgraphs(
+    subgraphs: List[Dict[str, Any]],
+    max_nodes: int,
+    max_edges: int,
+) -> Dict[str, Any]:
+    nodes: Dict[str, Dict] = {}
+    edges: List[Dict] = []
+    edge_ids: Set[str] = set()
+
+    for sub in subgraphs:
+        for nid, node in sub.get("nodes", {}).items():
+            if nid not in nodes and len(nodes) < max_nodes:
+                nodes[nid] = node
+        for edge in sub.get("edges", []):
+            edge_id = edge.get("edge_id")
+            if edge_id in edge_ids:
+                continue
+            if edge.get("src") not in nodes or edge.get("dst") not in nodes:
+                continue
+            if len(edges) >= max_edges:
+                break
+            edges.append(edge)
+            if edge_id:
+                edge_ids.add(edge_id)
+
+    return {"nodes": nodes, "edges": edges}

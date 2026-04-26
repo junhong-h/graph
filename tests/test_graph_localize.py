@@ -139,6 +139,32 @@ def test_scoring_returns_empty_if_no_candidates(tmp_path):
 
 
 # ---------------------------------------------------------------------------
+# Ranked / union localization
+# ---------------------------------------------------------------------------
+
+def test_localize_union_merges_multiple_query_variant_candidates(tmp_path):
+    graph = _make_graph(tmp_path)
+    alice = graph.add_node("Entity", "Alice")
+    poetry = graph.add_node("Event", "Alice took poetry class")
+    writing = graph.add_node("Event", "Alice took creative writing class")
+    graph.add_edge(alice, poetry, "entity-event", "took")
+    graph.add_edge(alice, writing, "entity-event", "took")
+    graph.search_nodes = MagicMock(side_effect=[[poetry], [writing]])
+    loc = GraphLocalizer(graph, seed_top_k=1, max_hops=1, max_nodes=5, max_edges=10)
+
+    sub = loc.localize_union(
+        "What writing classes has Alice taken?",
+        query_variants=["Alice writing classes"],
+        top_m=2,
+        max_nodes=10,
+        max_edges=10,
+    )
+
+    assert poetry in sub["nodes"]
+    assert writing in sub["nodes"]
+
+
+# ---------------------------------------------------------------------------
 # End-to-end localize
 # ---------------------------------------------------------------------------
 

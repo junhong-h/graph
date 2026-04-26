@@ -198,7 +198,16 @@ class GraphRetriever:
         answer_format = get_answer_format(self.benchmark, category)
 
         # Step 6: Localize
-        local_sub = self.localizer.localize(question)
+        if _uses_recall_heavy_localization(category):
+            local_sub = self.localizer.localize_union(
+                question,
+                query_variants=_query_variants(question),
+                top_m=3,
+                max_nodes=max(self.localizer.max_nodes, 40),
+                max_edges=max(self.localizer.max_edges, 80),
+            )
+        else:
+            local_sub = self.localizer.localize(question)
 
         # Step 7: SelectAnchor — LLM selects 1-3 anchors from local subgraph
         local_nodes = local_sub.get("nodes", {})
@@ -526,6 +535,43 @@ def _parse_action(response: str) -> Tuple[str, Dict]:
 
 def _is_answerable_category(category: str) -> bool:
     return str(category).strip() in _ANSWERABLE_CATEGORIES
+
+
+def _uses_recall_heavy_localization(category: str) -> bool:
+    return str(category).strip() in {"1", "3"}
+
+
+def _query_variants(question: str) -> List[str]:
+    text = str(question or "").strip()
+    if not text:
+        return []
+
+    variants: List[str] = [text]
+    words = re.findall(r"[A-Za-z][A-Za-z'’-]*|\d+", text)
+    lower_stop = {
+        "what", "when", "where", "which", "who", "whom", "whose", "why", "how",
+        "did", "does", "do", "has", "have", "had", "is", "are", "was", "were",
+        "the", "a", "an", "of", "to", "in", "on", "for", "with", "and",
+    }
+    content = [w for w in words if w.lower() not in lower_stop]
+
+    entities = [
+        w for w in words
+        if w[:1].isupper() and w.lower() not in lower_stop
+    ]
+    if entities and content:
+        variants.append(" ".join([entities[0]] + [w for w in content if w != entities[0]][:4]))
+    if content:
+        variants.append(" ".join(content[:5]))
+    if len(content) > 2:
+        variants.append(" ".join(content[-4:]))
+
+    deduped: List[str] = []
+    for variant in variants:
+        variant = variant.strip(" ?.")
+        if variant and variant not in deduped:
+            deduped.append(variant)
+    return deduped
 
 
 def _is_refusal_answer(answer: str) -> bool:
