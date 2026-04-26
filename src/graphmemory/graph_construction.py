@@ -30,6 +30,7 @@ from __future__ import annotations
 import json
 import re
 import uuid
+from dataclasses import dataclass
 from typing import Any, Dict, List, Optional, Tuple
 
 from loguru import logger
@@ -136,6 +137,15 @@ Output the JSON array of graph edit operations:\
 # GraphConstructor
 # ---------------------------------------------------------------------------
 
+@dataclass
+class ConstructionContext:
+    batch_id: str = ""
+    batch_turn_ids: List[str] | None = None
+    turn_time: str = ""
+    speaker_a: str = ""
+    speaker_b: str = ""
+
+
 class GraphConstructor:
     """Calls LLM to propose + execute graph edits in one step."""
 
@@ -143,7 +153,12 @@ class GraphConstructor:
         self.llm   = llm
         self.graph = graph
 
-    def run(self, turn_text: str, local_subgraph: Dict[str, Any]) -> List[Dict]:
+    def run(
+        self,
+        turn_text: str,
+        local_subgraph: Dict[str, Any],
+        context: ConstructionContext | None = None,
+    ) -> List[Dict]:
         """
         Prompt the LLM with turn_text + local_subgraph, parse the operations,
         execute them against self.graph, and return the executed operation log.
@@ -159,7 +174,7 @@ class GraphConstructor:
         response = self.llm.complete(messages)
         ops = _parse_ops(response)
         logger.debug(f"GraphConstructor: {len(ops)} operations parsed.")
-        return self._execute_ops(ops, local_subgraph)
+        return self._execute_ops(ops, local_subgraph, turn_text, context)
 
     # ------------------------------------------------------------------
     # Execution
@@ -169,6 +184,8 @@ class GraphConstructor:
         self,
         ops: List[Dict],
         local_subgraph: Dict[str, Any],
+        turn_text: str = "",
+        context: ConstructionContext | None = None,
     ) -> List[Dict]:
         """
         Execute operations in order. Track NEW_<label> → full node_id mapping
@@ -180,9 +197,19 @@ class GraphConstructor:
             id_map[full_id[:8]] = full_id
 
         log: List[Dict] = []
+        created_event_ids: List[str] = []
         for op in ops:
             result = self._dispatch(op, id_map, local_subgraph)
             log.append(result)
+            if result.get("op") == "CreateEvent" and result.get("status") == "ok":
+                created_event_ids.append(result["node_id"])
+        if context and created_event_ids:
+            log.extend(self._repair_created_events(
+                created_event_ids,
+                turn_text=turn_text,
+                context=context,
+                id_map=id_map,
+            ))
         return log
 
     def _dispatch(
@@ -241,15 +268,17 @@ class GraphConstructor:
                 "canonical_name": c_name}
 
     def _do_link(self, op: Dict, id_map: Dict[str, str]) -> Dict:
-        src = _resolve(op.get("src", ""), id_map)
-        dst = _resolve(op.get("dst", ""), id_map)
+        src = _resolve(op.get("src", ""), id_map, self.graph)
+        dst = _resolve(op.get("dst", ""), id_map, self.graph)
         if not src or not dst:
             return {"op": "Link", "status": "error", "error": f"unresolved id: src={op.get('src')} dst={op.get('dst')}"}
         eid = self.graph.add_edge(src, dst, op.get("family", "entity-entity"), op.get("predicate", "related"))
+        if not eid:
+            return {"op": "Link", "status": "error", "error": "edge rejected"}
         return {"op": "Link", "status": "ok", "edge_id": eid}
 
     def _do_attach_attr(self, op: Dict, id_map: Dict[str, str]) -> Dict:
-        node_id = _resolve(op.get("node", ""), id_map)
+        node_id = _resolve(op.get("node", ""), id_map, self.graph)
         if not node_id:
             return {"op": "AttachAttr", "status": "error", "error": f"unresolved node: {op.get('node')}"}
         self.graph.update_node(node_id, attrs_update={op["key"]: op["value"]})
@@ -257,8 +286,8 @@ class GraphConstructor:
                 "key": op.get("key"), "value": op.get("value")}
 
     def _do_merge(self, op: Dict, id_map: Dict[str, str]) -> Dict:
-        src = _resolve(op.get("src", ""), id_map)
-        dst = _resolve(op.get("dst", ""), id_map)
+        src = _resolve(op.get("src", ""), id_map, self.graph)
+        dst = _resolve(op.get("dst", ""), id_map, self.graph)
         if not src or not dst:
             return {"op": "MergeNode", "status": "error", "error": "unresolved ids"}
         self.graph.merge_nodes(src, dst)
@@ -266,7 +295,7 @@ class GraphConstructor:
         return {"op": "MergeNode", "status": "ok", "src": src, "dst": dst}
 
     def _do_revise_attr(self, op: Dict, id_map: Dict[str, str]) -> Dict:
-        node_id = _resolve(op.get("node", ""), id_map)
+        node_id = _resolve(op.get("node", ""), id_map, self.graph)
         if not node_id:
             return {"op": "ReviseAttr", "status": "error", "error": f"unresolved node: {op.get('node')}"}
         self.graph.update_node(node_id, attrs_update={op["key"]: op["value"]})
@@ -274,11 +303,13 @@ class GraphConstructor:
                 "key": op.get("key"), "value": op.get("value")}
 
     def _do_add_edge(self, op: Dict, id_map: Dict[str, str]) -> Dict:
-        src = _resolve(op.get("src", ""), id_map)
-        dst = _resolve(op.get("dst", ""), id_map)
+        src = _resolve(op.get("src", ""), id_map, self.graph)
+        dst = _resolve(op.get("dst", ""), id_map, self.graph)
         if not src or not dst:
             return {"op": "AddEdge", "status": "error", "error": "unresolved ids"}
         eid = self.graph.add_edge(src, dst, op.get("family", "entity-entity"), op.get("predicate", "related"))
+        if not eid:
+            return {"op": "AddEdge", "status": "error", "error": "edge rejected"}
         return {"op": "AddEdge", "status": "ok", "edge_id": eid}
 
     def _do_delete_edge(self, op: Dict, local_subgraph: Dict) -> Dict:
@@ -291,11 +322,92 @@ class GraphConstructor:
         return {"op": "DeleteEdge", "status": "ok", "edge_id": edge_id}
 
     def _do_prune_node(self, op: Dict, id_map: Dict[str, str]) -> Dict:
-        node_id = _resolve(op.get("node", ""), id_map)
+        node_id = _resolve(op.get("node", ""), id_map, self.graph)
         if not node_id:
             return {"op": "PruneNode", "status": "error", "error": f"unresolved node: {op.get('node')}"}
         self.graph.delete_node(node_id)
         return {"op": "PruneNode", "status": "ok", "node_id": node_id}
+
+    def _repair_created_events(
+        self,
+        event_ids: List[str],
+        turn_text: str,
+        context: ConstructionContext,
+        id_map: Dict[str, str],
+    ) -> List[Dict]:
+        logs: List[Dict] = []
+        for event_id in event_ids:
+            event = self.graph.get_node(event_id)
+            if not event:
+                continue
+
+            attrs_update: Dict[str, Any] = {}
+            attrs = event.get("attrs", {})
+            if context.turn_time and not attrs.get("time"):
+                attrs_update["time"] = context.turn_time
+            if context.batch_id and not attrs.get("batch_id"):
+                attrs_update["batch_id"] = context.batch_id
+            if context.batch_turn_ids and not attrs.get("source_turn_ids"):
+                attrs_update["source_turn_ids"] = context.batch_turn_ids
+            if turn_text and not (attrs.get("original_text") or attrs.get("evidence_quote")):
+                attrs_update["original_text"] = turn_text
+            if attrs_update:
+                self.graph.update_node(event_id, attrs_update=attrs_update)
+                logs.append({
+                    "op": "RepairEventAttrs",
+                    "status": "ok",
+                    "node_id": event_id,
+                    "attrs": sorted(attrs_update.keys()),
+                })
+
+            if self._has_entity_event_edge(event_id):
+                continue
+            speaker = _first_speaker(turn_text) or context.speaker_a or context.speaker_b
+            entity_id = self._find_best_entity_for_event(event_id, speaker)
+            if not entity_id and speaker:
+                entity_id = self.graph.add_node("Entity", speaker, aliases=[speaker])
+                id_map[entity_id[:8]] = entity_id
+                logs.append({
+                    "op": "RepairCreateEntity",
+                    "status": "ok",
+                    "node_id": entity_id,
+                    "canonical_name": speaker,
+                })
+            if entity_id:
+                eid = self.graph.add_edge(entity_id, event_id, "entity-event", "participant")
+                logs.append({
+                    "op": "RepairEventLink",
+                    "status": "ok" if eid else "error",
+                    "edge_id": eid,
+                    "src": entity_id,
+                    "dst": event_id,
+                })
+        return logs
+
+    def _has_entity_event_edge(self, event_id: str) -> bool:
+        return any(e.get("family") == "entity-event" for e in self.graph.get_edges(node_id=event_id))
+
+    def _find_best_entity_for_event(self, event_id: str, preferred_name: str = "") -> Optional[str]:
+        event = self.graph.get_node(event_id) or {}
+        haystack = " ".join([
+            event.get("canonical_name", ""),
+            " ".join(str(v) for v in event.get("attrs", {}).values()),
+            preferred_name,
+        ]).lower()
+        entities = [
+            (nid, node)
+            for nid, node in self.graph.get_all_nodes().items()
+            if node.get("type") == "Entity"
+        ]
+        if preferred_name:
+            for nid, node in entities:
+                if node.get("canonical_name", "").lower() == preferred_name.lower():
+                    return nid
+        for nid, node in entities:
+            names = [node.get("canonical_name", "")] + node.get("aliases", [])
+            if any(name and name.lower() in haystack for name in names):
+                return nid
+        return None
 
 
 # ---------------------------------------------------------------------------
@@ -340,17 +452,44 @@ def _parse_ops(response: str) -> List[Dict]:
     return []
 
 
-def _resolve(ref: str, id_map: Dict[str, str]) -> Optional[str]:
+def _resolve(ref: str, id_map: Dict[str, str], graph: GraphStore | None = None) -> Optional[str]:
     """Resolve a NEW_label or 8-char prefix to a full node_id."""
     if not ref:
         return None
+    ref = _clean_ref(ref)
     if ref in id_map:
         return id_map[ref]
     # Try prefix match in id_map values
     for full_id in id_map.values():
         if full_id.startswith(ref):
             return full_id
+    if graph is not None:
+        all_nodes = graph.get_all_nodes()
+        for full_id in all_nodes:
+            if full_id.startswith(ref):
+                return full_id
+        ref_lower = ref.lower()
+        for full_id, node in all_nodes.items():
+            names = [node.get("canonical_name", "")] + node.get("aliases", [])
+            if any(name and name.lower() == ref_lower for name in names):
+                return full_id
     return None
+
+
+def _clean_ref(ref: str) -> str:
+    ref = str(ref or "").strip()
+    ref = ref.strip("\"'")
+    if ref.startswith("[") and ref.endswith("]"):
+        ref = ref[1:-1].strip()
+    return ref
+
+
+def _first_speaker(turn_text: str) -> str:
+    for line in str(turn_text or "").splitlines():
+        m = re.match(r"\s*([^:\n]+?)\s+speak to\s+[^:]+?:", line)
+        if m:
+            return m.group(1).strip()
+    return ""
 
 
 def _resolve_edge(prefix: str, edges: List[Dict]) -> Optional[str]:

@@ -8,7 +8,12 @@ from unittest.mock import MagicMock
 
 import pytest
 
-from graphmemory.graph_construction import GraphConstructor, _parse_ops, _resolve
+from graphmemory.graph_construction import (
+    ConstructionContext,
+    GraphConstructor,
+    _parse_ops,
+    _resolve,
+)
 from graphmemory.graph_store import GraphStore
 
 
@@ -76,6 +81,14 @@ def test_resolve_none_on_missing():
     assert _resolve("UNKNOWN", {}) is None
 
 
+def test_resolve_bracketed_prefix_and_canonical_name(tmp_path):
+    graph = _make_graph(tmp_path)
+    nid = graph.add_node("Entity", "Jon")
+
+    assert _resolve(f"[{nid[:8]}]", {}, graph) == nid
+    assert _resolve("Jon", {}, graph) == nid
+
+
 # ---------------------------------------------------------------------------
 # CreateEntity / CreateEvent
 # ---------------------------------------------------------------------------
@@ -137,6 +150,54 @@ def test_link_unresolved_id(tmp_path):
     gc, graph = _make_constructor(tmp_path, ops_json)
     log = gc.run("...", {"nodes": {}, "edges": []})
     assert log[0]["status"] == "error"
+
+
+def test_link_resolves_bracketed_existing_id(tmp_path):
+    graph = _make_graph(tmp_path)
+    jon = graph.add_node("Entity", "Jon")
+    mtg = graph.add_node("Event", "Meeting")
+    llm = MagicMock()
+    llm.complete.return_value = json.dumps([
+        {"op": "Link", "src": f"[{jon[:8]}]", "dst": f"[{mtg[:8]}]", "family": "entity-event", "predicate": "attended"},
+    ])
+    gc = GraphConstructor(llm, graph)
+
+    log = gc.run("Jon attended a meeting.", {"nodes": {jon: graph.get_node(jon), mtg: graph.get_node(mtg)}, "edges": []})
+
+    assert log[0]["status"] == "ok"
+    assert graph.edge_count() == 1
+
+
+def test_created_event_repair_adds_source_attrs_and_speaker_link(tmp_path):
+    ops_json = json.dumps([{
+        "op": "CreateEvent",
+        "id": "NEW_Class",
+        "canonical_name": "Maria took poetry class",
+        "attrs": {},
+    }])
+    gc, graph = _make_constructor(tmp_path, ops_json)
+    context = ConstructionContext(
+        batch_id="batch-1",
+        batch_turn_ids=["D1"],
+        turn_time="9:00 am on 1 January, 2023",
+        speaker_a="Maria",
+        speaker_b="John",
+    )
+
+    log = gc.run(
+        "Maria speak to John at 9:00 am on 1 January, 2023: I took a poetry class.",
+        {"nodes": {}, "edges": []},
+        context=context,
+    )
+
+    event_id = next(item["node_id"] for item in log if item["op"] == "CreateEvent")
+    event = graph.get_node(event_id)
+    assert event["attrs"]["batch_id"] == "batch-1"
+    assert event["attrs"]["source_turn_ids"] == ["D1"]
+    assert event["attrs"]["original_text"].startswith("Maria speak to John")
+    edges = graph.get_edges(node_id=event_id, family="entity-event")
+    assert len(edges) == 1
+    assert graph.get_node(edges[0]["src"])["canonical_name"] == "Maria"
 
 
 # ---------------------------------------------------------------------------

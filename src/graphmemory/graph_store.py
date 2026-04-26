@@ -195,6 +195,10 @@ class GraphStore:
         if src not in self._nodes or dst not in self._nodes:
             logger.warning(f"add_edge: node(s) not found ({src[:8]}, {dst[:8]})")
             return ""
+        src, dst, family = self._normalize_edge(src, dst, family)
+        if not family:
+            logger.warning(f"add_edge: invalid edge family ({family!r})")
+            return ""
         # Dedup
         for e in self._edges:
             if e["src"] == src and e["dst"] == dst and e["predicate"] == predicate:
@@ -210,6 +214,23 @@ class GraphStore:
         })
         self.save()
         return edge_id
+
+    def _normalize_edge(self, src: str, dst: str, family: str) -> Tuple[str, str, str]:
+        """Normalize edge family and endpoint order before persistence."""
+        family = str(family or "").strip()
+        if family == "event-entity":
+            family = "entity-event"
+
+        if family not in EDGE_FAMILIES:
+            return src, dst, ""
+
+        if family == "entity-event":
+            src_type = self._nodes[src].get("type")
+            dst_type = self._nodes[dst].get("type")
+            if src_type == "Event" and dst_type == "Entity":
+                return dst, src, family
+
+        return src, dst, family
 
     def delete_edge(self, edge_id: str) -> None:
         self._edges = [e for e in self._edges if e["edge_id"] != edge_id]

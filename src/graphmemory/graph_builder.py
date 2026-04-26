@@ -20,7 +20,7 @@ from loguru import logger
 from tqdm import tqdm
 
 from graphmemory.config import BuildConfig
-from graphmemory.graph_construction import GraphConstructor
+from graphmemory.graph_construction import ConstructionContext, GraphConstructor
 from graphmemory.graph_localize import GraphLocalizer
 from graphmemory.graph_store import GraphStore
 from graphmemory.graph_trigger import GraphTrigger
@@ -119,6 +119,8 @@ class GraphBuilder:
                 session_id=session_id,
                 batch_turn_ids=batch_turn_ids,
                 turn_time=turn_datetime,
+                speaker_a=speaker_a,
+                speaker_b=speaker_b,
             )
             pbar.update(1)
 
@@ -129,6 +131,8 @@ class GraphBuilder:
         session_id: str,
         batch_turn_ids: List[str],
         turn_time: str,
+        speaker_a: str,
+        speaker_b: str,
     ) -> None:
         op_id = str(uuid.uuid4())
 
@@ -166,7 +170,17 @@ class GraphBuilder:
                   })
 
         # ── Steps 4+5: Construction (merged) ─────────────────────────
-        op_log = self.constructor.run(batch_text, local_subgraph)
+        op_log = self.constructor.run(
+            batch_text,
+            local_subgraph,
+            context=ConstructionContext(
+                batch_id=batch_id,
+                batch_turn_ids=batch_turn_ids,
+                turn_time=turn_time,
+                speaker_a=speaker_a,
+                speaker_b=speaker_b,
+            ),
+        )
         self._log(batch_id, session_id, "construction", op_id,
                   extra={"op_log": op_log, "batch_turn_ids": batch_turn_ids})
         logger.info(

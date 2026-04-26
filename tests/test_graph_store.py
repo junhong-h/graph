@@ -156,6 +156,31 @@ def test_add_edge_missing_node(tmp_path):
     assert eid == ""
 
 
+def test_add_edge_normalizes_event_entity_family(tmp_path):
+    gs = _make_store(tmp_path)
+    event = gs.add_node("Event", "Meeting")
+    entity = gs.add_node("Entity", "Alice")
+
+    eid = gs.add_edge(event, entity, "event-entity", "attended")
+
+    assert eid
+    edge = gs.get_edges()[0]
+    assert edge["family"] == "entity-event"
+    assert edge["src"] == entity
+    assert edge["dst"] == event
+
+
+def test_add_edge_rejects_invalid_family(tmp_path):
+    gs = _make_store(tmp_path)
+    a = gs.add_node("Entity", "A")
+    b = gs.add_node("Event", "B")
+
+    eid = gs.add_edge(a, b, "event-location", "x")
+
+    assert eid == ""
+    assert gs.edge_count() == 0
+
+
 def test_delete_edge(tmp_path):
     gs = _make_store(tmp_path)
     a = gs.add_node("Entity", "A")
