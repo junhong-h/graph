@@ -72,11 +72,18 @@ Update (align with existing graph):
 
 [Decision rules]
 1. ALWAYS reuse existing nodes from the subgraph before creating new ones — check names carefully.
-2. Only CreateEntity/CreateEvent if the object is a long-term anchor (will be referenced again).
+2. CreateEntity for stable answerable objects or concepts, not only people. \
+Examples include classes, books, songs, cities, diseases, hobbies, projects, pets, family members, \
+organizations, and important objects. \
+If a phrase could be the direct answer to a QA question, prefer creating/reusing an Entity for it.
 2b. Do NOT create generic session-container nodes like "Jon and Gina chat on [date]". \
 Every CreateEvent MUST represent a SPECIFIC fact, activity, trip, or occurrence — not a session summary. \
 Bad:  {"op": "CreateEvent", "canonical_name": "Jon and Gina chat on Jan 29", ...} \
 Good: {"op": "CreateEvent", "canonical_name": "Gina launches ad campaign", "attrs": {"time": "2023-01-29", ...}}
+2c. Event nodes represent "who did/experienced/said/planned what, when". \
+Entity nodes represent reusable answer values. \
+Example: "Maria took a creative writing class" should create/reuse Entity "Maria", \
+Entity "creative writing class", and Event "Maria took creative writing class".
 3. Every Event node MUST have a "time" attr — use exact date if stated, else "unknown".
 3b. When time is expressed relatively ("next month", "last week", "in two weeks") and the session \
 date is visible in the input header, resolve it to an absolute date. \
@@ -88,7 +95,9 @@ Example: session date = 2023-02-04, "competition next month" → time: "March 20
     If two events are temporally ordered, always prefer "before" or "after" over any other label.
 5. Use MergeNode when two nodes clearly refer to the same real-world object.
 6. Use KeepSeparate when nodes are similar but distinct — prevents future erroneous merges.
-7. Link/AddEdge: choose the correct family (entity-event / entity-entity / event-event).
+7. Link/AddEdge: choose the correct family (entity-event / entity-entity / event-event). \
+Most factual links should be entity-event. Use entity-entity only for stable relationships, \
+and event-event only for real temporal, update, or causal links.
 8. Output Skip ONLY if the excerpt is entirely pure pleasantries with ZERO factual content. \
    When in doubt between creating nodes and skipping, ALWAYS prefer creating — it is better \
    to have extra nodes than to lose information.
@@ -104,14 +113,16 @@ MUST become its own separate Event node with the time attr set — do NOT merge 
 a broader Event that would lose the time. \
 Example: "Jon started going to the gym in March 2023" → separate Event node, \
 attrs: {"time": "March 2023", "activity": "going to the gym"}.
-12. ENTITY-EVENT LINKING: Every CreateEvent SHOULD be followed by at least one Link operation \
+12. ENTITY-EVENT LINKING: Every CreateEvent MUST be followed by at least one Link operation \
 connecting it to the relevant Entity node(s) via entity-event family. \
 Choose a specific predicate that describes the relationship: \
-  experienced / participated / visited / decided / launched / started / owns / achieved / attended \
+  participant / experienced / took / attended / visited / decided / launched / started / owns / achieved / object_of \
 Avoid generic predicates: spoke_to / discussed / related_to (no semantic value). \
-If you are unsure which entity to link to, create the event node first and link to the closest entity. \
+If an Event has an object that could be an answer value, link that object Entity to the Event too. \
+If you are unsure which entity to link to, create the event node first and link to the closest speaker/entity. \
 Bad:  {"op":"Link","src":"NEW_Gina","dst":"NEW_AdCampaign","family":"entity-event","predicate":"spoke_to"} \
-Good: {"op":"Link","src":"NEW_Gina","dst":"NEW_AdCampaign","family":"entity-event","predicate":"launched"}
+Good: {"op":"Link","src":"NEW_Gina","dst":"NEW_AdCampaign","family":"entity-event","predicate":"launched"} \
+Good: {"op":"Link","src":"NEW_CreativeWritingClass","dst":"NEW_MariaTookClass","family":"entity-event","predicate":"object_of"}
 
 [Output format]
 Return a single valid JSON array. Example:
