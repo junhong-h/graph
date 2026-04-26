@@ -181,6 +181,18 @@ def test_add_edge_rejects_invalid_family(tmp_path):
     assert gs.edge_count() == 0
 
 
+def test_add_edge_rejects_family_type_mismatch(tmp_path):
+    gs = _make_store(tmp_path)
+    alice = gs.add_node("Entity", "Alice")
+    donation = gs.add_node("Entity", "Car Donation")
+    meeting = gs.add_node("Event", "Meeting")
+
+    assert gs.add_edge(alice, donation, "entity-event", "participant") == ""
+    assert gs.add_edge(alice, meeting, "entity-entity", "related") == ""
+    assert gs.add_edge(alice, meeting, "event-event", "after") == ""
+    assert gs.edge_count() == 0
+
+
 def test_delete_edge(tmp_path):
     gs = _make_store(tmp_path)
     a = gs.add_node("Entity", "A")

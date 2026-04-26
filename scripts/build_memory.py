@@ -137,7 +137,10 @@ def main() -> None:
     graphs_dir.mkdir(parents=True, exist_ok=True)
     logger.add(run_dir / "build.log", level="DEBUG", rotation="50 MB")
 
-    logger.info(f"Config: {cfg}")
+    cfg_for_log = repr(cfg)
+    if cfg.llm.api_key:
+        cfg_for_log = cfg_for_log.replace(cfg.llm.api_key, "***")
+    logger.info(f"Config: {cfg_for_log}")
 
     # Load dataset
     samples: List[Dict[str, Any]] = load_locomo_sessions(cfg.data_path)

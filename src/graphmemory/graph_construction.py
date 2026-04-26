@@ -50,7 +50,7 @@ output a sequence of graph edit operations.
 [Node ID convention]
 Each node in the subgraph is shown as [XXXXXXXX] (first 8 chars of its UUID). \
 Use these 8-char prefixes when referencing existing nodes. \
-Use NEW_<name> when referencing a node you are about to create (e.g. NEW_Jon, NEW_Meeting1).
+Use NEW_<name> when referencing a node you are about to create (e.g. NEW_Person, NEW_Event1).
 
 [Available Operations — output as a JSON array]
 Each operation is a JSON object with an "op" field plus operation-specific fields.
@@ -71,19 +71,37 @@ Update (align with existing graph):
   {"op": "KeepSeparate", "node_a": "<8-char-id>", "node_b": "<8-char-id>", "reason": "..."}
 
 [Decision rules]
+0. INPUT FORMAT: Each turn may be formatted as:
+   [turn_id=...; speaker=...; listener=...; session_time=...]
+   utterance text
+   The bracketed header is metadata only. Do NOT create Events for the header, speaker/listener,
+   or the act of talking. Use speaker as the default subject for first-person utterances, and use
+   session_time only as a time anchor/default when the utterance gives no better event time.
+   Extract graph facts only from the utterance text after the header.
 1. ALWAYS reuse existing nodes from the subgraph before creating new ones — check names carefully.
 2. CreateEntity for stable answerable objects or concepts, not only people. \
 Examples include classes, books, songs, cities, diseases, hobbies, projects, pets, family members, \
-organizations, and important objects. \
-If a phrase could be the direct answer to a QA question, prefer creating/reusing an Entity for it.
-2b. Do NOT create generic session-container nodes like "Jon and Gina chat on [date]". \
+organizations, causes, places, foods, certificates/degrees, and important objects. \
+If a phrase could be the direct answer to a QA question, you MUST create/reuse an Entity for it. \
+This includes named activities, named places, named pets, specific causes, specific items, and \
+specific credentials or awards.
+2b. Do NOT create generic session-container nodes like "<Person A> and <Person B> chat on <date>". \
 Every CreateEvent MUST represent a SPECIFIC fact, activity, trip, or occurrence — not a session summary. \
-Bad:  {"op": "CreateEvent", "canonical_name": "Jon and Gina chat on Jan 29", ...} \
-Good: {"op": "CreateEvent", "canonical_name": "Gina launches ad campaign", "attrs": {"time": "2023-01-29", ...}}
+Bad:  {"op": "CreateEvent", "canonical_name": "<Person A> and <Person B> chat", ...} \
+Bad:  {"op": "CreateEvent", "canonical_name": "<date> conversation", ...} \
+Bad:  {"op": "CreateEvent", "canonical_name": "<Person A> and <Person B> discuss <topic>", ...} \
+Bad:  {"op": "CreateEvent", "canonical_name": "<Person A> speaks to <Person B>", ...} \
+Good: {"op": "CreateEvent", "canonical_name": "<subject> <action> <object>", "attrs": {"time": "<event time>", ...}} \
+If a turn only says that one speaker talked to another speaker, do NOT create an Event. If the turn \
+contains facts, extract those underlying facts as separate Events.
 2c. Event nodes represent "who did/experienced/said/planned what, when". \
 Entity nodes represent reusable answer values. \
-Example: "Maria took a creative writing class" should create/reuse Entity "Maria", \
-Entity "creative writing class", and Event "Maria took creative writing class".
+For a statement where a subject does an activity involving an answerable object, create/reuse \
+the subject Entity, create/reuse the object Entity, then create one Event linking both.
+2d. NEVER store answerable activities/objects as comma-separated attrs on a person Entity. \
+Bad: AttachAttr <person> activity="<activity 1>, <activity 2>, <activity 3>". \
+Good: create/reuse each answerable activity/object as an Entity, create a specific Event for each \
+fact, and link the subject and object Entities to that Event.
 3. Every Event node MUST have a "time" attr — use exact date if stated, else "unknown".
 3b. When time is expressed relatively ("next month", "last week", "in two weeks") and the session \
 date is visible in the input header, resolve it to an absolute date. \
@@ -111,8 +129,8 @@ If the text says "magical", store "magical", not "stress relief" or "uplifting".
 (a date, month, season, or relative marker like "started", "began", "since", "for the first time") \
 MUST become its own separate Event node with the time attr set — do NOT merge it into \
 a broader Event that would lose the time. \
-Example: "Jon started going to the gym in March 2023" → separate Event node, \
-attrs: {"time": "March 2023", "activity": "going to the gym"}.
+Example pattern: "<subject> started <activity> in <time>" → separate Event node with \
+attrs: {"time": "<time>", "activity": "<activity>"}.
 12. ENTITY-EVENT LINKING: Every CreateEvent MUST be followed by at least one Link operation \
 connecting it to the relevant Entity node(s) via entity-event family. \
 Choose a specific predicate that describes the relationship: \
@@ -120,16 +138,16 @@ Choose a specific predicate that describes the relationship: \
 Avoid generic predicates: spoke_to / discussed / related_to (no semantic value). \
 If an Event has an object that could be an answer value, link that object Entity to the Event too. \
 If you are unsure which entity to link to, create the event node first and link to the closest speaker/entity. \
-Bad:  {"op":"Link","src":"NEW_Gina","dst":"NEW_AdCampaign","family":"entity-event","predicate":"spoke_to"} \
-Good: {"op":"Link","src":"NEW_Gina","dst":"NEW_AdCampaign","family":"entity-event","predicate":"launched"} \
-Good: {"op":"Link","src":"NEW_CreativeWritingClass","dst":"NEW_MariaTookClass","family":"entity-event","predicate":"object_of"}
+Bad:  {"op":"Link","src":"NEW_Person","dst":"NEW_Event","family":"entity-event","predicate":"spoke_to"} \
+Good: {"op":"Link","src":"NEW_Person","dst":"NEW_Event","family":"entity-event","predicate":"participant"} \
+Good: {"op":"Link","src":"NEW_Object","dst":"NEW_Event","family":"entity-event","predicate":"object_of"}
 
 [Output format]
 Return a single valid JSON array. Example:
 [
-  {"op": "CreateEntity", "id": "NEW_Jon", "canonical_name": "Jon", "aliases": ["Jonathan"], "attrs": {"job": "engineer"}},
-  {"op": "CreateEvent",  "id": "NEW_Layoff", "canonical_name": "Jon laid off", "attrs": {"time": "July 2023"}},
-  {"op": "Link", "src": "NEW_Jon", "dst": "NEW_Layoff", "family": "entity-event", "predicate": "experienced"}
+  {"op": "CreateEntity", "id": "NEW_Person", "canonical_name": "<person name>", "aliases": [], "attrs": {}},
+  {"op": "CreateEvent",  "id": "NEW_Event", "canonical_name": "<subject action object>", "attrs": {"time": "<event time>"}},
+  {"op": "Link", "src": "NEW_Person", "dst": "NEW_Event", "family": "entity-event", "predicate": "participant"}
 ]\
 """
 
@@ -271,8 +289,29 @@ class GraphConstructor:
         c_name  = op.get("canonical_name", label)
         aliases = op.get("aliases", [])
         attrs   = op.get("attrs", {})
+        if node_type == "Event" and _is_session_container_event(c_name, attrs):
+            return {
+                "op": "CreateEvent",
+                "status": "rejected",
+                "error": "session-container event rejected",
+                "canonical_name": c_name,
+            }
+        if node_type == "Entity":
+            existing_id = _find_existing_entity(c_name, self.graph)
+            if existing_id:
+                if aliases or attrs:
+                    self.graph.update_node(existing_id, new_aliases=aliases, attrs_update=attrs)
+                id_map[label] = existing_id
+                id_map[existing_id[:8]] = existing_id
+                return {
+                    "op": "CreateEntity",
+                    "status": "ok",
+                    "node_id": existing_id,
+                    "canonical_name": c_name,
+                    "reused": True,
+                }
         node_id = self.graph.add_node(node_type, c_name, aliases=aliases, attrs=attrs)
-        id_map[label] = node_id         # NEW_Jon → full uuid
+        id_map[label] = node_id         # NEW_<label> → full uuid
         id_map[node_id[:8]] = node_id   # also register 8-char prefix
         logger.debug(f"Created {node_type} '{c_name}' → {node_id[:8]}")
         return {"op": f"Create{node_type}", "status": "ok", "node_id": node_id,
@@ -283,7 +322,9 @@ class GraphConstructor:
         dst = _resolve(op.get("dst", ""), id_map, self.graph)
         if not src or not dst:
             return {"op": "Link", "status": "error", "error": f"unresolved id: src={op.get('src')} dst={op.get('dst')}"}
-        eid = self.graph.add_edge(src, dst, op.get("family", "entity-entity"), op.get("predicate", "related"))
+        family = op.get("family", "entity-entity")
+        predicate = _normalize_predicate(family, op.get("predicate", "related"))
+        eid = self.graph.add_edge(src, dst, family, predicate)
         if not eid:
             return {"op": "Link", "status": "error", "error": "edge rejected"}
         return {"op": "Link", "status": "ok", "edge_id": eid}
@@ -318,7 +359,9 @@ class GraphConstructor:
         dst = _resolve(op.get("dst", ""), id_map, self.graph)
         if not src or not dst:
             return {"op": "AddEdge", "status": "error", "error": "unresolved ids"}
-        eid = self.graph.add_edge(src, dst, op.get("family", "entity-entity"), op.get("predicate", "related"))
+        family = op.get("family", "entity-entity")
+        predicate = _normalize_predicate(family, op.get("predicate", "related"))
+        eid = self.graph.add_edge(src, dst, family, predicate)
         if not eid:
             return {"op": "AddEdge", "status": "error", "error": "edge rejected"}
         return {"op": "AddEdge", "status": "ok", "edge_id": eid}
@@ -414,6 +457,7 @@ class GraphConstructor:
             for nid, node in entities:
                 if node.get("canonical_name", "").lower() == preferred_name.lower():
                     return nid
+            return None
         for nid, node in entities:
             names = [node.get("canonical_name", "")] + node.get("aliases", [])
             if any(name and name.lower() in haystack for name in names):
@@ -463,6 +507,34 @@ def _parse_ops(response: str) -> List[Dict]:
     return []
 
 
+def _is_session_container_event(canonical_name: str, attrs: Dict[str, Any]) -> bool:
+    """Reject low-value event nodes that only represent a conversation container."""
+    name = str(canonical_name or "").strip().lower()
+    activity = str((attrs or {}).get("activity", "")).strip().lower()
+    if activity == "conversation":
+        return True
+    return bool(
+        re.search(r"\b(chat|chats|conversation|conversations|discuss|discusses|discussed|discussion|discussions)\b", name)
+        or re.search(r"\b(speak|speaks|spoke|talk|talks|talked|reply|replies|replied)\s+to\b", name)
+    )
+
+
+def _normalize_predicate(family: str, predicate: str) -> str:
+    """Replace low-value traversal predicates with safer graph roles."""
+    family = str(family or "")
+    pred = str(predicate or "related").strip()
+    if family in {"entity-event", "event-entity"} and pred.lower() in {
+        "spoke_to",
+        "discussed",
+        "related_to",
+        "mentioned",
+        "mentions",
+        "replied to",
+    }:
+        return "participant"
+    return pred
+
+
 def _resolve(ref: str, id_map: Dict[str, str], graph: GraphStore | None = None) -> Optional[str]:
     """Resolve a NEW_label or 8-char prefix to a full node_id."""
     if not ref:
@@ -479,10 +551,11 @@ def _resolve(ref: str, id_map: Dict[str, str], graph: GraphStore | None = None) 
         for full_id in all_nodes:
             if full_id.startswith(ref):
                 return full_id
-        ref_lower = ref.lower()
+        ref_names = _candidate_ref_names(ref)
+        ref_norms = {_normalize_name(name) for name in ref_names}
         for full_id, node in all_nodes.items():
             names = [node.get("canonical_name", "")] + node.get("aliases", [])
-            if any(name and name.lower() == ref_lower for name in names):
+            if any(_normalize_name(name) in ref_norms for name in names if name):
                 return full_id
     return None
 
@@ -495,8 +568,38 @@ def _clean_ref(ref: str) -> str:
     return ref
 
 
+def _candidate_ref_names(ref: str) -> List[str]:
+    names = [ref]
+    if ref.startswith("NEW_"):
+        label = ref[4:]
+        if label.lower() not in {"event", "entity", "node"}:
+            names.append(label)
+            names.append(re.sub(r"(?<!^)(?=[A-Z])", " ", label))
+    return names
+
+
+def _normalize_name(name: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "", str(name or "").lower())
+
+
+def _find_existing_entity(canonical_name: str, graph: GraphStore) -> Optional[str]:
+    target = _normalize_name(canonical_name)
+    if not target:
+        return None
+    for node_id, node in graph.get_all_nodes().items():
+        if node.get("type") != "Entity":
+            continue
+        names = [node.get("canonical_name", "")] + node.get("aliases", [])
+        if any(_normalize_name(name) == target for name in names if name):
+            return node_id
+    return None
+
+
 def _first_speaker(turn_text: str) -> str:
     for line in str(turn_text or "").splitlines():
+        header = re.match(r"\s*\[[^\]]*\bspeaker=([^;\]]+)", line)
+        if header:
+            return header.group(1).strip()
         m = re.match(r"\s*([^:\n]+?)\s+speak to\s+[^:]+?:", line)
         if m:
             return m.group(1).strip()

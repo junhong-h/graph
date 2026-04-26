@@ -66,6 +66,7 @@ class GraphBuilder:
         # Per-sample trajectory file avoids concurrent-write conflicts in parallel builds
         self.traj_path = self._run_dir / f"graph_trajectories_{sample_id}.jsonl"
         done_batches = self._load_done_batches()
+        self._ensure_participant_nodes()
 
         total_batches = sum(
             (len(s.get("session_turns", [])) + self.k_turns - 1) // self.k_turns
@@ -110,8 +111,12 @@ class GraphBuilder:
             for turn in batch:
                 spk   = turn.get("speaker", "Unknown")
                 other = speaker_b if spk == speaker_a else speaker_a
-                lines.append(f"{spk} speak to {other} at {turn_datetime}: {turn.get('text', '')}")
-            batch_text = "\n".join(lines)
+                turn_id = turn.get("turn_id", "")
+                lines.append(
+                    f"[turn_id={turn_id}; speaker={spk}; listener={other}; "
+                    f"session_time={turn_datetime}]\n{turn.get('text', '')}"
+                )
+            batch_text = "\n\n".join(lines)
 
             self._process_batch(
                 batch_id=batch_id,
@@ -197,6 +202,19 @@ class GraphBuilder:
             if any(cname == p.lower() for p in names):
                 result.append(nid)
         return result
+
+    def _ensure_participant_nodes(self) -> None:
+        """Create stable person entities for known conversation participants."""
+        existing = {
+            node.get("canonical_name", "").lower()
+            for node in self.graph.get_all_nodes().values()
+            if node.get("type") == "Entity"
+        }
+        for name in self.participants:
+            clean_name = str(name or "").strip()
+            if clean_name and clean_name.lower() not in existing:
+                self.graph.add_node("Entity", clean_name, aliases=[clean_name])
+                existing.add(clean_name.lower())
 
     def _load_done_batches(self) -> set:
         """Return batch_ids already logged to the trajectory file."""

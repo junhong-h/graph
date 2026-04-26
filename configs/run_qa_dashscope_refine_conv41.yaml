@@ -1,0 +1,28 @@
+data_path: data/locomo/locomo10.json
+dataset_name: locomo
+run_dir: runs/qa_dashscope_refine_conv41
+graph_dir: runs/refine_build_conv41/graphs
+
+vector_store:
+  path: runs/chroma_refine_conv41
+  from_scratch: false
+
+memory:
+  k_turns: 4
+  retrieval_topk: 5
+
+graph:
+  seed_top_k: 5
+  max_hops: 2
+  max_nodes: 20
+  max_edges: 30
+  retrieval_max_hop: 3
+  jump_budget: 5
+
+llm:
+  model: qwen3-4b
+  base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+  temperature: 0.0
+  max_retries: 5
+  disable_thinking: true
+  use_extra_body_thinking: true

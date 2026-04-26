@@ -11,6 +11,7 @@ import pytest
 from graphmemory.graph_construction import (
     ConstructionContext,
     GraphConstructor,
+    _first_speaker,
     _parse_ops,
     _resolve,
 )
@@ -89,6 +90,13 @@ def test_resolve_bracketed_prefix_and_canonical_name(tmp_path):
     assert _resolve("Jon", {}, graph) == nid
 
 
+def test_resolve_new_label_to_existing_entity_name(tmp_path):
+    graph = _make_graph(tmp_path)
+    nid = graph.add_node("Entity", "Aerial Yoga")
+
+    assert _resolve("NEW_AerialYoga", {}, graph) == nid
+
+
 # ---------------------------------------------------------------------------
 # CreateEntity / CreateEvent
 # ---------------------------------------------------------------------------
@@ -111,6 +119,26 @@ def test_create_entity(tmp_path):
     assert any(n["canonical_name"] == "Jon" for n in nodes.values())
 
 
+def test_create_entity_reuses_existing_exact_name(tmp_path):
+    ops_json = json.dumps([{
+        "op": "CreateEntity",
+        "id": "NEW_Jon",
+        "canonical_name": "Jon",
+        "aliases": ["Jonathan"],
+        "attrs": {"job": "engineer"},
+    }])
+    gc, graph = _make_constructor(tmp_path, ops_json)
+    existing_id = graph.add_node("Entity", "Jon")
+
+    log = gc.run("Jon is an engineer.", {"nodes": {}, "edges": []})
+
+    assert log[0]["status"] == "ok"
+    assert log[0]["node_id"] == existing_id
+    assert log[0]["reused"] is True
+    assert graph.node_count() == 1
+    assert graph.get_node(existing_id)["attrs"]["job"] == "engineer"
+
+
 def test_create_event(tmp_path):
     ops_json = json.dumps([{
         "op": "CreateEvent",
@@ -123,6 +151,21 @@ def test_create_event(tmp_path):
     assert log[0]["status"] == "ok"
     nodes = graph.get_all_nodes()
     assert any(n["type"] == "Event" for n in nodes.values())
+
+
+def test_create_event_rejects_discussion_container(tmp_path):
+    ops_json = json.dumps([{
+        "op": "CreateEvent",
+        "id": "NEW_Discussion",
+        "canonical_name": "Maria and John discuss parenting experience",
+        "attrs": {"time": "2023-03-06"},
+    }])
+    gc, graph = _make_constructor(tmp_path, ops_json)
+
+    log = gc.run("...", {"nodes": {}, "edges": []})
+
+    assert log[0]["status"] == "rejected"
+    assert graph.node_count() == 0
 
 
 # ---------------------------------------------------------------------------
@@ -185,7 +228,7 @@ def test_created_event_repair_adds_source_attrs_and_speaker_link(tmp_path):
     )
 
     log = gc.run(
-        "Maria speak to John at 9:00 am on 1 January, 2023: I took a poetry class.",
+        "[turn_id=D1; speaker=Maria; listener=John; session_time=9:00 am on 1 January, 2023]\nI took a poetry class.",
         {"nodes": {}, "edges": []},
         context=context,
     )
@@ -194,10 +237,50 @@ def test_created_event_repair_adds_source_attrs_and_speaker_link(tmp_path):
     event = graph.get_node(event_id)
     assert event["attrs"]["batch_id"] == "batch-1"
     assert event["attrs"]["source_turn_ids"] == ["D1"]
-    assert event["attrs"]["original_text"].startswith("Maria speak to John")
+    assert event["attrs"]["original_text"].startswith("[turn_id=D1; speaker=Maria")
     edges = graph.get_edges(node_id=event_id, family="entity-event")
     assert len(edges) == 1
     assert graph.get_node(edges[0]["src"])["canonical_name"] == "Maria"
+
+
+def test_first_speaker_reads_structured_turn_header():
+    text = "[turn_id=D1; speaker=Maria; listener=John; session_time=9:00 am]\nI took a poetry class."
+
+    assert _first_speaker(text) == "Maria"
+
+
+def test_repair_creates_speaker_instead_of_linking_object_entity(tmp_path):
+    ops_json = json.dumps([{
+        "op": "CreateEvent",
+        "id": "NEW_Donation",
+        "canonical_name": "Maria donated old car to homeless shelter",
+        "attrs": {},
+    }])
+    gc, graph = _make_constructor(tmp_path, ops_json)
+    graph.add_node("Entity", "Homeless Shelter")
+    context = ConstructionContext(
+        batch_id="batch-1",
+        batch_turn_ids=["D1"],
+        turn_time="9:00 am on 1 January, 2023",
+        speaker_a="Maria",
+        speaker_b="John",
+    )
+
+    log = gc.run(
+        "[turn_id=D1; speaker=Maria; listener=John; session_time=9:00 am on 1 January, 2023]\nI donated my old car to the homeless shelter.",
+        {"nodes": {}, "edges": []},
+        context=context,
+    )
+
+    event_id = next(item["node_id"] for item in log if item["op"] == "CreateEvent")
+    edges = graph.get_edges(node_id=event_id, family="entity-event")
+    linked_names = {
+        graph.get_node(edge["src"])["canonical_name"]
+        if graph.get_node(edge["src"])["type"] == "Entity"
+        else graph.get_node(edge["dst"])["canonical_name"]
+        for edge in edges
+    }
+    assert "Maria" in linked_names
 
 
 # ---------------------------------------------------------------------------
