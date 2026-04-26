@@ -219,6 +219,7 @@ class GraphRetriever:
         evidence_edges: List[Dict]      = list(local_sub.get("edges", []))
         raw_context: List[str]          = []
         traces:      List[Dict]         = []
+        stop_reason = ""
 
         logger.debug(f"Retrieval anchors: {len(frontier)} nodes (selected from {len(local_nodes)}).")
 
@@ -257,6 +258,7 @@ class GraphRetriever:
                     constraint=args.get("constraint", ""),
                     budget=min(int(args.get("budget", self.jump_budget)), self.jump_budget),
                     visited=visited,
+                    question=question,
                 )
                 evidence_nodes.update(new_nodes)
                 evidence_edges.extend(new_edges)
@@ -264,21 +266,42 @@ class GraphRetriever:
                 visited.update(frontier)
 
             elif action == "raw_fallback":
-                hits = self.archive.search(args.get("query", question), top_k=self.retrieval_topk)
-                raw_context.extend(h["text"] for h in hits if h["text"] not in raw_context)
+                added = self._add_raw_context(args.get("query", question), raw_context)
+                trace["args"]["hits_added"] = added
 
             else:
                 logger.warning(f"Unknown action: {action!r} — treated as no-op.")
 
             # If frontier is empty, no more graph expansion is possible
             if not frontier and action == "jump":
-                logger.debug("Frontier exhausted; forcing raw_fallback + finish.")
-                hits = self.archive.search(question, top_k=self.retrieval_topk)
-                raw_context.extend(h["text"] for h in hits if h["text"] not in raw_context)
-                break
+                stop_reason = "frontier_exhausted"
+                traces.append({
+                    "hop": hop,
+                    "op_id": str(uuid.uuid4()),
+                    "action": "frontier_exhausted",
+                    "args": {"query": question},
+                })
+                added = self._add_raw_context(question, raw_context)
+                traces.append({
+                    "hop": hop,
+                    "op_id": str(uuid.uuid4()),
+                    "action": "raw_fallback",
+                    "args": {"query": question, "forced": True, "hits_added": added},
+                })
+                logger.debug("Frontier exhausted; added raw fallback context.")
 
         # Step 10: Max hops reached — forced finish
-        logger.warning(f"Max hops ({self.max_hop}) reached. Forcing answer.")
+        if not stop_reason:
+            stop_reason = "no_evidence" if not evidence_nodes and not raw_context else "max_hop_exhausted"
+        if _is_answerable_category(category) and not raw_context:
+            added = self._add_raw_context(question, raw_context)
+            traces.append({
+                "hop": self.max_hop,
+                "op_id": str(uuid.uuid4()),
+                "action": "raw_fallback",
+                "args": {"query": question, "forced": True, "reason": "pre_forced_answer", "hits_added": added},
+            })
+        logger.warning(f"Retrieval forced finish ({stop_reason}).")
         evidence_text = self._pool(evidence_nodes, evidence_edges, raw_context)
         answer = self._finalize_answer(
             question=question,
@@ -290,7 +313,7 @@ class GraphRetriever:
             category=category,
             traces=traces,
         )
-        traces.append({"hop": self.max_hop, "action": "forced_finish"})
+        traces.append({"hop": self.max_hop, "action": "forced_finish", "reason": stop_reason})
         return {"answer": answer, "traces": traces}
 
     # ------------------------------------------------------------------
@@ -350,10 +373,13 @@ class GraphRetriever:
         constraint: str,
         budget: int,
         visited: Set[str],
+        question: str = "",
     ) -> Tuple[Dict[str, Dict], List[Dict]]:
-        """Expand frontier from node_ids along edges matching family, return new nodes/edges."""
+        """Expand frontier from node_ids along relevant edges, return new nodes/edges."""
         new_nodes: Dict[str, Dict] = {}
         new_edges: List[Dict]      = []
+        candidates: List[Tuple[float, int, str, Dict, Dict]] = []
+        order = 0
 
         for nid in node_ids:
             # Resolve 8-char prefix to full node_id if needed
@@ -365,21 +391,25 @@ class GraphRetriever:
             if family != "any":
                 edges = [e for e in edges if e["family"] == family]
 
-            count = 0
             for edge in edges:
-                if count >= budget:
-                    break
                 neighbor = edge["dst"] if edge["src"] == full_nid else edge["src"]
                 if neighbor in visited:
                     continue
                 node = self.graph.get_node(neighbor)
                 if node is None:
                     continue
-                if constraint and not _matches_constraint(node, constraint):
-                    continue
-                new_nodes[neighbor] = node
-                new_edges.append(edge)
-                count += 1
+                score = _score_jump_candidate(question, constraint, node, edge)
+                candidates.append((score, order, neighbor, node, edge))
+                order += 1
+
+        candidates.sort(key=lambda item: (-item[0], item[1]))
+        for _, _, neighbor, node, edge in candidates:
+            if len(new_nodes) >= budget:
+                break
+            if neighbor in new_nodes:
+                continue
+            new_nodes[neighbor] = node
+            new_edges.append(edge)
 
         return new_nodes, new_edges
 
@@ -413,6 +443,16 @@ class GraphRetriever:
             parts.extend(raw_context[-10:])  # keep last 10 to bound context size
 
         return "\n\n".join(parts) if parts else "(no evidence retrieved yet)"
+
+    def _add_raw_context(self, query: str, raw_context: List[str]) -> int:
+        hits = self.archive.search(query, top_k=self.retrieval_topk)
+        added = 0
+        for hit in hits:
+            text = hit.get("text", "")
+            if text and text not in raw_context:
+                raw_context.append(text)
+                added += 1
+        return added
 
     def _finalize_answer(
         self,
@@ -631,22 +671,77 @@ def _canonicalize_final_answer(answer: str) -> str:
     return text.strip().strip("\"'").rstrip(" .;").strip()
 
 
+def _score_jump_candidate(question: str, constraint: str, node: Dict, edge: Dict) -> float:
+    node_text = _node_text(node)
+    question_terms = _content_terms(question)
+    score = 0.0
+
+    for term in question_terms:
+        if term in node_text:
+            score += 2.0
+
+    predicate = str(edge.get("predicate", "")).lower()
+    if predicate and predicate in str(question or "").lower():
+        score += 1.0
+
+    score += _constraint_score(node, constraint) * 3.0
+
+    canonical = str(node.get("canonical_name", "")).lower()
+    if any(marker in canonical for marker in (" chat", "conversation", "session")):
+        score -= 2.0
+    if predicate in {"spoke_to", "speak to", "discussed", "related_to"}:
+        score -= 1.0
+
+    return score
+
+
+def _content_terms(text: str) -> List[str]:
+    stop = {
+        "what", "when", "where", "which", "who", "whom", "whose", "why", "how",
+        "did", "does", "do", "has", "have", "had", "is", "are", "was", "were",
+        "the", "a", "an", "of", "to", "in", "on", "for", "with", "and",
+    }
+    return [
+        t.lower()
+        for t in re.findall(r"[A-Za-z][A-Za-z'’-]*|\d+", str(text or ""))
+        if len(t) > 2 and t.lower() not in stop
+    ]
+
+
+def _node_text(node: Dict) -> str:
+    parts = [
+        str(node.get("type", "")),
+        str(node.get("canonical_name", "")),
+        " ".join(str(a) for a in node.get("aliases", [])),
+    ]
+    parts.extend(str(v) for v in node.get("attrs", {}).values())
+    return " ".join(parts).lower()
+
+
+def _constraint_score(node: Dict, constraint: str) -> float:
+    constraint = str(constraint or "").strip()
+    if not constraint:
+        return 0.0
+
+    node_text = _node_text(node)
+    lower = constraint.lower()
+    if "=" in lower:
+        key, value = [part.strip() for part in lower.split("=", 1)]
+        if not value:
+            return 0.0
+        if key in {"type", "node_type"}:
+            return 1.0 if str(node.get("type", "")).lower() == value.lower() else 0.0
+        attrs = {str(k).lower(): str(v).lower() for k, v in node.get("attrs", {}).items()}
+        if key in attrs and value in attrs[key]:
+            return 1.0
+        return 0.5 if value in node_text else 0.0
+
+    return 1.0 if lower in node_text else 0.0
+
+
 def _matches_constraint(node: Dict, constraint: str) -> bool:
     """
     Simple text-based constraint matching.
     Constraint is a free-text string; we check if it appears in node text.
     """
-    if not constraint:
-        return True
-    constraint_lower = constraint.lower()
-    # Check node type
-    if node.get("type", "").lower() in constraint_lower:
-        return True
-    # Check canonical name / aliases
-    if node.get("canonical_name", "").lower() in constraint_lower:
-        return True
-    # Check attrs
-    for v in node.get("attrs", {}).values():
-        if str(v).lower() in constraint_lower:
-            return True
-    return True  # permissive by default — let the LLM filter further
+    return _constraint_score(node, constraint) > 0

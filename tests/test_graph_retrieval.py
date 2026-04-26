@@ -249,6 +249,26 @@ def test_answer_with_raw_fallback(tmp_path):
     assert len(fb_traces) == 1
 
 
+def test_answer_frontier_exhausted_uses_raw_fallback_then_continues(tmp_path):
+    graph = _make_graph(tmp_path)
+    isolated = graph.add_node("Event", "Isolated event")
+    archive = _make_archive()
+    archive.search = MagicMock(return_value=[{"text": "Jon is an engineer at StarAI.", "meta": {}}])
+    localizer = _make_localizer(graph, {"nodes": {isolated: graph.get_node(isolated)}, "edges": []})
+    llm = MagicMock()
+    llm.complete.side_effect = [
+        json.dumps({"action": "jump", "node_ids": [isolated[:8]], "relation_family": "any", "budget": 3}),
+        json.dumps({"action": "finish", "answer": "engineer"}),
+    ]
+    retriever = GraphRetriever(graph=graph, archive=archive, localizer=localizer, llm=llm, max_hop=3)
+
+    result = retriever.answer("What is Jon's job?")
+
+    assert result["answer"] == "engineer"
+    assert any(t["action"] == "frontier_exhausted" for t in result["traces"])
+    assert any(t["action"] == "raw_fallback" and t["args"].get("forced") for t in result["traces"])
+
+
 # ---------------------------------------------------------------------------
 # answer() — max hop forces finish
 # ---------------------------------------------------------------------------
@@ -326,6 +346,28 @@ def test_execute_jump_respects_budget(tmp_path):
         node_ids=[root[:8]], family="any", constraint="", budget=3, visited={root}
     )
     assert len(new_nodes) <= 3
+
+
+def test_execute_jump_reranks_relevant_neighbors(tmp_path):
+    graph = _make_graph(tmp_path)
+    root = graph.add_node("Entity", "Alice")
+    chat = graph.add_node("Event", "Alice and Bob chat", attrs={"activity": "conversation"})
+    class_evt = graph.add_node("Event", "Alice took poetry class", attrs={"activity": "poetry class"})
+    graph.add_edge(root, chat, "entity-event", "spoke_to")
+    graph.add_edge(root, class_evt, "entity-event", "took")
+    retriever = _make_retriever(tmp_path, llm_responses=[])
+    retriever.graph = graph
+
+    new_nodes, _ = retriever._execute_jump(
+        node_ids=[root[:8]],
+        family="entity-event",
+        constraint="activity=poetry class",
+        budget=1,
+        visited={root},
+        question="What writing classes has Alice taken?",
+    )
+
+    assert list(new_nodes) == [class_evt]
 
 
 # ---------------------------------------------------------------------------
