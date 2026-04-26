@@ -185,6 +185,7 @@ def main() -> None:
                 max_hop        = cfg.graph.retrieval_max_hop,
                 jump_budget    = cfg.graph.jump_budget,
                 benchmark      = cfg.dataset_name,
+                final_answer_compression = cfg.graph.final_answer_compression,
             )
 
             questions = [

@@ -32,6 +32,7 @@ class GraphConfig:
     # Retrieval (Jump)
     retrieval_max_hop: int = 3 # max hops before forced finish
     jump_budget: int = 5       # max neighbours expanded per jump step
+    final_answer_compression: bool = False
 
 
 @dataclass

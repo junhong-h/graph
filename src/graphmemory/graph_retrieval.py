@@ -47,6 +47,8 @@ def _locomo_format(category: str) -> str:
         return (
             "The Final Result's Format Must Follow These Rules:\n"
             "1. Output ONLY the answer itself — no subject, no verb, no explanation. "
+            "No explanations, evidence quotes, source mentions, or full supporting sentences. "
+            "Prefer a short phrase answer. "
             "e.g. Q: 'What would Melanie prefer?' → 'national park', NOT 'Melanie would prefer a national park'.\n"
             "2. The question may require you to analyze and infer the answer from the retrieved information.\n"
             "3. For quantities, if English/Arabic numerals are used in the original text, use English/Arabic "
@@ -76,25 +78,27 @@ def _locomo_format(category: str) -> str:
     # Cat 1, 2, 4 — and default for unknown categories
     return (
         "The Final Result's Format Must Follow These Rules:\n"
-        "1. For questions requiring a date or time, strictly follow the format '15 July, 2023', 'July, 2023'.\n"
-        "2. Pay special attention to relative times like 'yesterday', 'last week', 'last Friday' in the text:\n"
+        "1. Return ONLY the final answer string. No explanations, evidence quotes, source mentions, "
+        "or full supporting sentences. Prefer a short phrase answer.\n"
+        "2. For questions requiring a date or time, strictly follow the format '15 July, 2023', 'July, 2023'.\n"
+        "3. Pay special attention to relative times like 'yesterday', 'last week', 'last Friday' in the text:\n"
         "   + Only for last year/last month/yesterday, calculate the absolute date precise to year/month/day, "
         "e.g. 'July, 2023' or '19 July, 2023'.\n"
         "   + For last week/weekend/Friday/Saturday, or few days ago etc, use "
         "'the week/weekend/Friday before [certain absolute time]' — MUST NOT calculate the exact date, "
         "e.g. 'the week before 15 July, 2023'.\n"
-        "3. Output ONLY the answer itself — no subject, no verb, no explanation, no surrounding context. "
+        "4. Output ONLY the answer itself — no subject, no verb, no explanation, no surrounding context. "
         "e.g. Q: 'Where did Dave go?' → 'San Francisco', NOT 'Dave went to San Francisco'.\n"
-        "4. Use exact wording from the original conversation for the answer entity/phrase itself, "
+        "5. Use exact wording from the original conversation for the answer entity/phrase itself, "
         "but do NOT copy the surrounding sentence or conversation text.\n"
-        "5. For quantities, if English/Arabic numerals are used in the original text, use English/Arabic "
+        "6. For quantities, if English/Arabic numerals are used in the original text, use English/Arabic "
         "numerals in the answer respectively. If it is a quantity or frequency counted by yourself, "
         "default to using English words, e.g. prefer two not 2.\n"
-        "6. When the answer has multiple phrases, connect them with commas, don't use 'and'.\n"
-        "7. Ensure your response aligns directly with the question. For instance, start with 'Yes' or 'No' "
+        "7. When the answer has multiple phrases, use comma-separated items only; don't use 'and'.\n"
+        "8. Ensure your response aligns directly with the question. For instance, start with 'Yes' or 'No' "
         "for binary questions, and do not name a province when asked for a country.\n"
-        "8. If the information is not enough, you MUST NOT answer 'Unknown', 'I don't know', "
-        "or 'Not mentioned in the conversation'. "
+        "9. For Cat1-4 answerable questions, NEVER output 'Not mentioned in the conversation', "
+        "'Unknown', 'I don't know', or 'Information not found'. "
         "Instead, try raw_fallback with different query words. "
         "When reaching max steps, you MUST call finish with your best answer — "
         "never say 'Unknown' or 'Not mentioned'."
@@ -173,6 +177,7 @@ class GraphRetriever:
         max_hop: int = 3,
         jump_budget: int = 5,
         benchmark: str = "locomo",
+        final_answer_compression: bool = False,
     ):
         self.graph          = graph
         self.archive        = archive
@@ -182,6 +187,7 @@ class GraphRetriever:
         self.max_hop        = max_hop
         self.jump_budget    = jump_budget
         self.benchmark      = benchmark
+        self.final_answer_compression = final_answer_compression
 
     # ------------------------------------------------------------------
     # Public
@@ -223,7 +229,16 @@ class GraphRetriever:
             logger.debug(f"Hop {hop}: action={action}, args={args}")
 
             if action == "finish":
-                answer = _canonicalize_final_answer(args.get("answer", ""))
+                answer = self._finalize_answer(
+                    question=question,
+                    answer=args.get("answer", ""),
+                    evidence_nodes=evidence_nodes,
+                    evidence_edges=evidence_edges,
+                    raw_context=raw_context,
+                    answer_format=answer_format,
+                    category=category,
+                    traces=traces,
+                )
                 return {"answer": answer, "traces": traces}
 
             elif action == "jump":
@@ -256,8 +271,15 @@ class GraphRetriever:
         # Step 10: Max hops reached — forced finish
         logger.warning(f"Max hops ({self.max_hop}) reached. Forcing answer.")
         evidence_text = self._pool(evidence_nodes, evidence_edges, raw_context)
-        answer = _canonicalize_final_answer(
-            self._forced_answer(question, evidence_text, answer_format, category=category)
+        answer = self._finalize_answer(
+            question=question,
+            answer=self._forced_answer(question, evidence_text, answer_format, category=category),
+            evidence_nodes=evidence_nodes,
+            evidence_edges=evidence_edges,
+            raw_context=raw_context,
+            answer_format=answer_format,
+            category=category,
+            traces=traces,
         )
         traces.append({"hop": self.max_hop, "action": "forced_finish"})
         return {"answer": answer, "traces": traces}
@@ -383,6 +405,61 @@ class GraphRetriever:
 
         return "\n\n".join(parts) if parts else "(no evidence retrieved yet)"
 
+    def _finalize_answer(
+        self,
+        question: str,
+        answer: str,
+        evidence_nodes: Dict[str, Dict],
+        evidence_edges: List[Dict],
+        raw_context: List[str],
+        answer_format: str,
+        category: str,
+        traces: List[Dict],
+    ) -> str:
+        """Apply deterministic cleanup and optional repair/compression before returning."""
+        final = _canonicalize_final_answer(answer)
+
+        if _is_answerable_category(category) and _is_refusal_answer(final):
+            hits = self.archive.search(question, top_k=self.retrieval_topk)
+            added = [h["text"] for h in hits if h["text"] not in raw_context]
+            raw_context.extend(added)
+            traces.append({
+                "hop": len(traces),
+                "op_id": str(uuid.uuid4()),
+                "action": "answerable_refusal_raw_fallback",
+                "args": {"query": question, "hits": len(added)},
+            })
+            evidence_text = self._pool(evidence_nodes, evidence_edges, raw_context)
+            final = _canonicalize_final_answer(
+                self._forced_answer(question, evidence_text, answer_format, category=category)
+            )
+
+        if self.final_answer_compression and final and not _is_refusal_answer(final):
+            final = _canonicalize_final_answer(
+                self._compress_final_answer(question, final, answer_format, category)
+            )
+
+        return final
+
+    def _compress_final_answer(
+        self,
+        question: str,
+        answer: str,
+        answer_format: str,
+        category: str,
+    ) -> str:
+        """Use the LLM only to shorten an already-produced answer, not to re-decide retrieval."""
+        prompt = (
+            "Rewrite the draft answer into the shortest answer phrase that preserves the facts. "
+            "Do not add new facts, do not explain, and do not answer Unknown.\n"
+            f"{answer_format}\n\n"
+            f"Question: {question}\n"
+            f"Category: {category}\n"
+            f"Draft answer: {answer}\n\n"
+            "Compressed answer:"
+        )
+        return self.llm.complete([{"role": "user", "content": prompt}]).strip()
+
     # ------------------------------------------------------------------
     # Step 11: Raw Fallback (forced)
     # ------------------------------------------------------------------
@@ -445,6 +522,21 @@ def _parse_action(response: str) -> Tuple[str, Dict]:
     except json.JSONDecodeError:
         logger.warning("Failed to parse retrieval action JSON.")
         return "finish", {"answer": ""}
+
+
+def _is_answerable_category(category: str) -> bool:
+    return str(category).strip() in _ANSWERABLE_CATEGORIES
+
+
+def _is_refusal_answer(answer: str) -> bool:
+    text = str(answer or "").strip().lower()
+    return text in {
+        "not mentioned in the conversation",
+        "unknown",
+        "i don't know",
+        "information not found",
+        "none",
+    }
 
 
 def _canonicalize_final_answer(answer: str) -> str:
