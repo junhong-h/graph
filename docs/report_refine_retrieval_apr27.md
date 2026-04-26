@@ -419,7 +419,55 @@ tests/
 
 ---
 
-## 8. 结论
+## 8. 运行中观察到的问题与处理状态
+
+下面这张表对应最终 `conv-41` 全量 QA 过程中逐步观察到的问题。结论是：一部分属于本轮已经修过并验证的 retrieval 机制；另一部分是最终评测中暴露出的剩余问题，已经记录到本报告，但还没有做代码修复。
+
+| 观察到的问题 | 例子或现象 | 当前状态 | 建议归属 |
+|---|---|---|---|
+| `frontier_exhausted` 不应直接导致失败 | 多次出现 frontier exhausted，但后续 raw fallback 能补证据 | **已部分修改**：本轮已加入 frontier exhausted 后的 forced raw fallback；仍需继续降低触发率 | Retrieval control flow / candidate expansion |
+| raw fallback 有时修正成功 | `run for office again`、社区服务、日期约束 Cat4 等问题靠 raw fallback 接近或命中 gold | **已保留并验证有效**：不建议删除 raw fallback | 保持兜底，但增加 verifier |
+| raw fallback 后仍可能抽错 | flood 的 area/time、food near-miss、Cat5 相似证据误答 | **已记录，未修复** | Evidence sufficiency verifier |
+| session date 被当作 event date | `When did John participate in a 5K charity run?` 预测 `2023-04-07`，gold 是 `first weekend of August 2023` | **已记录，未修复** | Time handling：拆分 `turn_time` / `event_time` |
+| 跨 session 时间差问题仍会 hit max-hop | Maria adopting Coco 和 Shadow 的时间差问题仍走到 max-hop | **已记录，未修复** | Query decomposition / temporal reasoning |
+| Cat4 单跳也会语义偏差 | `What kind of online group did John join?` 预测过泛 | **已记录，未修复** | Final answer prompt / evidence extraction |
+| trace warning 不等于答案错误 | 第 84、123、131 等题 frontier exhausted 后 raw fallback 仍能答对 | **已记录为分析原则**：报告中区分 trace 形态和 answer correctness | Trace diagnostics |
+| why 类问题被相邻原因污染 | `Why did John start blogging...` 选到相邻政治动机 | **已记录，未修复** | Evidence rerank / citation filtering |
+| answer synthesis 过度压缩 | `Adjusting well` 没保留 `learning commands and house training` | **已记录，未修复** | Final answer detail preservation |
+| answer synthesis 复述问题而非抽答案 | veteran hospital visit 问 appreciation，输出泛化复述 | **已记录，未修复** | Final answer prompt / verifier |
+| 同名或相似 event 混淆 | John/Maria 的 `5K charity run` actor/cause 互相污染 | **已记录，未修复** | Event signature + constraint-aware rerank |
+| Cat5 误答 near-miss evidence | `Maria's aunt`、`banana split sundae`、5K cause 等 | **已记录，未修复** | Cat5 independent refusal mode |
+| Cat5 正确拒答与格式问题 | `does not criticize anything` 语义接近拒答，但不是标准 `Not mentioned...` | **已记录，未修复** | Refusal normalization / judge-facing answer format |
+| 后段 forced finish 集中在 Cat5 | Cat5 查不存在证据时反复 raw fallback 或 max-hop | **已记录，未修复** | Negative evidence / stopping policy |
+| runner/API 运行状态 | 中途 LLM 调用变慢，但无样本级崩溃，最终 193/193 QA 与 judge 完成 | **已验证，无需代码修改** | Evaluation reliability |
+
+因此，对“这些问题都记录并修改了吗”的准确回答是：
+
+```text
+已修改：
+- jump 扩展从按边顺序截断改为相关性排序；
+- constraint matching 不再默认全通过；
+- frontier exhausted 后会强制 raw fallback；
+- Cat1/Cat3 支持 multi-seed localized subgraph union；
+- answerable refusal 增加 raw fallback 修复；
+- 增加 retrieval trace summary，便于定位 max-hop / fallback / frontier 问题。
+
+已记录但未修改：
+- flood area/time 抽错；
+- session date 与 event date 混淆；
+- 跨 session 时间差推理；
+- why 类相邻原因污染；
+- final answer 过度压缩或复述问题；
+- 5K charity run 同名 event 混淆；
+- Cat5 near-miss evidence hallucination；
+- Cat5 拒答格式与 stopping policy。
+```
+
+这些未修改项不应该在同一次 final evaluation 中临时打补丁，否则这次 `conv-41` 结果就无法作为稳定 baseline。下一轮 coding 应从这些记录项中挑优先级最高的点开始，建议先做 evidence sufficiency verifier 和 event signature。
+
+---
+
+## 9. 结论
 
 当前分支已经让 retrieval 更稳、更可观测，但剩余错误说明下一个瓶颈不是“继续扩大图搜索”，而是“验证证据是否真的足够回答问题”。
 
