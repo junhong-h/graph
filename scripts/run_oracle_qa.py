@@ -12,6 +12,7 @@ Usage:
     python scripts/run_oracle_qa.py --config configs/run_qa_dashscope.yaml
     python scripts/run_oracle_qa.py --config configs/run_qa_dashscope.yaml --sample-ids conv-30
     python scripts/run_oracle_qa.py --config configs/run_qa_dashscope.yaml --max-qa 10
+    python scripts/run_oracle_qa.py --config configs/run_qa_dashscope.yaml --locomo-cat1-4
 """
 
 from __future__ import annotations
@@ -32,6 +33,13 @@ from graphmemory.config import BuildConfig
 from graphmemory.evaluator import Evaluator
 from graphmemory.graph_retrieval import get_answer_format
 from graphmemory.llm_client import OpenAIClient
+from graphmemory.qa_filters import (
+    filter_samples,
+    iter_filtered_qa,
+    normalize_filter_values,
+    resolve_include_categories,
+    sample_id_from_sample,
+)
 
 
 # ---------------------------------------------------------------------------
@@ -103,6 +111,7 @@ def format_oracle_context(evidence_turns: List[Dict]) -> str:
 _ORACLE_SYSTEM = """\
 You are a Memory Assistant. Answer the question based ONLY on the evidence turns provided.
 {answer_format}
+Return only the answer, with no explanation.
 Do NOT say "I don't know" or "Unknown" — always give your best answer from the evidence.\
 """
 
@@ -142,6 +151,16 @@ def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser()
     p.add_argument("--config",      default="configs/run_qa_dashscope.yaml")
     p.add_argument("--sample-ids",  nargs="*", default=None)
+    p.add_argument("--skip-samples", type=int, default=0,
+                   help="Skip the first N selected samples in dataset order")
+    p.add_argument("--limit-samples", type=int, default=None,
+                   help="Stop after this many selected samples")
+    p.add_argument("--categories", nargs="*", default=None,
+                   help="Only process these QA categories, e.g. --categories 1 2 3 4")
+    p.add_argument("--exclude-categories", nargs="*", default=None,
+                   help="Exclude these QA categories, e.g. --exclude-categories 5")
+    p.add_argument("--locomo-cat1-4", action="store_true",
+                   help="Shortcut for the LoCoMo Cat1-4 evaluation protocol")
     p.add_argument("--max-qa",      type=int, default=None)
     p.add_argument("--metrics-only", action="store_true")
     p.add_argument("--log-level",   default="INFO",
@@ -166,11 +185,27 @@ def main() -> None:
         raw_data = json.load(f)
 
     # Filter samples
-    if args.sample_ids:
-        id_set   = set(args.sample_ids)
-        raw_data = [s for s in raw_data if s.get("sample_id") in id_set]
+    include_categories = resolve_include_categories(
+        args.categories,
+        locomo_cat1_4=args.locomo_cat1_4,
+    )
+    exclude_categories = normalize_filter_values(args.exclude_categories)
+    raw_data = filter_samples(
+        raw_data,
+        sample_ids=args.sample_ids,
+        skip_first=args.skip_samples,
+        limit=args.limit_samples,
+    )
+    selected_sample_ids = [sample_id_from_sample(s) for s in raw_data]
+    if not selected_sample_ids:
+        logger.warning("No samples selected; nothing to run.")
+        return
 
-    logger.info(f"Running Oracle QA on {len(raw_data)} samples.")
+    logger.info(
+        f"Running Oracle QA on {len(raw_data)} samples; "
+        f"include_categories={sorted(include_categories) if include_categories else 'all'}, "
+        f"exclude_categories={sorted(exclude_categories) if exclude_categories else 'none'}."
+    )
 
     llm = OpenAIClient(
         model                  = cfg.llm.model,
@@ -209,9 +244,17 @@ def main() -> None:
 
             logger.info(f"Sample {sid}: {len(qa_list)} questions")
 
-            questions = qa_list[:args.max_qa] if args.max_qa else qa_list
+            questions = list(iter_filtered_qa(
+                qa_list,
+                include_categories=include_categories,
+                exclude_categories=exclude_categories,
+                max_items=args.max_qa,
+            ))
+            if not questions:
+                logger.info(f"Sample {sid}: no QA matched filters.")
+                continue
 
-            for qi, qa in enumerate(questions):
+            for qi, qa in questions:
                 qa_id = f"{sid}_q{qi}"
                 if qa_id in done_ids:
                     continue
@@ -254,7 +297,17 @@ def main() -> None:
     eval_path = run_dir / "oracle_results_eval.jsonl"
     judge_llm = None if args.metrics_only else llm
     evaluator = Evaluator(llm=judge_llm, benchmark=cfg.dataset_name)
-    evaluator.evaluate_file(results_path, eval_path, workers=4)
+    summary = evaluator.evaluate_file(
+        results_path,
+        eval_path,
+        workers=4,
+        sample_ids=selected_sample_ids,
+        include_categories=include_categories,
+        exclude_categories=exclude_categories,
+    )
+    metrics_path = run_dir / "oracle_metrics.json"
+    metrics_path.write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
+    logger.info(f"Metrics written: {metrics_path}")
 
 
 def _get_sample_id(sample: Dict) -> str:

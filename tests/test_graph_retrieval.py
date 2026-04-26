@@ -8,7 +8,12 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from graphmemory.graph_retrieval import GraphRetriever, _parse_action, get_answer_format
+from graphmemory.graph_retrieval import (
+    GraphRetriever,
+    _canonicalize_final_answer,
+    _parse_action,
+    get_answer_format,
+)
 from graphmemory.graph_store import GraphStore
 from graphmemory.raw_archive import RawArchive
 from graphmemory.graph_localize import GraphLocalizer
@@ -104,6 +109,15 @@ def test_answer_format_locomo_cat3():
 def test_answer_format_locomo_default():
     fmt = get_answer_format("locomo", "1")
     assert "July" in fmt or "date" in fmt.lower()
+    assert "No explanations" in fmt
+    assert "comma-separated" in fmt
+    assert "NEVER output 'Not mentioned in the conversation'" in fmt
+
+
+def test_answer_format_locomo_cat5_allows_refusal():
+    fmt = get_answer_format("locomo", "5")
+    assert "adversarial unanswerable" in fmt
+    assert "output exactly 'Not mentioned in the conversation'" in fmt
 
 
 # ---------------------------------------------------------------------------
@@ -118,6 +132,61 @@ def test_answer_direct_finish(tmp_path):
     result = retriever.answer("What is Jon's job?")
     assert result["answer"] == "engineer"
     assert result["traces"][0]["action"] == "finish"
+
+
+def test_answer_direct_finish_canonicalizes_answer(tmp_path):
+    retriever = _make_retriever(
+        tmp_path,
+        llm_responses=['{"action": "finish", "answer": "The answer is: engineer."}'],
+    )
+
+    result = retriever.answer("What is Jon's job?")
+
+    assert result["answer"] == "engineer"
+
+
+def test_answer_optional_final_compression(tmp_path):
+    retriever = _make_retriever(
+        tmp_path,
+        llm_responses=[
+            '{"action": "finish", "answer": "Jon is an engineer at StarAI."}',
+            "engineer",
+        ],
+    )
+    retriever.final_answer_compression = True
+
+    result = retriever.answer("What is Jon's job?")
+
+    assert result["answer"] == "engineer"
+    assert retriever.llm.complete.call_count == 2
+
+
+def test_answerable_refusal_uses_raw_repair(tmp_path):
+    retriever = _make_retriever(
+        tmp_path,
+        llm_responses=[
+            '{"action": "finish", "answer": "Not mentioned in the conversation"}',
+            "engineer",
+        ],
+        archive_hits=["Jon is an engineer at StarAI."],
+    )
+
+    result = retriever.answer("What is Jon's job?", category="1")
+
+    assert result["answer"] == "engineer"
+    assert any(t["action"] == "answerable_refusal_raw_fallback" for t in result["traces"])
+
+
+def test_cat5_refusal_is_preserved(tmp_path):
+    retriever = _make_retriever(
+        tmp_path,
+        llm_responses=['{"action": "finish", "answer": "Not mentioned in the conversation"}'],
+    )
+
+    result = retriever.answer("Did Jon mention a submarine?", category="5")
+
+    assert result["answer"] == "Not mentioned in the conversation"
+    assert len(result["traces"]) == 1
 
 
 # ---------------------------------------------------------------------------
@@ -263,3 +332,8 @@ def test_pool_includes_graph_and_raw(tmp_path):
     )
     assert "Jon" in text
     assert "Jon spoke about his job." in text
+
+
+def test_canonicalize_final_answer_handles_json_and_labels():
+    assert _canonicalize_final_answer('{"answer": "Final answer: Alice."}') == "Alice"
+    assert _canonicalize_final_answer("- Alice\n- Bob") == "Alice, Bob"

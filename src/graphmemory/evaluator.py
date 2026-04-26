@@ -8,11 +8,15 @@ import re
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Any, Dict, Iterable, List, Optional
 
 from loguru import logger
 
 from graphmemory.llm_client import LLMClient
+from graphmemory.qa_filters import (
+    normalize_filter_values,
+    record_matches_filters,
+)
 
 
 # ---------------------------------------------------------------------------
@@ -203,6 +207,9 @@ class Evaluator:
         input_path: str | Path,
         output_path: str | Path,
         workers: int = 4,
+        sample_ids: Optional[Iterable[Any]] = None,
+        include_categories: Optional[Iterable[Any]] = None,
+        exclude_categories: Optional[Iterable[Any]] = None,
     ) -> Dict:
         """Evaluate all records in input_path and write results to output_path.
 
@@ -211,6 +218,9 @@ class Evaluator:
         input_path  = Path(input_path)
         output_path = Path(output_path)
         output_path.parent.mkdir(parents=True, exist_ok=True)
+        sample_ids = normalize_filter_values(sample_ids)
+        include_categories = normalize_filter_values(include_categories)
+        exclude_categories = normalize_filter_values(exclude_categories)
 
         # Resume: skip already-evaluated records
         done_ids: set = set()
@@ -219,6 +229,13 @@ class Evaluator:
                 for line in f:
                     try:
                         r = json.loads(line)
+                        if not record_matches_filters(
+                            r,
+                            sample_ids=sample_ids,
+                            include_categories=include_categories,
+                            exclude_categories=exclude_categories,
+                        ):
+                            continue
                         uid = r.get("qa_id") or r.get("sample_id")
                         if uid:
                             done_ids.add(uid)
@@ -231,6 +248,13 @@ class Evaluator:
             for line in f:
                 try:
                     r = json.loads(line)
+                    if not record_matches_filters(
+                        r,
+                        sample_ids=sample_ids,
+                        include_categories=include_categories,
+                        exclude_categories=exclude_categories,
+                    ):
+                        continue
                     uid = r.get("qa_id") or r.get("sample_id")
                     if uid and uid not in done_ids:
                         tasks.append(r)
@@ -253,22 +277,49 @@ class Evaluator:
                             orig = futures[fut]
                             logger.error(f"Eval failed for {orig.get('qa_id')}: {exc}")
 
-        return self.compute_stats(output_path)
+        if not output_path.exists():
+            output_path.touch()
+
+        return self.compute_stats(
+            output_path,
+            sample_ids=sample_ids,
+            include_categories=include_categories,
+            exclude_categories=exclude_categories,
+        )
 
     # ------------------------------------------------------------------
     # Statistics
     # ------------------------------------------------------------------
 
     @staticmethod
-    def compute_stats(output_path: str | Path) -> Dict:
+    def compute_stats(
+        output_path: str | Path,
+        *,
+        sample_ids: Optional[Iterable[Any]] = None,
+        include_categories: Optional[Iterable[Any]] = None,
+        exclude_categories: Optional[Iterable[Any]] = None,
+    ) -> Dict:
         output_path = Path(output_path)
+        sample_ids = normalize_filter_values(sample_ids)
+        include_categories = normalize_filter_values(include_categories)
+        exclude_categories = normalize_filter_values(exclude_categories)
         by_cat: Dict[str, Dict] = {}
+
+        if not output_path.exists():
+            output_path.touch()
 
         with output_path.open(encoding="utf-8") as f:
             for line in f:
                 try:
                     r = json.loads(line)
                 except json.JSONDecodeError:
+                    continue
+                if not record_matches_filters(
+                    r,
+                    sample_ids=sample_ids,
+                    include_categories=include_categories,
+                    exclude_categories=exclude_categories,
+                ):
                     continue
                 cat = str(r.get("category", "unknown"))
                 if cat not in by_cat:

@@ -1,12 +1,10 @@
-# GraphMemory QA configuration using local Ollama Qwen3-4B
-
 data_path: data/locomo/locomo10.json
 dataset_name: locomo
-run_dir: runs/qa_qwen3_local
-graph_dir: runs/build_qwen3_local/graphs
+run_dir: runs/qa_dashscope_f1fix
+graph_dir: runs/build_dashscope/graphs
 
 vector_store:
-  path: runs/chroma_qwen3_local
+  path: runs/chroma_dashscope
   from_scratch: false
 
 memory:
@@ -20,13 +18,13 @@ graph:
   max_edges: 30
   retrieval_max_hop: 3
   jump_budget: 5
-  final_answer_compression: false
+  final_answer_compression: true
 
 llm:
-  model: graphmemory-qwen3:4b-32k
-  api_key: ollama
-  base_url: http://127.0.0.1:11434/v1
+  model: qwen3-4b
+  # Read from OPENAI_API_KEY.
+  base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
   temperature: 0.0
   max_retries: 5
-  reasoning_effort: none
   disable_thinking: true
+  use_extra_body_thinking: true

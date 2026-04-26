@@ -3,6 +3,7 @@
 Usage:
     python scripts/build_memory.py --config configs/build_memory.yaml
     python scripts/build_memory.py --config configs/build_memory.yaml --limit 1
+    python scripts/build_memory.py --config configs/build_memory.yaml --skip-samples 5 --limit 5
     python scripts/build_memory.py --config configs/build_memory.yaml --sample-ids conv-26
     python scripts/build_memory.py --config configs/build_memory.yaml --workers 4
     python scripts/build_memory.py --config configs/build_memory.yaml --log-level DEBUG
@@ -29,6 +30,7 @@ from graphmemory.graph_localize import GraphLocalizer
 from graphmemory.graph_store import GraphStore
 from graphmemory.graph_trigger import GraphTrigger
 from graphmemory.llm_client import OpenAIClient
+from graphmemory.qa_filters import filter_samples
 from graphmemory.raw_archive import RawArchive
 from graphmemory.vector_store import ChromaStore
 
@@ -38,6 +40,8 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--config", default="configs/build_memory.yaml")
     p.add_argument("--sample-ids", nargs="*", default=None,
                    help="Only process these sample IDs")
+    p.add_argument("--skip-samples", type=int, default=0,
+                   help="Skip the first N selected samples in dataset order")
     p.add_argument("--limit", type=int, default=None,
                    help="Stop after this many samples")
     p.add_argument("--workers", type=int, default=1,
@@ -139,15 +143,13 @@ def main() -> None:
     samples: List[Dict[str, Any]] = load_locomo_sessions(cfg.data_path)
     logger.info(f"Loaded {len(samples)} samples.")
 
-    if args.sample_ids:
-        id_set  = set(args.sample_ids)
-        samples = [s for s in samples
-                   if s["conversation"][0]["metadata"].get("sample_id") in id_set]
-        logger.info(f"Filtered to {len(samples)} samples.")
-
-    if args.limit is not None:
-        samples = samples[: args.limit]
-        logger.info(f"Limited to {len(samples)} samples.")
+    samples = filter_samples(
+        samples,
+        sample_ids=args.sample_ids,
+        skip_first=args.skip_samples,
+        limit=args.limit,
+    )
+    logger.info(f"Selected {len(samples)} samples.")
 
     # ── from_scratch: wipe once in the main process before spawning workers ──
     if cfg.vector_store.from_scratch:

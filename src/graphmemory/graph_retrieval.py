@@ -34,29 +34,70 @@ from graphmemory.llm_client import LLMClient
 from graphmemory.raw_archive import RawArchive
 
 
+_ANSWERABLE_CATEGORIES = {"1", "2", "3", "4"}
+
+
 # ---------------------------------------------------------------------------
-# Answer format (same as before for LoCoMo compatibility)
+# Answer format  (mirrors Mem-T get_final_result_format exactly)
 # ---------------------------------------------------------------------------
 
 def _locomo_format(category: str) -> str:
-    if str(category) == "3":
+    cat = str(category)
+    if cat == "3":
+        return (
+            "The Final Result's Format Must Follow These Rules:\n"
+            "1. Output ONLY the answer itself — no subject, no verb, no explanation. "
+            "e.g. Q: 'What would Melanie prefer?' → 'national park', NOT 'Melanie would prefer a national park'.\n"
+            "2. The question may require you to analyze and infer the answer from the retrieved information.\n"
+            "3. For quantities, if English/Arabic numerals are used in the original text, use English/Arabic "
+            "numerals in the answer respectively. Numbers are represented by English words by default, "
+            "e.g. prefer two not 2.\n"
+            "4. This is an open-domain problem. NEVER answer 'I don't know./None./Unknown'. You can perform "
+            "reasoning based on the retrieved information and your model knowledge. "
+            "Uncertain inferences can be expressed using 'likely'.\n"
+            "5. When the answer has multiple phrases, connect them with commas, don't use 'and'.\n"
+            "6. Ensure your response aligns directly with the question. "
+            "For instance, start with 'Yes' or 'No' for binary questions.\n"
+            "7. If the information is not enough, you MUST NOT answer 'Unknown', 'I don't know', "
+            "or 'Not mentioned in the conversation'. "
+            "Instead, try raw_fallback with different query words. "
+            "When reaching max steps, you MUST call finish to give the final answer — "
+            "never say 'Unknown' or 'Not mentioned'."
+        )
+    if cat == "5":
         return (
             "The Final Result's Format Must Follow These Rules:\n"
             "1. Provide a short phrase answer, not a full sentence.\n"
-            "2. Answer directly — do NOT start with 'Yes' or 'No' unless the question is literally a yes/no question.\n"
-            "3. NEVER answer 'I don't know' or 'Unknown'. Uncertain inferences → use 'likely'.\n"
-            "4. Multiple phrases: connect with commas, not 'and'.\n"
-            "5. When max steps reached, MUST call finish with your best guess."
+            "2. This is an adversarial unanswerable question. If the described event/fact is not directly "
+            "supported by the retrieved evidence, output exactly 'Not mentioned in the conversation'. "
+            "Do not fabricate.\n"
+            "3. Use exact wording from the original conversation whenever possible."
         )
+    # Cat 1, 2, 4 — and default for unknown categories
     return (
         "The Final Result's Format Must Follow These Rules:\n"
-        "1. Answer directly — do NOT start with 'Yes' or 'No' unless the question literally asks for yes/no.\n"
-        "2. Date/time answers: use '15 July, 2023' or 'July, 2023'.\n"
-        "3. Short phrase, not a full sentence.\n"
-        "4. Exact wording from the original conversation when possible.\n"
-        "5. Multiple phrases: connect with commas, not 'and'.\n"
-        "6. NEVER answer 'Unknown' or 'I don't know'. When max steps reached, "
-        "MUST call finish with best guess."
+        "1. For questions requiring a date or time, strictly follow the format '15 July, 2023', 'July, 2023'.\n"
+        "2. Pay special attention to relative times like 'yesterday', 'last week', 'last Friday' in the text:\n"
+        "   + Only for last year/last month/yesterday, calculate the absolute date precise to year/month/day, "
+        "e.g. 'July, 2023' or '19 July, 2023'.\n"
+        "   + For last week/weekend/Friday/Saturday, or few days ago etc, use "
+        "'the week/weekend/Friday before [certain absolute time]' — MUST NOT calculate the exact date, "
+        "e.g. 'the week before 15 July, 2023'.\n"
+        "3. Output ONLY the answer itself — no subject, no verb, no explanation, no surrounding context. "
+        "e.g. Q: 'Where did Dave go?' → 'San Francisco', NOT 'Dave went to San Francisco'.\n"
+        "4. Use exact wording from the original conversation for the answer entity/phrase itself, "
+        "but do NOT copy the surrounding sentence or conversation text.\n"
+        "5. For quantities, if English/Arabic numerals are used in the original text, use English/Arabic "
+        "numerals in the answer respectively. If it is a quantity or frequency counted by yourself, "
+        "default to using English words, e.g. prefer two not 2.\n"
+        "6. When the answer has multiple phrases, connect them with commas, don't use 'and'.\n"
+        "7. Ensure your response aligns directly with the question. For instance, start with 'Yes' or 'No' "
+        "for binary questions, and do not name a province when asked for a country.\n"
+        "8. If the information is not enough, you MUST NOT answer 'Unknown', 'I don't know', "
+        "or 'Not mentioned in the conversation'. "
+        "Instead, try raw_fallback with different query words. "
+        "When reaching max steps, you MUST call finish with your best answer — "
+        "never say 'Unknown' or 'Not mentioned'."
     )
 
 
@@ -83,7 +124,7 @@ knowledge graph and retrieving raw conversation turns.
    {{"action": "raw_fallback", "query": "<search query>"}}
 
 3. Finish: return the final answer when confident.
-   {{"action": "finish", "answer": "<concise answer>"}}
+   {{"action": "finish", "answer": "<direct answer phrase — no subject, no verb, no explanation>"}}
 
 [Rules]
 - Start from the anchor nodes provided, then Jump to explore.
@@ -93,10 +134,13 @@ knowledge graph and retrieving raw conversation turns.
 - After each Jump, decide: is the evidence enough to finish? If yes, call finish.
 - If the graph lacks key details (exact quotes, fine-grained facts), use raw_fallback.
 - You may use raw_fallback AND jump in the same session.
-- Only after you have jumped at least once and still find NO relevant evidence anywhere in the \
-graph, call finish with answer "Not mentioned in the conversation". \
-Do NOT say "Not mentioned" on the first hop — always Jump first to explore before concluding \
-the information is absent.
+- finish.answer must be the answer phrase ONLY. Do NOT include the question subject,
+  verb, reasoning, explanation, or raw conversation text. Extract just the fact.
+- Follow the Answer format's absence policy exactly. For Cat1-4 answerable questions,
+  do NOT finish with "Not mentioned in the conversation", "Unknown", or
+  "Information not found"; use raw_fallback or give the best short answer from evidence.
+  For Cat5 adversarial questions, finish with "Not mentioned in the conversation" only
+  when the question premise is not directly supported after exploration.
 - When max hops are reached you MUST call finish with your best guess.
 - Do NOT output any text outside the JSON object.
 
@@ -179,7 +223,8 @@ class GraphRetriever:
             logger.debug(f"Hop {hop}: action={action}, args={args}")
 
             if action == "finish":
-                return {"answer": args.get("answer", "").strip(), "traces": traces}
+                answer = _canonicalize_final_answer(args.get("answer", ""))
+                return {"answer": answer, "traces": traces}
 
             elif action == "jump":
                 new_nodes, new_edges = self._execute_jump(
@@ -211,7 +256,9 @@ class GraphRetriever:
         # Step 10: Max hops reached — forced finish
         logger.warning(f"Max hops ({self.max_hop}) reached. Forcing answer.")
         evidence_text = self._pool(evidence_nodes, evidence_edges, raw_context)
-        answer = self._forced_answer(question, evidence_text, answer_format)
+        answer = _canonicalize_final_answer(
+            self._forced_answer(question, evidence_text, answer_format, category=category)
+        )
         traces.append({"hop": self.max_hop, "action": "forced_finish"})
         return {"answer": answer, "traces": traces}
 
@@ -340,12 +387,31 @@ class GraphRetriever:
     # Step 11: Raw Fallback (forced)
     # ------------------------------------------------------------------
 
-    def _forced_answer(self, question: str, evidence: str, answer_format: str) -> str:
+    def _forced_answer(
+        self,
+        question: str,
+        evidence: str,
+        answer_format: str,
+        category: str = "",
+    ) -> str:
+        cat = str(category).strip()
+        cat_rule = ""
+        if cat in _ANSWERABLE_CATEGORIES:
+            cat_rule = (
+                "MUST NOT answer 'Unknown', 'I don't know', or 'Not mentioned in the conversation'. "
+                "Give your best short answer from the evidence.\n"
+            )
+            if cat == "3":
+                cat_rule += (
+                    "For inference questions, combine evidence with common-sense reasoning.\n"
+                )
         prompt = (
             f"You are a Memory Assistant. Answer the question based ONLY on the evidence below.\n"
+            f"{cat_rule}"
             f"{answer_format}\n\n"
             f"Evidence:\n{evidence}\n\n"
-            f"Question: {question}"
+            f"Question: {question}\n\n"
+            "Answer (the answer phrase only — no subject, no verb, no explanation):"
         )
         return self.llm.complete([{"role": "user", "content": prompt}]).strip()
 
@@ -379,6 +445,52 @@ def _parse_action(response: str) -> Tuple[str, Dict]:
     except json.JSONDecodeError:
         logger.warning("Failed to parse retrieval action JSON.")
         return "finish", {"answer": ""}
+
+
+def _canonicalize_final_answer(answer: str) -> str:
+    """Light deterministic cleanup for answers that should be short strings."""
+    text = str(answer or "").strip()
+    if not text:
+        return ""
+
+    fence = re.search(r"```(?:json|text)?\s*(.*?)\s*```", text, re.DOTALL | re.IGNORECASE)
+    if fence:
+        text = fence.group(1).strip()
+
+    if text.startswith("{") and text.endswith("}"):
+        try:
+            data = json.loads(text)
+            if isinstance(data, dict) and data.get("answer") is not None:
+                text = str(data["answer"]).strip()
+        except json.JSONDecodeError:
+            pass
+
+    lines = []
+    for line in text.splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        line = re.sub(r"^\s*(?:[-*]|\d+[.)])\s*", "", line)
+        lines.append(line)
+    if len(lines) > 1:
+        text = ", ".join(lines)
+    elif lines:
+        text = lines[0]
+
+    text = text.strip().strip("\"'").strip()
+    text = re.sub(
+        r"^(?:final answer|answer|the answer is|the final answer is)\s*[:\-]?\s*",
+        "",
+        text,
+        flags=re.IGNORECASE,
+    )
+    text = re.sub(
+        r"^(?:according to (?:the )?(?:evidence|conversation|context),?\s*)",
+        "",
+        text,
+        flags=re.IGNORECASE,
+    )
+    return text.strip().strip("\"'").rstrip(" .;").strip()
 
 
 def _matches_constraint(node: Dict, constraint: str) -> bool:

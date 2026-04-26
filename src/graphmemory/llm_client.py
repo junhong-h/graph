@@ -75,12 +75,18 @@ class OpenAIClient(LLMClient):
             except Exception as exc:
                 logger.error(f"LLM attempt {attempt + 1}/{self.max_retries}: {exc}")
                 if attempt < self.max_retries - 1:
-                    wait = 2**attempt + random.random()
+                    wait = self._retry_wait_seconds(exc, attempt)
                     logger.info(f"Retrying in {wait:.1f}s…")
                     time.sleep(wait)
 
         logger.error("Max retries reached, returning empty string.")
         return ""
+
+    def _retry_wait_seconds(self, exc: Exception, attempt: int) -> float:
+        message = str(exc).lower()
+        if "429" in message or "token-limit" in message or "insufficient_quota" in message:
+            return min(90.0, 15.0 * (attempt + 1) + random.random() * 3.0)
+        return 2**attempt + random.random()
 
     def _prepare_messages(self, messages: List[Dict]) -> List[Dict]:
         payload = deepcopy(messages)
