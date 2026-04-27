@@ -1,0 +1,455 @@
+{
+  "total": {
+    "samples": 2,
+    "node_count": 252,
+    "edge_count": 281,
+    "entity_count": 76,
+    "event_count": 176,
+    "invalid_edge_count": 0,
+    "isolated_event_count": 0,
+    "events_with_fact": 176,
+    "events_missing_fact": 0,
+    "events_with_quote": 176,
+    "events_missing_quote": 0,
+    "event_without_entity_event_edge": 0,
+    "total_batches": 0,
+    "trigger_count": 0,
+    "skip_count": 0,
+    "failed_ops": 0,
+    "dedup_merges": 0,
+    "ops": {},
+    "rejected_ops": {},
+    "trigger_rate": null
+  },
+  "by_sample": {
+    "conv-26": {
+      "graph_path": "experiments/2026-04-27-005-refine2-current-retrieval/build/graphs/conv-26_graph.json",
+      "node_count": 96,
+      "edge_count": 117,
+      "node_types": {
+        "Entity": 33,
+        "Event": 63
+      },
+      "edge_families": {
+        "entity-event": 102,
+        "event-event": 13,
+        "entity-entity": 2
+      },
+      "top_predicates": [
+        [
+          "participant",
+          43
+        ],
+        [
+          "object_of",
+          31
+        ],
+        [
+          "experienced",
+          18
+        ],
+        [
+          "after",
+          7
+        ],
+        [
+          "before",
+          6
+        ],
+        [
+          "support_system",
+          2
+        ],
+        [
+          "pet",
+          2
+        ],
+        [
+          "member_of",
+          2
+        ],
+        [
+          "owner",
+          2
+        ],
+        [
+          "participated_in",
+          1
+        ],
+        [
+          "performer",
+          1
+        ],
+        [
+          "created",
+          1
+        ],
+        [
+          "inspired_by",
+          1
+        ]
+      ],
+      "entity_count": 33,
+      "event_count": 63,
+      "entity_event_ratio": 0.5238095238095238,
+      "invalid_edge_count": 0,
+      "event_without_entity_event_edge": 0,
+      "isolated_event_count": 0,
+      "low_degree_event_count": 48,
+      "events_missing_time": 0,
+      "events_missing_source": 0,
+      "events_missing_text": 0,
+      "events_with_fact": 63,
+      "events_missing_fact": 0,
+      "events_with_quote": 63,
+      "events_missing_quote": 0,
+      "events_with_original_text": 63,
+      "session_container_event_count": 0,
+      "low_value_event_edge_count": 0,
+      "sample_entities": [
+        {
+          "id": "795ec77d",
+          "name": "Caroline",
+          "degree": 51
+        },
+        {
+          "id": "cf708304",
+          "name": "Melanie",
+          "degree": 13
+        },
+        {
+          "id": "90aa844c",
+          "name": "Painting",
+          "degree": 7
+        },
+        {
+          "id": "3b335f59",
+          "name": "Hand-painted bowl",
+          "degree": 3
+        },
+        {
+          "id": "f4336293",
+          "name": "Connected LGBTQ Activists",
+          "degree": 3
+        },
+        {
+          "id": "d9ee4d8d",
+          "name": "LGBTQ Youth Center",
+          "degree": 3
+        },
+        {
+          "id": "1ad96def",
+          "name": "Oliver",
+          "degree": 2
+        },
+        {
+          "id": "be8705d9",
+          "name": "Artwork",
+          "degree": 2
+        },
+        {
+          "id": "bb3eff2d",
+          "name": "Adoption Advice Assistance Group",
+          "degree": 2
+        },
+        {
+          "id": "2961e1dd",
+          "name": "Summer Sounds",
+          "degree": 2
+        },
+        {
+          "id": "61320afa",
+          "name": "counseling or mental health work",
+          "degree": 1
+        },
+        {
+          "id": "308561f4",
+          "name": "counseling and mental health",
+          "degree": 1
+        },
+        {
+          "id": "daa96943",
+          "name": "Becoming Nicole",
+          "degree": 1
+        },
+        {
+          "id": "a843b8ee",
+          "name": "Luna",
+          "degree": 1
+        },
+        {
+          "id": "a04d69b4",
+          "name": "LGBTQ youth mentorship program",
+          "degree": 1
+        },
+        {
+          "id": "dc898277",
+          "name": "Matt Patterson",
+          "degree": 1
+        },
+        {
+          "id": "b6fcfc4c",
+          "name": "Adoption Agencies",
+          "degree": 1
+        },
+        {
+          "id": "6cc2543c",
+          "name": "Oscar",
+          "degree": 1
+        },
+        {
+          "id": "b5c5adf8",
+          "name": "Bailey",
+          "degree": 1
+        },
+        {
+          "id": "b9ee4fe0",
+          "name": "Rainbow flag mural",
+          "degree": 1
+        },
+        {
+          "id": "5257fac6",
+          "name": "Stained Glass Window",
+          "degree": 1
+        },
+        {
+          "id": "86277477",
+          "name": "\"Brave\" by Sara Bareilles",
+          "degree": 1
+        },
+        {
+          "id": "e1efc797",
+          "name": "Clarinet",
+          "degree": 1
+        },
+        {
+          "id": "b7e067ab",
+          "name": "Adoption Agency",
+          "degree": 1
+        },
+        {
+          "id": "46c62659",
+          "name": "Lawyer",
+          "degree": 1
+        }
+      ],
+      "sample_problem_events": []
+    },
+    "conv-41": {
+      "graph_path": "experiments/2026-04-27-005-refine2-current-retrieval/build/graphs/conv-41_graph.json",
+      "node_count": 156,
+      "edge_count": 164,
+      "node_types": {
+        "Entity": 43,
+        "Event": 113
+      },
+      "edge_families": {
+        "entity-event": 148,
+        "event-event": 16
+      },
+      "top_predicates": [
+        [
+          "participant",
+          66
+        ],
+        [
+          "experienced",
+          41
+        ],
+        [
+          "object_of",
+          30
+        ],
+        [
+          "focus_of",
+          5
+        ],
+        [
+          "updates",
+          5
+        ],
+        [
+          "before",
+          3
+        ],
+        [
+          "after",
+          3
+        ],
+        [
+          "related_to",
+          3
+        ],
+        [
+          "exhibited",
+          2
+        ],
+        [
+          "inspired",
+          2
+        ],
+        [
+          "followed_by",
+          1
+        ],
+        [
+          "interest",
+          1
+        ],
+        [
+          "location",
+          1
+        ],
+        [
+          "participated",
+          1
+        ]
+      ],
+      "entity_count": 43,
+      "event_count": 113,
+      "entity_event_ratio": 0.3805309734513274,
+      "invalid_edge_count": 0,
+      "event_without_entity_event_edge": 0,
+      "isolated_event_count": 0,
+      "low_degree_event_count": 100,
+      "events_missing_time": 0,
+      "events_missing_source": 0,
+      "events_missing_text": 0,
+      "events_with_fact": 113,
+      "events_missing_fact": 0,
+      "events_with_quote": 113,
+      "events_missing_quote": 0,
+      "events_with_original_text": 113,
+      "session_container_event_count": 0,
+      "low_value_event_edge_count": 3,
+      "sample_entities": [
+        {
+          "id": "217cf297",
+          "name": "John",
+          "degree": 51
+        },
+        {
+          "id": "bba88ec8",
+          "name": "Maria",
+          "degree": 43
+        },
+        {
+          "id": "96a1bf8f",
+          "name": "Jean",
+          "degree": 6
+        },
+        {
+          "id": "5b6df895",
+          "name": "Boot Camp with family",
+          "degree": 5
+        },
+        {
+          "id": "f358ec45",
+          "name": "Organization",
+          "degree": 4
+        },
+        {
+          "id": "ff35239d",
+          "name": "Yoga class with colleague",
+          "degree": 3
+        },
+        {
+          "id": "afc3d85a",
+          "name": "Gym",
+          "degree": 2
+        },
+        {
+          "id": "1f7e0dde",
+          "name": "Kundalini Yoga",
+          "degree": 2
+        },
+        {
+          "id": "2ce56a6e",
+          "name": "Rock Climbing",
+          "degree": 2
+        },
+        {
+          "id": "371f8091",
+          "name": "Trophy",
+          "degree": 2
+        },
+        {
+          "id": "5cc1c3ca",
+          "name": "Yoga Studio",
+          "degree": 2
+        },
+        {
+          "id": "a12b9d64",
+          "name": "Local Organization",
+          "degree": 2
+        },
+        {
+          "id": "a26f4a61",
+          "name": "Local Politics",
+          "degree": 1
+        },
+        {
+          "id": "6841081f",
+          "name": "School",
+          "degree": 1
+        },
+        {
+          "id": "2dd77d22",
+          "name": "Old car",
+          "degree": 1
+        },
+        {
+          "id": "10e4cb9d",
+          "name": "Community service group",
+          "degree": 1
+        },
+        {
+          "id": "498ed7d9",
+          "name": "Underserved communities",
+          "degree": 1
+        },
+        {
+          "id": "4c5d2146",
+          "name": "Education",
+          "degree": 1
+        },
+        {
+          "id": "673216ab",
+          "name": "Mentorship",
+          "degree": 1
+        },
+        {
+          "id": "238a1786",
+          "name": "Job training",
+          "degree": 1
+        },
+        {
+          "id": "039c1f9f",
+          "name": "Resume building",
+          "degree": 1
+        },
+        {
+          "id": "68a56950",
+          "name": "Food drive for folks who lost their jobs",
+          "degree": 1
+        },
+        {
+          "id": "e68cdae8",
+          "name": "5K charity run for a homeless shelter",
+          "degree": 1
+        },
+        {
+          "id": "4a4e8c6c",
+          "name": "Cross necklace",
+          "degree": 1
+        },
+        {
+          "id": "af4d5221",
+          "name": "Church",
+          "degree": 1
+        }
+      ],
+      "sample_problem_events": []
+    }
+  }
+}

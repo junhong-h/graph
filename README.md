@@ -1,27 +1,51 @@
 # GraphMemory
 
-GraphMemory is a research-oriented implementation scaffold for storage-first memory experiments.
+GraphMemory is a research-oriented implementation scaffold for graph-memory
+experiments on conversational memory benchmarks such as LoCoMo.
 
 This repository currently focuses on:
 
-- immutable graph snapshots stored as Parquet
-- raw memory snapshots stored as Parquet
-- run-scoped artifacts and intermediate outputs
-- optional DuckDB indexes rebuilt from Parquet facts
+- building per-conversation memory graphs from raw dialogue
+- retrieving answers through graph localization, graph jumps, and raw-text fallback
+- saving experiment-scoped graphs, metrics, logs, and analysis artifacts
+- keeping formal research runs reproducible under `experiments/`
 
 ## Layout
 
 ```text
 configs/
-data/raw/<dataset_name>/
-data/processed/<dataset_name>/<version>/
-artifacts/raw_memory/<memory_name>/<version>/
-artifacts/graphs/<graph_name>/<version>/
-artifacts/indexes/<index_name>/<version>/
-runs/<run_id>/
+data/locomo/
+experiments/YYYY-MM-DD-NNN-<slug>/
+runs/
 src/
+scripts/
+docs/
 tests/
 ```
+
+Formal experiment directories have this shape:
+
+```text
+experiments/YYYY-MM-DD-NNN-<slug>/
+  config.yaml
+  notes.md
+  build/
+    graphs/
+    graph_trajectories_<sample_id>.jsonl
+    build.log
+    build_stats.json
+  qa/
+    qa_results.jsonl
+    qa_results_eval.jsonl
+    qa_metrics.json
+    qa_analysis.xlsx
+    qa.log
+  chroma/
+```
+
+Current experiment runs use JSON graph snapshots plus ChromaDB vector indexes.
+The older Parquet/DuckDB storage scaffold remains in `src/graphmemory/storage/`
+but is not the primary path for the current LoCoMo experiments.
 
 ## Quick start
 
@@ -29,6 +53,43 @@ tests/
 python3 -m pip install -e '.[dev]'
 pytest
 ```
+
+## Experiment workflow
+
+Formal results must be saved under `experiments/`, not only under `runs/`.
+
+Create a new experiment from the template:
+
+```bash
+cp -r experiments/.template experiments/YYYY-MM-DD-NNN-<slug>
+```
+
+Fill in `experiments/YYYY-MM-DD-NNN-<slug>/config.yaml` and `notes.md`, then run:
+
+```bash
+python scripts/build_memory.py --exp-dir experiments/YYYY-MM-DD-NNN-<slug>
+python scripts/run_qa.py       --exp-dir experiments/YYYY-MM-DD-NNN-<slug>
+python scripts/summarize_exp.py --exp-dir experiments/YYYY-MM-DD-NNN-<slug>
+```
+
+With `--exp-dir`:
+
+- build artifacts are written to `experiments/.../build/`
+- graph JSON files are written to `experiments/.../build/graphs/`
+- `graph_trajectories_<sample_id>.jsonl` is written to `experiments/.../build/`
+- QA artifacts are written to `experiments/.../qa/`
+- ChromaDB is written to `experiments/.../chroma/`
+
+The old `--config` interface still works for quick checks:
+
+```bash
+python scripts/build_memory.py --config configs/build_memory.yaml --sample-ids conv-26
+python scripts/run_qa.py --config configs/run_qa.yaml --sample-ids conv-26
+```
+
+Do not reuse an existing experiment directory for a different run. If code,
+config, prompts, model, or sample selection changes, create a new experiment
+directory.
 
 ## Local Qwen3-4B via Ollama
 
@@ -63,7 +124,8 @@ graphs created by the matching local build config instead of the default API run
 
 ## Design rules
 
-- Parquet is the source of truth.
-- DuckDB is a rebuildable query layer, never the only durable state.
-- Graph snapshots are immutable and versioned.
-- Run artifacts are isolated by `run_id`.
+- Formal runs are isolated by experiment directory.
+- Config, prompt, model, and evaluation changes must be explicit.
+- Save outputs, metrics, logs, and useful intermediate artifacts for each run.
+- Treat ChromaDB as rebuildable; track compact graph and metric artifacts in
+  `experiments/`.

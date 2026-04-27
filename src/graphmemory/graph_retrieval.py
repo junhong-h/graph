@@ -388,14 +388,15 @@ class GraphRetriever:
 
         budget_each = max(1, -(-budget // len(resolved)))  # ceil division
 
+        allowed_families = _parse_relation_families(family)
         new_nodes: Dict[str, Dict] = {}
         new_edges: List[Dict]      = []
         claimed: Set[str]          = set(visited)  # grows as anchors are processed
 
         for full_nid in resolved:
             edges = self.graph.get_edges(node_id=full_nid)
-            if family != "any":
-                edges = [e for e in edges if e["family"] == family]
+            if allowed_families is not None:
+                edges = [e for e in edges if e.get("family") in allowed_families]
 
             candidates: Dict[str, Tuple[Dict, Dict]] = {}
             for edge in edges:
@@ -410,7 +411,11 @@ class GraphRetriever:
             if not candidates:
                 continue
 
-            ranked = self.graph.rank_nodes_by_query(question, list(candidates))
+            ranked = self._rank_jump_candidates(
+                question=question,
+                constraint=constraint,
+                candidates=candidates,
+            )
             added = 0
             for neighbor in ranked:
                 if added >= budget_each:
@@ -422,6 +427,31 @@ class GraphRetriever:
                 added += 1
 
         return new_nodes, new_edges
+
+    def _rank_jump_candidates(
+        self,
+        question: str,
+        constraint: str,
+        candidates: Dict[str, Tuple[Dict, Dict]],
+    ) -> List[str]:
+        """Rank jump candidates with structural constraints plus vector similarity."""
+        candidate_ids = list(candidates)
+        vector_ranked = self.graph.rank_nodes_by_query(question, candidate_ids)
+        vector_pos = {nid: idx for idx, nid in enumerate(vector_ranked)}
+        total = max(len(candidate_ids), 1)
+
+        scored: List[Tuple[float, int, int, str]] = []
+        for order, node_id in enumerate(candidate_ids):
+            node, edge = candidates[node_id]
+            structural_score = _score_jump_candidate(question, constraint, node, edge)
+            rank = vector_pos.get(node_id, total)
+            # Keep vector similarity as a tie-breaker/soft signal, but do not let it
+            # override hard structural evidence such as constraint and predicate match.
+            vector_bonus = (total - rank) / total
+            scored.append((structural_score + vector_bonus, -rank, -order, node_id))
+
+        scored.sort(reverse=True)
+        return [node_id for _, _, _, node_id in scored]
 
     def _resolve_node_id(self, ref: str) -> Optional[str]:
         """Accept full UUID or 8-char prefix."""
@@ -581,6 +611,38 @@ def _parse_action(response: str) -> Tuple[str, Dict]:
     except json.JSONDecodeError:
         logger.warning("Failed to parse retrieval action JSON.")
         return "finish", {"answer": ""}
+
+
+def _parse_relation_families(family: str) -> Optional[Set[str]]:
+    """Parse LLM relation_family values into a family allow-list.
+
+    The planner often emits values such as ``entity-event|event-event`` even
+    though persisted edges store one family string. ``None`` means "any".
+    """
+    raw = str(family or "any").strip().lower()
+    if not raw or raw == "any":
+        return None
+
+    parts = [
+        part.strip()
+        for part in re.split(r"[|,/]+|\bor\b", raw)
+        if part.strip()
+    ]
+    aliases = {
+        "event-entity": "entity-event",
+        "entity event": "entity-event",
+        "entity to event": "entity-event",
+        "entity-entity": "entity-entity",
+        "entity entity": "entity-entity",
+        "event-event": "event-event",
+        "event event": "event-event",
+    }
+    families = {
+        aliases.get(part, part)
+        for part in parts
+        if aliases.get(part, part) in {"entity-event", "entity-entity", "event-event"}
+    }
+    return families or None
 
 
 def _is_answerable_category(category: str) -> bool:

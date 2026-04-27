@@ -313,6 +313,31 @@ def test_execute_jump_expands_neighbors(tmp_path):
     assert c not in new_nodes  # wrong family
 
 
+def test_execute_jump_accepts_pipe_separated_families(tmp_path):
+    graph = _make_graph(tmp_path)
+    a = graph.add_node("Entity", "Alice")
+    b = graph.add_node("Event", "Lunch")
+    c = graph.add_node("Entity", "Bob")
+    graph.add_edge(a, b, "entity-event", "attended")
+    graph.add_edge(a, c, "entity-entity", "knows")
+
+    archive   = _make_archive()
+    localizer = _make_localizer(graph)
+    llm = MagicMock()
+    retriever = GraphRetriever(graph=graph, archive=archive, localizer=localizer, llm=llm)
+
+    new_nodes, _ = retriever._execute_jump(
+        node_ids=[a[:8]],
+        family="entity-event|event-event",
+        constraint="",
+        budget=5,
+        visited={a},
+    )
+
+    assert b in new_nodes
+    assert c not in new_nodes
+
+
 def test_execute_jump_skips_visited(tmp_path):
     graph = _make_graph(tmp_path)
     a = graph.add_node("Entity", "Alice")
