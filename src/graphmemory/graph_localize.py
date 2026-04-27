@@ -13,11 +13,12 @@ most likely to contain answer evidence).  The `purpose` parameter selects the sc
 
 from __future__ import annotations
 
+import re
 from typing import Any, Dict, List, Set, Tuple
 
 from loguru import logger
 
-from graphmemory.graph_store import GraphStore, format_subgraph
+from graphmemory.graph_store import GraphStore, format_subgraph, node_relevance_text
 
 
 # ---------------------------------------------------------------------------
@@ -228,11 +229,7 @@ class GraphLocalizer:
 
             seed_in_sub = sum(1 for s in seed_ids if s in nodes)
             f1 = seed_in_sub / max(len(seed_ids), 1)
-            mentioned = sum(
-                1 for node in nodes.values()
-                if node["canonical_name"].lower() in input_lower
-                or any(a.lower() in input_lower for a in node.get("aliases", []))
-            )
+            mentioned = sum(1 for node in nodes.values() if _node_matches_query(node, input_lower))
             f2 = mentioned / n
             max_edges_possible = n * (n - 1) / 2
             f3 = len(edges) / max_edges_possible if max_edges_possible > 0 else 0.0
@@ -270,3 +267,28 @@ def _merge_subgraphs(
                 edge_ids.add(edge_id)
 
     return {"nodes": nodes, "edges": edges}
+
+
+def _node_matches_query(node: Dict[str, Any], input_lower: str) -> bool:
+    if node["canonical_name"].lower() in input_lower:
+        return True
+    if any(a.lower() in input_lower for a in node.get("aliases", [])):
+        return True
+    query_tokens = _content_tokens(input_lower)
+    if not query_tokens:
+        return False
+    node_tokens = _content_tokens(node_relevance_text(node).lower())
+    return len(query_tokens & node_tokens) >= min(2, len(query_tokens))
+
+
+def _content_tokens(text: str) -> Set[str]:
+    stop = {
+        "the", "a", "an", "and", "or", "to", "of", "in", "on", "at", "for", "with",
+        "what", "when", "where", "who", "why", "how", "did", "does", "do", "is",
+        "are", "was", "were", "had", "has", "have", "he", "she", "they", "it",
+    }
+    return {
+        token
+        for token in re.findall(r"[a-z0-9][a-z0-9'’-]*", text.lower())
+        if len(token) > 2 and token not in stop
+    }

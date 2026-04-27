@@ -138,6 +138,33 @@ def test_scoring_returns_empty_if_no_candidates(tmp_path):
     assert best == {"nodes": {}, "edges": []}
 
 
+def test_scoring_uses_fact_text_for_mention_density(tmp_path):
+    graph = _make_graph(tmp_path)
+    generic = graph.add_node("Event", "Conversation detail")
+    convention = graph.add_node(
+        "Event",
+        "Work update",
+        attrs={
+            "fact": (
+                "On 18 April 2023, John said he and his colleagues had gone "
+                "to a tech-for-good convention the previous month."
+            )
+        },
+    )
+
+    sub1 = {"nodes": {generic: graph.get_node(generic)}, "edges": []}
+    sub2 = {"nodes": {convention: graph.get_node(convention)}, "edges": []}
+
+    loc = _make_localizer(graph)
+    ranked = loc._rank_subgraphs(
+        [sub1, sub2],
+        "What did John attend with his colleagues in March 2023?",
+        [generic, convention],
+    )
+
+    assert convention in ranked[0]["nodes"]
+
+
 # ---------------------------------------------------------------------------
 # Ranked / union localization
 # ---------------------------------------------------------------------------
