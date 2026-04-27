@@ -1,0 +1,2627 @@
+{
+  "total": {
+    "samples": 10,
+    "node_count": 2477,
+    "edge_count": 3076,
+    "entity_count": 597,
+    "event_count": 1880,
+    "invalid_edge_count": 0,
+    "isolated_event_count": 0,
+    "events_with_fact": 1880,
+    "events_missing_fact": 0,
+    "events_with_quote": 1880,
+    "events_missing_quote": 0,
+    "event_without_entity_event_edge": 0,
+    "total_batches": 1571,
+    "trigger_count": 1477,
+    "skip_count": 94,
+    "failed_ops": 1220,
+    "dedup_merges": 0,
+    "ops": {
+      "CreateEvent": 1881,
+      "Link": 3190,
+      "RepairEventAttrs": 1880,
+      "CreateEntity": 642,
+      "BatchSkipRecovery": 70,
+      "Skip": 112,
+      "AttachAttr": 448,
+      "RepairEventLink": 238,
+      "ReviseAttr": 91,
+      "AddEdge": 3,
+      "MergeNode": 1
+    },
+    "rejected_ops": {
+      "session-container event rejected": 56,
+      "low-value abstract event rejected": 72
+    },
+    "trigger_rate": 0.94
+  },
+  "by_sample": {
+    "conv-26": {
+      "graph_path": "experiments/2026-04-28-008-skip-recovery-finish-check/build/graphs/conv-26_graph.json",
+      "node_count": 142,
+      "edge_count": 216,
+      "node_types": {
+        "Entity": 38,
+        "Event": 104
+      },
+      "edge_families": {
+        "entity-event": 198,
+        "event-event": 18
+      },
+      "top_predicates": [
+        [
+          "participant",
+          66
+        ],
+        [
+          "experienced",
+          33
+        ],
+        [
+          "object_of",
+          30
+        ],
+        [
+          "inspired",
+          15
+        ],
+        [
+          "supports",
+          14
+        ],
+        [
+          "mentions",
+          10
+        ],
+        [
+          "shared",
+          5
+        ],
+        [
+          "before",
+          5
+        ],
+        [
+          "made",
+          3
+        ],
+        [
+          "created",
+          3
+        ],
+        [
+          "supported",
+          3
+        ],
+        [
+          "inspired_by",
+          2
+        ],
+        [
+          "attended",
+          2
+        ],
+        [
+          "listened_to",
+          2
+        ],
+        [
+          "excited_about",
+          1
+        ],
+        [
+          "started",
+          1
+        ],
+        [
+          "acknowledges",
+          1
+        ],
+        [
+          "commits",
+          1
+        ],
+        [
+          "expresses_pride",
+          1
+        ],
+        [
+          "exploring",
+          1
+        ]
+      ],
+      "entity_count": 38,
+      "event_count": 104,
+      "entity_event_ratio": 0.36538461538461536,
+      "invalid_edge_count": 0,
+      "event_without_entity_event_edge": 0,
+      "isolated_event_count": 0,
+      "low_degree_event_count": 69,
+      "events_missing_time": 0,
+      "events_missing_source": 0,
+      "events_missing_text": 0,
+      "events_with_fact": 104,
+      "events_missing_fact": 0,
+      "events_with_quote": 104,
+      "events_missing_quote": 0,
+      "events_with_original_text": 104,
+      "session_container_event_count": 0,
+      "low_value_event_edge_count": 10,
+      "sample_entities": [
+        {
+          "id": "c3139486",
+          "name": "Caroline",
+          "degree": 118
+        },
+        {
+          "id": "5e565bef",
+          "name": "Melanie",
+          "degree": 57
+        },
+        {
+          "id": "bea04198",
+          "name": "Painting",
+          "degree": 3
+        },
+        {
+          "id": "e95b42e4",
+          "name": "Self-care",
+          "degree": 2
+        },
+        {
+          "id": "d684481f",
+          "name": "Necklace",
+          "degree": 2
+        },
+        {
+          "id": "eb8ee20e",
+          "name": "Lake Sunrise",
+          "degree": 1
+        },
+        {
+          "id": "19f52a1b",
+          "name": "Family for kids who need one",
+          "degree": 1
+        },
+        {
+          "id": "30e747f0",
+          "name": "Pottery",
+          "degree": 1
+        },
+        {
+          "id": "24159b9f",
+          "name": "Dinosaur Exhibit",
+          "degree": 1
+        },
+        {
+          "id": "b2e18806",
+          "name": "Pet",
+          "degree": 1
+        },
+        {
+          "id": "dd7a253f",
+          "name": "Blue vase",
+          "degree": 1
+        },
+        {
+          "id": "b26f8f58",
+          "name": "Sunflowers",
+          "degree": 1
+        },
+        {
+          "id": "e244e254",
+          "name": "Roses",
+          "degree": 1
+        },
+        {
+          "id": "000cd756",
+          "name": "Melanie's pottery project",
+          "degree": 1
+        },
+        {
+          "id": "1b47c878",
+          "name": "Horse",
+          "degree": 1
+        },
+        {
+          "id": "29ef594f",
+          "name": "Stained Glass Window",
+          "degree": 1
+        },
+        {
+          "id": "0c577078",
+          "name": "clarinet",
+          "degree": 1
+        },
+        {
+          "id": "a4587dcc",
+          "name": "modern",
+          "degree": 1
+        },
+        {
+          "id": "b5c6e088",
+          "name": "Perfect",
+          "degree": 1
+        },
+        {
+          "id": "fcc8e621",
+          "name": "Poetry reading",
+          "degree": 1
+        },
+        {
+          "id": "d2f1d131",
+          "name": "Figurines",
+          "degree": 1
+        },
+        {
+          "id": "853799af",
+          "name": "counseling or mental health work",
+          "degree": 0
+        },
+        {
+          "id": "88bcc3ef",
+          "name": "Research",
+          "degree": 0
+        },
+        {
+          "id": "dc5b5e98",
+          "name": "Me-Time Activity",
+          "degree": 0
+        },
+        {
+          "id": "7ed96a3c",
+          "name": "Camping Trip",
+          "degree": 0
+        }
+      ],
+      "sample_problem_events": [],
+      "total_batches": 111,
+      "trigger_count": 107,
+      "skip_count": 4,
+      "trigger_rate": 0.964,
+      "ops": {
+        "CreateEvent": 104,
+        "Link": 263,
+        "RepairEventAttrs": 104,
+        "CreateEntity": 40,
+        "BatchSkipRecovery": 5,
+        "Skip": 4,
+        "AttachAttr": 34,
+        "RepairEventLink": 10,
+        "ReviseAttr": 2
+      },
+      "rejected_ops": {
+        "session-container event rejected": 4,
+        "low-value abstract event rejected": 4
+      },
+      "failed_ops": 63,
+      "dedup_merges": 0
+    },
+    "conv-30": {
+      "graph_path": "experiments/2026-04-28-008-skip-recovery-finish-check/build/graphs/conv-30_graph.json",
+      "node_count": 171,
+      "edge_count": 226,
+      "node_types": {
+        "Entity": 23,
+        "Event": 148
+      },
+      "edge_families": {
+        "entity-event": 221,
+        "event-event": 5
+      },
+      "top_predicates": [
+        [
+          "participant",
+          55
+        ],
+        [
+          "experienced",
+          46
+        ],
+        [
+          "object_of",
+          14
+        ],
+        [
+          "motivated_by",
+          11
+        ],
+        [
+          "supports",
+          8
+        ],
+        [
+          "launched",
+          4
+        ],
+        [
+          "participated",
+          4
+        ],
+        [
+          "encourages",
+          4
+        ],
+        [
+          "encouraged",
+          4
+        ],
+        [
+          "works_on",
+          3
+        ],
+        [
+          "uses",
+          2
+        ],
+        [
+          "agreed_to",
+          2
+        ],
+        [
+          "expands",
+          2
+        ],
+        [
+          "asks_about",
+          2
+        ],
+        [
+          "attended",
+          2
+        ],
+        [
+          "pursues",
+          2
+        ],
+        [
+          "inspired",
+          2
+        ],
+        [
+          "after",
+          2
+        ],
+        [
+          "shares",
+          2
+        ],
+        [
+          "hosting",
+          2
+        ]
+      ],
+      "entity_count": 23,
+      "event_count": 148,
+      "entity_event_ratio": 0.1554054054054054,
+      "invalid_edge_count": 0,
+      "event_without_entity_event_edge": 0,
+      "isolated_event_count": 0,
+      "low_degree_event_count": 130,
+      "events_missing_time": 0,
+      "events_missing_source": 0,
+      "events_missing_text": 0,
+      "events_with_fact": 148,
+      "events_missing_fact": 0,
+      "events_with_quote": 148,
+      "events_missing_quote": 0,
+      "events_with_original_text": 148,
+      "session_container_event_count": 0,
+      "low_value_event_edge_count": 1,
+      "sample_entities": [
+        {
+          "id": "272c0f0e",
+          "name": "Jon",
+          "degree": 139
+        },
+        {
+          "id": "2ae8199d",
+          "name": "Gina",
+          "degree": 69
+        },
+        {
+          "id": "a3b9e7f3",
+          "name": "dance studio",
+          "degree": 3
+        },
+        {
+          "id": "4a101eba",
+          "name": "Clothing store",
+          "degree": 2
+        },
+        {
+          "id": "15bd90a1",
+          "name": "Finding Freedom",
+          "degree": 1
+        },
+        {
+          "id": "ba2905bb",
+          "name": "Fashion Design",
+          "degree": 1
+        },
+        {
+          "id": "3d437844",
+          "name": "Dance session",
+          "degree": 1
+        },
+        {
+          "id": "435d5cfe",
+          "name": "The Lean Startup",
+          "degree": 1
+        },
+        {
+          "id": "7ef843b3",
+          "name": "Investor",
+          "degree": 1
+        },
+        {
+          "id": "1fe098e5",
+          "name": "Business Dude",
+          "degree": 1
+        },
+        {
+          "id": "71b7f02c",
+          "name": "Hoodie",
+          "degree": 1
+        },
+        {
+          "id": "2a1edb90",
+          "name": "Shia Labeouf",
+          "degree": 1
+        },
+        {
+          "id": "807cd44d",
+          "name": "Dance",
+          "degree": 0
+        },
+        {
+          "id": "112fbc16",
+          "name": "Contemporary Dance",
+          "degree": 0
+        },
+        {
+          "id": "e43ea25f",
+          "name": "Dance Relief",
+          "degree": 0
+        },
+        {
+          "id": "74851568",
+          "name": "Paris",
+          "degree": 0
+        },
+        {
+          "id": "5d822794",
+          "name": "Rome",
+          "degree": 0
+        },
+        {
+          "id": "2031573c",
+          "name": "downtown",
+          "degree": 0
+        },
+        {
+          "id": "c227d672",
+          "name": "Fashion piece",
+          "degree": 0
+        },
+        {
+          "id": "b9a2c7f7",
+          "name": "FashionTrend",
+          "degree": 0
+        },
+        {
+          "id": "e9b020da",
+          "name": "Fashion Internship",
+          "degree": 0
+        },
+        {
+          "id": "68eb4ca9",
+          "name": "Business Plan",
+          "degree": 0
+        },
+        {
+          "id": "ed2e91d3",
+          "name": "Mentor System",
+          "degree": 0
+        }
+      ],
+      "sample_problem_events": [],
+      "total_batches": 99,
+      "trigger_count": 91,
+      "skip_count": 8,
+      "trigger_rate": 0.919,
+      "ops": {
+        "CreateEvent": 148,
+        "Link": 254,
+        "CreateEntity": 27,
+        "RepairEventAttrs": 148,
+        "BatchSkipRecovery": 3,
+        "AttachAttr": 38,
+        "RepairEventLink": 11,
+        "Skip": 1,
+        "ReviseAttr": 3
+      },
+      "rejected_ops": {
+        "session-container event rejected": 1,
+        "low-value abstract event rejected": 2
+      },
+      "failed_ops": 32,
+      "dedup_merges": 0
+    },
+    "conv-41": {
+      "graph_path": "experiments/2026-04-28-008-skip-recovery-finish-check/build/graphs/conv-41_graph.json",
+      "node_count": 214,
+      "edge_count": 255,
+      "node_types": {
+        "Entity": 54,
+        "Event": 160
+      },
+      "edge_families": {
+        "entity-event": 235,
+        "entity-entity": 1,
+        "event-event": 19
+      },
+      "top_predicates": [
+        [
+          "participant",
+          104
+        ],
+        [
+          "experienced",
+          74
+        ],
+        [
+          "object_of",
+          33
+        ],
+        [
+          "after",
+          10
+        ],
+        [
+          "expressed",
+          7
+        ],
+        [
+          "inspired",
+          6
+        ],
+        [
+          "updates",
+          4
+        ],
+        [
+          "support",
+          4
+        ],
+        [
+          "focus",
+          3
+        ],
+        [
+          "used_for",
+          2
+        ],
+        [
+          "volunteered at",
+          1
+        ],
+        [
+          "joined",
+          1
+        ],
+        [
+          "spends",
+          1
+        ],
+        [
+          "has",
+          1
+        ],
+        [
+          "did",
+          1
+        ],
+        [
+          "hosted",
+          1
+        ],
+        [
+          "type_of",
+          1
+        ],
+        [
+          "before",
+          1
+        ]
+      ],
+      "entity_count": 54,
+      "event_count": 160,
+      "entity_event_ratio": 0.3375,
+      "invalid_edge_count": 0,
+      "event_without_entity_event_edge": 0,
+      "isolated_event_count": 0,
+      "low_degree_event_count": 134,
+      "events_missing_time": 0,
+      "events_missing_source": 0,
+      "events_missing_text": 0,
+      "events_with_fact": 160,
+      "events_missing_fact": 0,
+      "events_with_quote": 160,
+      "events_missing_quote": 0,
+      "events_with_original_text": 160,
+      "session_container_event_count": 0,
+      "low_value_event_edge_count": 0,
+      "sample_entities": [
+        {
+          "id": "4a765da8",
+          "name": "John",
+          "degree": 103
+        },
+        {
+          "id": "3859d429",
+          "name": "Maria",
+          "degree": 66
+        },
+        {
+          "id": "946c536c",
+          "name": "John and Maria",
+          "degree": 8
+        },
+        {
+          "id": "e054468f",
+          "name": "Beach Memory",
+          "degree": 7
+        },
+        {
+          "id": "f5385407",
+          "name": "Max",
+          "degree": 5
+        },
+        {
+          "id": "86407169",
+          "name": "Kyle",
+          "degree": 4
+        },
+        {
+          "id": "4de4b079",
+          "name": "Family Support",
+          "degree": 4
+        },
+        {
+          "id": "683501e5",
+          "name": "Homeless Shelter",
+          "degree": 2
+        },
+        {
+          "id": "f049dad0",
+          "name": "Family Memory",
+          "degree": 2
+        },
+        {
+          "id": "6247e6c6",
+          "name": "Film Camera",
+          "degree": 2
+        },
+        {
+          "id": "d023b16f",
+          "name": "Maria's aunt",
+          "degree": 2
+        },
+        {
+          "id": "abe5e688",
+          "name": "Jean",
+          "degree": 2
+        },
+        {
+          "id": "c9bdd72e",
+          "name": "Florida Vacation",
+          "degree": 2
+        },
+        {
+          "id": "587448ca",
+          "name": "Cousin",
+          "degree": 2
+        },
+        {
+          "id": "bb479d37",
+          "name": "Picnic",
+          "degree": 2
+        },
+        {
+          "id": "f5fb7592",
+          "name": "Politics",
+          "degree": 1
+        },
+        {
+          "id": "f2f3fd85",
+          "name": "Education",
+          "degree": 1
+        },
+        {
+          "id": "dacfe5dc",
+          "name": "Infrastructure",
+          "degree": 1
+        },
+        {
+          "id": "384ccc23",
+          "name": "School",
+          "degree": 1
+        },
+        {
+          "id": "f168ced0",
+          "name": "Peach Cobbler",
+          "degree": 1
+        },
+        {
+          "id": "d607df11",
+          "name": "Service-focused online group",
+          "degree": 1
+        },
+        {
+          "id": "0377df6f",
+          "name": "Shelter event for kids",
+          "degree": 1
+        },
+        {
+          "id": "d9c99038",
+          "name": "Doll",
+          "degree": 1
+        },
+        {
+          "id": "0d6fa535",
+          "name": "Maria's charity event",
+          "degree": 1
+        },
+        {
+          "id": "bf01a59b",
+          "name": "FoodBank",
+          "degree": 1
+        }
+      ],
+      "sample_problem_events": [],
+      "total_batches": 179,
+      "trigger_count": 170,
+      "skip_count": 9,
+      "trigger_rate": 0.95,
+      "ops": {
+        "CreateEvent": 160,
+        "Link": 262,
+        "RepairEventAttrs": 160,
+        "CreateEntity": 53,
+        "BatchSkipRecovery": 8,
+        "Skip": 11,
+        "AttachAttr": 113,
+        "ReviseAttr": 21,
+        "RepairEventLink": 35
+      },
+      "rejected_ops": {
+        "session-container event rejected": 8,
+        "low-value abstract event rejected": 26
+      },
+      "failed_ops": 221,
+      "dedup_merges": 0
+    },
+    "conv-42": {
+      "graph_path": "experiments/2026-04-28-008-skip-recovery-finish-check/build/graphs/conv-42_graph.json",
+      "node_count": 286,
+      "edge_count": 321,
+      "node_types": {
+        "Entity": 80,
+        "Event": 206
+      },
+      "edge_families": {
+        "entity-event": 302,
+        "event-event": 18,
+        "entity-entity": 1
+      },
+      "top_predicates": [
+        [
+          "participant",
+          118
+        ],
+        [
+          "object_of",
+          96
+        ],
+        [
+          "experienced",
+          41
+        ],
+        [
+          "after",
+          7
+        ],
+        [
+          "used_in",
+          7
+        ],
+        [
+          "appreciates",
+          6
+        ],
+        [
+          "supports",
+          6
+        ],
+        [
+          "before",
+          4
+        ],
+        [
+          "watched",
+          4
+        ],
+        [
+          "updates",
+          3
+        ],
+        [
+          "supporter",
+          3
+        ],
+        [
+          "mentions",
+          3
+        ],
+        [
+          "inspired",
+          3
+        ],
+        [
+          "location",
+          2
+        ],
+        [
+          "location_of",
+          2
+        ],
+        [
+          "encourages",
+          2
+        ],
+        [
+          "thanks",
+          2
+        ],
+        [
+          "affected_by",
+          1
+        ],
+        [
+          "follows",
+          1
+        ],
+        [
+          "parent",
+          1
+        ]
+      ],
+      "entity_count": 80,
+      "event_count": 206,
+      "entity_event_ratio": 0.3883495145631068,
+      "invalid_edge_count": 0,
+      "event_without_entity_event_edge": 0,
+      "isolated_event_count": 0,
+      "low_degree_event_count": 174,
+      "events_missing_time": 0,
+      "events_missing_source": 0,
+      "events_missing_text": 0,
+      "events_with_fact": 206,
+      "events_missing_fact": 0,
+      "events_with_quote": 206,
+      "events_missing_quote": 0,
+      "events_with_original_text": 206,
+      "session_container_event_count": 0,
+      "low_value_event_edge_count": 3,
+      "sample_entities": [
+        {
+          "id": "7e026bbd",
+          "name": "Joanna",
+          "degree": 116
+        },
+        {
+          "id": "9144fc0d",
+          "name": "Nate",
+          "degree": 52
+        },
+        {
+          "id": "d3316dc9",
+          "name": "Turtles",
+          "degree": 15
+        },
+        {
+          "id": "b55e0c1f",
+          "name": "Turtle",
+          "degree": 11
+        },
+        {
+          "id": "33ed4b5f",
+          "name": "Writing",
+          "degree": 9
+        },
+        {
+          "id": "e6dad513",
+          "name": "coconut milk recipe",
+          "degree": 7
+        },
+        {
+          "id": "35ec530a",
+          "name": "Pets",
+          "degree": 6
+        },
+        {
+          "id": "ef8abb56",
+          "name": "Trail",
+          "degree": 6
+        },
+        {
+          "id": "0b3d5e18",
+          "name": "Couple",
+          "degree": 4
+        },
+        {
+          "id": "cba2464e",
+          "name": "recipe request",
+          "degree": 4
+        },
+        {
+          "id": "bdc8510b",
+          "name": "Snack",
+          "degree": 3
+        },
+        {
+          "id": "8e905b43",
+          "name": "Book",
+          "degree": 3
+        },
+        {
+          "id": "aded6683",
+          "name": "Video Game Tournament",
+          "degree": 3
+        },
+        {
+          "id": "4d3c3e23",
+          "name": "Counter-Strike: Global Offensive",
+          "degree": 2
+        },
+        {
+          "id": "82bef81a",
+          "name": "Movies",
+          "degree": 2
+        },
+        {
+          "id": "289acd5a",
+          "name": "First full screenplay",
+          "degree": 2
+        },
+        {
+          "id": "dfe43063",
+          "name": "Flavor",
+          "degree": 2
+        },
+        {
+          "id": "0e1f74e4",
+          "name": "Whispering Falls",
+          "degree": 2
+        },
+        {
+          "id": "b09b4f27",
+          "name": "Vegan Ice Cream",
+          "degree": 2
+        },
+        {
+          "id": "d5bca669",
+          "name": "Fantasy Book Series",
+          "degree": 2
+        },
+        {
+          "id": "89a56dbc",
+          "name": "Chocolate Cake",
+          "degree": 2
+        },
+        {
+          "id": "211d40b8",
+          "name": "Classic Movie",
+          "degree": 2
+        },
+        {
+          "id": "334962db",
+          "name": "Brother",
+          "degree": 2
+        },
+        {
+          "id": "66ae0ff2",
+          "name": "Reading",
+          "degree": 1
+        },
+        {
+          "id": "d1b2f9f8",
+          "name": "Exploring Nature",
+          "degree": 1
+        }
+      ],
+      "sample_problem_events": [],
+      "total_batches": 169,
+      "trigger_count": 154,
+      "skip_count": 15,
+      "trigger_rate": 0.911,
+      "ops": {
+        "CreateEvent": 206,
+        "Link": 322,
+        "RepairEventAttrs": 206,
+        "CreateEntity": 83,
+        "AttachAttr": 37,
+        "BatchSkipRecovery": 9,
+        "Skip": 16,
+        "RepairEventLink": 37,
+        "ReviseAttr": 8
+      },
+      "rejected_ops": {
+        "session-container event rejected": 5,
+        "low-value abstract event rejected": 2
+      },
+      "failed_ops": 197,
+      "dedup_merges": 0
+    },
+    "conv-43": {
+      "graph_path": "experiments/2026-04-28-008-skip-recovery-finish-check/build/graphs/conv-43_graph.json",
+      "node_count": 283,
+      "edge_count": 329,
+      "node_types": {
+        "Entity": 75,
+        "Event": 208
+      },
+      "edge_families": {
+        "entity-event": 314,
+        "event-event": 15
+      },
+      "top_predicates": [
+        [
+          "participant",
+          129
+        ],
+        [
+          "object_of",
+          78
+        ],
+        [
+          "experienced",
+          43
+        ],
+        [
+          "discussing",
+          21
+        ],
+        [
+          "location",
+          9
+        ],
+        [
+          "mentioning",
+          8
+        ],
+        [
+          "before",
+          6
+        ],
+        [
+          "inspired",
+          4
+        ],
+        [
+          "reading",
+          2
+        ],
+        [
+          "followed_by",
+          2
+        ],
+        [
+          "updates",
+          2
+        ],
+        [
+          "talked_about",
+          2
+        ],
+        [
+          "asked_about",
+          2
+        ],
+        [
+          "after",
+          2
+        ],
+        [
+          "attended",
+          2
+        ],
+        [
+          "signed_with",
+          1
+        ],
+        [
+          "goal",
+          1
+        ],
+        [
+          "activity",
+          1
+        ],
+        [
+          "supporting",
+          1
+        ],
+        [
+          "attending",
+          1
+        ]
+      ],
+      "entity_count": 75,
+      "event_count": 208,
+      "entity_event_ratio": 0.3605769230769231,
+      "invalid_edge_count": 0,
+      "event_without_entity_event_edge": 0,
+      "isolated_event_count": 0,
+      "low_degree_event_count": 185,
+      "events_missing_time": 0,
+      "events_missing_source": 0,
+      "events_missing_text": 0,
+      "events_with_fact": 208,
+      "events_missing_fact": 0,
+      "events_with_quote": 208,
+      "events_missing_quote": 0,
+      "events_with_original_text": 208,
+      "session_container_event_count": 0,
+      "low_value_event_edge_count": 0,
+      "sample_entities": [
+        {
+          "id": "a591f626",
+          "name": "Tim",
+          "degree": 147
+        },
+        {
+          "id": "4993f307",
+          "name": "John",
+          "degree": 94
+        },
+        {
+          "id": "572e09c4",
+          "name": "Thanksgiving",
+          "degree": 3
+        },
+        {
+          "id": "83e2c3a6",
+          "name": "New York City",
+          "degree": 3
+        },
+        {
+          "id": "8efc8c69",
+          "name": "The Alchemist",
+          "degree": 3
+        },
+        {
+          "id": "f300cede",
+          "name": "Wedding",
+          "degree": 3
+        },
+        {
+          "id": "4cb2a729",
+          "name": "London",
+          "degree": 2
+        },
+        {
+          "id": "219812aa",
+          "name": "Universal Studios",
+          "degree": 2
+        },
+        {
+          "id": "98713e26",
+          "name": "Foundation",
+          "degree": 2
+        },
+        {
+          "id": "071f5458",
+          "name": "The Name of the Wind",
+          "degree": 2
+        },
+        {
+          "id": "617fdebe",
+          "name": "LeBron",
+          "degree": 2
+        },
+        {
+          "id": "57bb597b",
+          "name": "Cooking",
+          "degree": 2
+        },
+        {
+          "id": "69c66112",
+          "name": "Italy",
+          "degree": 2
+        },
+        {
+          "id": "2272d523",
+          "name": "Language",
+          "degree": 2
+        },
+        {
+          "id": "fa5ec198",
+          "name": "Paris",
+          "degree": 2
+        },
+        {
+          "id": "7e154e12",
+          "name": "Ireland",
+          "degree": 2
+        },
+        {
+          "id": "36d928c8",
+          "name": "Minnesota Wolves",
+          "degree": 1
+        },
+        {
+          "id": "a4b8f12e",
+          "name": "Shooting Percentage Improvement",
+          "degree": 1
+        },
+        {
+          "id": "bae9093e",
+          "name": "Sneaker Collection",
+          "degree": 1
+        },
+        {
+          "id": "e90938bc",
+          "name": "MinaLima",
+          "degree": 1
+        },
+        {
+          "id": "f9c43bbb",
+          "name": "Nike",
+          "degree": 1
+        },
+        {
+          "id": "1bec2adb",
+          "name": "Gatorade",
+          "degree": 1
+        },
+        {
+          "id": "09cad6b2",
+          "name": "Seattle",
+          "degree": 1
+        },
+        {
+          "id": "124fdd94",
+          "name": "Surfing",
+          "degree": 1
+        },
+        {
+          "id": "065a27c8",
+          "name": "Fantasy Book",
+          "degree": 1
+        }
+      ],
+      "sample_problem_events": [],
+      "total_batches": 180,
+      "trigger_count": 167,
+      "skip_count": 13,
+      "trigger_rate": 0.928,
+      "ops": {
+        "CreateEvent": 208,
+        "Link": 325,
+        "RepairEventAttrs": 208,
+        "CreateEntity": 77,
+        "BatchSkipRecovery": 10,
+        "Skip": 17,
+        "AttachAttr": 35,
+        "RepairEventLink": 19,
+        "AddEdge": 2,
+        "ReviseAttr": 10
+      },
+      "rejected_ops": {
+        "session-container event rejected": 1,
+        "low-value abstract event rejected": 14
+      },
+      "failed_ops": 83,
+      "dedup_merges": 0
+    },
+    "conv-44": {
+      "graph_path": "experiments/2026-04-28-008-skip-recovery-finish-check/build/graphs/conv-44_graph.json",
+      "node_count": 264,
+      "edge_count": 383,
+      "node_types": {
+        "Entity": 50,
+        "Event": 214
+      },
+      "edge_families": {
+        "entity-event": 330,
+        "event-event": 51,
+        "entity-entity": 2
+      },
+      "top_predicates": [
+        [
+          "participant",
+          156
+        ],
+        [
+          "experienced",
+          97
+        ],
+        [
+          "object_of",
+          69
+        ],
+        [
+          "before",
+          25
+        ],
+        [
+          "updates",
+          10
+        ],
+        [
+          "after",
+          9
+        ],
+        [
+          "inspired",
+          4
+        ],
+        [
+          "visited",
+          2
+        ],
+        [
+          "location",
+          2
+        ],
+        [
+          "owns",
+          2
+        ],
+        [
+          "follows",
+          2
+        ],
+        [
+          "achieved",
+          1
+        ],
+        [
+          "breed",
+          1
+        ],
+        [
+          "provided",
+          1
+        ],
+        [
+          "received",
+          1
+        ],
+        [
+          "member_of",
+          1
+        ]
+      ],
+      "entity_count": 50,
+      "event_count": 214,
+      "entity_event_ratio": 0.2336448598130841,
+      "invalid_edge_count": 0,
+      "event_without_entity_event_edge": 0,
+      "isolated_event_count": 0,
+      "low_degree_event_count": 162,
+      "events_missing_time": 0,
+      "events_missing_source": 0,
+      "events_missing_text": 0,
+      "events_with_fact": 214,
+      "events_missing_fact": 0,
+      "events_with_quote": 214,
+      "events_missing_quote": 0,
+      "events_with_original_text": 214,
+      "session_container_event_count": 0,
+      "low_value_event_edge_count": 0,
+      "sample_entities": [
+        {
+          "id": "32bd2ab1",
+          "name": "Andrew",
+          "degree": 118
+        },
+        {
+          "id": "ead5cf69",
+          "name": "Audrey",
+          "degree": 111
+        },
+        {
+          "id": "dc389a44",
+          "name": "Toby",
+          "degree": 13
+        },
+        {
+          "id": "932ba31d",
+          "name": "Pixie",
+          "degree": 8
+        },
+        {
+          "id": "6d661fb3",
+          "name": "Hummingbird",
+          "degree": 7
+        },
+        {
+          "id": "6395f351",
+          "name": "Bonding with Pet Workshop",
+          "degree": 6
+        },
+        {
+          "id": "f32ab554",
+          "name": "Dog",
+          "degree": 5
+        },
+        {
+          "id": "2f6abb07",
+          "name": "Sushi",
+          "degree": 5
+        },
+        {
+          "id": "3e6b6707",
+          "name": "Animal",
+          "degree": 4
+        },
+        {
+          "id": "c4f4190a",
+          "name": "Max",
+          "degree": 4
+        },
+        {
+          "id": "2d4dbaac",
+          "name": "Buddy",
+          "degree": 4
+        },
+        {
+          "id": "e735e1f2",
+          "name": "Pepper",
+          "degree": 3
+        },
+        {
+          "id": "c6accf6f",
+          "name": "Special Moment",
+          "degree": 3
+        },
+        {
+          "id": "291311c1",
+          "name": "Trail near the location",
+          "degree": 3
+        },
+        {
+          "id": "7d212ecd",
+          "name": "Dog Owners Group",
+          "degree": 3
+        },
+        {
+          "id": "0a76867c",
+          "name": "Precious",
+          "degree": 2
+        },
+        {
+          "id": "b4f33aa6",
+          "name": "Panda",
+          "degree": 2
+        },
+        {
+          "id": "68111f99",
+          "name": "Classes",
+          "degree": 2
+        },
+        {
+          "id": "d6ba72ea",
+          "name": "Email request for furry friend spot",
+          "degree": 2
+        },
+        {
+          "id": "770e8bcf",
+          "name": "Personalized tags",
+          "degree": 2
+        },
+        {
+          "id": "a62beeb2",
+          "name": "Dog Grooming Course",
+          "degree": 2
+        },
+        {
+          "id": "39d8446c",
+          "name": "Cafe",
+          "degree": 2
+        },
+        {
+          "id": "248cb760",
+          "name": "Animal Behaviorist",
+          "degree": 2
+        },
+        {
+          "id": "e397bf2b",
+          "name": "Positive Reinforcement Techniques",
+          "degree": 2
+        },
+        {
+          "id": "2abf5eeb",
+          "name": "Scout",
+          "degree": 2
+        }
+      ],
+      "sample_problem_events": [],
+      "total_batches": 179,
+      "trigger_count": 173,
+      "skip_count": 6,
+      "trigger_rate": 0.966,
+      "ops": {
+        "CreateEvent": 214,
+        "Link": 378,
+        "CreateEntity": 60,
+        "RepairEventAttrs": 214,
+        "BatchSkipRecovery": 11,
+        "Skip": 25,
+        "RepairEventLink": 23,
+        "AttachAttr": 65,
+        "ReviseAttr": 3
+      },
+      "rejected_ops": {
+        "session-container event rejected": 6,
+        "low-value abstract event rejected": 3
+      },
+      "failed_ops": 138,
+      "dedup_merges": 0
+    },
+    "conv-47": {
+      "graph_path": "experiments/2026-04-28-008-skip-recovery-finish-check/build/graphs/conv-47_graph.json",
+      "node_count": 325,
+      "edge_count": 411,
+      "node_types": {
+        "Entity": 90,
+        "Event": 235
+      },
+      "edge_families": {
+        "entity-event": 378,
+        "event-event": 30,
+        "entity-entity": 3
+      },
+      "top_predicates": [
+        [
+          "participant",
+          191
+        ],
+        [
+          "object_of",
+          91
+        ],
+        [
+          "experienced",
+          34
+        ],
+        [
+          "inspired",
+          12
+        ],
+        [
+          "before",
+          9
+        ],
+        [
+          "possesses",
+          9
+        ],
+        [
+          "likes",
+          5
+        ],
+        [
+          "updates",
+          5
+        ],
+        [
+          "supports",
+          5
+        ],
+        [
+          "after",
+          4
+        ],
+        [
+          "participated_in",
+          3
+        ],
+        [
+          "inspired_by",
+          3
+        ],
+        [
+          "encouraged",
+          3
+        ],
+        [
+          "thinks_about",
+          3
+        ],
+        [
+          "participates_in",
+          2
+        ],
+        [
+          "stays_motivated",
+          2
+        ],
+        [
+          "location",
+          2
+        ],
+        [
+          "aspires_to",
+          2
+        ],
+        [
+          "created",
+          2
+        ],
+        [
+          "enjoys",
+          1
+        ]
+      ],
+      "entity_count": 90,
+      "event_count": 235,
+      "entity_event_ratio": 0.3829787234042553,
+      "invalid_edge_count": 0,
+      "event_without_entity_event_edge": 0,
+      "isolated_event_count": 0,
+      "low_degree_event_count": 194,
+      "events_missing_time": 0,
+      "events_missing_source": 0,
+      "events_missing_text": 0,
+      "events_with_fact": 235,
+      "events_missing_fact": 0,
+      "events_with_quote": 235,
+      "events_missing_quote": 0,
+      "events_with_original_text": 235,
+      "session_container_event_count": 0,
+      "low_value_event_edge_count": 0,
+      "sample_entities": [
+        {
+          "id": "09f9537e",
+          "name": "John",
+          "degree": 133
+        },
+        {
+          "id": "2cbea09f",
+          "name": "James",
+          "degree": 115
+        },
+        {
+          "id": "1f55c9d9",
+          "name": "Max",
+          "degree": 21
+        },
+        {
+          "id": "3dc9b657",
+          "name": "Project",
+          "degree": 11
+        },
+        {
+          "id": "a5af6a10",
+          "name": "John's dream job",
+          "degree": 10
+        },
+        {
+          "id": "b975405b",
+          "name": "Daisy",
+          "degree": 7
+        },
+        {
+          "id": "81f5cf28",
+          "name": "Charity Foundation",
+          "degree": 4
+        },
+        {
+          "id": "6867c7f9",
+          "name": "The Park",
+          "degree": 4
+        },
+        {
+          "id": "4947d3b5",
+          "name": "Online Programming Group",
+          "degree": 4
+        },
+        {
+          "id": "cec95567",
+          "name": "Programming class",
+          "degree": 3
+        },
+        {
+          "id": "1b88eb52",
+          "name": "Samantha",
+          "degree": 3
+        },
+        {
+          "id": "6895bd8b",
+          "name": "Cooking class",
+          "degree": 3
+        },
+        {
+          "id": "0da0bffe",
+          "name": "Dog",
+          "degree": 2
+        },
+        {
+          "id": "e08cc7e4",
+          "name": "Gaming",
+          "degree": 2
+        },
+        {
+          "id": "393babd8",
+          "name": "Metal Detector Hobby",
+          "degree": 2
+        },
+        {
+          "id": "03f968a3",
+          "name": "Autograph",
+          "degree": 2
+        },
+        {
+          "id": "ea526e88",
+          "name": "Apex Legends",
+          "degree": 2
+        },
+        {
+          "id": "039984ee",
+          "name": "RPGs and MOBAs",
+          "degree": 2
+        },
+        {
+          "id": "a0afd8af",
+          "name": "Ned",
+          "degree": 2
+        },
+        {
+          "id": "ea51bde3",
+          "name": "The Name of the Wind",
+          "degree": 2
+        },
+        {
+          "id": "e9f7519e",
+          "name": "Purpose",
+          "degree": 2
+        },
+        {
+          "id": "3edc2f14",
+          "name": "NonProfitSector",
+          "degree": 2
+        },
+        {
+          "id": "27795e96",
+          "name": "John's coding blog",
+          "degree": 2
+        },
+        {
+          "id": "a18c8129",
+          "name": "Career in non-profit sector",
+          "degree": 2
+        },
+        {
+          "id": "4633d08d",
+          "name": "Skate Park",
+          "degree": 2
+        }
+      ],
+      "sample_problem_events": [],
+      "total_batches": 185,
+      "trigger_count": 172,
+      "skip_count": 13,
+      "trigger_rate": 0.93,
+      "ops": {
+        "CreateEntity": 98,
+        "CreateEvent": 235,
+        "Link": 449,
+        "RepairEventAttrs": 235,
+        "RepairEventLink": 29,
+        "AttachAttr": 27,
+        "Skip": 14,
+        "BatchSkipRecovery": 9,
+        "ReviseAttr": 17
+      },
+      "rejected_ops": {
+        "session-container event rejected": 8,
+        "low-value abstract event rejected": 4
+      },
+      "failed_ops": 147,
+      "dedup_merges": 0
+    },
+    "conv-48": {
+      "graph_path": "experiments/2026-04-28-008-skip-recovery-finish-check/build/graphs/conv-48_graph.json",
+      "node_count": 298,
+      "edge_count": 348,
+      "node_types": {
+        "Entity": 88,
+        "Event": 210
+      },
+      "edge_families": {
+        "entity-event": 325,
+        "entity-entity": 2,
+        "event-event": 21
+      },
+      "top_predicates": [
+        [
+          "participant",
+          126
+        ],
+        [
+          "object_of",
+          101
+        ],
+        [
+          "experienced",
+          46
+        ],
+        [
+          "inspired",
+          26
+        ],
+        [
+          "location_of",
+          9
+        ],
+        [
+          "after",
+          9
+        ],
+        [
+          "practiced",
+          7
+        ],
+        [
+          "updates",
+          4
+        ],
+        [
+          "visited",
+          3
+        ],
+        [
+          "before",
+          2
+        ],
+        [
+          "consumed",
+          2
+        ],
+        [
+          "shared",
+          2
+        ],
+        [
+          "partner",
+          1
+        ],
+        [
+          "gave",
+          1
+        ],
+        [
+          "created",
+          1
+        ],
+        [
+          "started",
+          1
+        ],
+        [
+          "offered",
+          1
+        ],
+        [
+          "received",
+          1
+        ],
+        [
+          "encouraged_by",
+          1
+        ],
+        [
+          "attended",
+          1
+        ]
+      ],
+      "entity_count": 88,
+      "event_count": 210,
+      "entity_event_ratio": 0.41904761904761906,
+      "invalid_edge_count": 0,
+      "event_without_entity_event_edge": 0,
+      "isolated_event_count": 0,
+      "low_degree_event_count": 173,
+      "events_missing_time": 0,
+      "events_missing_source": 0,
+      "events_missing_text": 0,
+      "events_with_fact": 210,
+      "events_missing_fact": 0,
+      "events_with_quote": 210,
+      "events_missing_quote": 0,
+      "events_with_original_text": 210,
+      "session_container_event_count": 0,
+      "low_value_event_edge_count": 0,
+      "sample_entities": [
+        {
+          "id": "f2e9004f",
+          "name": "Jolene",
+          "degree": 135
+        },
+        {
+          "id": "fee38e28",
+          "name": "Deborah",
+          "degree": 91
+        },
+        {
+          "id": "952c38da",
+          "name": "Nature",
+          "degree": 10
+        },
+        {
+          "id": "45141590",
+          "name": "Workshops",
+          "degree": 6
+        },
+        {
+          "id": "b9a6cab3",
+          "name": "Yoga Place",
+          "degree": 5
+        },
+        {
+          "id": "ae2b3e68",
+          "name": "Snake",
+          "degree": 4
+        },
+        {
+          "id": "b30266d7",
+          "name": "Susie",
+          "degree": 3
+        },
+        {
+          "id": "a3c6b3e1",
+          "name": "Method",
+          "degree": 3
+        },
+        {
+          "id": "ce4af59a",
+          "name": "Yoga Retreat",
+          "degree": 3
+        },
+        {
+          "id": "b53bb1de",
+          "name": "Bench",
+          "degree": 2
+        },
+        {
+          "id": "d89f019b",
+          "name": "Yoga",
+          "degree": 2
+        },
+        {
+          "id": "709f295c",
+          "name": "Yoga in the park",
+          "degree": 2
+        },
+        {
+          "id": "5073d660",
+          "name": "Bookshelf",
+          "degree": 2
+        },
+        {
+          "id": "266fc048",
+          "name": "Avalanche",
+          "degree": 2
+        },
+        {
+          "id": "dc7c8bbd",
+          "name": "Daily Schedule",
+          "degree": 2
+        },
+        {
+          "id": "9cc4af95",
+          "name": "Snakes",
+          "degree": 2
+        },
+        {
+          "id": "24b93d84",
+          "name": "Detective games",
+          "degree": 2
+        },
+        {
+          "id": "6a90ea90",
+          "name": "Park",
+          "degree": 2
+        },
+        {
+          "id": "54bb9a56",
+          "name": "Flowers",
+          "degree": 2
+        },
+        {
+          "id": "03ed6832",
+          "name": "Yoga Pals",
+          "degree": 2
+        },
+        {
+          "id": "dff64439",
+          "name": "Parents",
+          "degree": 2
+        },
+        {
+          "id": "43602573",
+          "name": "Jolene's room",
+          "degree": 2
+        },
+        {
+          "id": "aa09fb42",
+          "name": "Music Festival",
+          "degree": 2
+        },
+        {
+          "id": "9139885c",
+          "name": "mother`s old house",
+          "degree": 1
+        },
+        {
+          "id": "8631d25d",
+          "name": "Boyfriend",
+          "degree": 1
+        }
+      ],
+      "sample_problem_events": [],
+      "total_batches": 179,
+      "trigger_count": 170,
+      "skip_count": 9,
+      "trigger_rate": 0.95,
+      "ops": {
+        "CreateEvent": 210,
+        "Link": 344,
+        "CreateEntity": 99,
+        "RepairEventAttrs": 210,
+        "RepairEventLink": 19,
+        "AttachAttr": 47,
+        "BatchSkipRecovery": 4,
+        "Skip": 8,
+        "AddEdge": 1,
+        "ReviseAttr": 2
+      },
+      "rejected_ops": {
+        "session-container event rejected": 15,
+        "low-value abstract event rejected": 7
+      },
+      "failed_ops": 176,
+      "dedup_merges": 0
+    },
+    "conv-49": {
+      "graph_path": "experiments/2026-04-28-008-skip-recovery-finish-check/build/graphs/conv-49_graph.json",
+      "node_count": 232,
+      "edge_count": 254,
+      "node_types": {
+        "Entity": 44,
+        "Event": 188
+      },
+      "edge_families": {
+        "entity-event": 234,
+        "entity-entity": 1,
+        "event-event": 19
+      },
+      "top_predicates": [
+        [
+          "participant",
+          82
+        ],
+        [
+          "experienced",
+          80
+        ],
+        [
+          "object_of",
+          38
+        ],
+        [
+          "encouraged",
+          7
+        ],
+        [
+          "acknowledged",
+          7
+        ],
+        [
+          "after",
+          7
+        ],
+        [
+          "updates",
+          7
+        ],
+        [
+          "appreciated",
+          6
+        ],
+        [
+          "shared",
+          3
+        ],
+        [
+          "follows",
+          3
+        ],
+        [
+          "suggested",
+          2
+        ],
+        [
+          "inspired_by",
+          2
+        ],
+        [
+          "planned",
+          2
+        ],
+        [
+          "owns",
+          1
+        ],
+        [
+          "motivated",
+          1
+        ],
+        [
+          "read",
+          1
+        ],
+        [
+          "asked_about",
+          1
+        ],
+        [
+          "before",
+          1
+        ],
+        [
+          "considering",
+          1
+        ],
+        [
+          "reinforced",
+          1
+        ]
+      ],
+      "entity_count": 44,
+      "event_count": 188,
+      "entity_event_ratio": 0.23404255319148937,
+      "invalid_edge_count": 0,
+      "event_without_entity_event_edge": 0,
+      "isolated_event_count": 0,
+      "low_degree_event_count": 173,
+      "events_missing_time": 0,
+      "events_missing_source": 0,
+      "events_missing_text": 0,
+      "events_with_fact": 188,
+      "events_missing_fact": 0,
+      "events_with_quote": 188,
+      "events_missing_quote": 0,
+      "events_with_original_text": 188,
+      "session_container_event_count": 0,
+      "low_value_event_edge_count": 0,
+      "sample_entities": [
+        {
+          "id": "6d503707",
+          "name": "Evan",
+          "degree": 118
+        },
+        {
+          "id": "2898edb2",
+          "name": "Sam",
+          "degree": 68
+        },
+        {
+          "id": "5f0109b1",
+          "name": "feel good flick",
+          "degree": 6
+        },
+        {
+          "id": "8d6a22f4",
+          "name": "Prius",
+          "degree": 4
+        },
+        {
+          "id": "fac0bbbd",
+          "name": "Lake",
+          "degree": 4
+        },
+        {
+          "id": "f7cfe251",
+          "name": "Healthy Snack",
+          "degree": 3
+        },
+        {
+          "id": "26ab3dee",
+          "name": "Watercolor painting",
+          "degree": 2
+        },
+        {
+          "id": "31fff304",
+          "name": "Writing",
+          "degree": 2
+        },
+        {
+          "id": "6868fe97",
+          "name": "Accident",
+          "degree": 2
+        },
+        {
+          "id": "0761853d",
+          "name": "The painting",
+          "degree": 2
+        },
+        {
+          "id": "edae124d",
+          "name": "GPS sensor",
+          "degree": 2
+        },
+        {
+          "id": "0e226267",
+          "name": "Lasagna",
+          "degree": 2
+        },
+        {
+          "id": "6178239d",
+          "name": "Poutine",
+          "degree": 2
+        },
+        {
+          "id": "fafe7d8b",
+          "name": "Painting Hobby",
+          "degree": 1
+        },
+        {
+          "id": "d68bee24",
+          "name": "The Great Gatsby",
+          "degree": 1
+        },
+        {
+          "id": "33d40e0b",
+          "name": "Health Tracker",
+          "degree": 1
+        },
+        {
+          "id": "8ac0d394",
+          "name": "Symbol",
+          "degree": 1
+        },
+        {
+          "id": "d0b51736",
+          "name": "Evan's new SO",
+          "degree": 1
+        },
+        {
+          "id": "0e59210b",
+          "name": "Cooking class",
+          "degree": 1
+        },
+        {
+          "id": "4d03c7f7",
+          "name": "grilled chicken and veggie stir-fry",
+          "degree": 1
+        },
+        {
+          "id": "eb2bf5c3",
+          "name": "Body Change",
+          "degree": 1
+        },
+        {
+          "id": "a58ac9f4",
+          "name": "Acrylic paints",
+          "degree": 1
+        },
+        {
+          "id": "d05303f6",
+          "name": "Brushes",
+          "degree": 1
+        },
+        {
+          "id": "9d781548",
+          "name": "Canvas or paper",
+          "degree": 1
+        },
+        {
+          "id": "30cc9d3c",
+          "name": "Palette",
+          "degree": 1
+        }
+      ],
+      "sample_problem_events": [],
+      "total_batches": 136,
+      "trigger_count": 128,
+      "skip_count": 8,
+      "trigger_rate": 0.941,
+      "ops": {
+        "CreateEvent": 189,
+        "Link": 238,
+        "CreateEntity": 46,
+        "RepairEventAttrs": 188,
+        "ReviseAttr": 18,
+        "BatchSkipRecovery": 8,
+        "Skip": 12,
+        "RepairEventLink": 40,
+        "AttachAttr": 18,
+        "MergeNode": 1
+      },
+      "rejected_ops": {
+        "low-value abstract event rejected": 6,
+        "session-container event rejected": 1
+      },
+      "failed_ops": 82,
+      "dedup_merges": 0
+    },
+    "conv-50": {
+      "graph_path": "experiments/2026-04-28-008-skip-recovery-finish-check/build/graphs/conv-50_graph.json",
+      "node_count": 262,
+      "edge_count": 333,
+      "node_types": {
+        "Entity": 55,
+        "Event": 207
+      },
+      "edge_families": {
+        "entity-event": 314,
+        "event-event": 18,
+        "entity-entity": 1
+      },
+      "top_predicates": [
+        [
+          "participant",
+          115
+        ],
+        [
+          "experienced",
+          73
+        ],
+        [
+          "object_of",
+          63
+        ],
+        [
+          "after",
+          10
+        ],
+        [
+          "location_of",
+          7
+        ],
+        [
+          "supports",
+          6
+        ],
+        [
+          "encourages",
+          6
+        ],
+        [
+          "inspired",
+          5
+        ],
+        [
+          "location",
+          5
+        ],
+        [
+          "before",
+          3
+        ],
+        [
+          "shared",
+          2
+        ],
+        [
+          "intended_to_visit",
+          2
+        ],
+        [
+          "motivates",
+          2
+        ],
+        [
+          "comments_on_project",
+          2
+        ],
+        [
+          "excited_to_explore",
+          2
+        ],
+        [
+          "attended",
+          1
+        ],
+        [
+          "heard",
+          1
+        ],
+        [
+          "found",
+          1
+        ],
+        [
+          "had",
+          1
+        ],
+        [
+          "received",
+          1
+        ]
+      ],
+      "entity_count": 55,
+      "event_count": 207,
+      "entity_event_ratio": 0.26570048309178745,
+      "invalid_edge_count": 0,
+      "event_without_entity_event_edge": 0,
+      "isolated_event_count": 0,
+      "low_degree_event_count": 176,
+      "events_missing_time": 0,
+      "events_missing_source": 0,
+      "events_missing_text": 0,
+      "events_with_fact": 207,
+      "events_missing_fact": 0,
+      "events_with_quote": 207,
+      "events_missing_quote": 0,
+      "events_with_original_text": 207,
+      "session_container_event_count": 0,
+      "low_value_event_edge_count": 0,
+      "sample_entities": [
+        {
+          "id": "fc35fdfa",
+          "name": "Calvin",
+          "degree": 155
+        },
+        {
+          "id": "97f50141",
+          "name": "Dave",
+          "degree": 64
+        },
+        {
+          "id": "3911b928",
+          "name": "Studio",
+          "degree": 9
+        },
+        {
+          "id": "daaf72cd",
+          "name": "Tokyo",
+          "degree": 8
+        },
+        {
+          "id": "52e7ca89",
+          "name": "Music scene in Boston",
+          "degree": 7
+        },
+        {
+          "id": "34218d81",
+          "name": "Small town in Japan",
+          "degree": 6
+        },
+        {
+          "id": "f03852c7",
+          "name": "Boston parks",
+          "degree": 5
+        },
+        {
+          "id": "2171d729",
+          "name": "Miami",
+          "degree": 5
+        },
+        {
+          "id": "9c43647d",
+          "name": "Japan",
+          "degree": 4
+        },
+        {
+          "id": "2ef447c6",
+          "name": "Rock Band",
+          "degree": 4
+        },
+        {
+          "id": "7b69b0a2",
+          "name": "Japanese mansion",
+          "degree": 4
+        },
+        {
+          "id": "991e821e",
+          "name": "Japan culture",
+          "degree": 3
+        },
+        {
+          "id": "4cba03e8",
+          "name": "Frank Ocean",
+          "degree": 3
+        },
+        {
+          "id": "c7dd09f1",
+          "name": "Boston",
+          "degree": 3
+        },
+        {
+          "id": "b447865c",
+          "name": "Japanese garden",
+          "degree": 3
+        },
+        {
+          "id": "a74514ca",
+          "name": "Food there",
+          "degree": 2
+        },
+        {
+          "id": "e2a65f84",
+          "name": "Mountains",
+          "degree": 2
+        },
+        {
+          "id": "44b0cd24",
+          "name": "Shibuya Crossing",
+          "degree": 2
+        },
+        {
+          "id": "8e4706e0",
+          "name": "Car project",
+          "degree": 2
+        },
+        {
+          "id": "61351eb7",
+          "name": "nice place",
+          "degree": 1
+        },
+        {
+          "id": "6e3cda2a",
+          "name": "Park",
+          "degree": 1
+        },
+        {
+          "id": "dd230670",
+          "name": "Car",
+          "degree": 1
+        },
+        {
+          "id": "3d6071d0",
+          "name": "Aerosmith",
+          "degree": 1
+        },
+        {
+          "id": "b48f1583",
+          "name": "Calvin's car",
+          "degree": 1
+        },
+        {
+          "id": "c2a7cc70",
+          "name": "Delicious food in Boston",
+          "degree": 1
+        }
+      ],
+      "sample_problem_events": [],
+      "total_batches": 154,
+      "trigger_count": 145,
+      "skip_count": 9,
+      "trigger_rate": 0.942,
+      "ops": {
+        "CreateEvent": 207,
+        "Link": 355,
+        "CreateEntity": 59,
+        "RepairEventAttrs": 207,
+        "ReviseAttr": 7,
+        "RepairEventLink": 15,
+        "AttachAttr": 34,
+        "BatchSkipRecovery": 3,
+        "Skip": 4
+      },
+      "rejected_ops": {
+        "session-container event rejected": 7,
+        "low-value abstract event rejected": 4
+      },
+      "failed_ops": 81,
+      "dedup_merges": 0
+    }
+  }
+}
