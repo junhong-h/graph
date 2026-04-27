@@ -1,0 +1,38 @@
+experiment:
+  id: "2026-04-28-008"
+  name: "skip-recovery-finish-check"
+  description: "Skip 拆 turn 重试 + Skip Rule 8 收窄 + finish 前自检；全 10 样本"
+  branch: "refine-retrieval-construction"
+  commit: "162b7b0"
+  based_on: "2026-04-28-007"
+
+data_path: data/locomo/locomo10.json
+dataset_name: locomo
+sample_ids: []                  # 全 10 样本
+
+build:
+  from_scratch: true
+  k_turns: 4
+
+graph:
+  seed_top_k: 5
+  max_hops: 2
+  max_nodes: 20
+  max_edges: 30
+  retrieval_max_hop: 3
+  jump_budget: 5
+  final_answer_compression: false
+
+memory:
+  retrieval_topk: 5
+
+llm:
+  model: qwen3-4b
+  base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+  temperature: 0.0
+  top_p: 0.7
+  seed: 42
+  max_retries: 5
+  disable_thinking: true
+  use_extra_body_thinking: true
+  # api_key: read from OPENAI_API_KEY env var
