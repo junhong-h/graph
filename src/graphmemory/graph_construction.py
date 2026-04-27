@@ -85,6 +85,8 @@ organizations, causes, places, foods, certificates/degrees, and important object
 If a phrase could be the direct answer to a QA question, you MUST create/reuse an Entity for it. \
 This includes named activities, named places, named pets, specific causes, specific items, and \
 specific credentials or awards.
+Do NOT create Entity nodes for generic categories, slogans, virtues, or verb phrases unless the \
+conversation names them as a specific reusable thing.
 2b. Do NOT create generic session-container nodes like "<Person A> and <Person B> chat on <date>". \
 Every CreateEvent MUST represent a SPECIFIC fact, activity, trip, or occurrence — not a session summary. \
 Bad:  {"op": "CreateEvent", "canonical_name": "<Person A> and <Person B> chat", ...} \
@@ -96,6 +98,10 @@ If a turn only says that one speaker talked to another speaker, do NOT create an
 contains facts, extract those underlying facts as separate Events.
 2c. Event nodes represent "who did/experienced/said/planned what, when". \
 Entity nodes represent reusable answer values. \
+Create an Event only when the utterance contains a concrete personal fact, state change, plan, \
+achievement, preference, relationship, possession, trip, activity, or incident that may later need \
+to be recalled. Do NOT create Events for generic opinions, inspirational slogans, broad values, \
+or abstract agreement without a concrete answerable detail.
 For a statement where a subject does an activity involving an answerable object, create/reuse \
 the subject Entity, create/reuse the object Entity, then create one Event linking both.
 2d. NEVER store answerable activities/objects as comma-separated attrs on a person Entity. \
@@ -121,9 +127,10 @@ stated by the source. Keep any legacy "time" attr as a rough compatibility field
 7. Link/AddEdge: choose the correct family (entity-event / entity-entity / event-event). \
 Most factual links should be entity-event. Use entity-entity only for stable relationships, \
 and event-event only for real temporal, update, or causal links.
-8. Output Skip ONLY if the excerpt is entirely pure pleasantries with ZERO factual content. \
-   When in doubt between creating nodes and skipping, ALWAYS prefer creating — it is better \
-   to have extra nodes than to lose information.
+8. Output Skip if the excerpt is pure pleasantries OR only generic opinion/value statements with \
+   no concrete personal fact to remember. Preserve factual details, but do not graph broad \
+   affirmations like "kindness matters", "animals are amazing", or "we should stay positive" \
+   unless the utterance also states a specific person, object, event, decision, or preference.
 9. Do NOT output explanatory text — output ONLY the JSON array.
 10. VOCABULARY PRESERVATION: For emotional words, adjectives, metaphors, similes, and \
 direct quotes, copy the EXACT original wording into attrs — do NOT paraphrase or generalize. \
@@ -299,6 +306,13 @@ class GraphConstructor:
                 "op": "CreateEvent",
                 "status": "rejected",
                 "error": "session-container event rejected",
+                "canonical_name": c_name,
+            }
+        if node_type == "Event" and _is_low_value_abstract_event(c_name, attrs):
+            return {
+                "op": "CreateEvent",
+                "status": "rejected",
+                "error": "low-value abstract event rejected",
                 "canonical_name": c_name,
             }
         if node_type == "Entity":
@@ -510,7 +524,7 @@ def _parse_ops(response: str) -> List[Dict]:
     except (ValueError, SyntaxError, TypeError):
         pass
 
-    logger.warning(f"GraphConstructor: failed to parse ops from response: {raw[:120]!r}")
+    logger.warning(f"GraphConstructor: failed to parse ops from response: {raw[:1000]!r}")
     return []
 
 
@@ -524,6 +538,35 @@ def _is_session_container_event(canonical_name: str, attrs: Dict[str, Any]) -> b
         re.search(r"\b(chat|chats|conversation|conversations|discuss|discusses|discussed|discussion|discussions)\b", name)
         or re.search(r"\b(speak|speaks|spoke|talk|talks|talked|reply|replies|replied)\s+to\b", name)
     )
+
+
+def _is_low_value_abstract_event(canonical_name: str, attrs: Dict[str, Any]) -> bool:
+    """Reject generic opinions or value statements that are not durable memory facts."""
+    name = str(canonical_name or "").strip().lower()
+    attrs = attrs or {}
+    fact = str(attrs.get("fact", "") or "").strip().lower()
+    quote = str(attrs.get("quote", "") or "").strip().lower()
+    text = " ".join([name, fact, quote])
+
+    if not name:
+        return False
+
+    generic_subject = re.match(
+        r"^(animals|people|kindness|positivity|positive impact|support|self-care|taking care of self)\b",
+        name,
+    )
+    abstract_action = re.search(
+        r"\b(spreading positivity|spread kindness|make a difference|working together|community bond|"
+        r"animals are|animals comfort|animals bring|animals provide|always there for us|"
+        r"taking care of (ourselves|self)|importance of)\b",
+        text,
+    )
+    discussion_only = re.search(
+        r"\b(discussed|agreed on|emphasizing|noting)\b.*\b(importance|value|amazing|positive|positivity|kindness)\b",
+        text,
+    )
+
+    return bool(generic_subject or abstract_action or discussion_only)
 
 
 def _normalize_predicate(family: str, predicate: str) -> str:

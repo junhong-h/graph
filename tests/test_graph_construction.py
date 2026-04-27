@@ -168,6 +168,45 @@ def test_create_event_rejects_discussion_container(tmp_path):
     assert graph.node_count() == 0
 
 
+def test_create_event_rejects_low_value_abstract_opinion(tmp_path):
+    ops_json = json.dumps([{
+        "op": "CreateEvent",
+        "id": "NEW_Positive",
+        "canonical_name": "John and Maria spreading positivity",
+        "attrs": {
+            "fact": "On 1 January 2023, John and Maria agreed on the importance of spreading positivity.",
+            "quote": "We should keep spreading positivity.",
+            "source": ["D1"],
+        },
+    }])
+    gc, graph = _make_constructor(tmp_path, ops_json)
+
+    log = gc.run("We should keep spreading positivity.", {"nodes": {}, "edges": []})
+
+    assert log[0]["status"] == "rejected"
+    assert log[0]["error"] == "low-value abstract event rejected"
+    assert graph.node_count() == 0
+
+
+def test_create_event_keeps_concrete_pet_fact(tmp_path):
+    ops_json = json.dumps([{
+        "op": "CreateEvent",
+        "id": "NEW_Coco",
+        "canonical_name": "Maria got a puppy named Coco",
+        "attrs": {
+            "fact": "On 1 January 2023, Maria got a puppy named Coco.",
+            "quote": "I got a puppy named Coco.",
+            "source": ["D1"],
+        },
+    }])
+    gc, graph = _make_constructor(tmp_path, ops_json)
+
+    log = gc.run("I got a puppy named Coco.", {"nodes": {}, "edges": []})
+
+    assert log[0]["status"] == "ok"
+    assert graph.node_count() == 1
+
+
 # ---------------------------------------------------------------------------
 # Link
 # ---------------------------------------------------------------------------
