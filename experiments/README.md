@@ -1,0 +1,44 @@
+# experiments/
+
+每次实验一个目录，命名格式：`YYYY-MM-DD-NNN-<slug>/`
+
+- `YYYY-MM-DD`：实验日期
+- `NNN`：当天序号（001, 002, ...）
+- `<slug>`：2-4 个词描述改动，用连字符，e.g. `refine-jump`, `per-anchor-budget`, `full-10-samples`
+
+## 目录结构
+
+```
+YYYY-MM-DD-NNN-<slug>/
+  config.yaml          ← 完整配置（追踪）
+  notes.md             ← 假设、改动、结果、分析（追踪）
+  build/
+    graphs/            ← 图 JSON 文件（追踪，~200KB/样本）
+    graph_trajectories_*.jsonl  ← 构建轨迹（不追踪，大文件）
+    build.log          ← 构建日志（不追踪）
+  qa/
+    qa_metrics.json    ← 汇总指标（追踪）
+    qa_results.jsonl   ← 完整答案（不追踪，大文件）
+    qa_results_eval.jsonl  ← 带 judge 的答案（不追踪）
+    qa.log             ← QA 日志（不追踪）
+  chroma/              ← 向量库（不追踪，可从 graphs/ 重建）
+```
+
+## 运行方式
+
+```bash
+# 构建图
+python scripts/build_memory.py --exp-dir experiments/YYYY-MM-DD-NNN-<slug>
+
+# 跑 QA + LLM judge
+python scripts/run_qa.py --exp-dir experiments/YYYY-MM-DD-NNN-<slug>
+
+# 旧方式（仍然支持）
+python scripts/build_memory.py --config configs/build_memory_dashscope.yaml --sample-ids conv-26
+```
+
+## 实验列表
+
+| ID | 名称 | 说明 | Cat1-4 Acc | Cat5 Acc | F1 |
+|----|------|------|------------|----------|----|
+| [2026-04-27-001](2026-04-27-001-refine-jump/notes.md) | refine-jump | 向量打分 + per-anchor 独立扩展 | 86.8%（conv-26）| 51.1% | 0.415 |

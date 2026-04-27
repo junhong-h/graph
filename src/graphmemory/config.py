@@ -54,6 +54,7 @@ class BuildConfig:
     dataset_name: str = "locomo"
     run_dir: str = "runs/build"
     graph_dir: str = ""
+    sample_ids: list = field(default_factory=list)
     vector_store: VectorStoreConfig = field(default_factory=VectorStoreConfig)
     memory: MemoryConfig = field(default_factory=MemoryConfig)
     graph: GraphConfig = field(default_factory=GraphConfig)
@@ -64,8 +65,37 @@ class BuildConfig:
         with open(path, encoding="utf-8") as f:
             d: Dict[str, Any] = yaml.safe_load(f) or {}
 
+        # Strip experiment metadata (not part of BuildConfig)
+        d.pop("experiment", None)
+
         vs  = VectorStoreConfig(**d.pop("vector_store", {}))
         mem = MemoryConfig(**d.pop("memory", {}))
         g   = GraphConfig(**d.pop("graph", {}))
         llm = LLMConfig(**d.pop("llm", {}))
+
+        # Flatten nested build: block into top-level fields
+        build_block = d.pop("build", {})
+        if build_block:
+            d.setdefault("data_path", build_block.pop("data_path", d.get("data_path")))
+            vs.from_scratch = build_block.pop("from_scratch", vs.from_scratch)
+            mem.k_turns     = build_block.pop("k_turns", mem.k_turns)
+
         return cls(vector_store=vs, memory=mem, graph=g, llm=llm, **d)
+
+    @classmethod
+    def from_exp_dir(cls, exp_dir: str | Path, mode: str = "build") -> "BuildConfig":
+        """Load config from experiments/<id>/config.yaml, wiring paths automatically.
+
+        mode='build' → run_dir = exp_dir/build, chroma = exp_dir/chroma
+        mode='qa'    → run_dir = exp_dir/qa,    chroma = exp_dir/chroma,
+                       graph_dir = exp_dir/build/graphs
+        """
+        exp_dir = Path(exp_dir)
+        cfg = cls.from_yaml(exp_dir / "config.yaml")
+        cfg.vector_store.path = str(exp_dir / "chroma")
+        if mode == "build":
+            cfg.run_dir = str(exp_dir / "build")
+        else:
+            cfg.run_dir   = str(exp_dir / "qa")
+            cfg.graph_dir = str(exp_dir / "build" / "graphs")
+        return cfg

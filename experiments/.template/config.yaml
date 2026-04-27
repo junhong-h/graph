@@ -1,0 +1,36 @@
+experiment:
+  id: "YYYY-MM-DD-NNN"          # e.g. 2026-04-27-001
+  name: "short-slug"            # e.g. refine-jump
+  description: "一句话说明这次实验改了什么、为什么"
+  branch: ""                    # git branch name
+  commit: ""                    # git commit hash (short)
+  based_on: ""                  # baseline experiment id, e.g. 2026-04-20-001
+
+data_path: data/locomo/locomo10.json
+dataset_name: locomo
+sample_ids: []                  # 留空 = 全量；指定则只跑这些，e.g. [conv-26, conv-30]
+
+build:
+  from_scratch: true
+  k_turns: 4
+
+graph:
+  seed_top_k: 5
+  max_hops: 2
+  max_nodes: 20
+  max_edges: 30
+  retrieval_max_hop: 3
+  jump_budget: 5
+  final_answer_compression: false
+
+memory:
+  retrieval_topk: 5
+
+llm:
+  model: qwen3-4b
+  base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+  temperature: 0.0
+  max_retries: 5
+  disable_thinking: true
+  use_extra_body_thinking: true
+  # api_key: read from OPENAI_API_KEY env var

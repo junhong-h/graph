@@ -55,11 +55,15 @@ from graphmemory.vector_store import ChromaStore
 
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser()
-    p.add_argument("--config",      default="configs/run_qa.yaml")
+    p.add_argument("--exp-dir", default=None,
+                   help="Experiment directory (experiments/<id>-<name>/). "
+                        "Loads config.yaml from there and writes outputs under exp-dir/qa/.")
+    p.add_argument("--config",      default="configs/run_qa.yaml",
+                   help="Ignored when --exp-dir is set.")
     p.add_argument("--run-dir", default=None,
-                   help="Override output run directory from config")
+                   help="Override output run directory (ignored when --exp-dir is set)")
     p.add_argument("--sample-ids",  nargs="*", default=None,
-                   help="Only process these sample IDs")
+                   help="Only process these sample IDs (overrides config sample_ids)")
     p.add_argument("--skip-samples", type=int, default=0,
                    help="Skip the first N selected samples in dataset order")
     p.add_argument("--limit-samples", type=int, default=None,
@@ -88,9 +92,12 @@ def main() -> None:
     logger.remove()
     logger.add(sys.stderr, level=args.log_level)
 
-    cfg     = BuildConfig.from_yaml(args.config)
-    if args.run_dir:
-        cfg.run_dir = args.run_dir
+    if args.exp_dir:
+        cfg = BuildConfig.from_exp_dir(args.exp_dir, mode="qa")
+    else:
+        cfg = BuildConfig.from_yaml(args.config)
+        if args.run_dir:
+            cfg.run_dir = args.run_dir
     run_dir = Path(cfg.run_dir)
     run_dir.mkdir(parents=True, exist_ok=True)
     graphs_dir = Path(cfg.graph_dir) if cfg.graph_dir else Path(cfg.run_dir).parent / "build" / "graphs"
@@ -102,9 +109,10 @@ def main() -> None:
         locomo_cat1_4=args.locomo_cat1_4,
     )
     exclude_categories = normalize_filter_values(args.exclude_categories)
+    sample_ids = args.sample_ids or cfg.sample_ids or None
     samples = filter_samples(
         load_locomo_sessions(cfg.data_path),
-        sample_ids=args.sample_ids,
+        sample_ids=sample_ids,
         skip_first=args.skip_samples,
         limit=args.limit_samples,
     )

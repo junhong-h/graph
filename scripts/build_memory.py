@@ -37,9 +37,13 @@ from graphmemory.vector_store import ChromaStore
 
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser()
-    p.add_argument("--config", default="configs/build_memory.yaml")
+    p.add_argument("--exp-dir", default=None,
+                   help="Experiment directory (experiments/<id>-<name>/). "
+                        "Loads config.yaml from there and writes outputs under exp-dir/build/.")
+    p.add_argument("--config", default="configs/build_memory.yaml",
+                   help="Ignored when --exp-dir is set.")
     p.add_argument("--sample-ids", nargs="*", default=None,
-                   help="Only process these sample IDs")
+                   help="Only process these sample IDs (overrides config sample_ids)")
     p.add_argument("--skip-samples", type=int, default=0,
                    help="Skip the first N selected samples in dataset order")
     p.add_argument("--limit", type=int, default=None,
@@ -130,7 +134,10 @@ def main() -> None:
     logger.remove()
     logger.add(sys.stderr, level=args.log_level)
 
-    cfg        = BuildConfig.from_yaml(args.config)
+    if args.exp_dir:
+        cfg = BuildConfig.from_exp_dir(args.exp_dir, mode="build")
+    else:
+        cfg = BuildConfig.from_yaml(args.config)
     run_dir    = Path(cfg.run_dir)
     graphs_dir = run_dir / "graphs"
     run_dir.mkdir(parents=True, exist_ok=True)
@@ -146,9 +153,11 @@ def main() -> None:
     samples: List[Dict[str, Any]] = load_locomo_sessions(cfg.data_path)
     logger.info(f"Loaded {len(samples)} samples.")
 
+    # sample_ids: CLI overrides config, config overrides "all"
+    sample_ids = args.sample_ids or cfg.sample_ids or None
     samples = filter_samples(
         samples,
-        sample_ids=args.sample_ids,
+        sample_ids=sample_ids,
         skip_first=args.skip_samples,
         limit=args.limit,
     )
