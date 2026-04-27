@@ -1,0 +1,268 @@
+{
+  "total": {
+    "samples": 1,
+    "node_count": 176,
+    "edge_count": 243,
+    "entity_count": 35,
+    "event_count": 141,
+    "invalid_edge_count": 0,
+    "isolated_event_count": 0,
+    "events_with_fact": 141,
+    "events_missing_fact": 0,
+    "events_with_quote": 141,
+    "events_missing_quote": 0,
+    "event_without_entity_event_edge": 0,
+    "total_batches": 179,
+    "trigger_count": 171,
+    "skip_count": 8,
+    "failed_ops": 174,
+    "dedup_merges": 0,
+    "ops": {
+      "CreateEvent": 141,
+      "Link": 265,
+      "RepairEventAttrs": 141,
+      "CreateEntity": 35,
+      "Skip": 38,
+      "AttachAttr": 17,
+      "ReviseAttr": 7,
+      "RepairEventLink": 14,
+      "AddEdge": 1
+    },
+    "rejected_ops": {
+      "low-value abstract event rejected": 11,
+      "session-container event rejected": 1
+    },
+    "trigger_rate": 0.955
+  },
+  "by_sample": {
+    "conv-41": {
+      "graph_path": "experiments/2026-04-27-006-qwen-json-conv41/build/graphs/conv-41_graph.json",
+      "node_count": 176,
+      "edge_count": 243,
+      "node_types": {
+        "Entity": 35,
+        "Event": 141
+      },
+      "edge_families": {
+        "entity-event": 228,
+        "event-event": 15
+      },
+      "top_predicates": [
+        [
+          "participant",
+          118
+        ],
+        [
+          "experienced",
+          70
+        ],
+        [
+          "object_of",
+          28
+        ],
+        [
+          "inspired",
+          15
+        ],
+        [
+          "after",
+          3
+        ],
+        [
+          "updates",
+          3
+        ],
+        [
+          "before",
+          1
+        ],
+        [
+          "participated_in",
+          1
+        ],
+        [
+          "observer",
+          1
+        ],
+        [
+          "spreading_kindness",
+          1
+        ],
+        [
+          "organized",
+          1
+        ],
+        [
+          "encouraged",
+          1
+        ]
+      ],
+      "entity_count": 35,
+      "event_count": 141,
+      "entity_event_ratio": 0.24822695035460993,
+      "invalid_edge_count": 0,
+      "event_without_entity_event_edge": 0,
+      "isolated_event_count": 0,
+      "low_degree_event_count": 112,
+      "events_missing_time": 0,
+      "events_missing_source": 0,
+      "events_missing_text": 0,
+      "events_with_fact": 141,
+      "events_missing_fact": 0,
+      "events_with_quote": 141,
+      "events_missing_quote": 0,
+      "events_with_original_text": 141,
+      "session_container_event_count": 0,
+      "low_value_event_edge_count": 0,
+      "sample_entities": [
+        {
+          "id": "5c4ea0ad",
+          "name": "Maria",
+          "degree": 110
+        },
+        {
+          "id": "e881e094",
+          "name": "John",
+          "degree": 100
+        },
+        {
+          "id": "01a73636",
+          "name": "Career Fair",
+          "degree": 2
+        },
+        {
+          "id": "310774ba",
+          "name": "Surfing",
+          "degree": 2
+        },
+        {
+          "id": "67091bc0",
+          "name": "Politics",
+          "degree": 1
+        },
+        {
+          "id": "6ed17817",
+          "name": "Beach Pic",
+          "degree": 1
+        },
+        {
+          "id": "e75ecac3",
+          "name": "Organization that offers housing and support for homeless individuals",
+          "degree": 1
+        },
+        {
+          "id": "5da6035f",
+          "name": "Jean",
+          "degree": 1
+        },
+        {
+          "id": "10c13f2c",
+          "name": "Improving education and infrastructure",
+          "degree": 1
+        },
+        {
+          "id": "fce8ffd0",
+          "name": "Weekend yoga class with colleague",
+          "degree": 1
+        },
+        {
+          "id": "048d8ceb",
+          "name": "Tech for good",
+          "degree": 1
+        },
+        {
+          "id": "9bda6822",
+          "name": "Boot Camp",
+          "degree": 1
+        },
+        {
+          "id": "a403c7e0",
+          "name": "Max",
+          "degree": 1
+        },
+        {
+          "id": "f425e3e8",
+          "name": "Beach Vacation in California",
+          "degree": 1
+        },
+        {
+          "id": "5bd48e3a",
+          "name": "Beach Vacation in Florida",
+          "degree": 1
+        },
+        {
+          "id": "31e31133",
+          "name": "Job offer at tech company",
+          "degree": 1
+        },
+        {
+          "id": "40e2c5e1",
+          "name": "Local Organization",
+          "degree": 1
+        },
+        {
+          "id": "61e49a3b",
+          "name": "Coco",
+          "degree": 1
+        },
+        {
+          "id": "6a303b10",
+          "name": "Peach Cobbler",
+          "degree": 0
+        },
+        {
+          "id": "186181ae",
+          "name": "Community Meeting",
+          "degree": 0
+        },
+        {
+          "id": "b896e023",
+          "name": "Maria's charity event",
+          "degree": 0
+        },
+        {
+          "id": "fd3c7d9b",
+          "name": "Food drive for folks who lost their jobs",
+          "degree": 0
+        },
+        {
+          "id": "9da5bfea",
+          "name": "Photo of volunteers at recent event",
+          "degree": 0
+        },
+        {
+          "id": "b14f79ca",
+          "name": "Creative Writing Class",
+          "degree": 0
+        },
+        {
+          "id": "ae6377c5",
+          "name": "Poetry class",
+          "degree": 0
+        }
+      ],
+      "sample_problem_events": [],
+      "total_batches": 179,
+      "trigger_count": 171,
+      "skip_count": 8,
+      "trigger_rate": 0.955,
+      "ops": {
+        "CreateEvent": 141,
+        "Link": 265,
+        "RepairEventAttrs": 141,
+        "CreateEntity": 35,
+        "Skip": 38,
+        "AttachAttr": 17,
+        "ReviseAttr": 7,
+        "RepairEventLink": 14,
+        "AddEdge": 1
+      },
+      "rejected_ops": {
+        "low-value abstract event rejected": 11,
+        "session-container event rejected": 1
+      },
+      "failed_ops": 174,
+      "dedup_merges": 0
+    }
+  }
+}
