@@ -1,0 +1,36 @@
+experiment:
+  id: "2026-04-27-004"
+  name: "refine2-prop-conv41-26"
+  description: "Refine2 proposition layer：Event 增加 fact/quote 字段，过滤 low-value abstract event，conv-41+conv-26"
+  branch: "refine-retrieval-construction"
+  commit: "eaa1ca4"
+  based_on: "2026-04-27-003"   # Refine1 graph conv-41（同口径对比图构建差异）
+
+data_path: data/locomo/locomo10.json
+dataset_name: locomo
+sample_ids: [conv-41, conv-26]
+
+build:
+  from_scratch: true
+  k_turns: 4
+
+graph:
+  seed_top_k: 5
+  max_hops: 2
+  max_nodes: 20
+  max_edges: 30
+  retrieval_max_hop: 3
+  jump_budget: 5
+  final_answer_compression: false
+
+memory:
+  retrieval_topk: 5
+
+llm:
+  model: qwen3-4b
+  base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+  temperature: 0.0
+  max_retries: 5
+  disable_thinking: true
+  use_extra_body_thinking: true
+  # api_key: read from OPENAI_API_KEY env var

@@ -6,8 +6,8 @@ __pycache__/
 *.pyc
 *.pyo
 .DS_Store
-build/
-dist/
+/build/
+/dist/
 
 data/raw/**
 data/processed/**
@@ -31,11 +31,13 @@ experiments/*/qa/qa_results.jsonl
 experiments/*/qa/qa_results_eval.jsonl
 experiments/*/qa/*.log
 
-# Tracked: config, graphs, metrics, notes
+# Tracked: config, graphs, metrics, notes, summaries
 !experiments/*/config.yaml
 !experiments/*/notes.md
 !experiments/*/build/graphs/
 !experiments/*/build/graphs/*.json
+!experiments/*/build/build_stats.json
 !experiments/*/qa/qa_metrics.json
+!experiments/*/qa/qa_analysis.xlsx
 
 *.duckdb

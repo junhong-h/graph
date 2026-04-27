@@ -1,0 +1,266 @@
+{
+  "total": {
+    "samples": 1,
+    "node_count": 249,
+    "edge_count": 404,
+    "entity_count": 89,
+    "event_count": 160,
+    "invalid_edge_count": 0,
+    "isolated_event_count": 0,
+    "events_with_fact": 0,
+    "events_missing_fact": 160,
+    "events_with_quote": 0,
+    "events_missing_quote": 160,
+    "event_without_entity_event_edge": 0,
+    "total_batches": 0,
+    "trigger_count": 0,
+    "skip_count": 0,
+    "failed_ops": 0,
+    "dedup_merges": 0,
+    "ops": {},
+    "rejected_ops": {},
+    "trigger_rate": null
+  },
+  "by_sample": {
+    "conv-41": {
+      "graph_path": "experiments/2026-04-27-003-refine1-graph-conv41/build/graphs/conv-41_graph.json",
+      "node_count": 249,
+      "edge_count": 404,
+      "node_types": {
+        "Entity": 89,
+        "Event": 160
+      },
+      "edge_families": {
+        "entity-event": 273,
+        "event-event": 131
+      },
+      "top_predicates": [
+        [
+          "participant",
+          133
+        ],
+        [
+          "object_of",
+          96
+        ],
+        [
+          "before",
+          47
+        ],
+        [
+          "after",
+          32
+        ],
+        [
+          "inspired",
+          32
+        ],
+        [
+          "experienced",
+          21
+        ],
+        [
+          "updates",
+          21
+        ],
+        [
+          "supporter",
+          5
+        ],
+        [
+          "subject",
+          4
+        ],
+        [
+          "topic_of",
+          2
+        ],
+        [
+          "helped_with",
+          1
+        ],
+        [
+          "supports",
+          1
+        ],
+        [
+          "volunteered_at",
+          1
+        ],
+        [
+          "visited",
+          1
+        ],
+        [
+          "feeling",
+          1
+        ],
+        [
+          "location",
+          1
+        ],
+        [
+          "focus_area",
+          1
+        ],
+        [
+          "organizer",
+          1
+        ],
+        [
+          "event_of",
+          1
+        ],
+        [
+          "location_of",
+          1
+        ]
+      ],
+      "entity_count": 89,
+      "event_count": 160,
+      "entity_event_ratio": 0.55625,
+      "invalid_edge_count": 0,
+      "event_without_entity_event_edge": 0,
+      "isolated_event_count": 0,
+      "low_degree_event_count": 74,
+      "events_missing_time": 0,
+      "events_missing_source": 0,
+      "events_missing_text": 0,
+      "events_with_fact": 0,
+      "events_missing_fact": 160,
+      "events_with_quote": 0,
+      "events_missing_quote": 160,
+      "events_with_original_text": 160,
+      "session_container_event_count": 0,
+      "low_value_event_edge_count": 0,
+      "sample_entities": [
+        {
+          "id": "13ce4534",
+          "name": "John",
+          "degree": 57
+        },
+        {
+          "id": "e84f9cba",
+          "name": "Maria",
+          "degree": 57
+        },
+        {
+          "id": "f507bff0",
+          "name": "Family",
+          "degree": 9
+        },
+        {
+          "id": "fbb4ba27",
+          "name": "David",
+          "degree": 8
+        },
+        {
+          "id": "8581e831",
+          "name": "road trip we took last year",
+          "degree": 8
+        },
+        {
+          "id": "7406c01a",
+          "name": "cross necklace",
+          "degree": 8
+        },
+        {
+          "id": "6a37e89f",
+          "name": "doll",
+          "degree": 7
+        },
+        {
+          "id": "d92bfd67",
+          "name": "Sunset at the beach",
+          "degree": 6
+        },
+        {
+          "id": "df907a0d",
+          "name": "Max",
+          "degree": 5
+        },
+        {
+          "id": "7337eeb8",
+          "name": "Painting",
+          "degree": 4
+        },
+        {
+          "id": "64b1cf3f",
+          "name": "Maria's cousin",
+          "degree": 4
+        },
+        {
+          "id": "113dc9f5",
+          "name": "Homeless Shelter",
+          "degree": 3
+        },
+        {
+          "id": "cfca1a78",
+          "name": "John's family",
+          "degree": 3
+        },
+        {
+          "id": "cf8d8f30",
+          "name": "Yoga class with colleague",
+          "degree": 3
+        },
+        {
+          "id": "2a93c018",
+          "name": "Technology for Good",
+          "degree": 3
+        },
+        {
+          "id": "c3165719",
+          "name": "Kids",
+          "degree": 3
+        },
+        {
+          "id": "bfdd786d",
+          "name": "apple pie",
+          "degree": 3
+        },
+        {
+          "id": "15379680",
+          "name": "rescue dog",
+          "degree": 3
+        },
+        {
+          "id": "d9f6663b",
+          "name": "Gym",
+          "degree": 3
+        },
+        {
+          "id": "2642fc82",
+          "name": "Beach Vacation",
+          "degree": 3
+        },
+        {
+          "id": "b7bc90bb",
+          "name": "SpecialPerson",
+          "degree": 3
+        },
+        {
+          "id": "a6f1648a",
+          "name": "Sara",
+          "degree": 3
+        },
+        {
+          "id": "a9bcbc71",
+          "name": "Family time",
+          "degree": 2
+        },
+        {
+          "id": "a78db570",
+          "name": "Homeless shelter event",
+          "degree": 2
+        },
+        {
+          "id": "5ff01542",
+          "name": "Education and mentorship initiatives",
+          "degree": 2
+        }
+      ],
+      "sample_problem_events": []
+    }
+  }
+}

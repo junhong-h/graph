@@ -63,6 +63,7 @@ def _build_one_sample(
     sample: Dict[str, Any],
     config_path: str,
     log_level: str,
+    exp_dir: str | None = None,
 ) -> str:
     """Build graph for a single sample. Designed to run in a subprocess."""
     load_dotenv()
@@ -71,7 +72,10 @@ def _build_one_sample(
     logger.remove()
     logger.add(sys.stderr, level=log_level)
 
-    cfg        = BuildConfig.from_yaml(config_path)
+    if exp_dir:
+        cfg = BuildConfig.from_exp_dir(exp_dir, mode="build")
+    else:
+        cfg = BuildConfig.from_yaml(config_path)
     run_dir    = Path(cfg.run_dir)
     graphs_dir = run_dir / "graphs"
     graphs_dir.mkdir(parents=True, exist_ok=True)
@@ -243,7 +247,7 @@ def main() -> None:
         # Multi-process path
         with ProcessPoolExecutor(max_workers=workers) as pool:
             futures = {
-                pool.submit(_build_one_sample, sample, args.config, args.log_level): sample
+                pool.submit(_build_one_sample, sample, args.config, args.log_level, args.exp_dir): sample
                 for sample in samples
             }
             for fut in as_completed(futures):

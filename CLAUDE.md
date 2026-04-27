@@ -43,8 +43,11 @@ python scripts/run_qa.py       --exp-dir experiments/YYYY-MM-DD-NNN-<slug>
 
 ### After running
 
-1. Copy `qa_metrics.json` into `experiments/.../qa/` if not already there.
-2. Fill in the Graph Stats and QA Results tables in `notes.md`.
+1. Run summarize script to generate `build_stats.json` and `qa_analysis.xlsx`:
+   ```bash
+   python scripts/summarize_exp.py --exp-dir experiments/YYYY-MM-DD-NNN-<slug>
+   ```
+2. Fill in the Graph Stats and QA Results tables in `notes.md` (from `build_stats.json` and `qa_metrics.json`).
 3. Write the Analysis section: did results match the hypothesis? Why / why not?
 4. Update `experiments/README.md` experiment index table.
 5. Commit: `git add experiments/YYYY-MM-DD-NNN-<slug> && git commit`.
@@ -56,7 +59,9 @@ python scripts/run_qa.py       --exp-dir experiments/YYYY-MM-DD-NNN-<slug>
 | `experiments/*/config.yaml` | ✓ | reproducibility |
 | `experiments/*/notes.md` | ✓ | analysis record |
 | `experiments/*/build/graphs/*.json` | ✓ | ~200 KB each, needed for ablations |
-| `experiments/*/qa/qa_metrics.json` | ✓ | summary metrics |
+| `experiments/*/build/build_stats.json` | ✓ | graph + trajectory stats summary |
+| `experiments/*/qa/qa_metrics.json` | ✓ | accuracy/F1 summary |
+| `experiments/*/qa/qa_analysis.xlsx` | ✓ | per-question QA review table |
 | `experiments/*/chroma/` | ✗ | 67 MB+, rebuildable from graphs |
 | `experiments/*/build/*.log` | ✗ | large, not essential |
 | `experiments/*/qa/qa_results*.jsonl` | ✗ | large, rebuildable |

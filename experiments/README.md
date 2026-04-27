@@ -39,6 +39,9 @@ python scripts/build_memory.py --config configs/build_memory_dashscope.yaml --sa
 
 ## 实验列表
 
-| ID | 名称 | 说明 | Cat1-4 Acc | Cat5 Acc | F1 |
-|----|------|------|------------|----------|----|
-| [2026-04-27-001](2026-04-27-001-refine-jump/notes.md) | refine-jump | 向量打分 + per-anchor 独立扩展 | 86.8%（conv-26）| 51.1% | 0.415 |
+| ID | 名称 | 说明 | 样本 | Cat1-4 Acc | Cat5 Acc | F1 |
+|----|------|------|------|------------|----------|----|
+| [2026-04-27-002](2026-04-27-002-baseline-conv26/notes.md) | baseline-conv26 | commit 0408882 原始代码，conv-26 单样本 baseline | conv-26 | 84.2% | 19.1% | 0.280 |
+| [2026-04-27-001](2026-04-27-001-refine-jump/notes.md) | refine-jump | 向量打分 + per-anchor 独立扩展 | conv-26 | 86.8% | 51.1% | 0.415 |
+| [2026-04-27-003](2026-04-27-003-refine1-graph-conv41/notes.md) | refine1-graph-conv41 | 修复图构建质量：Entity 覆盖、Event isolation、multi-seed localizer | conv-41 | 91.4% | 61.0% | 0.462 |
+| [2026-04-27-004](2026-04-27-004-refine2-prop-conv41-26/notes.md) | refine2-prop-conv41-26 | Refine2 proposition layer：fact/quote 字段 + low-value 过滤 | conv-41,26 | 90.8% / 86.8% | 80.5% / 59.6% | 0.520 / 0.420 |

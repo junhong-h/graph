@@ -1,0 +1,3016 @@
+{
+  "nodes": {
+    "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2": {
+      "type": "Entity",
+      "canonical_name": "Caroline",
+      "aliases": [
+        "Caroline"
+      ],
+      "attrs": {
+        "feeling": "powerful",
+        "emotion": "thankful",
+        "event": "school event",
+        "topic": "transgender journey",
+        "action": "spoke about",
+        "goal": "encourage students to get involved in the LGBTQ community"
+      },
+      "created_at": "2026-04-27 17:29:18",
+      "updated_at": "2026-04-27 17:30:09"
+    },
+    "991e14e0-0c66-4075-8782-a19f830df77b": {
+      "type": "Entity",
+      "canonical_name": "Melanie",
+      "aliases": [
+        "Melanie"
+      ],
+      "attrs": {
+        "reflection": "felt proud and grateful, the vibes were amazing, and it was comforting to know I'm not alone and have a great community around me",
+        "statement": "It was awesome, Melanie! Being around people who embrace and back me up is beyond words. It really inspired me"
+      },
+      "created_at": "2026-04-27 17:29:18",
+      "updated_at": "2026-04-27 17:32:08"
+    },
+    "a0e61834-2926-4ff6-ba79-d084ccf941c8": {
+      "type": "Event",
+      "canonical_name": "Caroline attended LGBTQ support group",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 8 May, 2023, Caroline attended a LGBTQ support group and found it powerful.",
+        "quote": "I went to a LGBTQ support group yesterday and it was so powerful.",
+        "source": [
+          "conv-26_conv_session_1_D1:3"
+        ],
+        "time": "8 May, 2023",
+        "batch_id": "conv-26_conv_session_1_batch_0",
+        "source_turn_ids": [
+          "conv-26_conv_session_1_D1:1",
+          "conv-26_conv_session_1_D1:2",
+          "conv-26_conv_session_1_D1:3",
+          "conv-26_conv_session_1_D1:4"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_1_D1:1; speaker=Caroline; listener=Melanie; session_time=1:56 pm on 8 May, 2023]\nHey Mel! Good to see you! How have you been?\n\n[turn_id=conv-26_conv_session_1_D1:2; speaker=Melanie; listener=Caroline; session_time=1:56 pm on 8 May, 2023]\nHey Caroline! Good to see you! I'm swamped with the kids & work. What's up with you? Anything new?\n\n[turn_id=conv-26_conv_session_1_D1:3; speaker=Caroline; listener=Melanie; session_time=1:56 pm on 8 May, 2023]\nI went to a LGBTQ support group yesterday and it was so powerful.\n\n[turn_id=conv-26_conv_session_1_D1:4; speaker=Melanie; listener=Caroline; session_time=1:56 pm on 8 May, 2023]\nWow, that's cool, Caroline! What happened that was so awesome? Did you hear any inspiring stories?",
+        "feeling": "powerful",
+        "emotion": "thankful",
+        "support": "LGBTQ support group",
+        "effect": "given courage to embrace myself"
+      },
+      "created_at": "2026-04-27 17:29:22",
+      "updated_at": "2026-04-27 17:29:26"
+    },
+    "3181847b-8205-4e0e-be04-13ebb04f9222": {
+      "type": "Entity",
+      "canonical_name": "counseling or mental health work",
+      "aliases": [
+        "counseling",
+        "mental health work"
+      ],
+      "attrs": {
+        "field": "counseling or mental health work",
+        "interest": "supporting those with similar issues"
+      },
+      "created_at": "2026-04-27 17:29:31",
+      "updated_at": "2026-04-27 17:29:31"
+    },
+    "49f3e70f-0b1b-428c-82e9-5f6df346904d": {
+      "type": "Entity",
+      "canonical_name": "Lake sunrise painting",
+      "aliases": [
+        "lake sunrise"
+      ],
+      "attrs": {
+        "subject": "Melanie",
+        "medium": "painting",
+        "topic": "lake sunrise",
+        "created": "last year"
+      },
+      "created_at": "2026-04-27 17:29:35",
+      "updated_at": "2026-04-27 17:29:35"
+    },
+    "0ae23054-eb23-47c0-9861-5bb425e2a681": {
+      "type": "Event",
+      "canonical_name": "Melanie painted lake sunrise",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 8 May, 2023, Melanie painted a lake sunrise last year and said it's special to her.",
+        "quote": "Yeah, I painted that lake sunrise last year! It's special to me.",
+        "source": [
+          "conv-26_conv_session_1_D1:14"
+        ],
+        "time": "8 May, 2023",
+        "batch_id": "conv-26_conv_session_1_batch_3",
+        "source_turn_ids": [
+          "conv-26_conv_session_1_D1:13",
+          "conv-26_conv_session_1_D1:14",
+          "conv-26_conv_session_1_D1:15",
+          "conv-26_conv_session_1_D1:16"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_1_D1:13; speaker=Caroline; listener=Melanie; session_time=1:56 pm on 8 May, 2023]\nThanks, Melanie! That's really sweet. Is this your own painting?\n\n[turn_id=conv-26_conv_session_1_D1:14; speaker=Melanie; listener=Caroline; session_time=1:56 pm on 8 May, 2023]\nYeah, I painted that lake sunrise last year! It's special to me.\n\n[turn_id=conv-26_conv_session_1_D1:15; speaker=Caroline; listener=Melanie; session_time=1:56 pm on 8 May, 2023]\nWow, Melanie! The colors really blend nicely. Painting looks like a great outlet for expressing yourself.\n\n[turn_id=conv-26_conv_session_1_D1:16; speaker=Melanie; listener=Caroline; session_time=1:56 pm on 8 May, 2023]\nThanks, Caroline! Painting's a fun way to express my feelings and get creative. It's a great way to relax after a long day."
+      },
+      "created_at": "2026-04-27 17:29:35",
+      "updated_at": "2026-04-27 17:29:35"
+    },
+    "2f0e97ea-4a50-4cd3-a513-3237c94ffdd4": {
+      "type": "Event",
+      "canonical_name": "Melanie ran charity race for mental health",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 25 May, 2023, Melanie ran a charity race for mental health last Saturday and said it was really rewarding.",
+        "quote": "I ran a charity race for mental health last Saturday – it was really rewarding.",
+        "source": [
+          "conv-26_conv_session_2_D2:1"
+        ],
+        "time": "25 May, 2023",
+        "emotion": "rewarding",
+        "reflection": "made me think about taking care of our minds",
+        "batch_id": "conv-26_conv_session_2_batch_0",
+        "source_turn_ids": [
+          "conv-26_conv_session_2_D2:1",
+          "conv-26_conv_session_2_D2:2",
+          "conv-26_conv_session_2_D2:3",
+          "conv-26_conv_session_2_D2:4"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_2_D2:1; speaker=Melanie; listener=Caroline; session_time=1:14 pm on 25 May, 2023]\nHey Caroline, since we last chatted, I've had a lot of things happening to me. I ran a charity race for mental health last Saturday – it was really rewarding. Really made me think about taking care of our minds.\n\n[turn_id=conv-26_conv_session_2_D2:2; speaker=Caroline; listener=Melanie; session_time=1:14 pm on 25 May, 2023]\nThat charity race sounds great, Mel! Making a difference & raising awareness for mental health is super rewarding - I'm really proud of you for taking part!\n\n[turn_id=conv-26_conv_session_2_D2:3; speaker=Melanie; listener=Caroline; session_time=1:14 pm on 25 May, 2023]\nThanks, Caroline! The event was really thought-provoking. I'm starting to realize that self-care is really important. It's a journey for me, but when I look after myself, I'm able to better look after my family.\n\n[turn_id=conv-26_conv_session_2_D2:4; speaker=Caroline; listener=Melanie; session_time=1:14 pm on 25 May, 2023]\nI totally agree, Melanie. Taking care of ourselves is so important - even if it's not always easy. Great that you're prioritizing self-care."
+      },
+      "created_at": "2026-04-27 17:29:46",
+      "updated_at": "2026-04-27 17:29:47"
+    },
+    "36cb0eac-400d-445f-bac8-d5a6f8a2a51f": {
+      "type": "Event",
+      "canonical_name": "Melanie realized self-care is important",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 25 May, 2023, Melanie realized that self-care is really important during the charity race and mentioned it's a journey for her.",
+        "quote": "The event was really thought-provoking. I'm starting to realize that self-care is really important.",
+        "source": [
+          "conv-26_conv_session_2_D2:3"
+        ],
+        "time": "25 May, 2023",
+        "reflection": "realized self-care is important",
+        "statement": "it's a journey for me, but when I look after myself, I'm able to better look after my family",
+        "batch_id": "conv-26_conv_session_2_batch_0",
+        "source_turn_ids": [
+          "conv-26_conv_session_2_D2:1",
+          "conv-26_conv_session_2_D2:2",
+          "conv-26_conv_session_2_D2:3",
+          "conv-26_conv_session_2_D2:4"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_2_D2:1; speaker=Melanie; listener=Caroline; session_time=1:14 pm on 25 May, 2023]\nHey Caroline, since we last chatted, I've had a lot of things happening to me. I ran a charity race for mental health last Saturday – it was really rewarding. Really made me think about taking care of our minds.\n\n[turn_id=conv-26_conv_session_2_D2:2; speaker=Caroline; listener=Melanie; session_time=1:14 pm on 25 May, 2023]\nThat charity race sounds great, Mel! Making a difference & raising awareness for mental health is super rewarding - I'm really proud of you for taking part!\n\n[turn_id=conv-26_conv_session_2_D2:3; speaker=Melanie; listener=Caroline; session_time=1:14 pm on 25 May, 2023]\nThanks, Caroline! The event was really thought-provoking. I'm starting to realize that self-care is really important. It's a journey for me, but when I look after myself, I'm able to better look after my family.\n\n[turn_id=conv-26_conv_session_2_D2:4; speaker=Caroline; listener=Melanie; session_time=1:14 pm on 25 May, 2023]\nI totally agree, Melanie. Taking care of ourselves is so important - even if it's not always easy. Great that you're prioritizing self-care."
+      },
+      "created_at": "2026-04-27 17:29:47",
+      "updated_at": "2026-04-27 17:29:47"
+    },
+    "37262549-1559-44a4-bf7f-81884b6d80a5": {
+      "type": "Entity",
+      "canonical_name": "carving out me-time",
+      "aliases": [],
+      "attrs": {
+        "activity": "running, reading, playing my violin",
+        "effect": "refreshes me and helps me stay present for my fam"
+      },
+      "created_at": "2026-04-27 17:29:51",
+      "updated_at": "2026-04-27 17:29:51"
+    },
+    "267deebd-22e2-4ada-8386-92a2c6860d04": {
+      "type": "Event",
+      "canonical_name": "Melanie carves out me-time",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 25 May, 2023, Melanie carved out me-time each day by running, reading, or playing her violin, which refreshed her and helped her stay present for her family.",
+        "quote": "Yeah, it's tough. So I'm carving out some me-time each day - running, reading, or playing my violin - which refreshes me and helps me stay present for my fam!",
+        "source": [
+          "conv-26_conv_session_2_D2:5"
+        ],
+        "time": "25 May, 2023",
+        "batch_id": "conv-26_conv_session_2_batch_1",
+        "source_turn_ids": [
+          "conv-26_conv_session_2_D2:5",
+          "conv-26_conv_session_2_D2:6",
+          "conv-26_conv_session_2_D2:7",
+          "conv-26_conv_session_2_D2:8"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_2_D2:5; speaker=Melanie; listener=Caroline; session_time=1:14 pm on 25 May, 2023]\nYeah, it's tough. So I'm carving out some me-time each day - running, reading, or playing my violin - which refreshes me and helps me stay present for my fam!\n\n[turn_id=conv-26_conv_session_2_D2:6; speaker=Caroline; listener=Melanie; session_time=1:14 pm on 25 May, 2023]\nThat's great, Mel! Taking time for yourself is so important. You're doing an awesome job looking after yourself and your family!\n\n[turn_id=conv-26_conv_session_2_D2:7; speaker=Melanie; listener=Caroline; session_time=1:14 pm on 25 May, 2023]\nThanks, Caroline. It's still a work in progress, but I'm doing my best. My kids are so excited about summer break! We're thinking about going camping next month. Any fun plans for the summer?\n\n[turn_id=conv-26_conv_session_2_D2:8; speaker=Caroline; listener=Melanie; session_time=1:14 pm on 25 May, 2023]\nResearching adoption agencies — it's been a dream to have a family and give a loving home to kids who need it."
+      },
+      "created_at": "2026-04-27 17:29:52",
+      "updated_at": "2026-04-27 17:29:52"
+    },
+    "6f9066af-7387-4fe6-b635-9f82f772991e": {
+      "type": "Event",
+      "canonical_name": "Caroline spoke about transgender journey at school event",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 9 June, 2023, Caroline spoke about her transgender journey at a school event and encouraged students to get involved in the LGBTQ community.",
+        "quote": "I talked about my transgender journey and encouraged students to get involved in the LGBTQ community.",
+        "source": [
+          "conv-26_conv_session_3_D3:1"
+        ],
+        "time": "9 June, 2023",
+        "batch_id": "conv-26_conv_session_3_batch_0",
+        "source_turn_ids": [
+          "conv-26_conv_session_3_D3:1",
+          "conv-26_conv_session_3_D3:2",
+          "conv-26_conv_session_3_D3:3",
+          "conv-26_conv_session_3_D3:4"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_3_D3:1; speaker=Caroline; listener=Melanie; session_time=7:55 pm on 9 June, 2023]\nHey Melanie! How's it going? I wanted to tell you about my school event last week. It was awesome! I talked about my transgender journey and encouraged students to get involved in the LGBTQ community. It was great to see their reactions. It made me reflect on how far I've come since I started transitioning three years ago.\n\n[turn_id=conv-26_conv_session_3_D3:2; speaker=Melanie; listener=Caroline; session_time=7:55 pm on 9 June, 2023]\nHey Caroline! Great to hear from you. Sounds like your event was amazing! I'm so proud of you for spreading awareness and getting others involved in the LGBTQ community. You've come a long way since your transition - keep on inspiring people with your strength and courage!\n\n[turn_id=conv-26_conv_session_3_D3:3; speaker=Caroline; listener=Melanie; session_time=7:55 pm on 9 June, 2023]\nThanks, Mel! Your backing really means a lot. I felt super powerful giving my talk. I shared my own journey, the struggles I had and how much I've developed since coming out. It was wonderful to see how the audience related to what I said and how it inspired them to be better allies. Conversations about gender identity and inclusion are so necessary and I'm thankful for being able to give a voice to the trans community.\n\n[turn_id=conv-26_conv_session_3_D3:4; speaker=Melanie; listener=Caroline; session_time=7:55 pm on 9 June, 2023]\nWow, Caroline, you're doing an awesome job of inspiring others with your journey. It's great to be part of it and see how you're positively affecting so many. Talking about inclusivity and acceptance is crucial, and you're so brave to speak up for the trans community. Keep up the great work!"
+      },
+      "created_at": "2026-04-27 17:30:09",
+      "updated_at": "2026-04-27 17:30:10"
+    },
+    "483405d7-3fcb-4b40-9234-462a9d72d242": {
+      "type": "Entity",
+      "canonical_name": "LGBTQ community",
+      "aliases": [],
+      "attrs": {},
+      "created_at": "2026-04-27 17:30:10",
+      "updated_at": "2026-04-27 17:30:10"
+    },
+    "7c0bff8d-cd1e-4f85-9e15-097c02e5ab8f": {
+      "type": "Entity",
+      "canonical_name": "Transgender journey",
+      "aliases": [],
+      "attrs": {},
+      "created_at": "2026-04-27 17:30:10",
+      "updated_at": "2026-04-27 17:30:10"
+    },
+    "d622c722-4ccd-43b9-96f0-8496d8810dbc": {
+      "type": "Entity",
+      "canonical_name": "School event",
+      "aliases": [],
+      "attrs": {},
+      "created_at": "2026-04-27 17:30:10",
+      "updated_at": "2026-04-27 17:30:10"
+    },
+    "0a25de9b-6e64-4650-a630-42453c5cee43": {
+      "type": "Entity",
+      "canonical_name": "Students",
+      "aliases": [],
+      "attrs": {},
+      "created_at": "2026-04-27 17:30:10",
+      "updated_at": "2026-04-27 17:30:10"
+    },
+    "f60963a9-02bd-47f6-b2f4-32c794cb6ffa": {
+      "type": "Entity",
+      "canonical_name": "Gender identity",
+      "aliases": [],
+      "attrs": {},
+      "created_at": "2026-04-27 17:30:10",
+      "updated_at": "2026-04-27 17:30:10"
+    },
+    "9e237ee1-df73-40fd-8b25-5afbbe330102": {
+      "type": "Entity",
+      "canonical_name": "Inclusion",
+      "aliases": [],
+      "attrs": {},
+      "created_at": "2026-04-27 17:30:10",
+      "updated_at": "2026-04-27 17:30:10"
+    },
+    "37826374-8097-48e7-b90f-9fa98967c8ac": {
+      "type": "Entity",
+      "canonical_name": "Acceptance",
+      "aliases": [],
+      "attrs": {},
+      "created_at": "2026-04-27 17:30:10",
+      "updated_at": "2026-04-27 17:30:10"
+    },
+    "b83ddd95-48f7-4c7e-bb93-803ca9ba4b40": {
+      "type": "Entity",
+      "canonical_name": "Family",
+      "aliases": [
+        "family"
+      ],
+      "attrs": {
+        "support": "important",
+        "duration": "4 years",
+        "relationship": "friends",
+        "context": "since I moved from my home country"
+      },
+      "created_at": "2026-04-27 17:30:21",
+      "updated_at": "2026-04-27 17:30:21"
+    },
+    "87249896-86c9-4786-8478-433c19bc84f8": {
+      "type": "Event",
+      "canonical_name": "Family support during tough breakup",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 9 June, 2023, Melanie's friends provided love and help during a tough breakup.",
+        "quote": "Their love and help have been so important especially after that tough breakup.",
+        "source": [
+          "conv-26_conv_session_3_D3:13"
+        ],
+        "time": "9 June, 2023",
+        "batch_id": "conv-26_conv_session_3_batch_3",
+        "source_turn_ids": [
+          "conv-26_conv_session_3_D3:13",
+          "conv-26_conv_session_3_D3:14",
+          "conv-26_conv_session_3_D3:15",
+          "conv-26_conv_session_3_D3:16"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_3_D3:13; speaker=Caroline; listener=Melanie; session_time=7:55 pm on 9 June, 2023]\nYeah, I'm really lucky to have them. They've been there through everything, I've known these friends for 4 years, since I moved from my home country. Their love and help have been so important especially after that tough breakup. I'm super thankful. Who supports you, Mel?\n\n[turn_id=conv-26_conv_session_3_D3:14; speaker=Melanie; listener=Caroline; session_time=7:55 pm on 9 June, 2023]\nI'm lucky to have my husband and kids; they keep me motivated.\n\n[turn_id=conv-26_conv_session_3_D3:15; speaker=Caroline; listener=Melanie; session_time=7:55 pm on 9 June, 2023]\nWow, what an amazing family pic! How long have you been married?\n\n[turn_id=conv-26_conv_session_3_D3:16; speaker=Melanie; listener=Caroline; session_time=7:55 pm on 9 June, 2023]\n5 years already! Time flies- feels like just yesterday I put this dress on! Thanks, Caroline!"
+      },
+      "created_at": "2026-04-27 17:30:21",
+      "updated_at": "2026-04-27 17:30:22"
+    },
+    "f78cbcf0-ac33-4316-a399-cbb38b41a14c": {
+      "type": "Entity",
+      "canonical_name": "Husband and kids",
+      "aliases": [
+        "husband and kids"
+      ],
+      "attrs": {
+        "relationship": "spouse and children",
+        "duration": "5 years",
+        "context": "married for 5 years"
+      },
+      "created_at": "2026-04-27 17:30:21",
+      "updated_at": "2026-04-27 17:30:21"
+    },
+    "a6e037f2-4297-47e2-b311-d48e28ec531f": {
+      "type": "Event",
+      "canonical_name": "Marriage anniversary",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 9 June, 2023, Melanie celebrated her 5-year marriage anniversary.",
+        "quote": "5 years already! Time flies- feels like just yesterday I put this dress on!",
+        "source": [
+          "conv-26_conv_session_3_D3:16"
+        ],
+        "time": "9 June, 2023",
+        "batch_id": "conv-26_conv_session_3_batch_3",
+        "source_turn_ids": [
+          "conv-26_conv_session_3_D3:13",
+          "conv-26_conv_session_3_D3:14",
+          "conv-26_conv_session_3_D3:15",
+          "conv-26_conv_session_3_D3:16"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_3_D3:13; speaker=Caroline; listener=Melanie; session_time=7:55 pm on 9 June, 2023]\nYeah, I'm really lucky to have them. They've been there through everything, I've known these friends for 4 years, since I moved from my home country. Their love and help have been so important especially after that tough breakup. I'm super thankful. Who supports you, Mel?\n\n[turn_id=conv-26_conv_session_3_D3:14; speaker=Melanie; listener=Caroline; session_time=7:55 pm on 9 June, 2023]\nI'm lucky to have my husband and kids; they keep me motivated.\n\n[turn_id=conv-26_conv_session_3_D3:15; speaker=Caroline; listener=Melanie; session_time=7:55 pm on 9 June, 2023]\nWow, what an amazing family pic! How long have you been married?\n\n[turn_id=conv-26_conv_session_3_D3:16; speaker=Melanie; listener=Caroline; session_time=7:55 pm on 9 June, 2023]\n5 years already! Time flies- feels like just yesterday I put this dress on! Thanks, Caroline!"
+      },
+      "created_at": "2026-04-27 17:30:21",
+      "updated_at": "2026-04-27 17:30:22"
+    },
+    "e5178384-7663-492c-af7f-0c41b1df461c": {
+      "type": "Entity",
+      "canonical_name": "Necklace",
+      "aliases": [],
+      "attrs": {
+        "meaning": "love, faith and strength",
+        "origin": "Sweden",
+        "gift_giver": "grandma",
+        "symbolism": "reminder of roots and family love and support"
+      },
+      "created_at": "2026-04-27 17:30:30",
+      "updated_at": "2026-04-27 17:30:30"
+    },
+    "e9759d64-e649-4f7a-ba36-c4bafafbf70f": {
+      "type": "Event",
+      "canonical_name": "Caroline receives necklace from grandma",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 27 June, 2023, Caroline received a necklace from her grandma in Sweden, which stands for love, faith and strength.",
+        "quote": "This necklace is super special to me - a gift from my grandma in my home country, Sweden. She gave it to me when I was young, and it stands for love, faith and strength.",
+        "source": [
+          "conv-26_conv_session_4_D4:3"
+        ],
+        "time": "27 June, 2023",
+        "batch_id": "conv-26_conv_session_4_batch_0",
+        "source_turn_ids": [
+          "conv-26_conv_session_4_D4:1",
+          "conv-26_conv_session_4_D4:2",
+          "conv-26_conv_session_4_D4:3",
+          "conv-26_conv_session_4_D4:4"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_4_D4:1; speaker=Caroline; listener=Melanie; session_time=10:37 am on 27 June, 2023]\nHey Melanie! Long time no talk! A lot's been going on in my life! Take a look at this.\n\n[turn_id=conv-26_conv_session_4_D4:2; speaker=Melanie; listener=Caroline; session_time=10:37 am on 27 June, 2023]\nHey, Caroline! Nice to hear from you! Love the necklace, any special meaning to it?\n\n[turn_id=conv-26_conv_session_4_D4:3; speaker=Caroline; listener=Melanie; session_time=10:37 am on 27 June, 2023]\nThanks, Melanie! This necklace is super special to me - a gift from my grandma in my home country, Sweden. She gave it to me when I was young, and it stands for love, faith and strength. It's like a reminder of my roots and all the love and support I get from my family.\n\n[turn_id=conv-26_conv_session_4_D4:4; speaker=Melanie; listener=Caroline; session_time=10:37 am on 27 June, 2023]\nThat's gorgeous, Caroline! It's awesome what items can mean so much to us, right? Got any other objects that you treasure, like that necklace?"
+      },
+      "created_at": "2026-04-27 17:30:30",
+      "updated_at": "2026-04-27 17:30:30"
+    },
+    "3bc7c340-6d55-45ea-b246-3d5f192bd81b": {
+      "type": "Entity",
+      "canonical_name": "Hand-painted bowl",
+      "aliases": [],
+      "attrs": {
+        "description": "hand-painted bowl",
+        "maker": "friend",
+        "occasion": "18th birthday",
+        "pattern": "awesome",
+        "colors": "awesome",
+        "association": "art and self-expression"
+      },
+      "created_at": "2026-04-27 17:30:35",
+      "updated_at": "2026-04-27 17:30:35"
+    },
+    "dd0341a5-2f85-4c12-9c4e-8a6920d7c407": {
+      "type": "Event",
+      "canonical_name": "Family camping in the mountains",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 27 June, 2023, Melanie's family went camping in the mountains, exploring nature, roasting marshmallows, and going on a hike. The view from the top was amazing, and the younger kids loved nature.",
+        "quote": "It was an awesome time, Caroline! We explored nature, roasted marshmallows around the campfire and even went on a hike. The view from the top was amazing! The 2 younger kids love nature. It was so special having these moments together as a family - I'll never forget it!",
+        "source": [
+          "conv-26_conv_session_4_D4:6",
+          "conv-26_conv_session_4_D4:8"
+        ],
+        "time": "27 June, 2023",
+        "batch_id": "conv-26_conv_session_4_batch_1",
+        "source_turn_ids": [
+          "conv-26_conv_session_4_D4:5",
+          "conv-26_conv_session_4_D4:6",
+          "conv-26_conv_session_4_D4:7",
+          "conv-26_conv_session_4_D4:8"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_4_D4:5; speaker=Caroline; listener=Melanie; session_time=10:37 am on 27 June, 2023]\nYep, Melanie! I've got some other stuff with sentimental value, like my hand-painted bowl. A friend made it for my 18th birthday ten years ago. The pattern and colors are awesome-- it reminds me of art and self-expression.\n\n[turn_id=conv-26_conv_session_4_D4:6; speaker=Melanie; listener=Caroline; session_time=10:37 am on 27 June, 2023]\nThat sounds great, Caroline! It's awesome having stuff around that make us think of good connections and times. Actually, I just took my fam camping in the mountains last week - it was a really nice time together!\n\n[turn_id=conv-26_conv_session_4_D4:7; speaker=Caroline; listener=Melanie; session_time=10:37 am on 27 June, 2023]\nSounds great, Mel. Glad you made some new family mems. How was it? Anything fun?\n\n[turn_id=conv-26_conv_session_4_D4:8; speaker=Melanie; listener=Caroline; session_time=10:37 am on 27 June, 2023]\nIt was an awesome time, Caroline! We explored nature, roasted marshmallows around the campfire and even went on a hike. The view from the top was amazing! The 2 younger kids love nature. It was so special having these moments together as a family - I'll never forget it!"
+      },
+      "created_at": "2026-04-27 17:30:35",
+      "updated_at": "2026-04-27 17:30:36"
+    },
+    "b8e75d89-c21a-4cf7-bb9a-4695e347b3bc": {
+      "type": "Entity",
+      "canonical_name": "Counseling and mental health career",
+      "aliases": [],
+      "attrs": {
+        "statement": "I want to help people who have gone through the same things as me."
+      },
+      "created_at": "2026-04-27 17:30:40",
+      "updated_at": "2026-04-27 17:30:40"
+    },
+    "08ceaac7-a983-4ba8-8263-ac2b244c1fec": {
+      "type": "Event",
+      "canonical_name": "Caroline explores counseling and mental health career",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 27 June, 2023, Caroline explored counseling and mental health as a career and stated she wants to help people who have gone through the same things as her.",
+        "quote": "Lately, I've been looking into counseling and mental health as a career. I want to help people who have gone through the same things as me.",
+        "source": [
+          "conv-26_conv_session_4_D4:11"
+        ],
+        "time": "27 June, 2023",
+        "batch_id": "conv-26_conv_session_4_batch_2",
+        "source_turn_ids": [
+          "conv-26_conv_session_4_D4:9",
+          "conv-26_conv_session_4_D4:10",
+          "conv-26_conv_session_4_D4:11",
+          "conv-26_conv_session_4_D4:12"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_4_D4:9; speaker=Caroline; listener=Melanie; session_time=10:37 am on 27 June, 2023]\nThat's awesome, Melanie! Family moments like that are so special. Glad y'all had such a great time.\n\n[turn_id=conv-26_conv_session_4_D4:10; speaker=Melanie; listener=Caroline; session_time=10:37 am on 27 June, 2023]\nThanks, Caroline! Family time matters to me. What's up with you lately?\n\n[turn_id=conv-26_conv_session_4_D4:11; speaker=Caroline; listener=Melanie; session_time=10:37 am on 27 June, 2023]\nLately, I've been looking into counseling and mental health as a career. I want to help people who have gone through the same things as me.\n\n[turn_id=conv-26_conv_session_4_D4:12; speaker=Melanie; listener=Caroline; session_time=10:37 am on 27 June, 2023]\nSounds great! What kind of counseling and mental health services do you want to persue?"
+      },
+      "created_at": "2026-04-27 17:30:40",
+      "updated_at": "2026-04-27 17:30:40"
+    },
+    "484cfd17-957b-406f-b666-a28b8c9138b8": {
+      "type": "Event",
+      "canonical_name": "Caroline attends LGBTQ+ counseling workshop",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 27 June, 2023, Caroline attended an LGBTQ+ counseling workshop and learned about different therapeutic methods for working with trans people.",
+        "quote": "Last Friday, I went to an LGBTQ+ counseling workshop and it was really enlightening. They talked about different therapeutic methods and how to best work with trans people.",
+        "source": [
+          "conv-26_conv_session_4_D4:13"
+        ],
+        "time": "27 June, 2023",
+        "batch_id": "conv-26_conv_session_4_batch_3",
+        "source_turn_ids": [
+          "conv-26_conv_session_4_D4:13",
+          "conv-26_conv_session_4_D4:14",
+          "conv-26_conv_session_4_D4:15",
+          "conv-26_conv_session_4_D4:16"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_4_D4:13; speaker=Caroline; listener=Melanie; session_time=10:37 am on 27 June, 2023]\nI'm still figuring out the details, but I'm thinking of working with trans people, helping them accept themselves and supporting their mental health. Last Friday, I went to an LGBTQ+ counseling workshop and it was really enlightening. They talked about different therapeutic methods and how to best work with trans people. Seeing how passionate these pros were about making a safe space for people like me was amazing.\n\n[turn_id=conv-26_conv_session_4_D4:14; speaker=Melanie; listener=Caroline; session_time=10:37 am on 27 June, 2023]\nWoah, Caroline, it sounds like you're doing some impressive work. It's inspiring to see your dedication to helping others. What motivated you to pursue counseling?\n\n[turn_id=conv-26_conv_session_4_D4:15; speaker=Caroline; listener=Melanie; session_time=10:37 am on 27 June, 2023]\nThanks, Melanie. It really mattered. My own journey and the support I got made a huge difference. Now I want to help people go through it too. I saw how counseling and support groups improved my life, so I started caring more about mental health and understanding myself. Now I'm passionate about creating a safe, inviting place for people to grow.\n\n[turn_id=conv-26_conv_session_4_D4:16; speaker=Melanie; listener=Caroline; session_time=10:37 am on 27 June, 2023]\nWow, Caroline! You've gained so much from your own experience. Your passion and hard work to help others is awesome. Keep it up, you're making a big impact!"
+      },
+      "created_at": "2026-04-27 17:30:44",
+      "updated_at": "2026-04-27 17:30:44"
+    },
+    "41396271-fbbb-42a9-8011-b6a8a060ad5e": {
+      "type": "Event",
+      "canonical_name": "Caroline attended LGBTQ+ pride parade",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 3 July, 2023, Caroline attended an LGBTQ+ pride parade and felt a sense of belonging.",
+        "quote": "Since we last spoke, some big things have happened. Last week I went to an LGBTQ+ pride parade. Everyone was so happy and it made me feel like I belonged.",
+        "source": [
+          "conv-26_conv_session_5_D5:1"
+        ],
+        "time": "3 July, 2023",
+        "batch_id": "conv-26_conv_session_5_batch_0",
+        "source_turn_ids": [
+          "conv-26_conv_session_5_D5:1",
+          "conv-26_conv_session_5_D5:2",
+          "conv-26_conv_session_5_D5:3",
+          "conv-26_conv_session_5_D5:4"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_5_D5:1; speaker=Caroline; listener=Melanie; session_time=1:36 pm on 3 July, 2023]\nSince we last spoke, some big things have happened. Last week I went to an LGBTQ+ pride parade. Everyone was so happy and it made me feel like I belonged. It showed me how much our community has grown, it was amazing!\n\n[turn_id=conv-26_conv_session_5_D5:2; speaker=Melanie; listener=Caroline; session_time=1:36 pm on 3 July, 2023]\nWow, Caroline, sounds like the parade was an awesome experience! It's great to see the love and support for the LGBTQ+ community. Congrats! Has this experience influenced your goals at all?\n\n[turn_id=conv-26_conv_session_5_D5:3; speaker=Caroline; listener=Melanie; session_time=1:36 pm on 3 July, 2023]\nThanks, Mel! It really motivated me for sure. Talking to the community made me want to use my story to help others too - I'm still thinking that counseling and mental health is the way to go. I'm super excited to give back. \n\n[turn_id=conv-26_conv_session_5_D5:4; speaker=Melanie; listener=Caroline; session_time=1:36 pm on 3 July, 2023]\nWow, Caroline! That's great! I just signed up for a pottery class yesterday. It's like therapy for me, letting me express myself and get creative. Have you found any activities that make you feel the same way?"
+      },
+      "created_at": "2026-04-27 17:30:50",
+      "updated_at": "2026-04-27 17:30:50"
+    },
+    "8ea62257-13e7-4057-b87e-579d575e5463": {
+      "type": "Entity",
+      "canonical_name": "LGBTQ+ pride parade",
+      "aliases": [],
+      "attrs": {
+        "feeling": "belonging",
+        "reflection": "showed me how much our community has grown"
+      },
+      "created_at": "2026-04-27 17:30:50",
+      "updated_at": "2026-04-27 17:30:50"
+    },
+    "f4b0b76c-5f31-48da-8333-0d5868292349": {
+      "type": "Event",
+      "canonical_name": "Melanie signed up for pottery class",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 3 July, 2023, Melanie signed up for a pottery class which she describes as therapy for her.",
+        "quote": "I just signed up for a pottery class yesterday. It's like therapy for me, letting me express myself and get creative.",
+        "source": [
+          "conv-26_conv_session_5_D5:2"
+        ],
+        "time": "3 July, 2023",
+        "batch_id": "conv-26_conv_session_5_batch_0",
+        "source_turn_ids": [
+          "conv-26_conv_session_5_D5:1",
+          "conv-26_conv_session_5_D5:2",
+          "conv-26_conv_session_5_D5:3",
+          "conv-26_conv_session_5_D5:4"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_5_D5:1; speaker=Caroline; listener=Melanie; session_time=1:36 pm on 3 July, 2023]\nSince we last spoke, some big things have happened. Last week I went to an LGBTQ+ pride parade. Everyone was so happy and it made me feel like I belonged. It showed me how much our community has grown, it was amazing!\n\n[turn_id=conv-26_conv_session_5_D5:2; speaker=Melanie; listener=Caroline; session_time=1:36 pm on 3 July, 2023]\nWow, Caroline, sounds like the parade was an awesome experience! It's great to see the love and support for the LGBTQ+ community. Congrats! Has this experience influenced your goals at all?\n\n[turn_id=conv-26_conv_session_5_D5:3; speaker=Caroline; listener=Melanie; session_time=1:36 pm on 3 July, 2023]\nThanks, Mel! It really motivated me for sure. Talking to the community made me want to use my story to help others too - I'm still thinking that counseling and mental health is the way to go. I'm super excited to give back. \n\n[turn_id=conv-26_conv_session_5_D5:4; speaker=Melanie; listener=Caroline; session_time=1:36 pm on 3 July, 2023]\nWow, Caroline! That's great! I just signed up for a pottery class yesterday. It's like therapy for me, letting me express myself and get creative. Have you found any activities that make you feel the same way?"
+      },
+      "created_at": "2026-04-27 17:30:50",
+      "updated_at": "2026-04-27 17:30:50"
+    },
+    "802154d0-659c-4f69-8be7-febde62c1cb7": {
+      "type": "Entity",
+      "canonical_name": "Piano",
+      "aliases": [],
+      "attrs": {},
+      "created_at": "2026-04-27 17:30:54",
+      "updated_at": "2026-04-27 17:30:54"
+    },
+    "5a4340bf-f5b2-43ef-8fb0-3302557908ad": {
+      "type": "Event",
+      "canonical_name": "Melanie learns piano",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 3 July, 2023, Melanie started learning the piano and mentioned it as a creative activity.",
+        "quote": "I'm a big fan of pottery - the creativity and skill is awesome. Plus, making it is so calming. Look at this!",
+        "source": [
+          "conv-26_conv_session_5_D5:6"
+        ],
+        "time": "3 July, 2023",
+        "batch_id": "conv-26_conv_session_5_batch_1",
+        "source_turn_ids": [
+          "conv-26_conv_session_5_D5:5",
+          "conv-26_conv_session_5_D5:6",
+          "conv-26_conv_session_5_D5:7",
+          "conv-26_conv_session_5_D5:8"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_5_D5:5; speaker=Caroline; listener=Melanie; session_time=1:36 pm on 3 July, 2023]\nWow, Melanie! I'm getting creative too, just learning the piano. What made you try pottery?\n\n[turn_id=conv-26_conv_session_5_D5:6; speaker=Melanie; listener=Caroline; session_time=1:36 pm on 3 July, 2023]\nI'm a big fan of pottery - the creativity and skill is awesome. Plus, making it is so calming. Look at this!\n\n[turn_id=conv-26_conv_session_5_D5:7; speaker=Caroline; listener=Melanie; session_time=1:36 pm on 3 July, 2023]\nThat bowl is gorgeous! The black and white design looks so fancy. Did you make it?\n\n[turn_id=conv-26_conv_session_5_D5:8; speaker=Melanie; listener=Caroline; session_time=1:36 pm on 3 July, 2023]\nThanks, Caroline! Yeah, I made this bowl in my class. It took some work, but I'm pretty proud of it."
+      },
+      "created_at": "2026-04-27 17:30:54",
+      "updated_at": "2026-04-27 17:30:54"
+    },
+    "4bf3e565-b6c8-47d3-b0c0-a5ff8440b400": {
+      "type": "Event",
+      "canonical_name": "Caroline attends transgender conference",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 3 July, 2023, Caroline attended a transgender conference this month and expressed excitement about meeting others in the community and learning about advocacy.",
+        "quote": "I'm going to a transgender conference this month. I'm so excited to meet other people in the community and learn more about advocacy. It's gonna be great!",
+        "source": [
+          "conv-26_conv_session_5_D5:13"
+        ],
+        "time": "3 July, 2023",
+        "batch_id": "conv-26_conv_session_5_batch_3",
+        "source_turn_ids": [
+          "conv-26_conv_session_5_D5:13",
+          "conv-26_conv_session_5_D5:14",
+          "conv-26_conv_session_5_D5:15",
+          "conv-26_conv_session_5_D5:16"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_5_D5:13; speaker=Caroline; listener=Melanie; session_time=1:36 pm on 3 July, 2023]\nThanks Mel! I'm going to a transgender conference this month. I'm so excited to meet other people in the community and learn more about advocacy. It's gonna be great!\n\n[turn_id=conv-26_conv_session_5_D5:14; speaker=Melanie; listener=Caroline; session_time=1:36 pm on 3 July, 2023]\nSounds awesome, Caroline! Have a great time and learn a lot. Have fun!\n\n[turn_id=conv-26_conv_session_5_D5:15; speaker=Caroline; listener=Melanie; session_time=1:36 pm on 3 July, 2023]\nCool, thanks Mel! Can't wait. I'll keep ya posted. Bye!\n\n[turn_id=conv-26_conv_session_5_D5:16; speaker=Melanie; listener=Caroline; session_time=1:36 pm on 3 July, 2023]\nBye, Caroline! Can't wait to hear about it. Have fun and stay safe!"
+      },
+      "created_at": "2026-04-27 17:30:59",
+      "updated_at": "2026-04-27 17:30:59"
+    },
+    "3652da61-324f-4bf1-a82b-f2e9c7c16bf1": {
+      "type": "Event",
+      "canonical_name": "Caroline explores counseling and mental health work",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 6 July, 2023, Caroline explored counseling and mental health work more and stated she is passionate about helping people and making a positive impact, which is tough but really rewarding.",
+        "quote": "Since our last chat, I've been looking into counseling or mental health work more. I'm passionate about helping people and making a positive impact. It's tough, but really rewarding too.",
+        "source": [
+          "conv-26_conv_session_6_D6:3"
+        ],
+        "time": "6 July, 2023",
+        "batch_id": "conv-26_conv_session_6_batch_0",
+        "source_turn_ids": [
+          "conv-26_conv_session_6_D6:1",
+          "conv-26_conv_session_6_D6:2",
+          "conv-26_conv_session_6_D6:3",
+          "conv-26_conv_session_6_D6:4"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_6_D6:1; speaker=Caroline; listener=Melanie; session_time=8:18 pm on 6 July, 2023]\nHey Mel! Long time no talk. Lots has been going on since then!\n\n[turn_id=conv-26_conv_session_6_D6:2; speaker=Melanie; listener=Caroline; session_time=8:18 pm on 6 July, 2023]\nHey Caroline! Missed you. Anything new? Spill the beans!\n\n[turn_id=conv-26_conv_session_6_D6:3; speaker=Caroline; listener=Melanie; session_time=8:18 pm on 6 July, 2023]\nSince our last chat, I've been looking into counseling or mental health work more. I'm passionate about helping people and making a positive impact. It's tough, but really rewarding too. Anything new happening with you?\n\n[turn_id=conv-26_conv_session_6_D6:4; speaker=Melanie; listener=Caroline; session_time=8:18 pm on 6 July, 2023]\nThat's awesome, Caroline! Congrats on following your dreams. Yesterday I took the kids to the museum - it was so cool spending time with them and seeing their eyes light up!"
+      },
+      "created_at": "2026-04-27 17:31:03",
+      "updated_at": "2026-04-27 17:31:04"
+    },
+    "2d5b03f8-550e-4b60-8f59-2b6d73686049": {
+      "type": "Event",
+      "canonical_name": "Caroline visits dinosaur exhibit",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 6 July, 2023, Caroline visited a dinosaur exhibit and was excited about it, as she loves learning about animals and the bones were impressive.",
+        "quote": "They were stoked for the dinosaur exhibit! They love learning about animals and the bones were so cool. It reminds me why I love being a mom.",
+        "source": [
+          "conv-26_conv_session_6_D6:6"
+        ],
+        "time": "6 July, 2023",
+        "batch_id": "conv-26_conv_session_6_batch_1",
+        "source_turn_ids": [
+          "conv-26_conv_session_6_D6:5",
+          "conv-26_conv_session_6_D6:6",
+          "conv-26_conv_session_6_D6:7",
+          "conv-26_conv_session_6_D6:8"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_6_D6:5; speaker=Caroline; listener=Melanie; session_time=8:18 pm on 6 July, 2023]\nMelanie, that's a great pic! That must have been awesome. What were they so stoked about?\n\n[turn_id=conv-26_conv_session_6_D6:6; speaker=Melanie; listener=Caroline; session_time=8:18 pm on 6 July, 2023]\nThey were stoked for the dinosaur exhibit! They love learning about animals and the bones were so cool. It reminds me why I love being a mom.\n\n[turn_id=conv-26_conv_session_6_D6:7; speaker=Caroline; listener=Melanie; session_time=8:18 pm on 6 July, 2023]\nBeing a mom is awesome. I'm creating a library for when I have kids. I'm really looking forward to reading to them and opening up their minds.\n\n[turn_id=conv-26_conv_session_6_D6:8; speaker=Melanie; listener=Caroline; session_time=8:18 pm on 6 July, 2023]\nSounds great! What kind of books you got in your library?"
+      },
+      "created_at": "2026-04-27 17:31:07",
+      "updated_at": "2026-04-27 17:31:07"
+    },
+    "563c362e-a28c-4585-887e-dbb22fd6c375": {
+      "type": "Entity",
+      "canonical_name": "Charlotte's Web",
+      "aliases": [],
+      "attrs": {
+        "title": "Charlotte's Web",
+        "author": "E.B. White",
+        "genre": "children's literature",
+        "summary": "A story about a spider who befriends a pig and helps save her life, highlighting themes of friendship and compassion."
+      },
+      "created_at": "2026-04-27 17:31:11",
+      "updated_at": "2026-04-27 17:31:11"
+    },
+    "dacb187f-d8e5-4242-b7bd-fb3548b18aff": {
+      "type": "Event",
+      "canonical_name": "Caroline attends LGBTQ conference",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 12 July, 2023, Caroline attended an LGBTQ conference two days ago and described it as a special event where she met and connected with people who've gone through similar journeys.",
+        "quote": "I went to an LGBTQ conference two days ago and it was really special. I got the chance to meet and connect with people who've gone through similar journeys. It was such a welcoming environment and I felt totally accepted.",
+        "source": [
+          "conv-26_conv_session_7_D7:1"
+        ],
+        "time": "12 July, 2023",
+        "batch_id": "conv-26_conv_session_7_batch_0",
+        "source_turn_ids": [
+          "conv-26_conv_session_7_D7:1",
+          "conv-26_conv_session_7_D7:2",
+          "conv-26_conv_session_7_D7:3",
+          "conv-26_conv_session_7_D7:4"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_7_D7:1; speaker=Caroline; listener=Melanie; session_time=4:33 pm on 12 July, 2023]\nHey Mel, great to chat with you again! So much has happened since we last spoke - I went to an LGBTQ conference two days ago and it was really special. I got the chance to meet and connect with people who've gone through similar journeys. It was such a welcoming environment and I felt totally accepted. I'm really thankful for this amazing community - it's shown me how important it is to fight for trans rights and spread awareness.\n\n[turn_id=conv-26_conv_session_7_D7:2; speaker=Melanie; listener=Caroline; session_time=4:33 pm on 12 July, 2023]\nWow, Caroline, that sounds awesome! So glad you felt accepted and supported. Events like these are great for reminding us of how strong community can be!\n\n[turn_id=conv-26_conv_session_7_D7:3; speaker=Caroline; listener=Melanie; session_time=4:33 pm on 12 July, 2023]\nYeah, it's true! Having people who back you makes such a huge difference. It's great to see how far LGBTQ rights have come, but there's still plenty of progress to be made. I wanna help make a difference.\n\n[turn_id=conv-26_conv_session_7_D7:4; speaker=Melanie; listener=Caroline; session_time=4:33 pm on 12 July, 2023]\nWow, Caroline. We've come so far, but there's more to do. Your drive to help is awesome! What's your plan to pitch in?"
+      },
+      "created_at": "2026-04-27 17:31:18",
+      "updated_at": "2026-04-27 17:31:18"
+    },
+    "9d7e9634-4fe2-4dd8-b4d0-e6c69c9948a2": {
+      "type": "Entity",
+      "canonical_name": "Becoming Nicole",
+      "aliases": [],
+      "attrs": {
+        "author": "Amy Ellis Nutt",
+        "type": "true story",
+        "subject": "trans girl",
+        "family": "trans girl and her family",
+        "effect": "made me feel connected",
+        "inspiration": "gave me a lot of hope for my own path",
+        "recommendation": "highly recommend it for sure"
+      },
+      "created_at": "2026-04-27 17:31:26",
+      "updated_at": "2026-04-27 17:31:26"
+    },
+    "99e2fb83-a325-4a2f-bca5-01218969fb3f": {
+      "type": "Event",
+      "canonical_name": "Caroline read 'Becoming Nicole'",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 12 July, 2023, Caroline read the book 'Becoming Nicole' and found it inspiring. It made her feel connected and gave her hope for her own path.",
+        "quote": "I loved 'Becoming Nicole' by Amy Ellis Nutt. It's a real inspiring true story about a trans girl and her family. It made me feel connected and gave me a lot of hope for my own path. Highly recommend it for sure!",
+        "source": [
+          "conv-26_conv_session_7_D7:11"
+        ],
+        "time": "12 July, 2023",
+        "batch_id": "conv-26_conv_session_7_batch_2",
+        "source_turn_ids": [
+          "conv-26_conv_session_7_D7:9",
+          "conv-26_conv_session_7_D7:10",
+          "conv-26_conv_session_7_D7:11",
+          "conv-26_conv_session_7_D7:12"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_7_D7:9; speaker=Caroline; listener=Melanie; session_time=4:33 pm on 12 July, 2023]\nThanks so much, Mel! Seeing this pic just made me appreciate my love of reading even more. Books guide me, motivate me and help me discover who I am. They're a huge part of my journey, and this one's reminding me to keep going and never give up!\n\n[turn_id=conv-26_conv_session_7_D7:10; speaker=Melanie; listener=Caroline; session_time=4:33 pm on 12 July, 2023]\nWow, Caroline! Books have such an awesome power! Which one has been your favorite guide?\n\n[turn_id=conv-26_conv_session_7_D7:11; speaker=Caroline; listener=Melanie; session_time=4:33 pm on 12 July, 2023]\nI loved \"Becoming Nicole\" by Amy Ellis Nutt. It's a real inspiring true story about a trans girl and her family. It made me feel connected and gave me a lot of hope for my own path. Highly recommend it for sure!\n\n[turn_id=conv-26_conv_session_7_D7:12; speaker=Melanie; listener=Caroline; session_time=4:33 pm on 12 July, 2023]\nThat sounds awesome! What did you take away from it to use in your life?"
+      },
+      "created_at": "2026-04-27 17:31:27",
+      "updated_at": "2026-04-27 17:31:27"
+    },
+    "9b6442d2-f022-4120-963f-318566014faa": {
+      "type": "Entity",
+      "canonical_name": "Pet",
+      "aliases": [
+        "pet",
+        "pets"
+      ],
+      "attrs": {
+        "type": "animal",
+        "role": "companion",
+        "function": "bring joy and comfort"
+      },
+      "created_at": "2026-04-27 17:31:31",
+      "updated_at": "2026-04-27 17:33:54"
+    },
+    "23c6a4f4-f6a8-4136-bdd0-ef9fd995b3b0": {
+      "type": "Event",
+      "canonical_name": "Melanie has pets",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 12 July, 2023, Melanie has a dog and a cat which brighten up their day and always make them smile.",
+        "quote": "We've got a pup and a kitty. That's the dog, and here's our cat! They brighten up our day and always make us smile.",
+        "source": [
+          "conv-26_conv_session_7_D7:16"
+        ],
+        "time": "12 July, 2023",
+        "batch_id": "conv-26_conv_session_7_batch_3",
+        "source_turn_ids": [
+          "conv-26_conv_session_7_D7:13",
+          "conv-26_conv_session_7_D7:14",
+          "conv-26_conv_session_7_D7:15",
+          "conv-26_conv_session_7_D7:16"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_7_D7:13; speaker=Caroline; listener=Melanie; session_time=4:33 pm on 12 July, 2023]\nIt taught me self-acceptance and how to find support. It also showed me that tough times don't last - hope and love exist. Pets bring so much joy too, though.\n\n[turn_id=conv-26_conv_session_7_D7:14; speaker=Melanie; listener=Caroline; session_time=4:33 pm on 12 July, 2023]\nCaroline, those lessons are great - self-acceptance and finding support are key. Plus pets are awesome for joy and comfort, can't agree more! \n\n[turn_id=conv-26_conv_session_7_D7:15; speaker=Caroline; listener=Melanie; session_time=4:33 pm on 12 July, 2023]\nThat's so nice! What pet do you have?\n\n[turn_id=conv-26_conv_session_7_D7:16; speaker=Melanie; listener=Caroline; session_time=4:33 pm on 12 July, 2023]\nWe've got a pup and a kitty. That's the dog, and here's our cat! They brighten up our day and always make us smile.",
+        "attrs": {
+          "time": "12 July, 2023",
+          "reflection": "realized self-care is important",
+          "statement": "it's a journey for me, but when I look after myself, I'm able to better look after my family",
+          "pets": "Luna and Oliver"
+        }
+      },
+      "created_at": "2026-04-27 17:31:31",
+      "updated_at": "2026-04-27 17:31:34"
+    },
+    "09ddfd7f-1d32-47f8-a3e6-904f12df1ccb": {
+      "type": "Event",
+      "canonical_name": "Melanie and kids attend pottery workshop",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 15 July, 2023, Melanie and her kids attended a pottery workshop where they made their own pots, which was fun and therapeutic.",
+        "quote": "Last Fri I finally took my kids to a pottery workshop. We all made our own pots, it was fun and therapeutic!",
+        "source": [
+          "conv-26_conv_session_8_D8:2"
+        ],
+        "time": "15 July, 2023",
+        "batch_id": "conv-26_conv_session_8_batch_0",
+        "source_turn_ids": [
+          "conv-26_conv_session_8_D8:1",
+          "conv-26_conv_session_8_D8:2",
+          "conv-26_conv_session_8_D8:3",
+          "conv-26_conv_session_8_D8:4"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_8_D8:1; speaker=Caroline; listener=Melanie; session_time=1:51 pm on 15 July, 2023]\nHey Mel, what's up? Been a busy week since we talked.\n\n[turn_id=conv-26_conv_session_8_D8:2; speaker=Melanie; listener=Caroline; session_time=1:51 pm on 15 July, 2023]\nHey Caroline, it's been super busy here. So much since we talked! Last Fri I finally took my kids to a pottery workshop. We all made our own pots, it was fun and therapeutic!\n\n[turn_id=conv-26_conv_session_8_D8:3; speaker=Caroline; listener=Melanie; session_time=1:51 pm on 15 July, 2023]\nWow, Mel! Sounds like you and the kids had a blast. How'd they like it?\n\n[turn_id=conv-26_conv_session_8_D8:4; speaker=Melanie; listener=Caroline; session_time=1:51 pm on 15 July, 2023]\nThe kids loved it! They were so excited to get their hands dirty and make something with clay. It was special to watch their creativity and imagination come to life, they made this!"
+      },
+      "created_at": "2026-04-27 17:31:43",
+      "updated_at": "2026-04-27 17:31:43"
+    },
+    "0fcb4406-e93e-4ed3-a799-533c9c9d2ff7": {
+      "type": "Entity",
+      "canonical_name": "Painting",
+      "aliases": [],
+      "attrs": {
+        "fact": "Melanie and Caroline created a nature-inspired painting together, highlighting the beauty of nature.",
+        "quote": "We both helped with the painting - it was great bonding over it and chatting about nature. We found these lovely flowers.",
+        "source": [
+          "conv-26_conv_session_8_D8:6",
+          "conv-26_conv_session_8_D8:8"
+        ],
+        "time": "15 July, 2023",
+        "feeling": "help others to do the same"
+      },
+      "created_at": "2026-04-27 17:31:48",
+      "updated_at": "2026-04-27 17:34:16"
+    },
+    "63f54bfc-4e68-4ee1-8ea9-7a21a39dc59d": {
+      "type": "Event",
+      "canonical_name": "Caroline attends council meeting for adoption",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 15 July, 2023, Caroline attended a council meeting for adoption and stated it was inspiring and emotional with many people wanting to create loving homes for children in need.",
+        "quote": "Last Friday I went to a council meeting for adoption. It was inspiring and emotional - so many people wanted to create loving homes for children in need. It made me even more determined to adopt.",
+        "source": [
+          "conv-26_conv_session_8_D8:9"
+        ],
+        "time": "15 July, 2023",
+        "batch_id": "conv-26_conv_session_8_batch_2",
+        "source_turn_ids": [
+          "conv-26_conv_session_8_D8:9",
+          "conv-26_conv_session_8_D8:10",
+          "conv-26_conv_session_8_D8:11",
+          "conv-26_conv_session_8_D8:12"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_8_D8:9; speaker=Caroline; listener=Melanie; session_time=1:51 pm on 15 July, 2023]\nThat photo is stunning! So glad you bonded over our love of nature. Last Friday I went to a council meeting for adoption. It was inspiring and emotional - so many people wanted to create loving homes for children in need. It made me even more determined to adopt.\n\n[turn_id=conv-26_conv_session_8_D8:10; speaker=Melanie; listener=Caroline; session_time=1:51 pm on 15 July, 2023]\nWow, Caroline, way to go! Your future fam will get a kick out of having you. What do you think of these?\n\n[turn_id=conv-26_conv_session_8_D8:11; speaker=Caroline; listener=Melanie; session_time=1:51 pm on 15 July, 2023]\nThanks Melanie - love the blue vase in the pic! Blue's my fave, it makes me feel relaxed. Sunflowers mean warmth and happiness, right? While roses stand for love and beauty? That's neat. What do flowers mean to you?\n\n[turn_id=conv-26_conv_session_8_D8:12; speaker=Melanie; listener=Caroline; session_time=1:51 pm on 15 July, 2023]\nFlowers bring joy. They represent growth, beauty and reminding us to appreciate the small moments. They were an important part of my wedding decor and always remind me of that day."
+      },
+      "created_at": "2026-04-27 17:31:52",
+      "updated_at": "2026-04-27 17:31:52"
+    },
+    "71cb8a06-b84c-4dcb-ba4f-e1acd3cd8c18": {
+      "type": "Event",
+      "canonical_name": "Melanie's wedding day",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 15 July, 2023, Melanie's wedding day was full of love and joy with everyone she loves present to celebrate her marriage.",
+        "quote": "It was amazing, Caroline. The day was full of love and joy. Everyone we love was there to celebrate us - it was really special.",
+        "source": [
+          "conv-26_conv_session_8_D8:14"
+        ],
+        "time": "15 July, 2023",
+        "batch_id": "conv-26_conv_session_8_batch_3",
+        "source_turn_ids": [
+          "conv-26_conv_session_8_D8:13",
+          "conv-26_conv_session_8_D8:14",
+          "conv-26_conv_session_8_D8:15",
+          "conv-26_conv_session_8_D8:16"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_8_D8:13; speaker=Caroline; listener=Melanie; session_time=1:51 pm on 15 July, 2023]\nIt must have been special at your wedding. I wish I had known you back then!\n\n[turn_id=conv-26_conv_session_8_D8:14; speaker=Melanie; listener=Caroline; session_time=1:51 pm on 15 July, 2023]\nIt was amazing, Caroline. The day was full of love and joy. Everyone we love was there to celebrate us - it was really special.\n\n[turn_id=conv-26_conv_session_8_D8:15; speaker=Caroline; listener=Melanie; session_time=1:51 pm on 15 July, 2023]\nWow, what a great day! Glad everyone could make it. What was your favorite part?\n\n[turn_id=conv-26_conv_session_8_D8:16; speaker=Melanie; listener=Caroline; session_time=1:51 pm on 15 July, 2023]\nMarrying my partner and promising to be together forever was the best part."
+      },
+      "created_at": "2026-04-27 17:31:56",
+      "updated_at": "2026-04-27 17:31:56"
+    },
+    "3e1bd27e-9cc3-4154-95fb-900f85f8c8a0": {
+      "type": "Event",
+      "canonical_name": "Caroline realizes self-acceptance",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 15 July, 2023, Caroline realized she can be herself without fear and having the courage to transition was the best part. It's so freeing to express herself authentically and have people back her up.",
+        "quote": "Realizing I can be me without fear and having the courage to transition was the best part. It's so freeing to express myself authentically and have people back me up.",
+        "source": [
+          "conv-26_conv_session_8_D8:25"
+        ],
+        "time": "15 July, 2023",
+        "batch_id": "conv-26_conv_session_8_batch_6",
+        "source_turn_ids": [
+          "conv-26_conv_session_8_D8:25",
+          "conv-26_conv_session_8_D8:26",
+          "conv-26_conv_session_8_D8:27",
+          "conv-26_conv_session_8_D8:28"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_8_D8:25; speaker=Caroline; listener=Melanie; session_time=1:51 pm on 15 July, 2023]\nRealizing I can be me without fear and having the courage to transition was the best part. It's so freeing to express myself authentically and have people back me up.\n\n[turn_id=conv-26_conv_session_8_D8:26; speaker=Melanie; listener=Caroline; session_time=1:51 pm on 15 July, 2023]\nThat's awesome, Caro! You've found the courage to be yourself - that's important for our mental health and finding peace.\n\n[turn_id=conv-26_conv_session_8_D8:27; speaker=Caroline; listener=Melanie; session_time=1:51 pm on 15 July, 2023]\nThanks, Melanie! Been a long road, but I'm proud of how far I've come. How're you doing finding peace?\n\n[turn_id=conv-26_conv_session_8_D8:28; speaker=Melanie; listener=Caroline; session_time=1:51 pm on 15 July, 2023]\nI'm getting there, Caroline. Creativity and family keep me at peace."
+      },
+      "created_at": "2026-04-27 17:32:15",
+      "updated_at": "2026-04-27 17:32:15"
+    },
+    "a3abafd2-7d7d-4dc3-906d-b71d66e5ba94": {
+      "type": "Event",
+      "canonical_name": "Melanie finds peace",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 15 July, 2023, Melanie is finding peace through creativity and family.",
+        "quote": "I'm getting there, Caroline. Creativity and family keep me at peace.",
+        "source": [
+          "conv-26_conv_session_8_D8:28"
+        ],
+        "time": "15 July, 2023",
+        "batch_id": "conv-26_conv_session_8_batch_6",
+        "source_turn_ids": [
+          "conv-26_conv_session_8_D8:25",
+          "conv-26_conv_session_8_D8:26",
+          "conv-26_conv_session_8_D8:27",
+          "conv-26_conv_session_8_D8:28"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_8_D8:25; speaker=Caroline; listener=Melanie; session_time=1:51 pm on 15 July, 2023]\nRealizing I can be me without fear and having the courage to transition was the best part. It's so freeing to express myself authentically and have people back me up.\n\n[turn_id=conv-26_conv_session_8_D8:26; speaker=Melanie; listener=Caroline; session_time=1:51 pm on 15 July, 2023]\nThat's awesome, Caro! You've found the courage to be yourself - that's important for our mental health and finding peace.\n\n[turn_id=conv-26_conv_session_8_D8:27; speaker=Caroline; listener=Melanie; session_time=1:51 pm on 15 July, 2023]\nThanks, Melanie! Been a long road, but I'm proud of how far I've come. How're you doing finding peace?\n\n[turn_id=conv-26_conv_session_8_D8:28; speaker=Melanie; listener=Caroline; session_time=1:51 pm on 15 July, 2023]\nI'm getting there, Caroline. Creativity and family keep me at peace."
+      },
+      "created_at": "2026-04-27 17:32:15",
+      "updated_at": "2026-04-27 17:32:15"
+    },
+    "59c57cce-c152-4578-b4cf-89a4c9b28142": {
+      "type": "Entity",
+      "canonical_name": "LGBTQ youth mentorship program",
+      "aliases": [],
+      "attrs": {
+        "description": "mentorship program for LGBTQ youth"
+      },
+      "created_at": "2026-04-27 17:32:25",
+      "updated_at": "2026-04-27 17:32:25"
+    },
+    "244cb777-58b8-4a47-85d4-d083bfa9fa70": {
+      "type": "Event",
+      "canonical_name": "Caroline mentors LGBTQ youth",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 17 July, 2023, Caroline participated in a mentorship program for LGBTQ youth and helped support young people in the community.",
+        "quote": "Last weekend I joined a mentorship program for LGBTQ youth - it's really rewarding to help the community.",
+        "source": [
+          "conv-26_conv_session_9_D9:2"
+        ],
+        "time": "17 July, 2023",
+        "batch_id": "conv-26_conv_session_9_batch_0",
+        "source_turn_ids": [
+          "conv-26_conv_session_9_D9:1",
+          "conv-26_conv_session_9_D9:2",
+          "conv-26_conv_session_9_D9:3",
+          "conv-26_conv_session_9_D9:4"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_9_D9:1; speaker=Melanie; listener=Caroline; session_time=2:31 pm on 17 July, 2023]\nHey Caroline, hope all's good! I had a quiet weekend after we went camping with my fam two weekends ago. It was great to unplug and hang with the kids. What've you been up to? Anything fun over the weekend?\n\n[turn_id=conv-26_conv_session_9_D9:2; speaker=Caroline; listener=Melanie; session_time=2:31 pm on 17 July, 2023]\nHey Melanie! That sounds great! Last weekend I joined a mentorship program for LGBTQ youth - it's really rewarding to help the community.\n\n[turn_id=conv-26_conv_session_9_D9:3; speaker=Melanie; listener=Caroline; session_time=2:31 pm on 17 July, 2023]\nWow, Caroline! It's great that you're helping out. How's it going? Got any cool experiences you can share?\n\n[turn_id=conv-26_conv_session_9_D9:4; speaker=Caroline; listener=Melanie; session_time=2:31 pm on 17 July, 2023]\nThe mentoring is going great! I've met some amazing young folks and supported them along the way. It's inspiring to see how resilient and strong they are."
+      },
+      "created_at": "2026-04-27 17:32:26",
+      "updated_at": "2026-04-27 17:32:26"
+    },
+    "52838c6a-39c4-461c-8a81-a6d74854d439": {
+      "type": "Event",
+      "canonical_name": "Caroline and transgender teen mentorship",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 17 July, 2023, Caroline mentors a transgender teen similar to herself, focusing on building confidence and finding positive strategies, and they had a great time at the LGBT pride event last month.",
+        "quote": "I mentor a transgender teen just like me. We've been working on building up confidence and finding positive strategies, and it's really been paying off! We had a great time at the LGBT pride event last month.",
+        "source": [
+          "conv-26_conv_session_9_D9:6"
+        ],
+        "time": "17 July, 2023",
+        "batch_id": "conv-26_conv_session_9_batch_1",
+        "source_turn_ids": [
+          "conv-26_conv_session_9_D9:5",
+          "conv-26_conv_session_9_D9:6",
+          "conv-26_conv_session_9_D9:7",
+          "conv-26_conv_session_9_D9:8"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_9_D9:5; speaker=Melanie; listener=Caroline; session_time=2:31 pm on 17 July, 2023]\nWow, Caroline, that sounds super rewarding! Young people's resilience is amazing. Care to share some stories?\n\n[turn_id=conv-26_conv_session_9_D9:6; speaker=Caroline; listener=Melanie; session_time=2:31 pm on 17 July, 2023]\nI mentor a transgender teen just like me. We've been working on building up confidence and finding positive strategies, and it's really been paying off! We had a great time at the LGBT pride event last month.\n\n[turn_id=conv-26_conv_session_9_D9:7; speaker=Melanie; listener=Caroline; session_time=2:31 pm on 17 July, 2023]\nCaroline, awesome news that you two are getting along! What was it like for you both? Care to fill me in?\n\n[turn_id=conv-26_conv_session_9_D9:8; speaker=Caroline; listener=Melanie; session_time=2:31 pm on 17 July, 2023]\nThe pride event was awesome! It was so encouraging to be surrounded by so much love and acceptance."
+      },
+      "created_at": "2026-04-27 17:32:30",
+      "updated_at": "2026-04-27 17:32:31"
+    },
+    "bb415943-9224-49c1-99e6-c678722f852f": {
+      "type": "Event",
+      "canonical_name": "Caroline has LGBTQ art show",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 17 July, 2023, Caroline is having an LGBTQ art show with her paintings next month.",
+        "quote": "Yay! Next month I'm having an LGBTQ art show with my paintings - can't wait!",
+        "source": [
+          "conv-26_conv_session_9_D9:12"
+        ],
+        "time": "next month",
+        "batch_id": "conv-26_conv_session_9_batch_2",
+        "source_turn_ids": [
+          "conv-26_conv_session_9_D9:9",
+          "conv-26_conv_session_9_D9:10",
+          "conv-26_conv_session_9_D9:11",
+          "conv-26_conv_session_9_D9:12"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_9_D9:9; speaker=Melanie; listener=Caroline; session_time=2:31 pm on 17 July, 2023]\nWow! What's the best part you remember from it?\n\n[turn_id=conv-26_conv_session_9_D9:10; speaker=Caroline; listener=Melanie; session_time=2:31 pm on 17 July, 2023]\nSeeing my mentee's face light up when they saw the support was the best! Such a special moment.\n\n[turn_id=conv-26_conv_session_9_D9:11; speaker=Melanie; listener=Caroline; session_time=2:31 pm on 17 July, 2023]\nWow, Caroline! They must have felt so appreciated. It's awesome to see the difference we can make in each other's lives. Any other exciting LGBTQ advocacy stuff coming up?\n\n[turn_id=conv-26_conv_session_9_D9:12; speaker=Caroline; listener=Melanie; session_time=2:31 pm on 17 July, 2023]\nYay! Next month I'm having an LGBTQ art show with my paintings - can't wait!"
+      },
+      "created_at": "2026-04-27 17:32:34",
+      "updated_at": "2026-04-27 17:32:34"
+    },
+    "426a49f0-8444-4778-aa49-f5d5ed00cb6a": {
+      "type": "Event",
+      "canonical_name": "Caroline shows painting for art show",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 17 July, 2023, Caroline showed a painting for an art show and mentioned she painted it after visiting a LGBTQ center to capture everyone's unity and strength.",
+        "quote": "Check out the crowd. People of all kinds celebrating love and acceptance - it really pushed me to keep fighting for LGBTQ rights.",
+        "source": [
+          "conv-26_conv_session_9_D9:14"
+        ],
+        "time": "17 July, 2023",
+        "batch_id": "conv-26_conv_session_9_batch_3",
+        "source_turn_ids": [
+          "conv-26_conv_session_9_D9:13",
+          "conv-26_conv_session_9_D9:14",
+          "conv-26_conv_session_9_D9:15",
+          "conv-26_conv_session_9_D9:16"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_9_D9:13; speaker=Melanie; listener=Caroline; session_time=2:31 pm on 17 July, 2023]\nWow, Caroline, that sounds awesome! Can't wait to see your art - got any previews?\n\n[turn_id=conv-26_conv_session_9_D9:14; speaker=Caroline; listener=Melanie; session_time=2:31 pm on 17 July, 2023]\nCheck out my painting for the art show! Hope you like it.\n\n[turn_id=conv-26_conv_session_9_D9:15; speaker=Melanie; listener=Caroline; session_time=2:31 pm on 17 July, 2023]\nWow, Caroline, that painting is awesome! Those colors are so vivid and the whole thing looks really unified. What inspired you?\n\n[turn_id=conv-26_conv_session_9_D9:16; speaker=Caroline; listener=Melanie; session_time=2:31 pm on 17 July, 2023]\nThanks, Melanie! I painted this after I visited a LGBTQ center. I wanted to capture everyone's unity and strength.",
+        "feeling": "help others to do the same"
+      },
+      "created_at": "2026-04-27 17:32:38",
+      "updated_at": "2026-04-27 17:34:03"
+    },
+    "c06870d1-3d8f-4bee-bc4b-e24ec7551884": {
+      "type": "Entity",
+      "canonical_name": "LGBTQ activist group",
+      "aliases": [],
+      "attrs": {},
+      "created_at": "2026-04-27 17:32:45",
+      "updated_at": "2026-04-27 17:32:45"
+    },
+    "e1ae12f6-03ce-4af0-a9be-e5db02c58c83": {
+      "type": "Event",
+      "canonical_name": "Caroline joined LGBTQ activist group",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 20 July, 2023, Caroline joined a new LGBTQ activist group last Tues and is meeting many passionate people about rights and community support.",
+        "quote": "I just joined a new LGBTQ activist group last Tues. I'm meeting so many cool people who are as passionate as I am about rights and community support.",
+        "source": [
+          "conv-26_conv_session_10_D10:3"
+        ],
+        "time": "20 July, 2023",
+        "batch_id": "conv-26_conv_session_10_batch_0",
+        "source_turn_ids": [
+          "conv-26_conv_session_10_D10:1",
+          "conv-26_conv_session_10_D10:2",
+          "conv-26_conv_session_10_D10:3",
+          "conv-26_conv_session_10_D10:4"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_10_D10:1; speaker=Caroline; listener=Melanie; session_time=8:56 pm on 20 July, 2023]\nHey Melanie! Just wanted to say hi!\n\n[turn_id=conv-26_conv_session_10_D10:2; speaker=Melanie; listener=Caroline; session_time=8:56 pm on 20 July, 2023]\nHey Caroline! Good to talk to you again. What's up? Anything new since last time?\n\n[turn_id=conv-26_conv_session_10_D10:3; speaker=Caroline; listener=Melanie; session_time=8:56 pm on 20 July, 2023]\nHey Mel! A lot's happened since we last chatted - I just joined a new LGBTQ activist group last Tues. I'm meeting so many cool people who are as passionate as I am about rights and community support. I'm giving my voice and making a real difference, plus it's fulfilling in so many ways. It's just great, you know?\n\n[turn_id=conv-26_conv_session_10_D10:4; speaker=Melanie; listener=Caroline; session_time=8:56 pm on 20 July, 2023]\nThat's awesome, Caroline! Glad to hear you found a great group where you can have an impact. Bet it feels great to be able to speak your truth and stand up for what's right. Want to tell me a bit more about it?"
+      },
+      "created_at": "2026-04-27 17:32:45",
+      "updated_at": "2026-04-27 17:32:45"
+    },
+    "a9b524e9-9ca3-4d3b-a0b6-ab202bddd7d5": {
+      "type": "Entity",
+      "canonical_name": "'Connected LGBTQ Activists'",
+      "aliases": [
+        "'Connected LGBTQ Activists'"
+      ],
+      "attrs": {
+        "group": "LGBTQ Activists",
+        "description": "a group of all kinds of people investing in positive changes",
+        "activities": [
+          "regular meetings",
+          "plan events and campaigns"
+        ]
+      },
+      "created_at": "2026-04-27 17:32:49",
+      "updated_at": "2026-04-27 17:32:49"
+    },
+    "d8cdee04-9a11-4697-8f67-bf3d0e706043": {
+      "type": "Event",
+      "canonical_name": "Family camping trip",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 20 July, 2023, Melanie's family went camping, roasting marshmallows, telling stories around the campfire, and enjoying each other's company. It is the highlight of their summer.",
+        "quote": "We always look forward to our family camping trip. We roast marshmallows, tell stories around the campfire and just enjoy each other's company. It's the highlight of our summer!",
+        "source": [
+          "conv-26_conv_session_10_D10:12"
+        ],
+        "time": "20 July, 2023",
+        "batch_id": "conv-26_conv_session_10_batch_2",
+        "source_turn_ids": [
+          "conv-26_conv_session_10_D10:9",
+          "conv-26_conv_session_10_D10:10",
+          "conv-26_conv_session_10_D10:11",
+          "conv-26_conv_session_10_D10:12"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_10_D10:9; speaker=Caroline; listener=Melanie; session_time=8:56 pm on 20 July, 2023]\nSounds fun! What was the best part? Do you do it often with the kids?\n\n[turn_id=conv-26_conv_session_10_D10:10; speaker=Melanie; listener=Caroline; session_time=8:56 pm on 20 July, 2023]\nSeeing my kids' faces so happy at the beach was the best! We don't go often, usually only once or twice a year. But those times are always special to spend time together and chill.\n\n[turn_id=conv-26_conv_session_10_D10:11; speaker=Caroline; listener=Melanie; session_time=8:56 pm on 20 July, 2023]\nSounds special, those beach trips! Do you have any other summer traditions you all do together? Create those memories!\n\n[turn_id=conv-26_conv_session_10_D10:12; speaker=Melanie; listener=Caroline; session_time=8:56 pm on 20 July, 2023]\nWe always look forward to our family camping trip. We roast marshmallows, tell stories around the campfire and just enjoy each other's company. It's the highlight of our summer!"
+      },
+      "created_at": "2026-04-27 17:32:52",
+      "updated_at": "2026-04-27 17:32:53"
+    },
+    "a09f5812-966c-4581-b78d-84839ffab153": {
+      "type": "Event",
+      "canonical_name": "Family camping trip with meteor shower",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 20 July, 2023, Melanie's family went camping and witnessed the Perseid meteor shower, which was described as amazing and awe-inspiring.",
+        "quote": "I'll always remember our camping trip last year when we saw the Perseid meteor shower. It was so amazing lying there and watching the sky light up with streaks of light. We all made wishes and felt so at one with the universe. That's a memory I'll never forget.",
+        "source": [
+          "conv-26_conv_session_10_D10:14"
+        ],
+        "time": "20 July, 2023",
+        "batch_id": "conv-26_conv_session_10_batch_3",
+        "source_turn_ids": [
+          "conv-26_conv_session_10_D10:13",
+          "conv-26_conv_session_10_D10:14",
+          "conv-26_conv_session_10_D10:15",
+          "conv-26_conv_session_10_D10:16"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_10_D10:13; speaker=Caroline; listener=Melanie; session_time=8:56 pm on 20 July, 2023]\nWow, Mel, that's awesome! What's your best camping memory?\n\n[turn_id=conv-26_conv_session_10_D10:14; speaker=Melanie; listener=Caroline; session_time=8:56 pm on 20 July, 2023]\nI'll always remember our camping trip last year when we saw the Perseid meteor shower. It was so amazing lying there and watching the sky light up with streaks of light. We all made wishes and felt so at one with the universe. That's a memory I'll never forget.\n\n[turn_id=conv-26_conv_session_10_D10:15; speaker=Caroline; listener=Melanie; session_time=8:56 pm on 20 July, 2023]\nCool! What did it look like?\n\n[turn_id=conv-26_conv_session_10_D10:16; speaker=Melanie; listener=Caroline; session_time=8:56 pm on 20 July, 2023]\nThe sky was so clear and filled with stars, and the meteor shower was amazing - it felt like we were part of something huge and awe-inspiring."
+      },
+      "created_at": "2026-04-27 17:32:56",
+      "updated_at": "2026-04-27 17:32:56"
+    },
+    "e8621c79-e5a8-4e2c-88a9-ca6cc645b518": {
+      "type": "Event",
+      "canonical_name": "Melanie's youngest took first steps",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 20 July, 2023, Melanie recalls the day her youngest took their first steps, which made her reflect on the fleeting nature of life and her gratitude for shared moments.",
+        "quote": "I'll never forget the day my youngest took her first steps. Seeing her wobble as she took those initial steps really put into perspective how fleeting life is and how lucky I am to be able to share these moments.",
+        "source": [
+          "conv-26_conv_session_10_D10:20"
+        ],
+        "time": "20 July, 2023",
+        "batch_id": "conv-26_conv_session_10_batch_4",
+        "source_turn_ids": [
+          "conv-26_conv_session_10_D10:17",
+          "conv-26_conv_session_10_D10:18",
+          "conv-26_conv_session_10_D10:19",
+          "conv-26_conv_session_10_D10:20"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_10_D10:17; speaker=Caroline; listener=Melanie; session_time=8:56 pm on 20 July, 2023]\nWow, Mel. That must've been breathtaking!\n\n[turn_id=conv-26_conv_session_10_D10:18; speaker=Melanie; listener=Caroline; session_time=8:56 pm on 20 July, 2023]\nIt was one of those moments where I felt tiny and in awe of the universe. Reminds me how awesome life is - so many little moments like that.\n\n[turn_id=conv-26_conv_session_10_D10:19; speaker=Caroline; listener=Melanie; session_time=8:56 pm on 20 July, 2023]\nThat's great, Mel! What other good memories do you have that make you feel thankful for life?\n\n[turn_id=conv-26_conv_session_10_D10:20; speaker=Melanie; listener=Caroline; session_time=8:56 pm on 20 July, 2023]\nI'll never forget the day my youngest took her first steps. Seeing her wobble as she took those initial steps really put into perspective how fleeting life is and how lucky I am to be able to share these moments."
+      },
+      "created_at": "2026-04-27 17:33:01",
+      "updated_at": "2026-04-27 17:33:01"
+    },
+    "254ea02b-bba2-4ee7-9b54-51100427808f": {
+      "type": "Event",
+      "canonical_name": "Caroline attends pride parade",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 14 August, 2023, Caroline attended a pride parade and stated it was awesome - so much energy and love everywhere. Really made her proud and reminded her how important it is to keep standing up for equality.",
+        "quote": "I went to a pride parade last Friday and it was awesome - so much energy and love everywhere. Really made me proud and reminded me how important it is to keep standing up for equality.",
+        "source": [
+          "conv-26_conv_session_11_D11:4"
+        ],
+        "time": "14 August, 2023",
+        "batch_id": "conv-26_conv_session_11_batch_0",
+        "source_turn_ids": [
+          "conv-26_conv_session_11_D11:1",
+          "conv-26_conv_session_11_D11:2",
+          "conv-26_conv_session_11_D11:3",
+          "conv-26_conv_session_11_D11:4"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_11_D11:1; speaker=Melanie; listener=Caroline; session_time=2:24 pm on 14 August, 2023]\nHey Caroline! Last night was amazing! We celebrated my daughter's birthday with a concert surrounded by music, joy and the warm summer breeze. Seeing my kids' smiles was so awesome, and I'm so thankful for our special moments together.\n\n[turn_id=conv-26_conv_session_11_D11:2; speaker=Caroline; listener=Melanie; session_time=2:24 pm on 14 August, 2023]\nWow, sounds wonderful! Your love for your kids is so awesome. What concert was it? The advocacy event was a cool experience - so much love and support, amazing!\n\n[turn_id=conv-26_conv_session_11_D11:3; speaker=Melanie; listener=Caroline; session_time=2:24 pm on 14 August, 2023]\nThanks, Caroline! It was Matt Patterson, he is so talented! His voice and songs were amazing. What's up with you? Anything interesting going on?\n\n[turn_id=conv-26_conv_session_11_D11:4; speaker=Caroline; listener=Melanie; session_time=2:24 pm on 14 August, 2023]\nWow, Mel, glad you had a blast at the concert. A lot's happened since we talked. I went to a pride parade last Friday and it was awesome - so much energy and love everywhere. Really made me proud and reminded me how important it is to keep standing up for equality."
+      },
+      "created_at": "2026-04-27 17:33:06",
+      "updated_at": "2026-04-27 17:33:06"
+    },
+    "48eccdd4-1ddd-47f2-9f04-ae4de229bca5": {
+      "type": "Entity",
+      "canonical_name": "Embracing Identity",
+      "aliases": [],
+      "attrs": {
+        "fact": "Caroline's artwork 'Embracing Identity' is about finding comfort and love in being yourself, with the woman in the painting representing the journey of acceptance. The painting also reflects Caroline's personal journey of self-discovery and acceptance through art, exploring themes of transition and embracing imperfections.",
+        "quote": "Here's one- 'Embracing Identity' is all about finding comfort and love in being yourself. The woman in the painting stands for the journey of acceptance. Art's allowed me to explore my transition and my changing body. It's been a great way to work through stuff I'm going through.",
+        "source": [
+          "conv-26_conv_session_11_D11:12"
+        ],
+        "time": "2:24 pm on 14 August, 2023"
+      },
+      "created_at": "2026-04-27 17:33:13",
+      "updated_at": "2026-04-27 17:33:16"
+    },
+    "08e20456-e63f-48f3-992c-98c0c11cd7a9": {
+      "type": "Event",
+      "canonical_name": "Caroline encounters religious conservatives on hike",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 17 August, 2023, Caroline encountered a group of religious conservatives on a hike who made comments that upset her, making her reflect on the ongoing work for LGBTQ rights.",
+        "quote": "I ran into a group of religious conservatives who said something that really upset me. It made me think how much work we still have to do for LGBTQ rights.",
+        "source": [
+          "conv-26_conv_session_12_D12:1"
+        ],
+        "time": "17 August, 2023",
+        "batch_id": "conv-26_conv_session_12_batch_0",
+        "source_turn_ids": [
+          "conv-26_conv_session_12_D12:1",
+          "conv-26_conv_session_12_D12:2",
+          "conv-26_conv_session_12_D12:3",
+          "conv-26_conv_session_12_D12:4"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_12_D12:1; speaker=Caroline; listener=Melanie; session_time=1:50 pm on 17 August, 2023]\nHey Mel! How're ya doin'? Recently, I had a not-so-great experience on a hike. I ran into a group of religious conservatives who said something that really upset me. It made me think how much work we still have to do for LGBTQ rights. It's been so helpful to have people around me who accept and support me, so I know I'll be ok!\n\n[turn_id=conv-26_conv_session_12_D12:2; speaker=Melanie; listener=Caroline; session_time=1:50 pm on 17 August, 2023]\nHey Caroline, sorry about the hike. It sucks when people are so closed-minded. Strong support really helps. FYI, I finished another pottery project - want to see a pic?\n\n[turn_id=conv-26_conv_session_12_D12:3; speaker=Caroline; listener=Melanie; session_time=1:50 pm on 17 August, 2023]\nSure thing, Melanie! Can't wait to see your pottery project.  I'm happy you found something that makes you happy. Show me when you can!\n\n[turn_id=conv-26_conv_session_12_D12:4; speaker=Melanie; listener=Caroline; session_time=1:50 pm on 17 August, 2023]\nHere it is. Pretty proud of it! It was a great experience. Thoughts?"
+      },
+      "created_at": "2026-04-27 17:33:24",
+      "updated_at": "2026-04-27 17:33:24"
+    },
+    "6498d42b-d734-4492-9699-18c6ede4e8b8": {
+      "type": "Entity",
+      "canonical_name": "Work for LGBTQ rights",
+      "aliases": [],
+      "attrs": {},
+      "created_at": "2026-04-27 17:33:24",
+      "updated_at": "2026-04-27 17:33:24"
+    },
+    "d80ad945-5e9f-461f-b9ff-5e72acf7d788": {
+      "type": "Entity",
+      "canonical_name": "Religious conservatives",
+      "aliases": [],
+      "attrs": {},
+      "created_at": "2026-04-27 17:33:24",
+      "updated_at": "2026-04-27 17:33:24"
+    },
+    "101ad75a-6c5b-4dc8-bbda-2f6be1c9b918": {
+      "type": "Event",
+      "canonical_name": "Melanie completes pottery project",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 17 August, 2023, Melanie completed a pottery project and shared it with Caroline.",
+        "quote": "I finished another pottery project - want to see a pic?",
+        "source": [
+          "conv-26_conv_session_12_D12:2"
+        ],
+        "time": "17 August, 2023",
+        "batch_id": "conv-26_conv_session_12_batch_0",
+        "source_turn_ids": [
+          "conv-26_conv_session_12_D12:1",
+          "conv-26_conv_session_12_D12:2",
+          "conv-26_conv_session_12_D12:3",
+          "conv-26_conv_session_12_D12:4"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_12_D12:1; speaker=Caroline; listener=Melanie; session_time=1:50 pm on 17 August, 2023]\nHey Mel! How're ya doin'? Recently, I had a not-so-great experience on a hike. I ran into a group of religious conservatives who said something that really upset me. It made me think how much work we still have to do for LGBTQ rights. It's been so helpful to have people around me who accept and support me, so I know I'll be ok!\n\n[turn_id=conv-26_conv_session_12_D12:2; speaker=Melanie; listener=Caroline; session_time=1:50 pm on 17 August, 2023]\nHey Caroline, sorry about the hike. It sucks when people are so closed-minded. Strong support really helps. FYI, I finished another pottery project - want to see a pic?\n\n[turn_id=conv-26_conv_session_12_D12:3; speaker=Caroline; listener=Melanie; session_time=1:50 pm on 17 August, 2023]\nSure thing, Melanie! Can't wait to see your pottery project.  I'm happy you found something that makes you happy. Show me when you can!\n\n[turn_id=conv-26_conv_session_12_D12:4; speaker=Melanie; listener=Caroline; session_time=1:50 pm on 17 August, 2023]\nHere it is. Pretty proud of it! It was a great experience. Thoughts?"
+      },
+      "created_at": "2026-04-27 17:33:24",
+      "updated_at": "2026-04-27 17:33:24"
+    },
+    "81783d20-d378-4d6d-a481-de9580b651c5": {
+      "type": "Event",
+      "canonical_name": "Melanie paints colorful bowl",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 17 August, 2023, Melanie created a colorful bowl that captures the eye and makes people smile, using painting as a means to express her feelings and creativity.",
+        "quote": "I'm obsessed with those, so I made something to catch the eye and make people smile. Plus, painting helps me express my feelings and be creative. Each stroke carries a part of me.",
+        "source": [
+          "conv-26_conv_session_12_D12:5",
+          "conv-26_conv_session_12_D12:6"
+        ],
+        "time": "1:50 pm on 17 August, 2023",
+        "batch_id": "conv-26_conv_session_12_batch_1",
+        "source_turn_ids": [
+          "conv-26_conv_session_12_D12:5",
+          "conv-26_conv_session_12_D12:6",
+          "conv-26_conv_session_12_D12:7",
+          "conv-26_conv_session_12_D12:8"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_12_D12:5; speaker=Caroline; listener=Melanie; session_time=1:50 pm on 17 August, 2023]\nThat bowl is awesome, Mel! What gave you the idea for all the colors and patterns?\n\n[turn_id=conv-26_conv_session_12_D12:6; speaker=Melanie; listener=Caroline; session_time=1:50 pm on 17 August, 2023]\nThanks, Caroline! I'm obsessed with those, so I made something to catch the eye and make people smile. Plus, painting helps me express my feelings and be creative. Each stroke carries a part of me.\n\n[turn_id=conv-26_conv_session_12_D12:7; speaker=Caroline; listener=Melanie; session_time=1:50 pm on 17 August, 2023]\nThat's amazing! You put so much effort and passion into it. Your creativity really shines. Seeing how art can be a source of self-expression and growth is truly inspiring. You're killing it!\n\n[turn_id=conv-26_conv_session_12_D12:8; speaker=Melanie; listener=Caroline; session_time=1:50 pm on 17 August, 2023]\nThanks, Caroline! Your words really mean a lot. I've always felt a strong connection to art, and it's been a huge learning experience. It's both a sanctuary and a source of comfort. I'm so glad to have something that brings me so much happiness and fulfillment."
+      },
+      "created_at": "2026-04-27 17:33:28",
+      "updated_at": "2026-04-27 17:33:28"
+    },
+    "62019bef-84e0-4f52-9d01-006abca574a2": {
+      "type": "Event",
+      "canonical_name": "Caroline and Melanie at Pride fest",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 17 August, 2023, Caroline and Melanie attended the Pride fest, having a great time with supportive friends.",
+        "quote": "We had a blast last year at the Pride fest. Those supportive friends definitely make everything worth it!",
+        "source": [
+          "conv-26_conv_session_12_D12:15"
+        ],
+        "time": "17 August, 2023",
+        "batch_id": "conv-26_conv_session_12_batch_3",
+        "source_turn_ids": [
+          "conv-26_conv_session_12_D12:13",
+          "conv-26_conv_session_12_D12:14",
+          "conv-26_conv_session_12_D12:15",
+          "conv-26_conv_session_12_D12:16"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_12_D12:13; speaker=Caroline; listener=Melanie; session_time=1:50 pm on 17 August, 2023]\nThanks, Melanie! It means a lot having you in my corner. Appreciate our friendship!\n\n[turn_id=conv-26_conv_session_12_D12:14; speaker=Melanie; listener=Caroline; session_time=1:50 pm on 17 August, 2023]\nI appreciate our friendship too, Caroline. You've always been there for me.\n\n[turn_id=conv-26_conv_session_12_D12:15; speaker=Caroline; listener=Melanie; session_time=1:50 pm on 17 August, 2023]\nI'm always here for you, Mel! We had a blast last year at the Pride fest. Those supportive friends definitely make everything worth it!\n\n[turn_id=conv-26_conv_session_12_D12:16; speaker=Melanie; listener=Caroline; session_time=1:50 pm on 17 August, 2023]\nThat was a blast! So much fun with the whole gang! Wanna do a family outing this summer?"
+      },
+      "created_at": "2026-04-27 17:33:32",
+      "updated_at": "2026-04-27 17:33:32"
+    },
+    "9e070fc8-6668-4be3-9b12-d6ae6c7e06c0": {
+      "type": "Event",
+      "canonical_name": "Creating memories",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 17 August, 2023, Caroline expressed that life is about creating memories and mentioned looking forward to the trip.",
+        "quote": "Yeah, Mel! Life's all about creating memories. Can't wait for the trip!",
+        "source": [
+          "conv-26_conv_session_12_D12:21"
+        ],
+        "time": "1:50 pm on 17 August, 2023",
+        "batch_id": "conv-26_conv_session_12_batch_5",
+        "source_turn_ids": [
+          "conv-26_conv_session_12_D12:21"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_12_D12:21; speaker=Caroline; listener=Melanie; session_time=1:50 pm on 17 August, 2023]\nYeah, Mel! Life's all about creating memories. Can't wait for the trip!"
+      },
+      "created_at": "2026-04-27 17:33:37",
+      "updated_at": "2026-04-27 17:33:37"
+    },
+    "7cf23a86-1226-4a67-99c9-2ce23429e3e5": {
+      "type": "Entity",
+      "canonical_name": "Oscar",
+      "aliases": [],
+      "attrs": {},
+      "created_at": "2026-04-27 17:33:48",
+      "updated_at": "2026-04-27 17:33:48"
+    },
+    "b4152a9e-54a2-4c4f-a650-803a0a0cdb7a": {
+      "type": "Entity",
+      "canonical_name": "Bailey",
+      "aliases": [],
+      "attrs": {},
+      "created_at": "2026-04-27 17:33:48",
+      "updated_at": "2026-04-27 17:33:48"
+    },
+    "732abfce-6e6e-4e8b-a11f-158b77591d2c": {
+      "type": "Event",
+      "canonical_name": "Caroline applied to adoption agencies",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 23 August, 2023, Caroline applied to adoption agencies to take the first step towards becoming a mom. She received lots of help from an adoption advice/assistance group she attended.",
+        "quote": "I took the first step towards becoming a mom - I applied to adoption agencies! It's a big decision, but I think I'm ready to give all my love to a child. I got lots of help from this adoption advice/assistance group I attended.",
+        "source": [
+          "conv-26_conv_session_13_D13:1"
+        ],
+        "time": "23 August, 2023",
+        "batch_id": "conv-26_conv_session_13_batch_0",
+        "source_turn_ids": [
+          "conv-26_conv_session_13_D13:1",
+          "conv-26_conv_session_13_D13:2",
+          "conv-26_conv_session_13_D13:3",
+          "conv-26_conv_session_13_D13:4"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_13_D13:1; speaker=Caroline; listener=Melanie; session_time=3:31 pm on 23 August, 2023]\nHi Melanie! Hope you're doing good. Guess what I did this week? I took the first step towards becoming a mom - I applied to adoption agencies! It's a big decision, but I think I'm ready to give all my love to a child. I got lots of help from this adoption advice/assistance group I attended. It was great!\n\n[turn_id=conv-26_conv_session_13_D13:2; speaker=Melanie; listener=Caroline; session_time=3:31 pm on 23 August, 2023]\nCaroline, congrats! So proud of you for taking this step. How does it feel? Also, do you have any pets?\n\n[turn_id=conv-26_conv_session_13_D13:3; speaker=Caroline; listener=Melanie; session_time=3:31 pm on 23 August, 2023]\nThanks, Mel! Exciting but kinda nerve-wracking. Parenting's such a big responsibility. And yup, I do- Oscar, my guinea pig. He's been great. How are your pets?\n\n[turn_id=conv-26_conv_session_13_D13:4; speaker=Melanie; listener=Caroline; session_time=3:31 pm on 23 August, 2023]\nYeah, it's normal to be both excited and nervous with a big decision. And thanks for asking, they're good- we got another cat named Bailey too. Here's a pic of Oliver. Can you show me one of Oscar?"
+      },
+      "created_at": "2026-04-27 17:33:48",
+      "updated_at": "2026-04-27 17:33:49"
+    },
+    "7d5d2693-5dd0-4090-a78e-0a385d0dce2b": {
+      "type": "Event",
+      "canonical_name": "Caroline attended adoption advice/assistance group",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 23 August, 2023, Caroline attended an adoption advice/assistance group where she received lots of help with her adoption application.",
+        "quote": "I got lots of help from this adoption advice/assistance group I attended.",
+        "source": [
+          "conv-26_conv_session_13_D13:1"
+        ],
+        "time": "23 August, 2023",
+        "batch_id": "conv-26_conv_session_13_batch_0",
+        "source_turn_ids": [
+          "conv-26_conv_session_13_D13:1",
+          "conv-26_conv_session_13_D13:2",
+          "conv-26_conv_session_13_D13:3",
+          "conv-26_conv_session_13_D13:4"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_13_D13:1; speaker=Caroline; listener=Melanie; session_time=3:31 pm on 23 August, 2023]\nHi Melanie! Hope you're doing good. Guess what I did this week? I took the first step towards becoming a mom - I applied to adoption agencies! It's a big decision, but I think I'm ready to give all my love to a child. I got lots of help from this adoption advice/assistance group I attended. It was great!\n\n[turn_id=conv-26_conv_session_13_D13:2; speaker=Melanie; listener=Caroline; session_time=3:31 pm on 23 August, 2023]\nCaroline, congrats! So proud of you for taking this step. How does it feel? Also, do you have any pets?\n\n[turn_id=conv-26_conv_session_13_D13:3; speaker=Caroline; listener=Melanie; session_time=3:31 pm on 23 August, 2023]\nThanks, Mel! Exciting but kinda nerve-wracking. Parenting's such a big responsibility. And yup, I do- Oscar, my guinea pig. He's been great. How are your pets?\n\n[turn_id=conv-26_conv_session_13_D13:4; speaker=Melanie; listener=Caroline; session_time=3:31 pm on 23 August, 2023]\nYeah, it's normal to be both excited and nervous with a big decision. And thanks for asking, they're good- we got another cat named Bailey too. Here's a pic of Oliver. Can you show me one of Oscar?"
+      },
+      "created_at": "2026-04-27 17:33:48",
+      "updated_at": "2026-04-27 17:33:49"
+    },
+    "bb353f82-28c1-4387-acde-4012a49d605a": {
+      "type": "Event",
+      "canonical_name": "Caroline has pets",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 23 August, 2023, Caroline has pets, including a guinea pig named Oscar and a cat named Bailey.",
+        "quote": "I do- Oscar, my guinea pig. He's been great. How are your pets?",
+        "source": [
+          "conv-26_conv_session_13_D13:3"
+        ],
+        "time": "23 August, 2023",
+        "batch_id": "conv-26_conv_session_13_batch_0",
+        "source_turn_ids": [
+          "conv-26_conv_session_13_D13:1",
+          "conv-26_conv_session_13_D13:2",
+          "conv-26_conv_session_13_D13:3",
+          "conv-26_conv_session_13_D13:4"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_13_D13:1; speaker=Caroline; listener=Melanie; session_time=3:31 pm on 23 August, 2023]\nHi Melanie! Hope you're doing good. Guess what I did this week? I took the first step towards becoming a mom - I applied to adoption agencies! It's a big decision, but I think I'm ready to give all my love to a child. I got lots of help from this adoption advice/assistance group I attended. It was great!\n\n[turn_id=conv-26_conv_session_13_D13:2; speaker=Melanie; listener=Caroline; session_time=3:31 pm on 23 August, 2023]\nCaroline, congrats! So proud of you for taking this step. How does it feel? Also, do you have any pets?\n\n[turn_id=conv-26_conv_session_13_D13:3; speaker=Caroline; listener=Melanie; session_time=3:31 pm on 23 August, 2023]\nThanks, Mel! Exciting but kinda nerve-wracking. Parenting's such a big responsibility. And yup, I do- Oscar, my guinea pig. He's been great. How are your pets?\n\n[turn_id=conv-26_conv_session_13_D13:4; speaker=Melanie; listener=Caroline; session_time=3:31 pm on 23 August, 2023]\nYeah, it's normal to be both excited and nervous with a big decision. And thanks for asking, they're good- we got another cat named Bailey too. Here's a pic of Oliver. Can you show me one of Oscar?"
+      },
+      "created_at": "2026-04-27 17:33:48",
+      "updated_at": "2026-04-27 17:33:49"
+    },
+    "0468d974-ff8c-4f85-a8f6-0490d7d451cf": {
+      "type": "Event",
+      "canonical_name": "Melanie has pets",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 23 August, 2023, Melanie has pets, including a cat named Bailey and another cat named Oliver.",
+        "quote": "They're good- we got another cat named Bailey too. Here's a pic of Oliver.",
+        "source": [
+          "conv-26_conv_session_13_D13:4"
+        ],
+        "time": "23 August, 2023",
+        "batch_id": "conv-26_conv_session_13_batch_0",
+        "source_turn_ids": [
+          "conv-26_conv_session_13_D13:1",
+          "conv-26_conv_session_13_D13:2",
+          "conv-26_conv_session_13_D13:3",
+          "conv-26_conv_session_13_D13:4"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_13_D13:1; speaker=Caroline; listener=Melanie; session_time=3:31 pm on 23 August, 2023]\nHi Melanie! Hope you're doing good. Guess what I did this week? I took the first step towards becoming a mom - I applied to adoption agencies! It's a big decision, but I think I'm ready to give all my love to a child. I got lots of help from this adoption advice/assistance group I attended. It was great!\n\n[turn_id=conv-26_conv_session_13_D13:2; speaker=Melanie; listener=Caroline; session_time=3:31 pm on 23 August, 2023]\nCaroline, congrats! So proud of you for taking this step. How does it feel? Also, do you have any pets?\n\n[turn_id=conv-26_conv_session_13_D13:3; speaker=Caroline; listener=Melanie; session_time=3:31 pm on 23 August, 2023]\nThanks, Mel! Exciting but kinda nerve-wracking. Parenting's such a big responsibility. And yup, I do- Oscar, my guinea pig. He's been great. How are your pets?\n\n[turn_id=conv-26_conv_session_13_D13:4; speaker=Melanie; listener=Caroline; session_time=3:31 pm on 23 August, 2023]\nYeah, it's normal to be both excited and nervous with a big decision. And thanks for asking, they're good- we got another cat named Bailey too. Here's a pic of Oliver. Can you show me one of Oscar?"
+      },
+      "created_at": "2026-04-27 17:33:48",
+      "updated_at": "2026-04-27 17:33:49"
+    },
+    "126d121c-b17a-4812-80dc-716b459c466b": {
+      "type": "Event",
+      "canonical_name": "Caroline went horseback riding with her dad",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 23 August, 2023, Caroline went horseback riding with her dad when she was a kid, going through the fields feeling the wind.",
+        "quote": "I used to go horseback riding with my dad when I was a kid, we'd go through the fields, feeling the wind. It was so special. I've always had a love for horses!",
+        "source": [
+          "conv-26_conv_session_13_D13:7"
+        ],
+        "time": "3:31 pm on 23 August, 2023",
+        "batch_id": "conv-26_conv_session_13_batch_1",
+        "source_turn_ids": [
+          "conv-26_conv_session_13_D13:5",
+          "conv-26_conv_session_13_D13:6",
+          "conv-26_conv_session_13_D13:7",
+          "conv-26_conv_session_13_D13:8"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_13_D13:5; speaker=Caroline; listener=Melanie; session_time=3:31 pm on 23 August, 2023]\nHe's so cute! What’s the funniest thing Oliver's done? And sure, check out this pic of him eating parsley! Veggies are his fave!\n\n[turn_id=conv-26_conv_session_13_D13:6; speaker=Melanie; listener=Caroline; session_time=3:31 pm on 23 August, 2023]\nOliver's hilarious! He hid his bone in my slipper once! Cute, right? Almost as silly as when I got to feed a horse a carrot. \n\n[turn_id=conv-26_conv_session_13_D13:7; speaker=Caroline; listener=Melanie; session_time=3:31 pm on 23 August, 2023]\nThat's so funny! I used to go horseback riding with my dad when I was a kid, we'd go through the fields, feeling the wind. It was so special. I've always had a love for horses!\n\n[turn_id=conv-26_conv_session_13_D13:8; speaker=Melanie; listener=Caroline; session_time=3:31 pm on 23 August, 2023]\nWow, that sounds great - I agree, they're awesome. Here's a photo of my horse painting I did recently."
+      },
+      "created_at": "2026-04-27 17:33:54",
+      "updated_at": "2026-04-27 17:33:54"
+    },
+    "1a927ca4-9a8a-446f-bb66-dfa7dcd5f030": {
+      "type": "Entity",
+      "canonical_name": "Self-Portrait",
+      "aliases": [],
+      "attrs": {
+        "time": "last week",
+        "feeling": "powerful"
+      },
+      "created_at": "2026-04-27 17:33:58",
+      "updated_at": "2026-04-27 17:33:58"
+    },
+    "9d49e1ab-8973-46aa-8092-ede18b397c56": {
+      "type": "Event",
+      "canonical_name": "Caroline paints self-portrait",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 3:31 pm on 23 August, 2023, Caroline painted a self-portrait and described the blue as powerful.",
+        "quote": "Caroline, that's great! The blue's really powerful, huh?",
+        "source": [
+          "conv-26_conv_session_13_D13:12"
+        ],
+        "time": "3:31 pm on 23 August, 2023",
+        "batch_id": "conv-26_conv_session_13_batch_2",
+        "source_turn_ids": [
+          "conv-26_conv_session_13_D13:9",
+          "conv-26_conv_session_13_D13:10",
+          "conv-26_conv_session_13_D13:11",
+          "conv-26_conv_session_13_D13:12"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_13_D13:9; speaker=Caroline; listener=Melanie; session_time=3:31 pm on 23 August, 2023]\nWow, Melanie, that's amazing! Love all the details and how you got the horse's grace and strength. Do you like painting animals?\n\n[turn_id=conv-26_conv_session_13_D13:10; speaker=Melanie; listener=Caroline; session_time=3:31 pm on 23 August, 2023]\nThanks, Caroline! Glad you like it. Yeah, I love to. It's peaceful and special. Horses have such grace! Do you like to paint too?\n\n[turn_id=conv-26_conv_session_13_D13:11; speaker=Caroline; listener=Melanie; session_time=3:31 pm on 23 August, 2023]\nPainting's great for expressing myself. I love creating art! Here's a recent self-portrait I made last week.\n\n[turn_id=conv-26_conv_session_13_D13:12; speaker=Melanie; listener=Caroline; session_time=3:31 pm on 23 August, 2023]\nCaroline, that's great! The blue's really powerful, huh? How'd you feel while painting it?"
+      },
+      "created_at": "2026-04-27 17:33:58",
+      "updated_at": "2026-04-27 17:33:58"
+    },
+    "9558de07-c099-49e3-8079-b928c436b2b2": {
+      "type": "Event",
+      "canonical_name": "Caroline encounters religious conservatives on hike",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 25 August, 2023, Caroline encountered a group of religious conservatives on a hike who made comments that upset her, leading her to apologize to them.",
+        "quote": "I went hiking last week and got into a bad spot with some people. It really bugged me, so I tried to apologize to them.",
+        "source": [
+          "conv-26_conv_session_14_D14:1"
+        ],
+        "time": "25 August, 2023",
+        "batch_id": "conv-26_conv_session_14_batch_0",
+        "source_turn_ids": [
+          "conv-26_conv_session_14_D14:1",
+          "conv-26_conv_session_14_D14:2",
+          "conv-26_conv_session_14_D14:3",
+          "conv-26_conv_session_14_D14:4"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_14_D14:1; speaker=Caroline; listener=Melanie; session_time=1:33 pm on 25 August, 2023]\nHey, Mel! How's it going? There's something I want to tell you. I went hiking last week and got into a bad spot with some people. It really bugged me, so I tried to apologize to them.\n\n[turn_id=conv-26_conv_session_14_D14:2; speaker=Melanie; listener=Caroline; session_time=1:33 pm on 25 August, 2023]\nWow, Caroline! Sorry that happened to you. It's tough when those things happen, but it's great you apologized. Takes a lot of courage and maturity! What do you think of this?\n\n[turn_id=conv-26_conv_session_14_D14:3; speaker=Caroline; listener=Melanie; session_time=1:33 pm on 25 August, 2023]\nThanks, Melanie! That plate is awesome! Did you make it?\n\n[turn_id=conv-26_conv_session_14_D14:4; speaker=Melanie; listener=Caroline; session_time=1:33 pm on 25 August, 2023]\nYeah, I made it in pottery class yesterday. I love it! Pottery's so relaxing and creative. Have you tried it yet?"
+      },
+      "created_at": "2026-04-27 17:34:09",
+      "updated_at": "2026-04-27 17:34:09"
+    },
+    "00383040-c5ae-4ab6-9521-2de39ad4041c": {
+      "type": "Event",
+      "canonical_name": "Caroline paints sunset",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 1:33 pm on 25 August, 2023, Caroline painted a sunset scene after visiting the beach last week.",
+        "quote": "I painted it after I visited the beach last week. Just seeing the sun dip below the horizon, all the amazing colors - it was amazing and calming. So I just had to try to capture that feeling in my painting.",
+        "source": [
+          "conv-26_conv_session_14_D14:7"
+        ],
+        "time": "1:33 pm on 25 August, 2023",
+        "batch_id": "conv-26_conv_session_14_batch_1",
+        "source_turn_ids": [
+          "conv-26_conv_session_14_D14:5",
+          "conv-26_conv_session_14_D14:6",
+          "conv-26_conv_session_14_D14:7",
+          "conv-26_conv_session_14_D14:8"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_14_D14:5; speaker=Caroline; listener=Melanie; session_time=1:33 pm on 25 August, 2023]\nNah, I haven't. I've been busy painting - here's something I just finished.\n\n[turn_id=conv-26_conv_session_14_D14:6; speaker=Melanie; listener=Caroline; session_time=1:33 pm on 25 August, 2023]\nWow Caroline, that looks amazing! Those colors are so vivid, it really looks like a real sunset. What gave you the idea to paint it?\n\n[turn_id=conv-26_conv_session_14_D14:7; speaker=Caroline; listener=Melanie; session_time=1:33 pm on 25 August, 2023]\nThanks, Melanie! I painted it after I visited the beach last week. Just seeing the sun dip below the horizon, all the amazing colors - it was amazing and calming. So I just had to try to capture that feeling in my painting.\n\n[turn_id=conv-26_conv_session_14_D14:8; speaker=Melanie; listener=Caroline; session_time=1:33 pm on 25 August, 2023]\nWow, the beach really inspired you. The art really took me to that moment and I can feel the serenity. You captured the sunset perfectly, so peaceful!"
+      },
+      "created_at": "2026-04-27 17:34:13",
+      "updated_at": "2026-04-27 17:34:13"
+    },
+    "8ed2039c-1318-405b-80fa-74bbc96f0267": {
+      "type": "Entity",
+      "canonical_name": "Rainbow Flag Mural",
+      "aliases": [],
+      "attrs": {
+        "fact": "Caroline finds the rainbow flag mural important as it reflects the courage and strength of the trans community. The eagle symbolizes freedom and pride, representing her own resilience and that of others.",
+        "quote": "The rainbow flag mural is important to me as it reflects the courage and strength of the trans community. The eagle symbolizes freedom and pride, representing my own resilience and that of others.",
+        "source": [
+          "conv-26_conv_session_14_D14:15"
+        ],
+        "time": "1:33 pm on 25 August, 2023",
+        "feeling": "inspired"
+      },
+      "created_at": "2026-04-27 17:34:20",
+      "updated_at": "2026-04-27 17:34:31"
+    },
+    "05f9671a-6055-46b5-a73a-ddd6610cbab1": {
+      "type": "Event",
+      "canonical_name": "Caroline creates stained glass window",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 1:33 pm on 25 August, 2023, Caroline created a stained glass window to remind herself and others that within us all is the key to discovering our true potential and living our best life.",
+        "quote": "Thanks! It was made for a local church and shows time changing our lives. I made it to show my own journey as a transgender woman and how we should accept growth and change.",
+        "source": [
+          "conv-26_conv_session_14_D14:19"
+        ],
+        "time": "1:33 pm on 25 August, 2023",
+        "batch_id": "conv-26_conv_session_14_batch_4",
+        "source_turn_ids": [
+          "conv-26_conv_session_14_D14:17",
+          "conv-26_conv_session_14_D14:18",
+          "conv-26_conv_session_14_D14:19",
+          "conv-26_conv_session_14_D14:20"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_14_D14:17; speaker=Caroline; listener=Melanie; session_time=1:33 pm on 25 August, 2023]\nThanks, Mel! I made this stained glass window to remind myself and others that within us all is the key to discovering our true potential and living our best life.\n\n[turn_id=conv-26_conv_session_14_D14:18; speaker=Melanie; listener=Caroline; session_time=1:33 pm on 25 August, 2023]\nWow, Caroline, that looks amazing! What inspired it?\n\n[turn_id=conv-26_conv_session_14_D14:19; speaker=Caroline; listener=Melanie; session_time=1:33 pm on 25 August, 2023]\nThanks! It was made for a local church and shows time changing our lives. I made it to show my own journey as a transgender woman and how we should accept growth and change.\n\n[turn_id=conv-26_conv_session_14_D14:20; speaker=Melanie; listener=Caroline; session_time=1:33 pm on 25 August, 2023]\nWow, Caroline!  All those colors are incredible and the story it tells is so inspiring."
+      },
+      "created_at": "2026-04-27 17:34:24",
+      "updated_at": "2026-04-27 17:34:24"
+    },
+    "70557d35-8b73-4f50-9305-969d86f6015e": {
+      "type": "Event",
+      "canonical_name": "Caroline finds rainbow flag mural",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 1:33 pm on 25 August, 2023, Caroline finds the rainbow flag mural while walking in her neighborhood during Pride Month.",
+        "quote": "I was out walking in my neighborhood when I came across this cool rainbow sidewalk for Pride Month.",
+        "source": [
+          "conv-26_conv_session_14_D14:23"
+        ],
+        "time": "1:33 pm on 25 August, 2023",
+        "batch_id": "conv-26_conv_session_14_batch_5",
+        "source_turn_ids": [
+          "conv-26_conv_session_14_D14:21",
+          "conv-26_conv_session_14_D14:22",
+          "conv-26_conv_session_14_D14:23",
+          "conv-26_conv_session_14_D14:24"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_14_D14:21; speaker=Caroline; listener=Melanie; session_time=1:33 pm on 25 August, 2023]\nThanks, Mel! Glad you like it. It's a symbol of togetherness, to celebrate differences and be that much closer. I'd love to make something like this next!\n\n[turn_id=conv-26_conv_session_14_D14:22; speaker=Melanie; listener=Caroline; session_time=1:33 pm on 25 August, 2023]\nWow, that's gorgeous! Where did you find it?\n\n[turn_id=conv-26_conv_session_14_D14:23; speaker=Caroline; listener=Melanie; session_time=1:33 pm on 25 August, 2023]\nI was out walking in my neighborhood when I came across this cool rainbow sidewalk for Pride Month. It was so vibrant and welcoming, I had to take a picture! It reminds us that love and acceptance are everywhere—even where we least expect it.\n\n[turn_id=conv-26_conv_session_14_D14:24; speaker=Melanie; listener=Caroline; session_time=1:33 pm on 25 August, 2023]\nThat's so nice, Caroline! Art can be in the most unlikely places. Love and acceptance really can be found everywhere."
+      },
+      "created_at": "2026-04-27 17:34:31",
+      "updated_at": "2026-04-27 17:34:31"
+    },
+    "18ba6b32-efe7-44f5-ac4f-1433ae73d10b": {
+      "type": "Entity",
+      "canonical_name": "ArtProject",
+      "aliases": [],
+      "attrs": {},
+      "created_at": "2026-04-27 17:34:37",
+      "updated_at": "2026-04-27 17:34:37"
+    },
+    "ef3f7cc5-ea5b-477f-8059-118228b89a99": {
+      "type": "Event",
+      "canonical_name": "Melanie paints autumn landscape",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 1:33 pm on 25 August, 2023, Melanie painted an autumn landscape as part of her art projects.",
+        "quote": "I'm feeling inspired by autumn so I'm planning a few.",
+        "source": [
+          "conv-26_conv_session_14_D14:30"
+        ],
+        "time": "1:33 pm on 25 August, 2023",
+        "batch_id": "conv-26_conv_session_14_batch_7",
+        "source_turn_ids": [
+          "conv-26_conv_session_14_D14:29",
+          "conv-26_conv_session_14_D14:30",
+          "conv-26_conv_session_14_D14:31",
+          "conv-26_conv_session_14_D14:32"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_14_D14:29; speaker=Caroline; listener=Melanie; session_time=1:33 pm on 25 August, 2023]\nYeah, definitely! Drawing flowers is one of my faves. Appreciating nature and sharing it is great. What about you, Mel? What type of art do you love?\n\n[turn_id=conv-26_conv_session_14_D14:30; speaker=Melanie; listener=Caroline; session_time=1:33 pm on 25 August, 2023]\nPainting landscapes and still life is my favorite! Nature's amazing, here's a painting I did recently.\n\n[turn_id=conv-26_conv_session_14_D14:31; speaker=Caroline; listener=Melanie; session_time=1:33 pm on 25 August, 2023]\nWow, Mel! Any more paintings coming up?\n\n[turn_id=conv-26_conv_session_14_D14:32; speaker=Melanie; listener=Caroline; session_time=1:33 pm on 25 August, 2023]\nI'm feeling inspired by autumn so I'm planning a few. You got any cool art projects coming up?"
+      },
+      "created_at": "2026-04-27 17:34:37",
+      "updated_at": "2026-04-27 17:34:37"
+    },
+    "4bcd8750-d846-48d9-8278-8551d3deb6a3": {
+      "type": "Event",
+      "canonical_name": "Caroline prepares for LGBTQ art show",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 1:33 pm on 25 August, 2023, Caroline prepares for an LGBTQ art show next month and plans to show her paintings.",
+        "quote": "I'm putting together an LGBTQ art show next month and I'm gonna show my paintings.",
+        "source": [
+          "conv-26_conv_session_14_D14:33"
+        ],
+        "time": "1:33 pm on 25 August, 2023",
+        "batch_id": "conv-26_conv_session_14_batch_8",
+        "source_turn_ids": [
+          "conv-26_conv_session_14_D14:33",
+          "conv-26_conv_session_14_D14:34",
+          "conv-26_conv_session_14_D14:35"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_14_D14:33; speaker=Caroline; listener=Melanie; session_time=1:33 pm on 25 August, 2023]\nI'm putting together an LGBTQ art show next month and I'm gonna show my paintings. Super stoked!\n\n[turn_id=conv-26_conv_session_14_D14:34; speaker=Melanie; listener=Caroline; session_time=1:33 pm on 25 August, 2023]\nWow, Caroline, that's awesome! Can't wait to see your show - the LGBTQ community needs more platforms like this!\n\n[turn_id=conv-26_conv_session_14_D14:35; speaker=Caroline; listener=Melanie; session_time=1:33 pm on 25 August, 2023]\nYeah Mel, stoked! Gonna be a great night featuring LGBTQ artists and their awesome talents. We want it to spread understanding and acceptance - let's make it happen!"
+      },
+      "created_at": "2026-04-27 17:34:41",
+      "updated_at": "2026-04-27 17:34:41"
+    },
+    "52cc101d-4a26-4fd4-9653-bd95e98c6b11": {
+      "type": "Event",
+      "canonical_name": "Caroline volunteers at LGBTQ+ youth center",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 28 August, 2023, Caroline volunteered at an LGBTQ+ youth center and felt gratified by talking to similar young people.",
+        "quote": "I've been chasing my ambitions and had the chance to volunteer at an LGBTQ+ youth center. It was so gratifying to talk to similar young people. It made me remember how essential it is to be kind and show support.",
+        "source": [
+          "conv-26_conv_session_15_D15:3"
+        ],
+        "time": "28 August, 2023",
+        "batch_id": "conv-26_conv_session_15_batch_0",
+        "source_turn_ids": [
+          "conv-26_conv_session_15_D15:1",
+          "conv-26_conv_session_15_D15:2",
+          "conv-26_conv_session_15_D15:3",
+          "conv-26_conv_session_15_D15:4"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_15_D15:1; speaker=Caroline; listener=Melanie; session_time=3:19 pm on 28 August, 2023]\nHey Melanie, great to hear from you. What's been up since we talked?\n\n[turn_id=conv-26_conv_session_15_D15:2; speaker=Melanie; listener=Caroline; session_time=3:19 pm on 28 August, 2023]\nHey Caroline! Since we last spoke, I took my kids to a park yesterday. They had fun exploring and playing. It was nice seeing them have a good time outdoors. Time flies, huh? What's new with you?\n\n[turn_id=conv-26_conv_session_15_D15:3; speaker=Caroline; listener=Melanie; session_time=3:19 pm on 28 August, 2023]\nWow, your kids had so much fun at the park! Being outdoors can be really enjoyable. A lot happened since our last chat. I've been chasing my ambitions and had the chance to volunteer at an LGBTQ+ youth center. It was so gratifying to talk to similar young people. It made me remember how essential it is to be kind and show support.\n\n[turn_id=conv-26_conv_session_15_D15:4; speaker=Melanie; listener=Caroline; session_time=3:19 pm on 28 August, 2023]\nThat sounds great, Caroline. Volunteering is a great way to meet people. Creating community and supporting each other, especially for kids, is really important. How did you feel about your time there? Anything that sticks out to you?",
+        "feeling": "fulfilled",
+        "emotion": "empowered",
+        "reflection": "felt proud and grateful, the vibes were amazing, and it was comforting to know I'm not alone and have a great community around me",
+        "statement": "It was awesome, Melanie! Being around people who embrace and back me up is beyond words. It really inspired me"
+      },
+      "created_at": "2026-04-27 17:34:45",
+      "updated_at": "2026-04-27 17:34:49"
+    },
+    "20c6f48f-e079-442e-a2e5-b9d5edb61029": {
+      "type": "Event",
+      "canonical_name": "Caroline organizes talent show for kids",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 28 August, 2023, Caroline organized a talent show for kids next month and mentioned looking forward to seeing how much fun everyone has and how proud they'll feel of their talents.",
+        "quote": "We're putting together a talent show for the kids next month. I'm looking forward to seeing how much fun everyone has and how proud they'll feel of their talents!",
+        "source": [
+          "conv-26_conv_session_15_D15:11"
+        ],
+        "time": "3:19 pm on 28 August, 2023",
+        "batch_id": "conv-26_conv_session_15_batch_2",
+        "source_turn_ids": [
+          "conv-26_conv_session_15_D15:9",
+          "conv-26_conv_session_15_D15:10",
+          "conv-26_conv_session_15_D15:11",
+          "conv-26_conv_session_15_D15:12"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_15_D15:9; speaker=Caroline; listener=Melanie; session_time=3:19 pm on 28 August, 2023]\nI'm definitely carrying on volunteering at the youth center. It's an important part of my life and I've made strong connections with people there. I really believe in community and supporting each other. So I wanna keep making a difference.\n\n[turn_id=conv-26_conv_session_15_D15:10; speaker=Melanie; listener=Caroline; session_time=3:19 pm on 28 August, 2023]\nThat's great news, Caroline! Love seeing your dedication to helping others. Any specific projects or activities you're looking forward to there?\n\n[turn_id=conv-26_conv_session_15_D15:11; speaker=Caroline; listener=Melanie; session_time=3:19 pm on 28 August, 2023]\nWe're putting together a talent show for the kids next month. I'm looking forward to seeing how much fun everyone has and how proud they'll feel of their talents!\n\n[turn_id=conv-26_conv_session_15_D15:12; speaker=Melanie; listener=Caroline; session_time=3:19 pm on 28 August, 2023]\nThat's so cool, Caroline! That's a great way to show off and be proud of everyone's skills. You know I love live music. Can't wait to hear about it!"
+      },
+      "created_at": "2026-04-27 17:34:52",
+      "updated_at": "2026-04-27 17:34:53"
+    },
+    "627070f1-1c18-4f2e-9220-fb96291cb2a6": {
+      "type": "Entity",
+      "canonical_name": "Summer Sounds",
+      "aliases": [],
+      "attrs": {
+        "fact": "The band Summer Sounds played an awesome pop song that got everyone dancing and singing.",
+        "quote": "The playing an awesome pop song that got everyone dancing and singing.",
+        "source": [
+          "conv-26_conv_session_15_D15:16"
+        ],
+        "time": "3:19 pm on 28 August, 2023"
+      },
+      "created_at": "2026-04-27 17:34:55",
+      "updated_at": "2026-04-27 17:34:55"
+    },
+    "5e9e2e7a-0f7f-4fad-9bf4-810d48a909cd": {
+      "type": "Entity",
+      "canonical_name": "Music",
+      "aliases": [],
+      "attrs": {
+        "feeling": "cathartic",
+        "emotion": "uplifting"
+      },
+      "created_at": "2026-04-27 17:34:59",
+      "updated_at": "2026-04-27 17:34:59"
+    },
+    "2d8ceec2-9c9a-4321-a21e-8036b1d3c49d": {
+      "type": "Event",
+      "canonical_name": "Caroline plays music",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 28 August, 2023, Caroline plays music and mentions that it helps her express herself and connect with others.",
+        "quote": "Playing and singing let me express myself and connect with others - love it! So cathartic and uplifting.",
+        "source": [
+          "conv-26_conv_session_15_D15:17"
+        ],
+        "time": "3:19 pm on 28 August, 2023",
+        "batch_id": "conv-26_conv_session_15_batch_4",
+        "source_turn_ids": [
+          "conv-26_conv_session_15_D15:17",
+          "conv-26_conv_session_15_D15:18",
+          "conv-26_conv_session_15_D15:19",
+          "conv-26_conv_session_15_D15:20"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_15_D15:17; speaker=Caroline; listener=Melanie; session_time=3:19 pm on 28 August, 2023]\nThat sounds great! Music brings us together and brings joy. Playing and singing let me express myself and connect with others - love it! So cathartic and uplifting.\n\n[turn_id=conv-26_conv_session_15_D15:18; speaker=Melanie; listener=Caroline; session_time=3:19 pm on 28 August, 2023]\nCool! What type of music do you play?\n\n[turn_id=conv-26_conv_session_15_D15:19; speaker=Caroline; listener=Melanie; session_time=3:19 pm on 28 August, 2023]\nGuitar's mostly my thing. Playing it helps me get my emotions out.\n\n[turn_id=conv-26_conv_session_15_D15:20; speaker=Melanie; listener=Caroline; session_time=3:19 pm on 28 August, 2023]\nThat's awesome! What type of guitar? Been playing long?"
+      },
+      "created_at": "2026-04-27 17:34:59",
+      "updated_at": "2026-04-27 17:35:00"
+    },
+    "d8fc7975-26ba-4e4a-80f4-0977d4ebf853": {
+      "type": "Event",
+      "canonical_name": "Caroline plays music",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 3:19 pm on 28 August, 2023, Caroline started playing acoustic guitar about five years ago and mentioned that it's been a great way to express herself and escape into her emotions.",
+        "quote": "I started playing acoustic guitar about five years ago; it's been a great way to express myself and escape into my emotions.",
+        "source": [
+          "conv-26_conv_session_15_D15:21"
+        ],
+        "time": "3:19 pm on 28 August, 2023",
+        "batch_id": "conv-26_conv_session_15_batch_5",
+        "source_turn_ids": [
+          "conv-26_conv_session_15_D15:21",
+          "conv-26_conv_session_15_D15:22",
+          "conv-26_conv_session_15_D15:23",
+          "conv-26_conv_session_15_D15:24"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_15_D15:21; speaker=Caroline; listener=Melanie; session_time=3:19 pm on 28 August, 2023]\nI started playing acoustic guitar about five years ago; it's been a great way to express myself and escape into my emotions.\n\n[turn_id=conv-26_conv_session_15_D15:22; speaker=Melanie; listener=Caroline; session_time=3:19 pm on 28 August, 2023]\nMusic's amazing, isn't it? Any songs that have deep meaning for you?\n\n[turn_id=conv-26_conv_session_15_D15:23; speaker=Caroline; listener=Melanie; session_time=3:19 pm on 28 August, 2023]\nYeah totally! \"Brave\" by Sara Bareilles has a lot of significance for me. It's about being courageous and fighting for what's right. Whenever I hear this jam, I think about the paths I've taken and the progress I've made.\n\n[turn_id=conv-26_conv_session_15_D15:24; speaker=Melanie; listener=Caroline; session_time=3:19 pm on 28 August, 2023]\nThat's a gorgeous song, Caroline. It really fits with your journey and your determination to make a difference. Music can be so inspiring and uplifting."
+      },
+      "created_at": "2026-04-27 17:35:04",
+      "updated_at": "2026-04-27 17:35:04"
+    },
+    "2c7dffa7-4958-4966-92a1-1fc28f548f8a": {
+      "type": "Entity",
+      "canonical_name": "Clarinet",
+      "aliases": [],
+      "attrs": {
+        "key": "value"
+      },
+      "created_at": "2026-04-27 17:35:08",
+      "updated_at": "2026-04-27 17:35:08"
+    },
+    "9c749588-bffe-4561-b129-ad68595a45f6": {
+      "type": "Event",
+      "canonical_name": "Melanie plays clarinet",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 3:19 pm on 28 August, 2023, Melanie plays clarinet and mentions that it's been great for expressing herself and relaxing.",
+        "quote": "Yeah, I play clarinet! Started when I was young and it's been great. Expression of myself and a way to relax.",
+        "source": [
+          "conv-26_conv_session_15_D15:26"
+        ],
+        "time": "3:19 pm on 28 August, 2023",
+        "batch_id": "conv-26_conv_session_15_batch_6",
+        "source_turn_ids": [
+          "conv-26_conv_session_15_D15:25",
+          "conv-26_conv_session_15_D15:26",
+          "conv-26_conv_session_15_D15:27",
+          "conv-26_conv_session_15_D15:28"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_15_D15:25; speaker=Caroline; listener=Melanie; session_time=3:19 pm on 28 August, 2023]\nThanks, Melanie! Appreciate it. You play any instruments?\n\n[turn_id=conv-26_conv_session_15_D15:26; speaker=Melanie; listener=Caroline; session_time=3:19 pm on 28 August, 2023]\nYeah, I play clarinet! Started when I was young and it's been great. Expression of myself and a way to relax.\n\n[turn_id=conv-26_conv_session_15_D15:27; speaker=Caroline; listener=Melanie; session_time=3:19 pm on 28 August, 2023]\nCool! Got any fav tunes?\n\n[turn_id=conv-26_conv_session_15_D15:28; speaker=Melanie; listener=Caroline; session_time=3:19 pm on 28 August, 2023]\nI'm a fan of both classical like Bach and Mozart, as well as modern music like Ed Sheeran's \"Perfect\"."
+      },
+      "created_at": "2026-04-27 17:35:08",
+      "updated_at": "2026-04-27 17:35:08"
+    },
+    "f279247f-6c75-45d8-8ee3-0121dfbc39c5": {
+      "type": "Event",
+      "canonical_name": "Biking with the gang",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 13 September, 2023, Caroline went biking with the gang last weekend and saw some pretty cool stuff. The photo she sent is stunning.",
+        "quote": "I had a wicked day out with the gang last weekend - we went biking and saw some pretty cool stuff. It was so refreshing, and the pic I'm sending is just stunning, eh?",
+        "source": [
+          "conv-26_conv_session_16_D16:1"
+        ],
+        "time": "13 September, 2023",
+        "batch_id": "conv-26_conv_session_16_batch_0",
+        "source_turn_ids": [
+          "conv-26_conv_session_16_D16:1",
+          "conv-26_conv_session_16_D16:2",
+          "conv-26_conv_session_16_D16:3",
+          "conv-26_conv_session_16_D16:4"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_16_D16:1; speaker=Caroline; listener=Melanie; session_time=12:09 am on 13 September, 2023]\nHey Mel, long time no chat! I had a wicked day out with the gang last weekend - we went biking and saw some pretty cool stuff. It was so refreshing, and the pic I'm sending is just stunning, eh?\n\n[turn_id=conv-26_conv_session_16_D16:2; speaker=Melanie; listener=Caroline; session_time=12:09 am on 13 September, 2023]\nHey Caroline! It's so good to hear from you! That pic is so beautiful, the colors really pop. Biking sounds like a great way to get out in nature. We went camping with the kids a few weeks ago, had a blast exploring the forest and hiking. Nature can be so refreshing for your soul. Any plans coming up?\n\n[turn_id=conv-26_conv_session_16_D16:3; speaker=Caroline; listener=Melanie; session_time=12:09 am on 13 September, 2023]\nMelanie, that photo's amazing! I love all the yellow leaves, it looks so cozy. That sounds like fun! Seeing how excited they get for the little things is awesome, it's so contagious.\n\n[turn_id=conv-26_conv_session_16_D16:4; speaker=Melanie; listener=Caroline; session_time=12:09 am on 13 September, 2023]\nThanks, Caroline! It's awesome seeing the kids get excited learning something new about nature. Those moments make being a parent worth it. We roasted marshmallows and shared stories around the campfire. Those simple moments make the best memories. What inspires you with your volunteering?"
+      },
+      "created_at": "2026-04-27 17:35:14",
+      "updated_at": "2026-04-27 17:35:14"
+    },
+    "f60cd831-32b1-4981-8f63-ed3f652ae83c": {
+      "type": "Event",
+      "canonical_name": "Camping with the kids",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 13 September, 2023, Melanie and the kids went camping a few weeks ago, exploring the forest and hiking. They roasted marshmallows and shared stories around the campfire.",
+        "quote": "We went camping with the kids a few weeks ago, had a blast exploring the forest and hiking. Nature can be so refreshing for your soul. We roasted marshmallows and shared stories around the campfire.",
+        "source": [
+          "conv-26_conv_session_16_D16:2"
+        ],
+        "time": "13 September, 2023",
+        "batch_id": "conv-26_conv_session_16_batch_0",
+        "source_turn_ids": [
+          "conv-26_conv_session_16_D16:1",
+          "conv-26_conv_session_16_D16:2",
+          "conv-26_conv_session_16_D16:3",
+          "conv-26_conv_session_16_D16:4"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_16_D16:1; speaker=Caroline; listener=Melanie; session_time=12:09 am on 13 September, 2023]\nHey Mel, long time no chat! I had a wicked day out with the gang last weekend - we went biking and saw some pretty cool stuff. It was so refreshing, and the pic I'm sending is just stunning, eh?\n\n[turn_id=conv-26_conv_session_16_D16:2; speaker=Melanie; listener=Caroline; session_time=12:09 am on 13 September, 2023]\nHey Caroline! It's so good to hear from you! That pic is so beautiful, the colors really pop. Biking sounds like a great way to get out in nature. We went camping with the kids a few weeks ago, had a blast exploring the forest and hiking. Nature can be so refreshing for your soul. Any plans coming up?\n\n[turn_id=conv-26_conv_session_16_D16:3; speaker=Caroline; listener=Melanie; session_time=12:09 am on 13 September, 2023]\nMelanie, that photo's amazing! I love all the yellow leaves, it looks so cozy. That sounds like fun! Seeing how excited they get for the little things is awesome, it's so contagious.\n\n[turn_id=conv-26_conv_session_16_D16:4; speaker=Melanie; listener=Caroline; session_time=12:09 am on 13 September, 2023]\nThanks, Caroline! It's awesome seeing the kids get excited learning something new about nature. Those moments make being a parent worth it. We roasted marshmallows and shared stories around the campfire. Those simple moments make the best memories. What inspires you with your volunteering?"
+      },
+      "created_at": "2026-04-27 17:35:14",
+      "updated_at": "2026-04-27 17:35:14"
+    },
+    "b8d2ca2c-3390-4ff9-970a-b9e49e544907": {
+      "type": "Event",
+      "canonical_name": "Melanie has been into art for seven years",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 13 September, 2023, Melanie said she has been into art for seven years and has finally found her real muses: painting and pottery. She showed a pottery creation in a picture.",
+        "quote": "Seven years now, and I've finally found my real muses: painting and pottery. It's so calming and satisfying. Check out my pottery creation in the pic!",
+        "source": [
+          "conv-26_conv_session_16_D16:8"
+        ],
+        "time": "12:09 am on 13 September, 2023",
+        "batch_id": "conv-26_conv_session_16_batch_1",
+        "source_turn_ids": [
+          "conv-26_conv_session_16_D16:5",
+          "conv-26_conv_session_16_D16:6",
+          "conv-26_conv_session_16_D16:7",
+          "conv-26_conv_session_16_D16:8"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_16_D16:5; speaker=Caroline; listener=Melanie; session_time=12:09 am on 13 September, 2023]\nI'm inspired seeing my work make a difference for the LGBTQ+ community. Knowing I'm helping create a more loving world is amazing. I'm really thankful for my friends, family and mentors' support. It inspires me to keep making art, too.\n\n[turn_id=conv-26_conv_session_16_D16:6; speaker=Melanie; listener=Caroline; session_time=12:09 am on 13 September, 2023]\nWow, Caroline, that looks awesome! I love how it shows the togetherness and power you were talking about. How long have you been creating art?\n\n[turn_id=conv-26_conv_session_16_D16:7; speaker=Caroline; listener=Melanie; session_time=12:09 am on 13 September, 2023]\nSince I was 17 or so. I find it soempowering and cathartic. It's amazing how art can show things that are hard to put into words. How long have you been into art?\n\n[turn_id=conv-26_conv_session_16_D16:8; speaker=Melanie; listener=Caroline; session_time=12:09 am on 13 September, 2023]\nSeven years now, and I've finally found my real muses: painting and pottery. It's so calming and satisfying. Check out my pottery creation in the pic!"
+      },
+      "created_at": "2026-04-27 17:35:19",
+      "updated_at": "2026-04-27 17:35:19"
+    },
+    "f1603dd8-f593-4784-b022-663d65954e92": {
+      "type": "Event",
+      "canonical_name": "Caroline creates painting",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 13 September, 2023, Caroline created a painting that features red and blue colors, which she shared with Melanie.",
+        "quote": "Check out this piece I made!",
+        "source": [
+          "conv-26_conv_session_16_D16:11"
+        ],
+        "time": "12:09 am on 13 September, 2023",
+        "color": "red and blue",
+        "batch_id": "conv-26_conv_session_16_batch_2",
+        "source_turn_ids": [
+          "conv-26_conv_session_16_D16:9",
+          "conv-26_conv_session_16_D16:10",
+          "conv-26_conv_session_16_D16:11",
+          "conv-26_conv_session_16_D16:12"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_16_D16:9; speaker=Caroline; listener=Melanie; session_time=12:09 am on 13 September, 2023]\nMelanie, those bowls are amazing! They each have such cool designs. I love that you chose pottery for your art. Painting and drawing have helped me express my feelings and explore my gender identity. Creating art was really important to me during my transition - it helped me understand and accept myself. I'm so grateful.\n\n[turn_id=conv-26_conv_session_16_D16:10; speaker=Melanie; listener=Caroline; session_time=12:09 am on 13 September, 2023]\nThanks, Caroline! It has really helped me out. I love how it's both a creative outlet and a form of therapy. Have you ever thought about trying it or another art form?\n\n[turn_id=conv-26_conv_session_16_D16:11; speaker=Caroline; listener=Melanie; session_time=12:09 am on 13 September, 2023]\nI haven't done pottery yet, but I'm game for trying new art. I might try it sometime! Check out this piece I made!\n\n[turn_id=conv-26_conv_session_16_D16:12; speaker=Melanie; listener=Caroline; session_time=12:09 am on 13 September, 2023]\nWow, Caroline! This painting is awesome. Love the red and blue. What gave you the idea?"
+      },
+      "created_at": "2026-04-27 17:35:23",
+      "updated_at": "2026-04-27 17:35:23"
+    },
+    "c00fb006-0172-4cbf-83be-b08144374938": {
+      "type": "Event",
+      "canonical_name": "Caroline creates painting to show path as trans woman",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 13 September, 2023, Caroline created a painting to show her path as a trans woman. The red and blue colors represent the binary gender system, and the mix of colors symbolize breaking away from rigid thinking. The painting serves as a reminder to love her authentic self.",
+        "quote": "I made this painting to show my path as a trans woman. The red and blue are for the binary gender system, and the mix of colors means smashing that rigid thinking. It's a reminder to love my authentic self - it's taken a while to get here but I'm finally proud of who I am.",
+        "source": [
+          "conv-26_conv_session_16_D16:13"
+        ],
+        "time": "12:09 am on 13 September, 2023",
+        "batch_id": "conv-26_conv_session_16_batch_3",
+        "source_turn_ids": [
+          "conv-26_conv_session_16_D16:13",
+          "conv-26_conv_session_16_D16:14",
+          "conv-26_conv_session_16_D16:15",
+          "conv-26_conv_session_16_D16:16"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_16_D16:13; speaker=Caroline; listener=Melanie; session_time=12:09 am on 13 September, 2023]\nThanks, Melanie! I made this painting to show my path as a trans woman. The red and blue are for the binary gender system, and the mix of colors means smashing that rigid thinking. It's a reminder to love my authentic self - it's taken a while to get here but I'm finally proud of who I am.\n\n[turn_id=conv-26_conv_session_16_D16:14; speaker=Melanie; listener=Caroline; session_time=12:09 am on 13 September, 2023]\nWow, Caro, that painting is amazing! You've made so much progress. I'm super proud of you for being your true self. What effect has the journey had on your relationships?\n\n[turn_id=conv-26_conv_session_16_D16:15; speaker=Caroline; listener=Melanie; session_time=12:09 am on 13 September, 2023]\nThanks, Melanie. It's definitely changed them. Some close friends kept supporting me, but a few weren't able to handle it. It wasn't easy, but I'm much happier being around those who accept and love me. Now my relationships feel more genuine.\n\n[turn_id=conv-26_conv_session_16_D16:16; speaker=Melanie; listener=Caroline; session_time=12:09 am on 13 September, 2023]\nCaroline, it's got to be tough dealing with those changes. Glad you've found people who uplift and accept you! Here's to a good time at the café last weekend - they even had thoughtful signs like this! It brings me so much happiness."
+      },
+      "created_at": "2026-04-27 17:35:28",
+      "updated_at": "2026-04-27 17:35:28"
+    },
+    "b7024fa6-c9d0-4a6d-8056-d157cd8d0fc1": {
+      "type": "Event",
+      "canonical_name": "Family support and adoption",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 13 October, 2023, Melanie received support from her family regarding adoption, including emotional encouragement and practical advice. She also mentioned a recent setback involving her pottery activities.",
+        "quote": "Thanks, Caroline! Appreciate your help. Got any tips for getting started on it? BTW, recently I had a setback. Last month I got hurt and had to take a break from pottery, which I use for self-expression and peace.",
+        "source": [
+          "conv-26_conv_session_17_D17:5",
+          "conv-26_conv_session_17_D17:6",
+          "conv-26_conv_session_17_D17:7",
+          "conv-26_conv_session_17_D17:8"
+        ],
+        "time": "13 October, 2023",
+        "batch_id": "conv-26_conv_session_17_batch_1",
+        "source_turn_ids": [
+          "conv-26_conv_session_17_D17:5",
+          "conv-26_conv_session_17_D17:6",
+          "conv-26_conv_session_17_D17:7",
+          "conv-26_conv_session_17_D17:8"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_17_D17:5; speaker=Caroline; listener=Melanie; session_time=10:31 am on 13 October, 2023]\nThat's great news about your friend! It can be tough, but so worth it. It's a great way to add to your family and show your love. If you ever do it, let me know — I'd love to help in any way I can.\n\n[turn_id=conv-26_conv_session_17_D17:6; speaker=Melanie; listener=Caroline; session_time=10:31 am on 13 October, 2023]\nThanks, Caroline! Appreciate your help. Got any tips for getting started on it?\n\n[turn_id=conv-26_conv_session_17_D17:7; speaker=Caroline; listener=Melanie; session_time=10:31 am on 13 October, 2023]\nYep! Do your research and find an adoption agency or lawyer. They'll help with the process and provide all the info. Gather documents like references, financial info and medical checks. Don't forget to prepare emotionally, since the wait can be hard. It's all worth it in the end though.\n\n[turn_id=conv-26_conv_session_17_D17:8; speaker=Melanie; listener=Caroline; session_time=10:31 am on 13 October, 2023]\nThanks for the tip, Caroline. Doing research and readying myself emotionally makes sense. I'll do that. BTW, recently I had a setback. Last month I got hurt and had to take a break from pottery, which I use for self-expression and peace."
+      },
+      "created_at": "2026-04-27 17:35:39",
+      "updated_at": "2026-04-27 17:35:39"
+    },
+    "6e379a45-4da6-44f6-94ca-15806dcf2e72": {
+      "type": "Entity",
+      "canonical_name": "Pottery",
+      "aliases": [
+        "pottery"
+      ],
+      "attrs": {
+        "reflection": "felt proud and grateful, the vibes were amazing, and it was comforting to know I'm not alone and have a great community around me",
+        "statement": "It was awesome, Melanie! Being around people who embrace and back me up is beyond words. It really inspired me"
+      },
+      "created_at": "2026-04-27 17:35:43",
+      "updated_at": "2026-04-27 17:35:43"
+    },
+    "318b8eec-921d-4c12-9d75-da96179bbf31": {
+      "type": "Event",
+      "canonical_name": "Melanie paints abstract art",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 10:31 am on 13 October, 2023, Melanie painted an abstract artwork with blue streaks to show tranquility.",
+        "quote": "I painted it because it was calming. I've done an abstract painting too, take a look!",
+        "source": [
+          "conv-26_conv_session_17_D17:14"
+        ],
+        "time": "10:31 am on 13 October, 2023",
+        "feeling": "tranquility",
+        "color": "blue streaks",
+        "vibe": "serene",
+        "batch_id": "conv-26_conv_session_17_batch_3",
+        "source_turn_ids": [
+          "conv-26_conv_session_17_D17:13",
+          "conv-26_conv_session_17_D17:14",
+          "conv-26_conv_session_17_D17:15",
+          "conv-26_conv_session_17_D17:16"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_17_D17:13; speaker=Caroline; listener=Melanie; session_time=10:31 am on 13 October, 2023]\nWow Mel, that's stunning! Love the colors and the chilled-out sunset vibe. What made you paint it? I've been trying out abstract stuff recently. It's kinda freeing, just putting my feelings on the canvas without too much of a plan. It's like a cool form of self-expression.\n\n[turn_id=conv-26_conv_session_17_D17:14; speaker=Melanie; listener=Caroline; session_time=10:31 am on 13 October, 2023]\nThanks, Caroline! I painted it because it was calming. I've done an abstract painting too, take a look! I love how art lets us get our emotions out.\n\n[turn_id=conv-26_conv_session_17_D17:15; speaker=Caroline; listener=Melanie; session_time=10:31 am on 13 October, 2023]\nWow, that looks great! The blue adds so much to it. What feelings were you hoping to portray?\n\n[turn_id=conv-26_conv_session_17_D17:16; speaker=Melanie; listener=Caroline; session_time=10:31 am on 13 October, 2023]\nI wanted a peaceful blue streaks to show tranquility. Blue calms me, so I wanted the painting to have a serene vibe while still having lots of vibrant colors."
+      },
+      "created_at": "2026-04-27 17:35:47",
+      "updated_at": "2026-04-27 17:35:47"
+    },
+    "5844302f-9114-49d6-8401-db2470f813d3": {
+      "type": "Event",
+      "canonical_name": "Transgender Poetry Reading",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 10:31 am on 13 October, 2023, Caroline attended a transgender poetry reading where transgender people shared their stories through poetry. It was a safe place for self-expression and empowering to hear others share and celebrate their identities.",
+        "quote": "It was a transgender poetry reading where transgender people shared their stories through poetry. It was extra special 'cause it was a safe place for self-expression and it was really empowering to hear others share and celebrate their identities.",
+        "source": [
+          "conv-26_conv_session_17_D17:19"
+        ],
+        "time": "10:31 am on 13 October, 2023",
+        "batch_id": "conv-26_conv_session_17_batch_4",
+        "source_turn_ids": [
+          "conv-26_conv_session_17_D17:17",
+          "conv-26_conv_session_17_D17:18",
+          "conv-26_conv_session_17_D17:19",
+          "conv-26_conv_session_17_D17:20"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_17_D17:17; speaker=Caroline; listener=Melanie; session_time=10:31 am on 13 October, 2023]\nYeah, it's very calming. It's awesome how art can show emotions. By the way, I went to a poetry reading last Fri - it was really powerful! Ever been to one?\n\n[turn_id=conv-26_conv_session_17_D17:18; speaker=Melanie; listener=Caroline; session_time=10:31 am on 13 October, 2023]\nNope, never been to something like that. What was it about? What made it so special?\n\n[turn_id=conv-26_conv_session_17_D17:19; speaker=Caroline; listener=Melanie; session_time=10:31 am on 13 October, 2023]\nIt was a transgender poetry reading where transgender people shared their stories through poetry. It was extra special 'cause it was a safe place for self-expression and it was really empowering to hear others share and celebrate their identities.\n\n[turn_id=conv-26_conv_session_17_D17:20; speaker=Melanie; listener=Caroline; session_time=10:31 am on 13 October, 2023]\nWow, sounds amazing! What was the event like? Those posters are great!"
+      },
+      "created_at": "2026-04-27 17:35:51",
+      "updated_at": "2026-04-27 17:35:51"
+    },
+    "4890155a-dafe-40a0-914d-05398c7841df": {
+      "type": "Event",
+      "canonical_name": "Caroline draws art inspired by pride and strength",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 13 October, 2023, Caroline created an artwork inspired by pride and strength, which serves as a nudge to stay true to herself and embrace her womanhood.",
+        "quote": "It stands for freedom and being real. It's like a nudge to always stay true to myself and embrace my womanhood.",
+        "source": [
+          "conv-26_conv_session_17_D17:23"
+        ],
+        "time": "10:31 am on 13 October, 2023",
+        "batch_id": "conv-26_conv_session_17_batch_5",
+        "source_turn_ids": [
+          "conv-26_conv_session_17_D17:21",
+          "conv-26_conv_session_17_D17:22",
+          "conv-26_conv_session_17_D17:23",
+          "conv-26_conv_session_17_D17:24"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_17_D17:21; speaker=Caroline; listener=Melanie; session_time=10:31 am on 13 October, 2023]\nThe room was electric with energy and support! The posters were amazing, so much pride and strength! It inspired me to make some art.\n\n[turn_id=conv-26_conv_session_17_D17:22; speaker=Melanie; listener=Caroline; session_time=10:31 am on 13 October, 2023]\nThat's awesome, Caroline! You drew it? What does it mean to you?\n\n[turn_id=conv-26_conv_session_17_D17:23; speaker=Caroline; listener=Melanie; session_time=10:31 am on 13 October, 2023]\nThanks, Melanie! Yeah, I drew it. It stands for freedom and being real. It's like a nudge to always stay true to myself and embrace my womanhood.\n\n[turn_id=conv-26_conv_session_17_D17:24; speaker=Melanie; listener=Caroline; session_time=10:31 am on 13 October, 2023]\nI love it. Showing off our true selves is the best thing ever."
+      },
+      "created_at": "2026-04-27 17:35:55",
+      "updated_at": "2026-04-27 17:35:55"
+    },
+    "ddbfec82-d354-406d-a51d-962664f24cd6": {
+      "type": "Event",
+      "canonical_name": "Family support after accident",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 20 October, 2023, Melanie's family provided support after an accident, reassuring the kids and explaining their brother would be OK.",
+        "quote": "They were scared but we reassured them and explained their brother would be OK. They're tough kids.",
+        "source": [
+          "conv-26_conv_session_18_D18:7"
+        ],
+        "time": "20 October, 2023",
+        "batch_id": "conv-26_conv_session_18_batch_1",
+        "source_turn_ids": [
+          "conv-26_conv_session_18_D18:5",
+          "conv-26_conv_session_18_D18:6",
+          "conv-26_conv_session_18_D18:7",
+          "conv-26_conv_session_18_D18:8"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_18_D18:5; speaker=Melanie; listener=Caroline; session_time=6:55 pm on 20 October, 2023]\nYeah, you're right, Caroline. Family's super important to me. Especially after the accident, I've thought a lot about how much I need them. They mean the world to me and I'm so thankful to have them. Thankfully, they enjoyed the Grand Canyon a lot!\n\n[turn_id=conv-26_conv_session_18_D18:6; speaker=Caroline; listener=Melanie; session_time=6:55 pm on 20 October, 2023]\nThe kids look so cute, Mel! I bet they bring lots of joy. How did they handle the accident?\n\n[turn_id=conv-26_conv_session_18_D18:7; speaker=Melanie; listener=Caroline; session_time=6:55 pm on 20 October, 2023]\nThanks! They were scared but we reassured them and explained their brother would be OK. They're tough kids.\n\n[turn_id=conv-26_conv_session_18_D18:8; speaker=Caroline; listener=Melanie; session_time=6:55 pm on 20 October, 2023]\nKids are amazingly resilient in tough situations. They have an amazing ability to bounce back."
+      },
+      "created_at": "2026-04-27 17:36:03",
+      "updated_at": "2026-04-27 17:36:03"
+    },
+    "6a69615f-4887-4945-9eb4-09c4960740af": {
+      "type": "Event",
+      "canonical_name": "Caroline passes adoption agency interviews",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 22 October, 2023, Caroline passed the adoption agency interviews, marking a significant step towards her goal of building a family.",
+        "quote": "I passed the adoption agency interviews last Friday! I'm so excited and thankful. This is a big move towards my goal of having a family.",
+        "source": [
+          "conv-26_conv_session_19_D19:1"
+        ],
+        "time": "22 October, 2023",
+        "batch_id": "conv-26_conv_session_19_batch_0",
+        "source_turn_ids": [
+          "conv-26_conv_session_19_D19:1",
+          "conv-26_conv_session_19_D19:2",
+          "conv-26_conv_session_19_D19:3",
+          "conv-26_conv_session_19_D19:4"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_19_D19:1; speaker=Caroline; listener=Melanie; session_time=9:55 am on 22 October, 2023]\nWoohoo Melanie! I passed the adoption agency interviews last Friday! I'm so excited and thankful. This is a big move towards my goal of having a family.\n\n[turn_id=conv-26_conv_session_19_D19:2; speaker=Melanie; listener=Caroline; session_time=9:55 am on 22 October, 2023]\nCongrats, Caroline! Adoption sounds awesome. I'm so happy for you. These figurines I bought yesterday remind me of family love. Tell me, what's your vision for the future?\n\n[turn_id=conv-26_conv_session_19_D19:3; speaker=Caroline; listener=Melanie; session_time=9:55 am on 22 October, 2023]\nThanks so much, Melanie! It's beautiful! It really brings home how much love's in families - both blood and the ones we choose. I hope to build my own family and put a roof over kids who haven't had that before. For me, adoption is a way of giving back and showing love and acceptance.\n\n[turn_id=conv-26_conv_session_19_D19:4; speaker=Melanie; listener=Caroline; session_time=9:55 am on 22 October, 2023]\nWow, Caroline, that's awesome. Giving a home to needy kids is such a loving way to build a family. Those kids will be so supported and happy in their new home."
+      },
+      "created_at": "2026-04-27 17:36:20",
+      "updated_at": "2026-04-27 17:36:20"
+    },
+    "5ba06b8c-dad3-4b66-a3e8-a26dde65e0c9": {
+      "type": "Event",
+      "canonical_name": "Caroline passes adoption agency interviews",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 22 October, 2023, Caroline passed the adoption agency interviews, marking a significant step towards her goal of building a family.",
+        "quote": "I passed the adoption agency interviews last Friday! I'm so excited and thankful. This is a big move towards my goal of having a family.",
+        "source": [
+          "conv-26_conv_session_19_D19:5"
+        ],
+        "time": "22 October, 2023",
+        "batch_id": "conv-26_conv_session_19_batch_1",
+        "source_turn_ids": [
+          "conv-26_conv_session_19_D19:5",
+          "conv-26_conv_session_19_D19:6",
+          "conv-26_conv_session_19_D19:7",
+          "conv-26_conv_session_19_D19:8"
+        ],
+        "original_text": "[turn_id=conv-26_conv_session_19_D19:5; speaker=Caroline; listener=Melanie; session_time=9:55 am on 22 October, 2023]\nThanks, Melanie. My dream is to create a safe and loving home for these kids. Love and acceptance should be everyone's right, and I want them to experience it.\n\n[turn_id=conv-26_conv_session_19_D19:6; speaker=Melanie; listener=Caroline; session_time=9:55 am on 22 October, 2023]\nI totally agree, Caroline. Everyone deserves that. It's awesome to see how passionate you are about helping these kids.\n\n[turn_id=conv-26_conv_session_19_D19:7; speaker=Caroline; listener=Melanie; session_time=9:55 am on 22 October, 2023]\nThanks, Mel. Finding self-acceptance was a long process, but now I'm ready to offer love and support to those who need it. It's empowering to make a positive difference in someone's life.\n\n[turn_id=conv-26_conv_session_19_D19:8; speaker=Melanie; listener=Caroline; session_time=9:55 am on 22 October, 2023]\nThat must have been tough for you, Caroline. Respect for finding acceptance and helping others with what you've been through. You're so strong and inspiring."
+      },
+      "created_at": "2026-04-27 17:36:24",
+      "updated_at": "2026-04-27 17:36:24"
+    }
+  },
+  "edges": [
+    {
+      "edge_id": "cbe5ea5a-d38e-4ec5-a1fb-fed9dc22f0e2",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "a0e61834-2926-4ff6-ba79-d084ccf941c8",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:29:22"
+    },
+    {
+      "edge_id": "2b4f3e83-0050-4dc4-8025-abdda8f7c751",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "0ae23054-eb23-47c0-9861-5bb425e2a681",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:29:35"
+    },
+    {
+      "edge_id": "9712ec06-6789-4704-b3d4-36ea7ae475b8",
+      "src": "49f3e70f-0b1b-428c-82e9-5f6df346904d",
+      "dst": "0ae23054-eb23-47c0-9861-5bb425e2a681",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-27 17:29:35"
+    },
+    {
+      "edge_id": "41ff42f4-6586-4788-a178-e6f08ec2b26f",
+      "src": "991e14e0-0c66-4075-8782-a19f830df77b",
+      "dst": "2f0e97ea-4a50-4cd3-a513-3237c94ffdd4",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:29:47"
+    },
+    {
+      "edge_id": "a5f1c1f0-1bb2-4314-a7ce-e39e4f9befe7",
+      "src": "991e14e0-0c66-4075-8782-a19f830df77b",
+      "dst": "36cb0eac-400d-445f-bac8-d5a6f8a2a51f",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:29:47"
+    },
+    {
+      "edge_id": "e7ff659a-1b50-4077-a5b9-d051de4d966c",
+      "src": "37262549-1559-44a4-bf7f-81884b6d80a5",
+      "dst": "267deebd-22e2-4ada-8386-92a2c6860d04",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-27 17:29:52"
+    },
+    {
+      "edge_id": "e1570186-cfd1-46fd-bb9b-635e57c5ade4",
+      "src": "991e14e0-0c66-4075-8782-a19f830df77b",
+      "dst": "267deebd-22e2-4ada-8386-92a2c6860d04",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:29:52"
+    },
+    {
+      "edge_id": "51d71ade-a1bd-43cd-ad10-2b7aefcaf65a",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "6f9066af-7387-4fe6-b635-9f82f772991e",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:30:09"
+    },
+    {
+      "edge_id": "f77e119e-e7cb-4312-a804-16663d60b848",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "483405d7-3fcb-4b40-9234-462a9d72d242",
+      "family": "entity-entity",
+      "predicate": "participated_in",
+      "created_at": "2026-04-27 17:30:10"
+    },
+    {
+      "edge_id": "b43467ce-03f6-4fc6-9803-7079a90e3d67",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "7c0bff8d-cd1e-4f85-9e15-097c02e5ab8f",
+      "family": "entity-entity",
+      "predicate": "experienced",
+      "created_at": "2026-04-27 17:30:10"
+    },
+    {
+      "edge_id": "e3cb81e0-2e90-4830-b03d-00767bb0e78c",
+      "src": "d622c722-4ccd-43b9-96f0-8496d8810dbc",
+      "dst": "6f9066af-7387-4fe6-b635-9f82f772991e",
+      "family": "entity-event",
+      "predicate": "occurred_at",
+      "created_at": "2026-04-27 17:30:10"
+    },
+    {
+      "edge_id": "40b7ba30-f66e-461d-b43c-cb5cef5b4e0c",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "d622c722-4ccd-43b9-96f0-8496d8810dbc",
+      "family": "entity-entity",
+      "predicate": "attended",
+      "created_at": "2026-04-27 17:30:10"
+    },
+    {
+      "edge_id": "f6ddd026-5ee7-4dd5-a32b-4fd56a953649",
+      "src": "0a25de9b-6e64-4650-a630-42453c5cee43",
+      "dst": "6f9066af-7387-4fe6-b635-9f82f772991e",
+      "family": "entity-event",
+      "predicate": "participants",
+      "created_at": "2026-04-27 17:30:10"
+    },
+    {
+      "edge_id": "b4fdddde-428b-4298-b4d7-95a6108a1322",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "0a25de9b-6e64-4650-a630-42453c5cee43",
+      "family": "entity-entity",
+      "predicate": "addressed",
+      "created_at": "2026-04-27 17:30:10"
+    },
+    {
+      "edge_id": "88b30e8b-dd7f-4666-8bff-c30c347450e4",
+      "src": "f60963a9-02bd-47f6-b2f4-32c794cb6ffa",
+      "dst": "6f9066af-7387-4fe6-b635-9f82f772991e",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:30:10"
+    },
+    {
+      "edge_id": "413864b7-cb6e-40b6-8453-7d6baf8d932f",
+      "src": "9e237ee1-df73-40fd-8b25-5afbbe330102",
+      "dst": "6f9066af-7387-4fe6-b635-9f82f772991e",
+      "family": "entity-event",
+      "predicate": "promoted",
+      "created_at": "2026-04-27 17:30:10"
+    },
+    {
+      "edge_id": "8cf2904a-66e3-44eb-9078-306bc805ad69",
+      "src": "37826374-8097-48e7-b90f-9fa98967c8ac",
+      "dst": "6f9066af-7387-4fe6-b635-9f82f772991e",
+      "family": "entity-event",
+      "predicate": "advocated_for",
+      "created_at": "2026-04-27 17:30:10"
+    },
+    {
+      "edge_id": "39138ceb-df6f-4602-81a3-4faeefa97fc5",
+      "src": "b83ddd95-48f7-4c7e-bb93-803ca9ba4b40",
+      "dst": "87249896-86c9-4786-8478-433c19bc84f8",
+      "family": "entity-event",
+      "predicate": "support",
+      "created_at": "2026-04-27 17:30:21"
+    },
+    {
+      "edge_id": "40c8dc7a-319f-4c63-8740-ee4de70a11f9",
+      "src": "f78cbcf0-ac33-4316-a399-cbb38b41a14c",
+      "dst": "a6e037f2-4297-47e2-b311-d48e28ec531f",
+      "family": "entity-event",
+      "predicate": "participated",
+      "created_at": "2026-04-27 17:30:22"
+    },
+    {
+      "edge_id": "4840b844-3c27-46e5-a782-907e690e73f3",
+      "src": "e5178384-7663-492c-af7f-0c41b1df461c",
+      "dst": "e9759d64-e649-4f7a-ba36-c4bafafbf70f",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-27 17:30:30"
+    },
+    {
+      "edge_id": "53b17b4c-8e2a-42c4-b26d-6597d6317c9e",
+      "src": "b83ddd95-48f7-4c7e-bb93-803ca9ba4b40",
+      "dst": "e9759d64-e649-4f7a-ba36-c4bafafbf70f",
+      "family": "entity-event",
+      "predicate": "support",
+      "created_at": "2026-04-27 17:30:30"
+    },
+    {
+      "edge_id": "f888a8ca-65ea-4b17-b9d4-4262cc2d89ee",
+      "src": "3bc7c340-6d55-45ea-b246-3d5f192bd81b",
+      "dst": "dd0341a5-2f85-4c12-9c4e-8a6920d7c407",
+      "family": "entity-event",
+      "predicate": "associated_with",
+      "created_at": "2026-04-27 17:30:36"
+    },
+    {
+      "edge_id": "05696e0d-8551-4c48-aac3-dadb7989474f",
+      "src": "b83ddd95-48f7-4c7e-bb93-803ca9ba4b40",
+      "dst": "dd0341a5-2f85-4c12-9c4e-8a6920d7c407",
+      "family": "entity-event",
+      "predicate": "participated_in",
+      "created_at": "2026-04-27 17:30:36"
+    },
+    {
+      "edge_id": "9791483c-bbc2-4eb4-a9d4-732bee0a1e58",
+      "src": "b8e75d89-c21a-4cf7-bb9a-4695e347b3bc",
+      "dst": "08ceaac7-a983-4ba8-8263-ac2b244c1fec",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-27 17:30:40"
+    },
+    {
+      "edge_id": "a6117ccd-4df7-4ebe-8ef3-16b09a6a5aef",
+      "src": "991e14e0-0c66-4075-8782-a19f830df77b",
+      "dst": "08ceaac7-a983-4ba8-8263-ac2b244c1fec",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:30:40"
+    },
+    {
+      "edge_id": "4959bc2e-8a0c-41c4-bb31-1e989e36a74c",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "484cfd17-957b-406f-b666-a28b8c9138b8",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:30:44"
+    },
+    {
+      "edge_id": "9370da7e-9d8e-4550-a9bb-21a758e78415",
+      "src": "991e14e0-0c66-4075-8782-a19f830df77b",
+      "dst": "41396271-fbbb-42a9-8011-b6a8a060ad5e",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:30:50"
+    },
+    {
+      "edge_id": "5e46f053-5e32-4c5c-a14e-35517ee57d32",
+      "src": "991e14e0-0c66-4075-8782-a19f830df77b",
+      "dst": "f4b0b76c-5f31-48da-8333-0d5868292349",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:30:50"
+    },
+    {
+      "edge_id": "b1e5ff44-f26b-4d2d-9d87-2b701d010bce",
+      "src": "991e14e0-0c66-4075-8782-a19f830df77b",
+      "dst": "5a4340bf-f5b2-43ef-8fb0-3302557908ad",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:30:54"
+    },
+    {
+      "edge_id": "88b214fb-7670-49d4-80df-c10f002d251a",
+      "src": "991e14e0-0c66-4075-8782-a19f830df77b",
+      "dst": "4bf3e565-b6c8-47d3-b0c0-a5ff8440b400",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:30:59"
+    },
+    {
+      "edge_id": "1183a31d-3cc1-4162-81e4-24853646018f",
+      "src": "991e14e0-0c66-4075-8782-a19f830df77b",
+      "dst": "3652da61-324f-4bf1-a82b-f2e9c7c16bf1",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:31:04"
+    },
+    {
+      "edge_id": "4b47c633-23d7-4913-bc62-81f1dde3210b",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "2d5b03f8-550e-4b60-8f59-2b6d73686049",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:31:07"
+    },
+    {
+      "edge_id": "c67cac64-145a-4021-9014-d54c9ad8d20d",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "dacb187f-d8e5-4242-b7bd-fb3548b18aff",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:31:18"
+    },
+    {
+      "edge_id": "61e26812-8b93-4454-91b8-85fa9e95ff2e",
+      "src": "9d7e9634-4fe2-4dd8-b4d0-e6c69c9948a2",
+      "dst": "99e2fb83-a325-4a2f-bca5-01218969fb3f",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-27 17:31:27"
+    },
+    {
+      "edge_id": "ce1e3940-c8bf-4765-b485-8fbfe4d62a00",
+      "src": "9d7e9634-4fe2-4dd8-b4d0-e6c69c9948a2",
+      "dst": "99e2fb83-a325-4a2f-bca5-01218969fb3f",
+      "family": "entity-event",
+      "predicate": "inspired_by",
+      "created_at": "2026-04-27 17:31:27"
+    },
+    {
+      "edge_id": "136ba354-da37-4e80-a6bf-839fb9d737c8",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "99e2fb83-a325-4a2f-bca5-01218969fb3f",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:31:27"
+    },
+    {
+      "edge_id": "64179b9b-3cf7-4b54-a526-a0a56321757d",
+      "src": "991e14e0-0c66-4075-8782-a19f830df77b",
+      "dst": "23c6a4f4-f6a8-4136-bdd0-ef9fd995b3b0",
+      "family": "entity-event",
+      "predicate": "owns",
+      "created_at": "2026-04-27 17:31:31"
+    },
+    {
+      "edge_id": "8948cb3e-a0c0-4492-a320-49a953b9ddd2",
+      "src": "991e14e0-0c66-4075-8782-a19f830df77b",
+      "dst": "09ddfd7f-1d32-47f8-a3e6-904f12df1ccb",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:31:43"
+    },
+    {
+      "edge_id": "7caec097-d3bf-4a84-a34d-974647b8472a",
+      "src": "991e14e0-0c66-4075-8782-a19f830df77b",
+      "dst": "09ddfd7f-1d32-47f8-a3e6-904f12df1ccb",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-27 17:31:43"
+    },
+    {
+      "edge_id": "b03fd1a2-74b9-492a-9c5e-27ecb6a90844",
+      "src": "0fcb4406-e93e-4ed3-a799-533c9c9d2ff7",
+      "dst": "08ceaac7-a983-4ba8-8263-ac2b244c1fec",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:31:48"
+    },
+    {
+      "edge_id": "e4c17430-f347-4f14-a06f-76b811b58457",
+      "src": "991e14e0-0c66-4075-8782-a19f830df77b",
+      "dst": "63f54bfc-4e68-4ee1-8ea9-7a21a39dc59d",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:31:52"
+    },
+    {
+      "edge_id": "cc61d2dc-b5fa-4144-b25a-6fb0a09191df",
+      "src": "0fcb4406-e93e-4ed3-a799-533c9c9d2ff7",
+      "dst": "63f54bfc-4e68-4ee1-8ea9-7a21a39dc59d",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-27 17:31:52"
+    },
+    {
+      "edge_id": "6f015ecc-cf9c-4a8f-bd16-8121e4013ab4",
+      "src": "991e14e0-0c66-4075-8782-a19f830df77b",
+      "dst": "71cb8a06-b84c-4dcb-ba4f-e1acd3cd8c18",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:31:56"
+    },
+    {
+      "edge_id": "7e32b908-1a9e-4a80-99d2-635c9787919c",
+      "src": "41396271-fbbb-42a9-8011-b6a8a060ad5e",
+      "dst": "4bf3e565-b6c8-47d3-b0c0-a5ff8440b400",
+      "family": "event-event",
+      "predicate": "before",
+      "created_at": "2026-04-27 17:32:05"
+    },
+    {
+      "edge_id": "35b9e4d1-1161-480f-9354-f4fce8f70c5e",
+      "src": "41396271-fbbb-42a9-8011-b6a8a060ad5e",
+      "dst": "09ddfd7f-1d32-47f8-a3e6-904f12df1ccb",
+      "family": "event-event",
+      "predicate": "before",
+      "created_at": "2026-04-27 17:32:05"
+    },
+    {
+      "edge_id": "ca6d8353-7dc6-4374-bce3-22d5c811a35a",
+      "src": "41396271-fbbb-42a9-8011-b6a8a060ad5e",
+      "dst": "71cb8a06-b84c-4dcb-ba4f-e1acd3cd8c18",
+      "family": "event-event",
+      "predicate": "after",
+      "created_at": "2026-04-27 17:32:05"
+    },
+    {
+      "edge_id": "098ebeba-7e8c-4966-aeea-28b029c11fc2",
+      "src": "41396271-fbbb-42a9-8011-b6a8a060ad5e",
+      "dst": "36cb0eac-400d-445f-bac8-d5a6f8a2a51f",
+      "family": "event-event",
+      "predicate": "after",
+      "created_at": "2026-04-27 17:32:05"
+    },
+    {
+      "edge_id": "976f43d4-3caa-4ffe-9d4e-0969b2b0f7ce",
+      "src": "41396271-fbbb-42a9-8011-b6a8a060ad5e",
+      "dst": "267deebd-22e2-4ada-8386-92a2c6860d04",
+      "family": "event-event",
+      "predicate": "after",
+      "created_at": "2026-04-27 17:32:05"
+    },
+    {
+      "edge_id": "71797ef2-643e-466c-ba82-391c5c0ebc8a",
+      "src": "41396271-fbbb-42a9-8011-b6a8a060ad5e",
+      "dst": "23c6a4f4-f6a8-4136-bdd0-ef9fd995b3b0",
+      "family": "event-event",
+      "predicate": "after",
+      "created_at": "2026-04-27 17:32:05"
+    },
+    {
+      "edge_id": "e63853cc-d80c-4017-bc57-6f7cf8519d89",
+      "src": "41396271-fbbb-42a9-8011-b6a8a060ad5e",
+      "dst": "63f54bfc-4e68-4ee1-8ea9-7a21a39dc59d",
+      "family": "event-event",
+      "predicate": "after",
+      "created_at": "2026-04-27 17:32:05"
+    },
+    {
+      "edge_id": "cd0d3358-432e-4544-a014-f1c94d1d13f7",
+      "src": "41396271-fbbb-42a9-8011-b6a8a060ad5e",
+      "dst": "4bf3e565-b6c8-47d3-b0c0-a5ff8440b400",
+      "family": "event-event",
+      "predicate": "after",
+      "created_at": "2026-04-27 17:32:05"
+    },
+    {
+      "edge_id": "364dd6f6-e0de-4a71-9093-c566935323ce",
+      "src": "41396271-fbbb-42a9-8011-b6a8a060ad5e",
+      "dst": "09ddfd7f-1d32-47f8-a3e6-904f12df1ccb",
+      "family": "event-event",
+      "predicate": "after",
+      "created_at": "2026-04-27 17:32:05"
+    },
+    {
+      "edge_id": "cf00c8b4-5b2f-487f-811b-dcd4d1e654d0",
+      "src": "991e14e0-0c66-4075-8782-a19f830df77b",
+      "dst": "71cb8a06-b84c-4dcb-ba4f-e1acd3cd8c18",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-27 17:32:08"
+    },
+    {
+      "edge_id": "d739b54a-e97f-44a8-b4c1-081c0c6626a8",
+      "src": "991e14e0-0c66-4075-8782-a19f830df77b",
+      "dst": "a3abafd2-7d7d-4dc3-906d-b71d66e5ba94",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-27 17:32:15"
+    },
+    {
+      "edge_id": "a38d454f-39d9-436b-8b7a-9d6bda44f96f",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "3e1bd27e-9cc3-4154-95fb-900f85f8c8a0",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:32:15"
+    },
+    {
+      "edge_id": "08a3adb3-fbde-4ef2-ba6e-85741d0d4830",
+      "src": "59c57cce-c152-4578-b4cf-89a4c9b28142",
+      "dst": "244cb777-58b8-4a47-85d4-d083bfa9fa70",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-27 17:32:26"
+    },
+    {
+      "edge_id": "47008894-68b0-4b08-a083-fb9988e72062",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "244cb777-58b8-4a47-85d4-d083bfa9fa70",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:32:26"
+    },
+    {
+      "edge_id": "e0fcc9d1-6126-4628-aac3-fb346faaf2c1",
+      "src": "4bf3e565-b6c8-47d3-b0c0-a5ff8440b400",
+      "dst": "52838c6a-39c4-461c-8a81-a6d74854d439",
+      "family": "event-event",
+      "predicate": "before",
+      "created_at": "2026-04-27 17:32:31"
+    },
+    {
+      "edge_id": "29cf0a0d-53bb-44b4-99d7-b4bcc15053b6",
+      "src": "52838c6a-39c4-461c-8a81-a6d74854d439",
+      "dst": "4bf3e565-b6c8-47d3-b0c0-a5ff8440b400",
+      "family": "event-event",
+      "predicate": "after",
+      "created_at": "2026-04-27 17:32:31"
+    },
+    {
+      "edge_id": "34853181-10d9-46d2-819a-b4b59fa3ddd3",
+      "src": "991e14e0-0c66-4075-8782-a19f830df77b",
+      "dst": "52838c6a-39c4-461c-8a81-a6d74854d439",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:32:31"
+    },
+    {
+      "edge_id": "ce89adfb-477d-4f58-9d27-45457497ae53",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "bb415943-9224-49c1-99e6-c678722f852f",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:32:34"
+    },
+    {
+      "edge_id": "2dd29717-6124-4e86-8cb7-6d6dc9fd30f1",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "bb415943-9224-49c1-99e6-c678722f852f",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-27 17:32:34"
+    },
+    {
+      "edge_id": "a52ca0aa-e1ae-4fe3-a9f9-cd71ddf7875b",
+      "src": "0fcb4406-e93e-4ed3-a799-533c9c9d2ff7",
+      "dst": "426a49f0-8444-4778-aa49-f5d5ed00cb6a",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-27 17:32:38"
+    },
+    {
+      "edge_id": "474c4cb0-bcc6-4cff-8982-59a069284a01",
+      "src": "c06870d1-3d8f-4bee-bc4b-e24ec7551884",
+      "dst": "e1ae12f6-03ce-4af0-a9be-e5db02c58c83",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-27 17:32:45"
+    },
+    {
+      "edge_id": "1797c901-5378-460f-b052-1ac42a12b7d6",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "e1ae12f6-03ce-4af0-a9be-e5db02c58c83",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:32:45"
+    },
+    {
+      "edge_id": "edc5640e-51e1-4a83-b338-0e447f33bb96",
+      "src": "a9b524e9-9ca3-4d3b-a0b6-ab202bddd7d5",
+      "dst": "e1ae12f6-03ce-4af0-a9be-e5db02c58c83",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-27 17:32:49"
+    },
+    {
+      "edge_id": "7c8ed987-a68f-43b7-a367-7502ba2f4ff9",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "a9b524e9-9ca3-4d3b-a0b6-ab202bddd7d5",
+      "family": "entity-entity",
+      "predicate": "participated_in",
+      "created_at": "2026-04-27 17:32:49"
+    },
+    {
+      "edge_id": "abb64b32-b674-4a72-a01b-b1a98eb82dda",
+      "src": "b83ddd95-48f7-4c7e-bb93-803ca9ba4b40",
+      "dst": "d8cdee04-9a11-4697-8f67-bf3d0e706043",
+      "family": "entity-event",
+      "predicate": "participated_in",
+      "created_at": "2026-04-27 17:32:53"
+    },
+    {
+      "edge_id": "37ca1eb0-2936-43d4-b316-0f32e431bba4",
+      "src": "b83ddd95-48f7-4c7e-bb93-803ca9ba4b40",
+      "dst": "a09f5812-966c-4581-b78d-84839ffab153",
+      "family": "entity-event",
+      "predicate": "participated_in",
+      "created_at": "2026-04-27 17:32:56"
+    },
+    {
+      "edge_id": "89720f47-d024-4ceb-97b5-eb03c2fc8ae3",
+      "src": "991e14e0-0c66-4075-8782-a19f830df77b",
+      "dst": "e8621c79-e5a8-4e2c-88a9-ca6cc645b518",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-27 17:33:01"
+    },
+    {
+      "edge_id": "dd8f750d-1122-4301-b8cc-2cc32da5b252",
+      "src": "991e14e0-0c66-4075-8782-a19f830df77b",
+      "dst": "254ea02b-bba2-4ee7-9b54-51100427808f",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:33:06"
+    },
+    {
+      "edge_id": "d22d1e54-a2dd-454e-9efa-be8c8e66f29a",
+      "src": "0fcb4406-e93e-4ed3-a799-533c9c9d2ff7",
+      "dst": "08ceaac7-a983-4ba8-8263-ac2b244c1fec",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-27 17:33:09"
+    },
+    {
+      "edge_id": "47dc192a-76c8-4170-a6a5-cb291947e448",
+      "src": "48eccdd4-1ddd-47f2-9f04-ae4de229bca5",
+      "dst": "426a49f0-8444-4778-aa49-f5d5ed00cb6a",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-27 17:33:13"
+    },
+    {
+      "edge_id": "bcfe02de-f69a-46bf-bada-a1885187b2a1",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "08e20456-e63f-48f3-992c-98c0c11cd7a9",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-27 17:33:24"
+    },
+    {
+      "edge_id": "92117b01-3def-48a4-9cf3-d927c4855eca",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "08e20456-e63f-48f3-992c-98c0c11cd7a9",
+      "family": "entity-event",
+      "predicate": "affected_by",
+      "created_at": "2026-04-27 17:33:24"
+    },
+    {
+      "edge_id": "152d49db-8c7b-455b-91e5-da8e4c30b149",
+      "src": "6498d42b-d734-4492-9699-18c6ede4e8b8",
+      "dst": "08e20456-e63f-48f3-992c-98c0c11cd7a9",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:33:24"
+    },
+    {
+      "edge_id": "38964db0-4056-43b1-aaa0-81c68a1cf17c",
+      "src": "d80ad945-5e9f-461f-b9ff-5e72acf7d788",
+      "dst": "08e20456-e63f-48f3-992c-98c0c11cd7a9",
+      "family": "entity-event",
+      "predicate": "encountered",
+      "created_at": "2026-04-27 17:33:24"
+    },
+    {
+      "edge_id": "ecffc2dd-ffec-42c4-b579-2bcaf79e6547",
+      "src": "991e14e0-0c66-4075-8782-a19f830df77b",
+      "dst": "101ad75a-6c5b-4dc8-bbda-2f6be1c9b918",
+      "family": "entity-event",
+      "predicate": "completed",
+      "created_at": "2026-04-27 17:33:24"
+    },
+    {
+      "edge_id": "97d364aa-906f-4b22-9b2e-78d3575d2f10",
+      "src": "991e14e0-0c66-4075-8782-a19f830df77b",
+      "dst": "101ad75a-6c5b-4dc8-bbda-2f6be1c9b918",
+      "family": "entity-event",
+      "predicate": "shared_with",
+      "created_at": "2026-04-27 17:33:24"
+    },
+    {
+      "edge_id": "18b829a9-fc69-4a0a-8b26-d43743048303",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "81783d20-d378-4d6d-a481-de9580b651c5",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:33:28"
+    },
+    {
+      "edge_id": "f7fcad79-3615-45f7-ac06-766dda029bda",
+      "src": "b83ddd95-48f7-4c7e-bb93-803ca9ba4b40",
+      "dst": "62019bef-84e0-4f52-9d01-006abca574a2",
+      "family": "entity-event",
+      "predicate": "participated_in",
+      "created_at": "2026-04-27 17:33:32"
+    },
+    {
+      "edge_id": "5af1f90e-935c-465a-be64-169b732315a4",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "9e070fc8-6668-4be3-9b12-d6ae6c7e06c0",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:33:37"
+    },
+    {
+      "edge_id": "a4b84e2e-6bc7-4d1f-9039-60e5b84ce79d",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "732abfce-6e6e-4e8b-a11f-158b77591d2c",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:33:48"
+    },
+    {
+      "edge_id": "6eac7881-f149-4b45-9f0d-946d00c921ba",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "7d5d2693-5dd0-4090-a78e-0a385d0dce2b",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:33:48"
+    },
+    {
+      "edge_id": "e65639e0-1a3a-4c83-87b2-7b000aa4f63e",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "bb353f82-28c1-4387-acde-4012a49d605a",
+      "family": "entity-event",
+      "predicate": "has",
+      "created_at": "2026-04-27 17:33:48"
+    },
+    {
+      "edge_id": "3f8af2b6-3140-4a09-b79b-14189fc55a9e",
+      "src": "991e14e0-0c66-4075-8782-a19f830df77b",
+      "dst": "0468d974-ff8c-4f85-a8f6-0490d7d451cf",
+      "family": "entity-event",
+      "predicate": "has",
+      "created_at": "2026-04-27 17:33:49"
+    },
+    {
+      "edge_id": "96894f79-c66e-4cc9-9d1d-f9fc2f899e18",
+      "src": "9b6442d2-f022-4120-963f-318566014faa",
+      "dst": "23c6a4f4-f6a8-4136-bdd0-ef9fd995b3b0",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-27 17:33:54"
+    },
+    {
+      "edge_id": "1381c96a-61be-4e4f-b1b1-0f5f2bbcd487",
+      "src": "9b6442d2-f022-4120-963f-318566014faa",
+      "dst": "0468d974-ff8c-4f85-a8f6-0490d7d451cf",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-27 17:33:54"
+    },
+    {
+      "edge_id": "d1bf60e4-0f34-4b00-aaf1-5ba0664ab3f8",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "126d121c-b17a-4812-80dc-716b459c466b",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-27 17:33:54"
+    },
+    {
+      "edge_id": "a685df2a-f666-4abe-bbb6-5e93de1ab4a2",
+      "src": "1a927ca4-9a8a-446f-bb66-dfa7dcd5f030",
+      "dst": "9d49e1ab-8973-46aa-8092-ede18b397c56",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-27 17:33:58"
+    },
+    {
+      "edge_id": "01419713-f8c5-4183-add9-7375392738f4",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "9558de07-c099-49e3-8079-b928c436b2b2",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:34:09"
+    },
+    {
+      "edge_id": "601acb97-2c71-4d08-80a1-cf46b875f84f",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "00383040-c5ae-4ab6-9521-2de39ad4041c",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:34:13"
+    },
+    {
+      "edge_id": "764eeec5-b1a2-4634-adc3-9b62c1eb51cb",
+      "src": "8ed2039c-1318-405b-80fa-74bbc96f0267",
+      "dst": "426a49f0-8444-4778-aa49-f5d5ed00cb6a",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-27 17:34:20"
+    },
+    {
+      "edge_id": "3c5601a3-f1bf-4ee6-aed8-16e4816e7abe",
+      "src": "1a927ca4-9a8a-446f-bb66-dfa7dcd5f030",
+      "dst": "05f9671a-6055-46b5-a73a-ddd6610cbab1",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-27 17:34:24"
+    },
+    {
+      "edge_id": "80141009-1fbb-43fc-9b9b-1beb4949bbef",
+      "src": "8ed2039c-1318-405b-80fa-74bbc96f0267",
+      "dst": "70557d35-8b73-4f50-9305-969d86f6015e",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:34:31"
+    },
+    {
+      "edge_id": "161561a1-2a46-4eb9-9d3a-9a967a7d261d",
+      "src": "18ba6b32-efe7-44f5-ac4f-1433ae73d10b",
+      "dst": "ef3f7cc5-ea5b-477f-8059-118228b89a99",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-27 17:34:37"
+    },
+    {
+      "edge_id": "b810393b-8c2f-415a-ae4c-79d304fff0ef",
+      "src": "991e14e0-0c66-4075-8782-a19f830df77b",
+      "dst": "ef3f7cc5-ea5b-477f-8059-118228b89a99",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:34:37"
+    },
+    {
+      "edge_id": "c30dc5d0-8440-4b4f-bbc1-101910ad4f12",
+      "src": "0fcb4406-e93e-4ed3-a799-533c9c9d2ff7",
+      "dst": "4bcd8750-d846-48d9-8278-8551d3deb6a3",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:34:41"
+    },
+    {
+      "edge_id": "1e890f91-a795-4703-8cf8-6d21562020d1",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "52cc101d-4a26-4fd4-9653-bd95e98c6b11",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:34:45"
+    },
+    {
+      "edge_id": "d3fc1ee1-3e26-43ba-b6fa-8cf503756436",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "52cc101d-4a26-4fd4-9653-bd95e98c6b11",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-27 17:34:49"
+    },
+    {
+      "edge_id": "0d9ff6d3-6504-4610-bd97-9b9746b0d020",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "20c6f48f-e079-442e-a2e5-b9d5edb61029",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:34:53"
+    },
+    {
+      "edge_id": "8d5e675f-78df-4d5e-9a88-dc480513b302",
+      "src": "627070f1-1c18-4f2e-9220-fb96291cb2a6",
+      "dst": "4bcd8750-d846-48d9-8278-8551d3deb6a3",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-27 17:34:56"
+    },
+    {
+      "edge_id": "a331e193-7158-49d6-a7f0-cba7fffc8ef6",
+      "src": "991e14e0-0c66-4075-8782-a19f830df77b",
+      "dst": "2d8ceec2-9c9a-4321-a21e-8036b1d3c49d",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:35:00"
+    },
+    {
+      "edge_id": "b2ef4823-adbb-43a5-b710-2ab636680949",
+      "src": "5e9e2e7a-0f7f-4fad-9bf4-810d48a909cd",
+      "dst": "2d8ceec2-9c9a-4321-a21e-8036b1d3c49d",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-27 17:35:00"
+    },
+    {
+      "edge_id": "5f81b70e-dd9d-46d8-802b-cf1ff2be8abf",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "d8fc7975-26ba-4e4a-80f4-0977d4ebf853",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:35:04"
+    },
+    {
+      "edge_id": "96cce5ba-3f9e-4131-a700-659695215d18",
+      "src": "2c7dffa7-4958-4966-92a1-1fc28f548f8a",
+      "dst": "9c749588-bffe-4561-b129-ad68595a45f6",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-27 17:35:08"
+    },
+    {
+      "edge_id": "bb49289e-cca9-431b-8260-71db74aaf92b",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "f279247f-6c75-45d8-8ee3-0121dfbc39c5",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:35:14"
+    },
+    {
+      "edge_id": "d56c7911-b622-43f8-a9d0-0f43295a914c",
+      "src": "991e14e0-0c66-4075-8782-a19f830df77b",
+      "dst": "f60cd831-32b1-4981-8f63-ed3f652ae83c",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:35:14"
+    },
+    {
+      "edge_id": "d1693679-b72d-4f47-b9bd-d88c2ac8b8f1",
+      "src": "b8d2ca2c-3390-4ff9-970a-b9e49e544907",
+      "dst": "4bcd8750-d846-48d9-8278-8551d3deb6a3",
+      "family": "event-event",
+      "predicate": "mentions",
+      "created_at": "2026-04-27 17:35:19"
+    },
+    {
+      "edge_id": "f058bace-3748-4eb9-948f-74d7beab08e5",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "b8d2ca2c-3390-4ff9-970a-b9e49e544907",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:35:20"
+    },
+    {
+      "edge_id": "1d4a217f-140f-41c1-b6cf-fa8669935bc9",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "f1603dd8-f593-4784-b022-663d65954e92",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:35:23"
+    },
+    {
+      "edge_id": "2db29cc2-eca6-4dc7-8429-cd7fd1d50fa0",
+      "src": "0fcb4406-e93e-4ed3-a799-533c9c9d2ff7",
+      "dst": "c00fb006-0172-4cbf-83be-b08144374938",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-27 17:35:28"
+    },
+    {
+      "edge_id": "31a79ed0-e644-4f4e-b3ab-719cef834083",
+      "src": "b83ddd95-48f7-4c7e-bb93-803ca9ba4b40",
+      "dst": "b7024fa6-c9d0-4a6d-8056-d157cd8d0fc1",
+      "family": "entity-event",
+      "predicate": "support",
+      "created_at": "2026-04-27 17:35:39"
+    },
+    {
+      "edge_id": "69156f9c-8936-4d4b-8870-38fc592e76b9",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "318b8eec-921d-4c12-9d75-da96179bbf31",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:35:47"
+    },
+    {
+      "edge_id": "8a124839-710d-4d3d-bb73-3ad41250a77b",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "5844302f-9114-49d6-8401-db2470f813d3",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-27 17:35:52"
+    },
+    {
+      "edge_id": "e614cc63-0eaf-42be-941e-0ffa3d6a5063",
+      "src": "0fcb4406-e93e-4ed3-a799-533c9c9d2ff7",
+      "dst": "4890155a-dafe-40a0-914d-05398c7841df",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-27 17:35:55"
+    },
+    {
+      "edge_id": "7b501ca3-cac6-4b7a-ac00-dccd8908a20f",
+      "src": "b83ddd95-48f7-4c7e-bb93-803ca9ba4b40",
+      "dst": "ddbfec82-d354-406d-a51d-962664f24cd6",
+      "family": "entity-event",
+      "predicate": "support",
+      "created_at": "2026-04-27 17:36:03"
+    },
+    {
+      "edge_id": "0c243671-b85b-440b-88e0-3e3e1cf32682",
+      "src": "b83ddd95-48f7-4c7e-bb93-803ca9ba4b40",
+      "dst": "e9759d64-e649-4f7a-ba36-c4bafafbf70f",
+      "family": "entity-event",
+      "predicate": "participated_in",
+      "created_at": "2026-04-27 17:36:14"
+    },
+    {
+      "edge_id": "44b200e6-576f-4ff2-8d19-8b93b9a07706",
+      "src": "b83ddd95-48f7-4c7e-bb93-803ca9ba4b40",
+      "dst": "6a69615f-4887-4945-9eb4-09c4960740af",
+      "family": "entity-event",
+      "predicate": "support",
+      "created_at": "2026-04-27 17:36:20"
+    },
+    {
+      "edge_id": "469ff996-ebfb-466c-bda3-e0dceadb6ce9",
+      "src": "f5d3a5a3-82cf-4826-9ccb-6f895ae3d1d2",
+      "dst": "5ba06b8c-dad3-4b66-a3e8-a26dde65e0c9",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-27 17:36:24"
+    }
+  ]
+}

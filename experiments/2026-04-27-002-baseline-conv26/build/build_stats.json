@@ -1,0 +1,255 @@
+{
+  "total": {
+    "samples": 1,
+    "node_count": 21,
+    "edge_count": 30,
+    "entity_count": 2,
+    "event_count": 19,
+    "invalid_edge_count": 10,
+    "isolated_event_count": 9,
+    "events_with_fact": 0,
+    "events_missing_fact": 19,
+    "events_with_quote": 0,
+    "events_missing_quote": 19,
+    "event_without_entity_event_edge": 10,
+    "total_batches": 111,
+    "trigger_count": 111,
+    "skip_count": 0,
+    "failed_ops": 28,
+    "dedup_merges": 0,
+    "ops": {
+      "CreateEvent": 20,
+      "Link": 83,
+      "AttachAttr": 39,
+      "Skip": 49,
+      "DeleteEdge": 8,
+      "ReviseAttr": 66,
+      "CreateEntity": 5,
+      "MergeNode": 1
+    },
+    "rejected_ops": {},
+    "trigger_rate": 1.0
+  },
+  "by_sample": {
+    "conv-26": {
+      "graph_path": "experiments/2026-04-27-002-baseline-conv26/build/graphs/conv-26_graph.json",
+      "node_count": 21,
+      "edge_count": 30,
+      "node_types": {
+        "Event": 19,
+        "Entity": 2
+      },
+      "edge_families": {
+        "event-event": 9,
+        "entity-event": 21
+      },
+      "top_predicates": [
+        [
+          "participated",
+          11
+        ],
+        [
+          "before",
+          5
+        ],
+        [
+          "after",
+          4
+        ],
+        [
+          "experienced",
+          4
+        ],
+        [
+          "attended",
+          4
+        ],
+        [
+          "discussed",
+          2
+        ]
+      ],
+      "entity_count": 2,
+      "event_count": 19,
+      "entity_event_ratio": 0.10526315789473684,
+      "invalid_edge_count": 10,
+      "event_without_entity_event_edge": 10,
+      "isolated_event_count": 9,
+      "low_degree_event_count": 13,
+      "events_missing_time": 0,
+      "events_missing_source": 19,
+      "events_missing_text": 17,
+      "events_with_fact": 0,
+      "events_missing_fact": 19,
+      "events_with_quote": 0,
+      "events_missing_quote": 19,
+      "events_with_original_text": 0,
+      "session_container_event_count": 9,
+      "low_value_event_edge_count": 0,
+      "sample_entities": [
+        {
+          "id": "69c17865",
+          "name": "Melanie",
+          "degree": 11
+        },
+        {
+          "id": "b320f68c",
+          "name": "Caroline",
+          "degree": 6
+        }
+      ],
+      "sample_problem_events": [
+        {
+          "id": "f2ae3afa",
+          "name": "Caroline and Melanie chat",
+          "degree": 13,
+          "attrs": {
+            "time": "2023-08-23",
+            "feeling": "excited",
+            "comment": "Caroline: Agreed, Mel! Art can be a real mood-booster - I saw someone drawing on the ground the other day and it made me so happy. Creativity sure can lighten someone's day. Melanie: Wow, Caroline, that's so nice! The colors are so bright and the flowers are so pretty. Art is such a source of joy. Caroline: Thanks, Mel! Art gives me so much joy. It helps me show my feelings and freeze gorgeous moments, like a bouquet of flowers. Melanie: Wow, did you make that? It looks so real!",
+            "activity": "talked about adoption and pets",
+            "aliases": [
+              "Caroline and Melanie chat",
+              "17 August 2023 conversation"
+            ]
+          }
+        },
+        {
+          "id": "30e7db02",
+          "name": "LGBTQ support group",
+          "degree": 2,
+          "attrs": {
+            "time": "2023-05-07"
+          }
+        },
+        {
+          "id": "4ad8a1a1",
+          "name": "Caroline's transgender journey talk",
+          "degree": 0,
+          "attrs": {
+            "time": "2023-06-09",
+            "activity": "talked about transgender journey",
+            "feeling": "powerful",
+            "comment": "shared struggles and development since coming out, inspired audience to be better allies"
+          }
+        },
+        {
+          "id": "f6f173ba",
+          "name": "LGBTQ Conference",
+          "degree": 0,
+          "attrs": {
+            "time": "2023-07-10",
+            "activity": "attended LGBTQ conference",
+            "comment": "I went to an LGBTQ conference two days ago and it was really special. I got the chance to meet and connect with people who've gone through similar journeys. It was such a welcoming environment and I felt totally accepted."
+          }
+        },
+        {
+          "id": "38680c5a",
+          "name": "Caroline and Melanie chat",
+          "degree": 0,
+          "attrs": {
+            "time": "2023-08-17",
+            "activity": "talked about pottery project",
+            "comment": "Here it is. Pretty proud of it! It was a great experience. Thoughts?"
+          }
+        },
+        {
+          "id": "04a64e24",
+          "name": "Caroline and Melanie chat on 28 August",
+          "degree": 5,
+          "attrs": {
+            "time": "2023-08-28",
+            "activity": "talked about music",
+            "comment": "Caroline: Thanks, Melanie! Appreciate it. You play any instruments? Melanie: Yeah, I play clarinet! Started when I was young and it's been great. Expression of myself and a way to relax. Caroline: Cool! Got any fav tunes? Melanie: I'm a fan of both classical like Bach and Mozart, as well as modern music like Ed Sheeran's \"Perfect\"."
+          }
+        },
+        {
+          "id": "0b64c85d",
+          "name": "Caroline and Melanie chat on 13 September",
+          "degree": 0,
+          "attrs": {
+            "time": "2023-09-13",
+            "activity": "talked about biking, camping, and volunteering",
+            "comment": "Caroline: Hey Mel, long time no chat! I had a wicked day out with the gang last weekend - we went biking and saw some pretty cool stuff. It was so refreshing, and the pic I'm sending is just stunning, eh? Melanie: Hey Caroline! It's so good to hear from you! That pic is so beautiful, the colors really pop. Biking sounds like a great way to get out in nature. We went camping with the kids a few weeks ago, had a blast exploring the forest and hiking. Nature can be so refreshing for your soul. Any plans coming up? Caroline: Melanie, that photo's amazing! I love all the yellow leaves, it looks so cozy. That sounds like fun! Seeing how excited they get for the little things is awesome, it's so contagious. Melanie: Thanks, Caroline! It's awesome seeing the kids get excited learning something new about nature. Those moments make being a parent worth it. We roasted marshmallows and shared stories around the campfire. Those simple moments make the best memories. What inspires you with your volunteering?"
+          }
+        },
+        {
+          "id": "58d7e7ff",
+          "name": "Caroline and Melanie chat on 13 September",
+          "degree": 0,
+          "attrs": {
+            "time": "2023-09-13",
+            "activity": "talked about art and LGBTQ+ community",
+            "comment": "Caroline: I'm inspired seeing my work make a difference for the LGBTQ+ community. Knowing I'm helping create a more loving world is amazing. I'm really thankful for my friends, family and mentors' support. It inspires me to keep making art, too. Melanie: Wow, Caroline, that looks awesome! I love how it shows the togetherness and power you were talking about. How long have you been creating art? Caroline: Since I was 17 or so. I find it soempowering and cathartic. It's amazing how art can show things that are hard to put into words. How long have you been into art? Melanie: Seven years now, and I've finally found my real muses: painting and pottery. It's so calming and satisfying. Check out my pottery creation in the pic!"
+          }
+        },
+        {
+          "id": "f6ab437e",
+          "name": "Caroline and Melanie chat on 13 September",
+          "degree": 0,
+          "attrs": {
+            "time": "2023-09-13",
+            "activity": "talked about art",
+            "comment": "Caroline: Melanie, those bowls are amazing! They each have such cool designs. I love that you chose pottery for your art. Painting and drawing have helped me express my feelings and explore my gender identity. Creating art was really important to me during my transition - it helped me understand and accept myself. I'm so grateful. Melanie: Thanks, Caroline! It has really helped me out. I love how it's both a creative outlet and a form of therapy. Have you ever thought about trying it or another art form? Caroline: I haven't done pottery yet, but I'm game for trying new art. I might try it sometime! Check out this piece I made! Melanie: Wow, Caroline! This painting is awesome. Love the red and blue. What gave you the idea?"
+          }
+        },
+        {
+          "id": "e61f6300",
+          "name": "Caroline discusses painting with Melanie",
+          "degree": 0,
+          "attrs": {
+            "time": "2023-09-13",
+            "activity": "discussing painting",
+            "feeling": "thankful"
+          }
+        },
+        {
+          "id": "bf056095",
+          "name": "Melanie visits café",
+          "degree": 0,
+          "attrs": {
+            "time": "2023-09-13",
+            "activity": "visiting café",
+            "feeling": "happiness"
+          }
+        },
+        {
+          "id": "5c0139c7",
+          "name": "Melanie and Caroline chat",
+          "degree": 0,
+          "attrs": {
+            "time": "2023-09-13",
+            "conversation": "Caroline speak to Melanie at 12:09 am on 13 September, 2023: Whoa, Mel, that sign looks serious. Did anything happen? Melanie speak to Caroline at 12:09 am on 13 September, 2023: The sign was just a precaution, I had a great time. But thank you for your concern, you're so thoughtful! Caroline speak to Melanie at 12:09 am on 13 September, 2023: Phew! Glad it all worked out and you had a good time at the park! Melanie speak to Caroline at 12:09 am on 13 September, 2023: Yeah, it was so much fun! Those joyful moments definitely show us life's beauty."
+          }
+        },
+        {
+          "id": "6f51ecc2",
+          "name": "Caroline and Melanie chat",
+          "degree": 4,
+          "attrs": {
+            "time": "2023-10-13",
+            "activity": "chat about creating a safe home for kids",
+            "description": "Caroline and Melanie discussed creating a safe and loving home for kids, emphasizing love, acceptance, and the importance of self-acceptance."
+          }
+        }
+      ],
+      "total_batches": 111,
+      "trigger_count": 111,
+      "skip_count": 0,
+      "trigger_rate": 1.0,
+      "ops": {
+        "CreateEvent": 20,
+        "Link": 83,
+        "AttachAttr": 39,
+        "Skip": 49,
+        "DeleteEdge": 8,
+        "ReviseAttr": 66,
+        "CreateEntity": 5,
+        "MergeNode": 1
+      },
+      "rejected_ops": {},
+      "failed_ops": 28,
+      "dedup_merges": 0
+    }
+  }
+}

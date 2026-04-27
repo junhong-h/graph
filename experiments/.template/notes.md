@@ -3,8 +3,19 @@
 ## 假设
 <!-- 这次改动预期会改善什么，为什么 -->
 
+## 与上次的差异
+<!-- 对比 based_on 实验，本次改动了什么。未列出 = 与上次相同 -->
+
+| 维度 | 上次 (based_on) | 本次 |
+|------|----------------|------|
+| 代码改动 | — | `file.py:fn` — 说明 |
+| 模型 | qwen3-4b | qwen3-4b |
+| jump_budget | 5 | 5 |
+| seed_top_k | 5 | 5 |
+| 样本 | conv-26 | conv-26 |
+
 ## 改动
-<!-- 列出关键代码改动，格式：文件:函数 — 说明 -->
+<!-- 关键代码改动，格式：`文件:函数` — 说明 -->
 -
 
 ## 运行
@@ -13,6 +24,13 @@
 python scripts/build_memory.py --exp-dir experiments/YYYY-MM-DD-NNN-<name>
 python scripts/run_qa.py       --exp-dir experiments/YYYY-MM-DD-NNN-<name>
 ```
+
+## 运行环境
+<!-- commit hash 务必填写 -->
+- commit: `xxxxxxx`（`git rev-parse --short HEAD`）
+- build 耗时: ~
+- QA 耗时: ~（N 题）
+- 图文件: `experiments/YYYY-MM-DD-NNN-<name>/build/graphs/`
 
 ## 图统计
 

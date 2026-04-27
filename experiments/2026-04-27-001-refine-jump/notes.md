@@ -4,6 +4,18 @@
 jump 候选用向量相似度（bge-m3）排序，比关键词打分更能捕捉语义相关性；
 多锚点各自独立扩展、分配 ceil(budget/n) 个槽位后合并，防止一个 anchor 独占 budget。
 
+## 与上次的差异
+<!-- 上次 = Apr 20 P0+P1（无 experiment id，见 docs/report_progress_apr20.md） -->
+
+| 维度 | 上次 (Apr 20) | 本次 |
+|------|--------------|------|
+| jump 候选打分 | 关键词词频 (`_score_jump_candidate`) | 向量相似度 (`rank_nodes_by_query`) |
+| 多锚点扩展 | 所有锚点共享 budget，统一排序取 top-N | 每锚点独立取 ceil(budget/n) 个，claimed 集防重复 |
+| 模型 | qwen3-4b | qwen3-4b |
+| jump_budget | 5 | 5 |
+| seed_top_k | 5 | 5 |
+| 样本 | 全量 10 样本 | conv-26（单样本） |
+
 ## 改动
 - `graph_store.py`：新增 `rank_nodes_by_query(query, candidate_ids)` — 在候选集内向量排序
 - `graph_retrieval.py`：`_execute_jump` 改为 per-anchor 独立扩展，每个 anchor 各取 ceil(budget/n) 个最相关邻居
@@ -14,6 +26,12 @@ jump 候选用向量相似度（bge-m3）排序，比关键词打分更能捕捉
 python scripts/build_memory.py --exp-dir experiments/2026-04-27-001-refine-jump
 python scripts/run_qa.py       --exp-dir experiments/2026-04-27-001-refine-jump
 ```
+
+## 运行环境
+- commit: `0ff3e53`
+- build 耗时: ~15 min（conv-26，单样本）
+- QA 耗时: ~20 min（199 题，workers=1）
+- 图文件: `experiments/2026-04-27-001-refine-jump/build/graphs/conv-26_graph.json`
 
 ## 图统计（conv-26）
 

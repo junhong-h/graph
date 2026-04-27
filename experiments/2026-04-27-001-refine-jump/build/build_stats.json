@@ -1,0 +1,299 @@
+{
+  "total": {
+    "samples": 1,
+    "node_count": 107,
+    "edge_count": 120,
+    "entity_count": 38,
+    "event_count": 69,
+    "invalid_edge_count": 0,
+    "isolated_event_count": 0,
+    "events_with_fact": 69,
+    "events_missing_fact": 0,
+    "events_with_quote": 69,
+    "events_missing_quote": 0,
+    "event_without_entity_event_edge": 0,
+    "total_batches": 111,
+    "trigger_count": 107,
+    "skip_count": 4,
+    "failed_ops": 50,
+    "dedup_merges": 0,
+    "ops": {
+      "CreateEvent": 69,
+      "Link": 122,
+      "RepairEventAttrs": 69,
+      "AttachAttr": 40,
+      "CreateEntity": 41,
+      "RepairEventLink": 15,
+      "Skip": 20,
+      "ReviseAttr": 3
+    },
+    "rejected_ops": {
+      "session-container event rejected": 3,
+      "low-value abstract event rejected": 3
+    },
+    "trigger_rate": 0.964
+  },
+  "by_sample": {
+    "conv-26": {
+      "graph_path": "experiments/2026-04-27-001-refine-jump/build/graphs/conv-26_graph.json",
+      "node_count": 107,
+      "edge_count": 120,
+      "node_types": {
+        "Entity": 38,
+        "Event": 69
+      },
+      "edge_families": {
+        "entity-event": 103,
+        "entity-entity": 5,
+        "event-event": 12
+      },
+      "top_predicates": [
+        [
+          "participant",
+          47
+        ],
+        [
+          "object_of",
+          24
+        ],
+        [
+          "experienced",
+          9
+        ],
+        [
+          "after",
+          8
+        ],
+        [
+          "participated_in",
+          7
+        ],
+        [
+          "support",
+          5
+        ],
+        [
+          "before",
+          3
+        ],
+        [
+          "has",
+          2
+        ],
+        [
+          "occurred_at",
+          1
+        ],
+        [
+          "attended",
+          1
+        ],
+        [
+          "participants",
+          1
+        ],
+        [
+          "addressed",
+          1
+        ],
+        [
+          "promoted",
+          1
+        ],
+        [
+          "advocated_for",
+          1
+        ],
+        [
+          "participated",
+          1
+        ],
+        [
+          "associated_with",
+          1
+        ],
+        [
+          "inspired_by",
+          1
+        ],
+        [
+          "owns",
+          1
+        ],
+        [
+          "affected_by",
+          1
+        ],
+        [
+          "encountered",
+          1
+        ]
+      ],
+      "entity_count": 38,
+      "event_count": 69,
+      "entity_event_ratio": 0.5507246376811594,
+      "invalid_edge_count": 0,
+      "event_without_entity_event_edge": 0,
+      "isolated_event_count": 0,
+      "low_degree_event_count": 53,
+      "events_missing_time": 0,
+      "events_missing_source": 0,
+      "events_missing_text": 0,
+      "events_with_fact": 69,
+      "events_missing_fact": 0,
+      "events_with_quote": 69,
+      "events_missing_quote": 0,
+      "events_with_original_text": 69,
+      "session_container_event_count": 0,
+      "low_value_event_edge_count": 1,
+      "sample_entities": [
+        {
+          "id": "f5d3a5a3",
+          "name": "Caroline",
+          "degree": 37
+        },
+        {
+          "id": "991e14e0",
+          "name": "Melanie",
+          "degree": 25
+        },
+        {
+          "id": "b83ddd95",
+          "name": "Family",
+          "degree": 10
+        },
+        {
+          "id": "0fcb4406",
+          "name": "Painting",
+          "degree": 7
+        },
+        {
+          "id": "d622c722",
+          "name": "School event",
+          "degree": 2
+        },
+        {
+          "id": "0a25de9b",
+          "name": "Students",
+          "degree": 2
+        },
+        {
+          "id": "9d7e9634",
+          "name": "Becoming Nicole",
+          "degree": 2
+        },
+        {
+          "id": "9b6442d2",
+          "name": "Pet",
+          "degree": 2
+        },
+        {
+          "id": "a9b524e9",
+          "name": "'Connected LGBTQ Activists'",
+          "degree": 2
+        },
+        {
+          "id": "1a927ca4",
+          "name": "Self-Portrait",
+          "degree": 2
+        },
+        {
+          "id": "8ed2039c",
+          "name": "Rainbow Flag Mural",
+          "degree": 2
+        },
+        {
+          "id": "49f3e70f",
+          "name": "Lake sunrise painting",
+          "degree": 1
+        },
+        {
+          "id": "37262549",
+          "name": "carving out me-time",
+          "degree": 1
+        },
+        {
+          "id": "483405d7",
+          "name": "LGBTQ community",
+          "degree": 1
+        },
+        {
+          "id": "7c0bff8d",
+          "name": "Transgender journey",
+          "degree": 1
+        },
+        {
+          "id": "f60963a9",
+          "name": "Gender identity",
+          "degree": 1
+        },
+        {
+          "id": "9e237ee1",
+          "name": "Inclusion",
+          "degree": 1
+        },
+        {
+          "id": "37826374",
+          "name": "Acceptance",
+          "degree": 1
+        },
+        {
+          "id": "f78cbcf0",
+          "name": "Husband and kids",
+          "degree": 1
+        },
+        {
+          "id": "e5178384",
+          "name": "Necklace",
+          "degree": 1
+        },
+        {
+          "id": "3bc7c340",
+          "name": "Hand-painted bowl",
+          "degree": 1
+        },
+        {
+          "id": "b8e75d89",
+          "name": "Counseling and mental health career",
+          "degree": 1
+        },
+        {
+          "id": "59c57cce",
+          "name": "LGBTQ youth mentorship program",
+          "degree": 1
+        },
+        {
+          "id": "c06870d1",
+          "name": "LGBTQ activist group",
+          "degree": 1
+        },
+        {
+          "id": "48eccdd4",
+          "name": "Embracing Identity",
+          "degree": 1
+        }
+      ],
+      "sample_problem_events": [],
+      "total_batches": 111,
+      "trigger_count": 107,
+      "skip_count": 4,
+      "trigger_rate": 0.964,
+      "ops": {
+        "CreateEvent": 69,
+        "Link": 122,
+        "RepairEventAttrs": 69,
+        "AttachAttr": 40,
+        "CreateEntity": 41,
+        "RepairEventLink": 15,
+        "Skip": 20,
+        "ReviseAttr": 3
+      },
+      "rejected_ops": {
+        "session-container event rejected": 3,
+        "low-value abstract event rejected": 3
+      },
+      "failed_ops": 50,
+      "dedup_merges": 0
+    }
+  }
+}
