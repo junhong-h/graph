@@ -57,7 +57,7 @@ Each operation is a JSON object with an "op" field plus operation-specific field
 
 Construction (new structure):
   {"op": "CreateEntity", "id": "NEW_<label>", "canonical_name": "...", "aliases": ["alt name", ...], "attrs": {"key": "value"}}
-  {"op": "CreateEvent",  "id": "NEW_<label>", "canonical_name": "...", "attrs": {"time": "YYYY-MM-DD or description", "key": "value"}}
+  {"op": "CreateEvent",  "id": "NEW_<label>", "canonical_name": "...", "attrs": {"fact": "self-contained factual sentence", "quote": "short source quote", "source": ["turn_id"], "time": "YYYY-MM-DD or description", "key": "value"}}
   {"op": "Link",         "src": "<id>", "dst": "<id>", "family": "entity-event|entity-entity|event-event", "predicate": "..."}
   {"op": "AttachAttr",   "node": "<8-char-id>", "key": "...", "value": "..."}
   {"op": "Skip",         "reason": "..."}
@@ -102,10 +102,13 @@ the subject Entity, create/reuse the object Entity, then create one Event linkin
 Bad: AttachAttr <person> activity="<activity 1>, <activity 2>, <activity 3>". \
 Good: create/reuse each answerable activity/object as an Entity, create a specific Event for each \
 fact, and link the subject and object Entities to that Event.
-3. Every Event node MUST have a "time" attr — use exact date if stated, else "unknown".
-3b. When time is expressed relatively ("next month", "last week", "in two weeks") and the session \
-date is visible in the input header, resolve it to an absolute date. \
-Example: session date = 2023-02-04, "competition next month" → time: "March 2023".
+3. Every Event node MUST have attrs.fact, attrs.quote, and attrs.source. \
+fact is a self-contained factual sentence that can be understood without reading the original turn. \
+quote is the shortest exact source text that supports the fact. source is the supporting turn_id list.
+3b. If the source uses relative time ("last night", "last month", "two weeks ago", "for 10 years"), \
+write the relation into attrs.fact with the mention date from the turn header. Do NOT rewrite a \
+relative-time fact as if it happened on the mention date. Do NOT infer exact dates unless directly \
+stated by the source. Keep any legacy "time" attr as a rough compatibility field only.
 4. For Event-Event edges with chronological order, use predicate "before" or "after". \
    Use "updates" when an event revises a prior one. Use "inspired" only for causal/creative links.
 4b. For event-event edges ONLY use these predicates: before / after / updates / inspired. \
@@ -146,7 +149,7 @@ Good: {"op":"Link","src":"NEW_Object","dst":"NEW_Event","family":"entity-event",
 Return a single valid JSON array. Example:
 [
   {"op": "CreateEntity", "id": "NEW_Person", "canonical_name": "<person name>", "aliases": [], "attrs": {}},
-  {"op": "CreateEvent",  "id": "NEW_Event", "canonical_name": "<subject action object>", "attrs": {"time": "<event time>"}},
+  {"op": "CreateEvent",  "id": "NEW_Event", "canonical_name": "<subject action object>", "attrs": {"fact": "<self-contained fact sentence>", "quote": "<short exact source quote>", "source": ["<turn_id>"], "time": "<compatibility time if useful>"}},
   {"op": "Link", "src": "NEW_Person", "dst": "NEW_Event", "family": "entity-event", "predicate": "participant"}
 ]\
 """
@@ -403,6 +406,8 @@ class GraphConstructor:
                 attrs_update["batch_id"] = context.batch_id
             if context.batch_turn_ids and not attrs.get("source_turn_ids"):
                 attrs_update["source_turn_ids"] = context.batch_turn_ids
+            if context.batch_turn_ids and not attrs.get("source"):
+                attrs_update["source"] = context.batch_turn_ids
             if turn_text and not (attrs.get("original_text") or attrs.get("evidence_quote")):
                 attrs_update["original_text"] = turn_text
             if attrs_update:

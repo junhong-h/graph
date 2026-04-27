@@ -237,10 +237,50 @@ def test_created_event_repair_adds_source_attrs_and_speaker_link(tmp_path):
     event = graph.get_node(event_id)
     assert event["attrs"]["batch_id"] == "batch-1"
     assert event["attrs"]["source_turn_ids"] == ["D1"]
+    assert event["attrs"]["source"] == ["D1"]
     assert event["attrs"]["original_text"].startswith("[turn_id=D1; speaker=Maria")
+    assert "quote" not in event["attrs"]
     edges = graph.get_edges(node_id=event_id, family="entity-event")
     assert len(edges) == 1
     assert graph.get_node(edges[0]["src"])["canonical_name"] == "Maria"
+
+
+def test_created_event_preserves_fact_quote_source_attrs(tmp_path):
+    ops_json = json.dumps([{
+        "op": "CreateEvent",
+        "id": "NEW_Convention",
+        "canonical_name": "John attended tech-for-good convention",
+        "attrs": {
+            "fact": (
+                "On 18 April 2023, John said he and his colleagues had gone "
+                "to a tech-for-good convention the previous month."
+            ),
+            "quote": "My colleagues and I went to a convention together last month.",
+            "source": ["D12:9"],
+        },
+    }])
+    gc, graph = _make_constructor(tmp_path, ops_json)
+    context = ConstructionContext(
+        batch_id="batch-1",
+        batch_turn_ids=["D12:9"],
+        turn_time="7:34 pm on 18 April, 2023",
+        speaker_a="John",
+        speaker_b="Maria",
+    )
+
+    log = gc.run(
+        "[turn_id=D12:9; speaker=John; listener=Maria; session_time=7:34 pm on 18 April, 2023]\n"
+        "My colleagues and I went to a convention together last month.",
+        {"nodes": {}, "edges": []},
+        context=context,
+    )
+
+    event_id = next(item["node_id"] for item in log if item["op"] == "CreateEvent")
+    attrs = graph.get_node(event_id)["attrs"]
+    assert attrs["fact"].startswith("On 18 April 2023")
+    assert attrs["quote"] == "My colleagues and I went to a convention together last month."
+    assert attrs["source"] == ["D12:9"]
+    assert attrs["source_turn_ids"] == ["D12:9"]
 
 
 def test_first_speaker_reads_structured_turn_header():
