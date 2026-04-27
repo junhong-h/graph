@@ -45,7 +45,7 @@ python scripts/summarize_exp.py --exp-dir experiments/2026-04-28-007-cat5-fix-co
 
 ## 运行环境
 
-- commit: `73108c3`（含未提交改动，运行前 commit）
+- commit: `28ef9b6`
 - build 耗时: 不重建
 - QA 耗时: ~（392 题，conv-41+conv-26）
 - 图文件: `experiments/2026-04-28-007-cat5-fix-conv41-26/build/graphs/`

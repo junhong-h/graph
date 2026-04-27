@@ -3,7 +3,7 @@ experiment:
   name: "cat5-fix-conv41-26"
   description: "同图 ablation：复用 006 图验证 Cat5 raw_fallback 屏蔽 + prompt 强化 + 时间词加权三项修改"
   branch: "refine-retrieval-construction"
-  commit: "73108c3"
+  commit: "28ef9b6"
   based_on: "2026-04-27-006"
 
 data_path: data/locomo/locomo10.json
