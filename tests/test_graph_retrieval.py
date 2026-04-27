@@ -116,8 +116,9 @@ def test_answer_format_locomo_default():
 
 def test_answer_format_locomo_cat5_allows_refusal():
     fmt = get_answer_format("locomo", "5")
-    assert "adversarial unanswerable" in fmt
-    assert "output exactly 'Not mentioned in the conversation'" in fmt
+    assert "adversarial" in fmt
+    assert "Not mentioned in the conversation" in fmt
+    assert "EXPLICIT statement" in fmt
 
 
 # ---------------------------------------------------------------------------

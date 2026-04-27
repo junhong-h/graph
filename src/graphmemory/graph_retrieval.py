@@ -70,9 +70,11 @@ def _locomo_format(category: str) -> str:
         return (
             "The Final Result's Format Must Follow These Rules:\n"
             "1. Provide a short phrase answer, not a full sentence.\n"
-            "2. This is an adversarial unanswerable question. If the described event/fact is not directly "
-            "supported by the retrieved evidence, output exactly 'Not mentioned in the conversation'. "
-            "Do not fabricate.\n"
+            "2. This is an adversarial question: the specific fact asked may NOT be in the conversation. "
+            "Output EXACTLY 'Not mentioned in the conversation' unless the evidence contains an "
+            "EXPLICIT statement that directly answers the question. "
+            "Evidence about topically related events does NOT count — "
+            "the exact fact must be stated, not inferred. Do not fabricate.\n"
             "3. Use exact wording from the original conversation whenever possible."
         )
     # Cat 1, 2, 4 — and default for unknown categories
@@ -143,8 +145,9 @@ knowledge graph and retrieving raw conversation turns.
 - Follow the Answer format's absence policy exactly. For Cat1-4 answerable questions,
   do NOT finish with "Not mentioned in the conversation", "Unknown", or
   "Information not found"; use raw_fallback or give the best short answer from evidence.
-  For Cat5 adversarial questions, finish with "Not mentioned in the conversation" only
-  when the question premise is not directly supported after exploration.
+  For Cat5 adversarial questions: topically similar evidence is NOT enough to answer.
+  The EXACT fact must be explicitly stated in the conversation. When in doubt, choose
+  "Not mentioned in the conversation" over a concrete answer.
 - When max hops are reached you MUST call finish with your best guess.
 - Do NOT output any text outside the JSON object.
 
@@ -230,10 +233,11 @@ class GraphRetriever:
             action, args  = _parse_action(response)
 
             trace = {
-                "hop":    hop,
-                "op_id":  str(uuid.uuid4()),
-                "action": action,
-                "args":   args,
+                "hop":     hop,
+                "op_id":   str(uuid.uuid4()),
+                "action":  action,
+                "args":    args,
+                "raw_llm": response,
             }
             traces.append(trace)
             logger.debug(f"Hop {hop}: action={action}, args={args}")
@@ -266,8 +270,12 @@ class GraphRetriever:
                 visited.update(frontier)
 
             elif action == "raw_fallback":
-                added = self._add_raw_context(args.get("query", question), raw_context)
-                trace["args"]["hits_added"] = added
+                if str(category) == "5":
+                    trace["action"] = "cat5_raw_fallback_blocked"
+                    logger.debug("Cat5: LLM raw_fallback blocked to prevent near-miss over-answer.")
+                else:
+                    added = self._add_raw_context(args.get("query", question), raw_context)
+                    trace["args"]["hits_added"] = added
 
             else:
                 logger.warning(f"Unknown action: {action!r} — treated as no-op.")
@@ -303,9 +311,10 @@ class GraphRetriever:
             })
         logger.warning(f"Retrieval forced finish ({stop_reason}).")
         evidence_text = self._pool(evidence_nodes, evidence_edges, raw_context)
+        raw_forced = self._forced_answer(question, evidence_text, answer_format, category=category)
         answer = self._finalize_answer(
             question=question,
-            answer=self._forced_answer(question, evidence_text, answer_format, category=category),
+            answer=raw_forced,
             evidence_nodes=evidence_nodes,
             evidence_edges=evidence_edges,
             raw_context=raw_context,
@@ -313,7 +322,7 @@ class GraphRetriever:
             category=category,
             traces=traces,
         )
-        traces.append({"hop": self.max_hop, "action": "forced_finish", "reason": stop_reason})
+        traces.append({"hop": self.max_hop, "action": "forced_finish", "reason": stop_reason, "raw_llm": raw_forced})
         return {"answer": answer, "traces": traces}
 
     # ------------------------------------------------------------------
@@ -523,9 +532,9 @@ class GraphRetriever:
                 "args": {"query": question, "hits": len(added)},
             })
             evidence_text = self._pool(evidence_nodes, evidence_edges, raw_context)
-            final = _canonicalize_final_answer(
-                self._forced_answer(question, evidence_text, answer_format, category=category)
-            )
+            raw_refusal_retry = self._forced_answer(question, evidence_text, answer_format, category=category)
+            traces[-1]["raw_llm"] = raw_refusal_retry
+            final = _canonicalize_final_answer(raw_refusal_retry)
 
         if self.final_answer_compression and final and not _is_refusal_answer(final):
             final = _canonicalize_final_answer(
@@ -773,6 +782,14 @@ def _canonicalize_final_answer(answer: str) -> str:
     return text.strip().strip("\"'").rstrip(" .;").strip()
 
 
+_YEAR_RE  = re.compile(r"\b(20\d\d)\b")
+_MONTH_RE = re.compile(
+    r"\b(january|february|march|april|may|june|july|august|"
+    r"september|october|november|december)\b",
+    re.IGNORECASE,
+)
+
+
 def _score_jump_candidate(question: str, constraint: str, node: Dict, edge: Dict) -> float:
     node_text = _node_text(node)
     question_terms = _content_terms(question)
@@ -787,6 +804,17 @@ def _score_jump_candidate(question: str, constraint: str, node: Dict, edge: Dict
         score += 1.0
 
     score += _constraint_score(node, constraint) * 3.0
+
+    # Time-specificity bonus: reward nodes whose time attr matches the question's
+    # year/month, preventing same-entity events from being interchangeable.
+    node_time = str(node.get("attrs", {}).get("time", "")).lower()
+    if node_time:
+        q_years  = set(_YEAR_RE.findall(question))
+        q_months = {m.lower() for m in _MONTH_RE.findall(question)}
+        if q_years  and any(y in node_time for y in q_years):
+            score += 2.0
+        if q_months and any(m in node_time for m in q_months):
+            score += 1.0
 
     canonical = str(node.get("canonical_name", "")).lower()
     if any(marker in canonical for marker in (" chat", "conversation", "session")):
