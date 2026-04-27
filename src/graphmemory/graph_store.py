@@ -221,11 +221,19 @@ class GraphStore:
         if family == "event-entity":
             family = "entity-event"
 
+        src_type = self._nodes[src].get("type")
+        dst_type = self._nodes[dst].get("type")
+        if not family:
+            if {src_type, dst_type} == {"Entity", "Event"}:
+                family = "entity-event"
+            elif src_type == dst_type == "Entity":
+                family = "entity-entity"
+            elif src_type == dst_type == "Event":
+                family = "event-event"
+
         if family not in EDGE_FAMILIES:
             return src, dst, ""
 
-        src_type = self._nodes[src].get("type")
-        dst_type = self._nodes[dst].get("type")
         if family == "entity-event":
             if src_type == "Event" and dst_type == "Entity":
                 return dst, src, family

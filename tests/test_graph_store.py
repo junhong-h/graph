@@ -170,6 +170,20 @@ def test_add_edge_normalizes_event_entity_family(tmp_path):
     assert edge["dst"] == event
 
 
+def test_add_edge_infers_blank_family_from_endpoint_types(tmp_path):
+    gs = _make_store(tmp_path)
+    event = gs.add_node("Event", "Meeting")
+    entity = gs.add_node("Entity", "Alice")
+
+    eid = gs.add_edge(event, entity, "", "attended")
+
+    assert eid
+    edge = gs.get_edges()[0]
+    assert edge["family"] == "entity-event"
+    assert edge["src"] == entity
+    assert edge["dst"] == event
+
+
 def test_add_edge_rejects_invalid_family(tmp_path):
     gs = _make_store(tmp_path)
     a = gs.add_node("Entity", "A")

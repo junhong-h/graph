@@ -105,6 +105,8 @@ fact, and link the subject and object Entities to that Event.
 3. Every Event node MUST have attrs.fact, attrs.quote, and attrs.source. \
 fact is a self-contained factual sentence that can be understood without reading the original turn. \
 quote is the shortest exact source text that supports the fact. source is the supporting turn_id list.
+If the input header has session_time, attrs.fact MUST include that mention time as context, usually \
+as "On <session date/time>, <speaker> said ...". \
 3b. If the source uses relative time ("last night", "last month", "two weeks ago", "for 10 years"), \
 write the relation into attrs.fact with the mention date from the turn header. Do NOT rewrite a \
 relative-time fact as if it happened on the mention date. Do NOT infer exact dates unless directly \
