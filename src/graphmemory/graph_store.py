@@ -320,6 +320,26 @@ class GraphStore:
         ids = results.get("ids", [[]])[0]
         return [nid for nid in ids if nid in self._nodes]
 
+    def rank_nodes_by_query(self, query: str, candidate_ids: List[str]) -> List[str]:
+        """Rank candidate_ids by embedding similarity to query.
+
+        Searches the full node collection and filters results to the candidate set,
+        preserving similarity order. Candidates not returned by the search (below
+        the similarity threshold) are appended at the end in original order.
+        """
+        if not candidate_ids:
+            return []
+        total = self._store.count(self._node_col)
+        if total == 0:
+            return candidate_ids
+        results = self._store.search(self._node_col, query, top_k=total)
+        ranked_all = results.get("ids", [[]])[0]
+        candidate_set = set(candidate_ids)
+        ranked = [nid for nid in ranked_all if nid in candidate_set]
+        ranked_set = set(ranked)
+        tail = [nid for nid in candidate_ids if nid not in ranked_set]
+        return ranked + tail
+
     # ------------------------------------------------------------------
     # Accessors
     # ------------------------------------------------------------------

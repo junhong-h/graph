@@ -375,41 +375,51 @@ class GraphRetriever:
         visited: Set[str],
         question: str = "",
     ) -> Tuple[Dict[str, Dict], List[Dict]]:
-        """Expand frontier from node_ids along relevant edges, return new nodes/edges."""
+        """Expand from each node_id independently, merge results.
+
+        Each anchor gets ceil(budget / n_anchors) slots so no single anchor
+        can crowd out the others. Nodes claimed by an earlier anchor are
+        excluded from later ones to avoid duplicates.
+        """
+        resolved = [self._resolve_node_id(nid) for nid in node_ids]
+        resolved = [nid for nid in resolved if nid]
+        if not resolved:
+            return {}, []
+
+        budget_each = max(1, -(-budget // len(resolved)))  # ceil division
+
         new_nodes: Dict[str, Dict] = {}
         new_edges: List[Dict]      = []
-        candidates: List[Tuple[float, int, str, Dict, Dict]] = []
-        order = 0
+        claimed: Set[str]          = set(visited)  # grows as anchors are processed
 
-        for nid in node_ids:
-            # Resolve 8-char prefix to full node_id if needed
-            full_nid = self._resolve_node_id(nid)
-            if not full_nid:
-                continue
-
+        for full_nid in resolved:
             edges = self.graph.get_edges(node_id=full_nid)
             if family != "any":
                 edges = [e for e in edges if e["family"] == family]
 
+            candidates: Dict[str, Tuple[Dict, Dict]] = {}
             for edge in edges:
                 neighbor = edge["dst"] if edge["src"] == full_nid else edge["src"]
-                if neighbor in visited:
+                if neighbor in claimed or neighbor in candidates:
                     continue
                 node = self.graph.get_node(neighbor)
                 if node is None:
                     continue
-                score = _score_jump_candidate(question, constraint, node, edge)
-                candidates.append((score, order, neighbor, node, edge))
-                order += 1
+                candidates[neighbor] = (node, edge)
 
-        candidates.sort(key=lambda item: (-item[0], item[1]))
-        for _, _, neighbor, node, edge in candidates:
-            if len(new_nodes) >= budget:
-                break
-            if neighbor in new_nodes:
+            if not candidates:
                 continue
-            new_nodes[neighbor] = node
-            new_edges.append(edge)
+
+            ranked = self.graph.rank_nodes_by_query(question, list(candidates))
+            added = 0
+            for neighbor in ranked:
+                if added >= budget_each:
+                    break
+                node, edge = candidates[neighbor]
+                new_nodes[neighbor] = node
+                new_edges.append(edge)
+                claimed.add(neighbor)
+                added += 1
 
         return new_nodes, new_edges
 
