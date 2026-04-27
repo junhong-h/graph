@@ -76,8 +76,8 @@ def parse_args() -> argparse.Namespace:
                    help="Shortcut for the LoCoMo Cat1-4 evaluation protocol")
     p.add_argument("--max-qa",      type=int, default=None,
                    help="Max filtered QA questions per sample (for quick testing)")
-    p.add_argument("--workers", type=int, default=1,
-                   help="Parallel workers for question retrieval (default: 1)")
+    p.add_argument("--workers", type=int, default=4,
+                   help="Parallel workers for question retrieval (default: 4)")
     p.add_argument("--metrics-only", action="store_true",
                    help="Skip LLM judge; only compute F1/BLEU")
     p.add_argument("--log-level",   default="INFO",

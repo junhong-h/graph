@@ -47,3 +47,4 @@ python scripts/build_memory.py --config configs/build_memory_dashscope.yaml --sa
 | [2026-04-27-004](2026-04-27-004-refine2-prop-conv41-26/notes.md) | refine2-prop-conv41-26 | Refine2 proposition layer：fact/quote 字段 + low-value 过滤 | conv-41,26 | 90.8% / 86.8% | 80.5% / 59.6% | 0.520 / 0.420 |
 | [2026-04-27-005](2026-04-27-005-refine2-current-retrieval/notes.md) | refine2-current-retrieval | 同图 ablation：复用 004 图，切到 current HEAD 检索 | conv-41,26 | 86.2% / 87.5% | 70.7% / 63.8% | 0.469 |
 | [2026-04-27-006](2026-04-27-006-qwen-json-conv41/notes.md) | qwen-json-conv41 | Qwen JSON Mode + top_p/seed 稳定化后端到端重建 conv-41 | conv-41 | 91.4% | 65.9% | 0.504 |
+| [2026-04-28-007](2026-04-28-007-cat5-fix-conv41-26/notes.md) | cat5-fix-conv41-26 | Cat5 raw_fallback 屏蔽 + prompt 强化 + 时间词加权，同图 ablation | conv-41,26 | 88.5% | **87.5%** | 0.407 |
