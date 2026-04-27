@@ -10,7 +10,7 @@ from unittest.mock import MagicMock
 
 import pytest
 
-from graphmemory.graph_store import GraphStore, format_subgraph
+from graphmemory.graph_store import GraphStore, format_subgraph, node_relevance_text
 
 
 # ---------------------------------------------------------------------------
@@ -273,3 +273,50 @@ def test_format_subgraph_output(tmp_path):
     assert "Alice" in text
     assert "attended" in text
     assert "Lunch" in text
+
+
+def test_node_relevance_text_prefers_fact_quote_and_excludes_original_text():
+    node = {
+        "type": "Event",
+        "canonical_name": "John attended convention",
+        "aliases": [],
+        "attrs": {
+            "fact": "On 18 April 2023, John attended a convention the previous month.",
+            "quote": "went to a convention together last month",
+            "source": ["D12:9"],
+            "source_turn_ids": ["D12:9"],
+            "batch_id": "batch-1",
+            "original_text": "very long batch text that should not be embedded",
+            "activity": "convention",
+        },
+    }
+
+    text = node_relevance_text(node)
+
+    assert "On 18 April 2023" in text
+    assert "went to a convention" in text
+    assert "activity=convention" in text
+    assert "very long batch text" not in text
+    assert "batch-1" not in text
+    assert "D12:9" not in text
+
+
+def test_format_subgraph_displays_fact_quote_source_without_original_text(tmp_path):
+    gs = _make_store(tmp_path)
+    event = gs.add_node(
+        "Event",
+        "John attended convention",
+        attrs={
+            "fact": "On 18 April 2023, John attended a convention the previous month.",
+            "quote": "went to a convention together last month",
+            "source": ["D12:9"],
+            "original_text": "very long batch text that should not be shown",
+        },
+    )
+
+    text = format_subgraph({"nodes": {event: gs.get_node(event)}, "edges": []})
+
+    assert "fact: On 18 April 2023" in text
+    assert "quote: went to a convention" in text
+    assert "source: ['D12:9']" in text
+    assert "very long batch text" not in text

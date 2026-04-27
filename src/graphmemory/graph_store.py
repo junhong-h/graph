@@ -410,13 +410,38 @@ def _coerce_aliases(aliases) -> list:
     return result
 
 
-def _node_embedding_text(node: Dict) -> str:
+PROVENANCE_ATTR_KEYS = {
+    "original_text",
+    "batch_id",
+    "source_turn_ids",
+    "source",
+    "created_at",
+    "updated_at",
+}
+
+
+def node_relevance_text(node: Dict) -> str:
+    """Return compact node text for embedding and relevance scoring."""
     parts = [f"{node['type']}: {node['canonical_name']}"]
     if node.get("aliases"):
         parts.append("aliases: " + ", ".join(node["aliases"]))
-    if node.get("attrs"):
-        parts.append(" ".join(f"{k}={v}" for k, v in node["attrs"].items()))
+    attrs = node.get("attrs") or {}
+    for key in ("fact", "quote", "evidence_quote"):
+        if attrs.get(key):
+            parts.append(f"{key}: {attrs[key]}")
+    compact_attrs = [
+        f"{k}={v}"
+        for k, v in attrs.items()
+        if k not in PROVENANCE_ATTR_KEYS
+        and k not in {"fact", "quote", "evidence_quote"}
+    ]
+    if compact_attrs:
+        parts.append(" ".join(compact_attrs))
     return ". ".join(parts)
+
+
+def _node_embedding_text(node: Dict) -> str:
+    return node_relevance_text(node)
 
 
 def format_subgraph(subgraph: Dict) -> str:
@@ -427,10 +452,24 @@ def format_subgraph(subgraph: Dict) -> str:
     lines = [f"Nodes ({len(nodes)}):"]
     for nid, node in nodes.items():
         aliases = (f" | aliases: {', '.join(node['aliases'])}" if node.get("aliases") else "")
-        attrs = ""
-        if node.get("attrs"):
-            attrs = " | " + ", ".join(f"{k}={v}" for k, v in node["attrs"].items())
-        lines.append(f"  [{nid[:8]}] {node['type']} \"{node['canonical_name']}\"{aliases}{attrs}")
+        lines.append(f"  [{nid[:8]}] {node['type']} \"{node['canonical_name']}\"{aliases}")
+        attrs = node.get("attrs") or {}
+        for key, label in (("fact", "fact"), ("quote", "quote"), ("evidence_quote", "quote")):
+            if attrs.get(key):
+                lines.append(f"    {label}: {attrs[key]}")
+                if key in {"quote", "evidence_quote"}:
+                    break
+        source = attrs.get("source") or attrs.get("source_turn_ids")
+        if source:
+            lines.append(f"    source: {source}")
+        compact_attrs = [
+            f"{k}={v}"
+            for k, v in attrs.items()
+            if k not in PROVENANCE_ATTR_KEYS
+            and k not in {"fact", "quote", "evidence_quote"}
+        ]
+        if compact_attrs:
+            lines.append(f"    attrs: {', '.join(compact_attrs)}")
 
     lines.append(f"Edges ({len(edges)}):")
     for edge in edges:
