@@ -59,16 +59,28 @@ def summarize(path: Path) -> dict[str, Any]:
 
     def has_source(node: dict[str, Any]) -> bool:
         attrs = node.get("attrs", {})
-        return bool(attrs.get("source_turn_ids") or attrs.get("batch_id"))
+        return bool(attrs.get("source") or attrs.get("source_turn_ids") or attrs.get("batch_id"))
 
     def has_text(node: dict[str, Any]) -> bool:
         attrs = node.get("attrs", {})
         return bool(
-            attrs.get("original_text")
+            attrs.get("fact")
+            or attrs.get("quote")
+            or attrs.get("original_text")
             or attrs.get("evidence_quote")
             or attrs.get("message")
             or attrs.get("description")
         )
+
+    def has_fact(node: dict[str, Any]) -> bool:
+        return bool(node.get("attrs", {}).get("fact"))
+
+    def has_quote(node: dict[str, Any]) -> bool:
+        attrs = node.get("attrs", {})
+        return bool(attrs.get("quote") or attrs.get("evidence_quote"))
+
+    def has_original_text(node: dict[str, Any]) -> bool:
+        return bool(node.get("attrs", {}).get("original_text"))
 
     invalid_edges = [
         edge for edge in edges
@@ -105,6 +117,11 @@ def summarize(path: Path) -> dict[str, Any]:
         ),
         "events_missing_source": sum(1 for nid in event_ids if not has_source(nodes[nid])),
         "events_missing_text": sum(1 for nid in event_ids if not has_text(nodes[nid])),
+        "events_with_fact": sum(1 for nid in event_ids if has_fact(nodes[nid])),
+        "events_missing_fact": sum(1 for nid in event_ids if not has_fact(nodes[nid])),
+        "events_with_quote": sum(1 for nid in event_ids if has_quote(nodes[nid])),
+        "events_missing_quote": sum(1 for nid in event_ids if not has_quote(nodes[nid])),
+        "events_with_original_text": sum(1 for nid in event_ids if has_original_text(nodes[nid])),
         "session_container_event_count": len(container_events),
         "low_value_event_edge_count": len(low_value_event_edges),
         "sample_entities": [
