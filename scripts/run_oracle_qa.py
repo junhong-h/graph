@@ -212,6 +212,8 @@ def main() -> None:
         api_key                = cfg.llm.api_key or None,
         base_url               = cfg.llm.base_url or None,
         temperature            = cfg.llm.temperature,
+        top_p                  = cfg.llm.top_p,
+        seed                   = cfg.llm.seed,
         max_retries            = cfg.llm.max_retries,
         disable_thinking       = cfg.llm.disable_thinking,
         use_extra_body_thinking= cfg.llm.use_extra_body_thinking,

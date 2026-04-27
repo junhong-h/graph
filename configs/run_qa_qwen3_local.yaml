@@ -27,6 +27,8 @@ llm:
   api_key: ollama
   base_url: http://127.0.0.1:11434/v1
   temperature: 0.0
+  top_p: 0.7
+  seed: 42
   max_retries: 5
   reasoning_effort: none
   disable_thinking: true

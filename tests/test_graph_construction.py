@@ -48,6 +48,13 @@ def test_parse_ops_valid_array():
     assert ops[0]["op"] == "Skip"
 
 
+def test_parse_ops_valid_object_envelope():
+    response = '{"ops": [{"op": "Skip", "reason": "nothing"}]}'
+    ops = _parse_ops(response)
+    assert len(ops) == 1
+    assert ops[0]["op"] == "Skip"
+
+
 def test_parse_ops_embedded_in_text():
     response = 'Here are the ops:\n[{"op": "Skip", "reason": "x"}]\nDone.'
     ops = _parse_ops(response)

@@ -52,8 +52,9 @@ Each node in the subgraph is shown as [XXXXXXXX] (first 8 chars of its UUID). \
 Use these 8-char prefixes when referencing existing nodes. \
 Use NEW_<name> when referencing a node you are about to create (e.g. NEW_Person, NEW_Event1).
 
-[Available Operations — output as a JSON array]
-Each operation is a JSON object with an "op" field plus operation-specific fields.
+[Available Operations — output as JSON]
+Output a single JSON object with key "ops". "ops" is an array of operation objects.
+Each operation object has an "op" field plus operation-specific fields.
 
 Construction (new structure):
   {"op": "CreateEntity", "id": "NEW_<label>", "canonical_name": "...", "aliases": ["alt name", ...], "attrs": {"key": "value"}}
@@ -155,12 +156,14 @@ Good: {"op":"Link","src":"NEW_Person","dst":"NEW_Event","family":"entity-event",
 Good: {"op":"Link","src":"NEW_Object","dst":"NEW_Event","family":"entity-event","predicate":"object_of"}
 
 [Output format]
-Return a single valid JSON array. Example:
-[
-  {"op": "CreateEntity", "id": "NEW_Person", "canonical_name": "<person name>", "aliases": [], "attrs": {}},
-  {"op": "CreateEvent",  "id": "NEW_Event", "canonical_name": "<subject action object>", "attrs": {"fact": "<self-contained fact sentence>", "quote": "<short exact source quote>", "source": ["<turn_id>"], "time": "<compatibility time if useful>"}},
-  {"op": "Link", "src": "NEW_Person", "dst": "NEW_Event", "family": "entity-event", "predicate": "participant"}
-]\
+Return a single valid JSON object. Example:
+{
+  "ops": [
+    {"op": "CreateEntity", "id": "NEW_Person", "canonical_name": "<person name>", "aliases": [], "attrs": {}},
+    {"op": "CreateEvent",  "id": "NEW_Event", "canonical_name": "<subject action object>", "attrs": {"fact": "<self-contained fact sentence>", "quote": "<short exact source quote>", "source": ["<turn_id>"], "time": "<compatibility time if useful>"}},
+    {"op": "Link", "src": "NEW_Person", "dst": "NEW_Event", "family": "entity-event", "predicate": "participant"}
+  ]
+}\
 """
 
 _USER_PROMPT = """\
@@ -212,7 +215,7 @@ class GraphConstructor:
                 turn_text=turn_text,
             )},
         ]
-        response = self.llm.complete(messages)
+        response = self.llm.complete(messages, json_mode=True)
         ops = _parse_ops(response)
         logger.debug(f"GraphConstructor: {len(ops)} operations parsed.")
         return self._execute_ops(ops, local_subgraph, turn_text, context)
@@ -491,34 +494,69 @@ class GraphConstructor:
 # ---------------------------------------------------------------------------
 
 def _parse_ops(response: str) -> List[Dict]:
-    """Extract a JSON array of operations from LLM response.
+    """Extract graph operations from an LLM JSON response.
 
     Tries JSON first; falls back to ast.literal_eval for Python-dict style output.
+    Supports both the current {"ops": [...]} envelope and legacy top-level arrays.
     """
     import ast
 
-    # Find the outermost [...] block
+    def _coerce_ops(parsed: Any) -> List[Dict] | None:
+        if isinstance(parsed, dict) and isinstance(parsed.get("ops"), list):
+            return parsed["ops"]
+        if isinstance(parsed, list):
+            return parsed
+        return None
+
+    text = str(response or "").strip()
+    if not text:
+        logger.warning("GraphConstructor: empty response.")
+        return []
+
+    try:
+        ops = _coerce_ops(json.loads(text))
+        if ops is not None:
+            return ops
+    except json.JSONDecodeError:
+        pass
+
+    # Find an enveloped object first, then a legacy [...] block.
+    m = re.search(r"\{.*\}", response, re.DOTALL)
+    if m:
+        raw = m.group()
+        try:
+            ops = _coerce_ops(json.loads(raw))
+            if ops is not None:
+                return ops
+        except json.JSONDecodeError:
+            pass
+        try:
+            ops = _coerce_ops(ast.literal_eval(raw))
+            if ops is not None:
+                logger.debug("GraphConstructor: parsed object via ast.literal_eval fallback.")
+                return ops
+        except (ValueError, SyntaxError, TypeError):
+            pass
+
     m = re.search(r"\[.*\]", response, re.DOTALL)
     if not m:
-        logger.warning("GraphConstructor: no JSON array found in response.")
+        logger.warning("GraphConstructor: no JSON ops found in response.")
         return []
 
     raw = m.group()
 
     # Attempt 1: strict JSON
     try:
-        ops = json.loads(raw)
-        if isinstance(ops, list):
+        ops = _coerce_ops(json.loads(raw))
+        if ops is not None:
             return ops
-        logger.warning("GraphConstructor: parsed JSON is not a list.")
-        return []
     except json.JSONDecodeError:
         pass
 
     # Attempt 2: Python literal (single-quoted dicts)
     try:
-        ops = ast.literal_eval(raw)
-        if isinstance(ops, list):
+        ops = _coerce_ops(ast.literal_eval(raw))
+        if ops is not None:
             logger.debug("GraphConstructor: parsed via ast.literal_eval fallback.")
             return ops
     except (ValueError, SyntaxError, TypeError):

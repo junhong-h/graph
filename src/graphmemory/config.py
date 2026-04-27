@@ -39,6 +39,8 @@ class GraphConfig:
 class LLMConfig:
     model: str = "gpt-4o"
     temperature: float = 0.0
+    top_p: float | None = None
+    seed: int | None = None
     max_retries: int = 5
     reasoning_effort: str = ""
     disable_thinking: bool = False

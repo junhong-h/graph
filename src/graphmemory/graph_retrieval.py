@@ -335,16 +335,20 @@ class GraphRetriever:
         prompt = (
             "Given the question and the candidate subgraph below, pick the 1-3 nodes "
             "that are most likely to contain or lead to the answer. "
-            "Return ONLY a JSON array of 8-char node IDs, e.g. [\"ab12cd34\", \"ef56gh78\"]. "
+            "Return ONLY a JSON object with key \"anchors\", e.g. "
+            "{\"anchors\": [\"ab12cd34\", \"ef56gh78\"]}. "
             "Do not include any other text.\n\n"
             f"Question: {question}\n\n"
             f"Candidate subgraph:\n{subgraph_text}"
         )
         try:
-            response = self.llm.complete([{"role": "user", "content": prompt}])
-            m = re.search(r"\[.*?\]", response, re.DOTALL)
-            if m:
-                prefixes = json.loads(m.group())
+            response = self.llm.complete([{"role": "user", "content": prompt}], json_mode=True)
+            payload = _parse_json_payload(response)
+            prefixes = payload.get("anchors", []) if isinstance(payload, dict) else []
+            if not prefixes:
+                m = re.search(r"\[.*?\]", response, re.DOTALL)
+                prefixes = json.loads(m.group()) if m else []
+            if prefixes:
                 if isinstance(prefixes, list) and prefixes:
                     # Resolve 8-char prefixes to full node_ids
                     resolved = []
@@ -591,7 +595,7 @@ class GraphRetriever:
             {"role": "system", "content": system},
             {"role": "user",   "content": _USER_PROMPT.format(question=question)},
         ]
-        return self.llm.complete(messages)
+        return self.llm.complete(messages, json_mode=True)
 
 
 # ---------------------------------------------------------------------------
@@ -600,17 +604,43 @@ class GraphRetriever:
 
 def _parse_action(response: str) -> Tuple[str, Dict]:
     """Extract {"action": ..., ...} from LLM response."""
-    m = re.search(r"\{.*\}", response, re.DOTALL)
-    if not m:
+    data = _parse_json_payload(response)
+    if not isinstance(data, dict):
         logger.warning(f"No JSON object in retrieval response: {response[:80]!r}")
         return "finish", {"answer": response.strip()}
+    action = data.pop("action", "finish")
+    return action, data
+
+
+def _parse_json_payload(response: str) -> Any:
+    """Parse a JSON value from a plain or fenced LLM response."""
+    text = str(response or "").strip()
+    if not text:
+        return None
     try:
-        data = json.loads(m.group())
-        action = data.pop("action", "finish")
-        return action, data
+        return json.loads(text)
     except json.JSONDecodeError:
-        logger.warning("Failed to parse retrieval action JSON.")
-        return "finish", {"answer": ""}
+        pass
+    fence = re.search(r"```(?:json)?\s*(.*?)\s*```", text, re.DOTALL | re.IGNORECASE)
+    if fence:
+        try:
+            return json.loads(fence.group(1).strip())
+        except json.JSONDecodeError:
+            pass
+    m = re.search(r"\{.*\}", text, re.DOTALL)
+    if m:
+        try:
+            return json.loads(m.group())
+        except json.JSONDecodeError:
+            logger.warning("Failed to parse retrieval JSON object.")
+            return None
+    m = re.search(r"\[.*\]", text, re.DOTALL)
+    if m:
+        try:
+            return json.loads(m.group())
+        except json.JSONDecodeError:
+            return None
+    return None
 
 
 def _parse_relation_families(family: str) -> Optional[Set[str]]:

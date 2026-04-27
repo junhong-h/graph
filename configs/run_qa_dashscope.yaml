@@ -24,6 +24,8 @@ llm:
   # Read from OPENAI_API_KEY.
   base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
   temperature: 0.0
+  top_p: 0.7
+  seed: 42
   max_retries: 5
   disable_thinking: true
   use_extra_body_thinking: true
