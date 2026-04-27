@@ -149,6 +149,9 @@ knowledge graph and retrieving raw conversation turns.
   The EXACT fact must be explicitly stated in the conversation. When in doubt, choose
   "Not mentioned in the conversation" over a concrete answer.
 - When max hops are reached you MUST call finish with your best guess.
+- Before outputting "finish", verify that your answer is explicitly supported by the
+  graph evidence or raw turns you have collected. Do NOT finish based on inference
+  from related context, semantic similarity, or general world knowledge.
 - Do NOT output any text outside the JSON object.
 
 [Answer format]

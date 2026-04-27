@@ -516,3 +516,73 @@ def test_malformed_response_returns_empty_log(tmp_path):
     log = gc.run("...", {"nodes": {}, "edges": []})
     assert log == []
     assert graph.node_count() == 0
+
+
+# ---------------------------------------------------------------------------
+# Batch-level Skip recovery (per-turn retry)
+# ---------------------------------------------------------------------------
+
+def test_batch_skip_triggers_per_turn_retry(tmp_path):
+    """When the LLM returns a batch-level Skip on a multi-turn batch, the
+    constructor must re-invoke the LLM per turn so embedded facts are not lost."""
+    graph = _make_graph(tmp_path)
+    llm = MagicMock()
+    llm.complete.side_effect = [
+        # First call (batch-level): Skip everything
+        json.dumps([{"op": "Skip", "reason": "looks like pleasantries"}]),
+        # Per-turn retries
+        json.dumps([{"op": "CreateEntity", "id": "NEW_P", "canonical_name": "Doll", "aliases": [], "attrs": {}}]),
+        json.dumps([{"op": "Skip", "reason": "actually filler"}]),
+    ]
+    gc = GraphConstructor(llm, graph)
+
+    batch_text = (
+        "[turn_id=t1; speaker=John]\nI had a little doll like this.\n\n"
+        "[turn_id=t2; speaker=Maria]\nThat's nice."
+    )
+    ctx = ConstructionContext(batch_id="b1", batch_turn_ids=["t1", "t2"])
+    log = gc.run(batch_text, {"nodes": {}, "edges": []}, context=ctx)
+
+    # Three LLM calls total: batch + 2 per-turn
+    assert llm.complete.call_count == 3
+    # Marker entry from batch-skip recovery
+    assert log[0]["op"] == "BatchSkipRecovery"
+    assert log[0]["n_turns"] == 2
+    # Per-turn ops are flagged
+    per_turn_ops = [op for op in log if op.get("per_turn_recovery")]
+    assert any(op.get("op") == "CreateEntity" for op in per_turn_ops)
+    # The recovered entity made it into the graph
+    assert graph.node_count() == 1
+
+
+def test_batch_skip_no_retry_for_single_turn(tmp_path):
+    """A single-turn batch that gets Skipped should NOT trigger per-turn retry."""
+    gc, graph = _make_constructor(
+        tmp_path,
+        json.dumps([{"op": "Skip", "reason": "nothing concrete"}]),
+    )
+    ctx = ConstructionContext(batch_id="b1", batch_turn_ids=["t1"])
+    log = gc.run("[turn_id=t1; speaker=John]\nHi.", {"nodes": {}, "edges": []}, context=ctx)
+
+    # Only one LLM call; original Skip preserved
+    assert gc.llm.complete.call_count == 1
+    assert log == [{"op": "Skip", "status": "ok", "reason": "nothing concrete"}]
+
+
+def test_batch_with_real_ops_does_not_retry(tmp_path):
+    """If the batch already produced real ops, no recovery is triggered."""
+    gc, graph = _make_constructor(
+        tmp_path,
+        json.dumps([
+            {"op": "CreateEntity", "id": "NEW_P", "canonical_name": "Doll", "aliases": [], "attrs": {}},
+        ]),
+    )
+    ctx = ConstructionContext(batch_id="b1", batch_turn_ids=["t1", "t2"])
+    log = gc.run(
+        "[turn_id=t1; speaker=John]\nI had a doll.\n\n[turn_id=t2; speaker=Maria]\nNice.",
+        {"nodes": {}, "edges": []},
+        context=ctx,
+    )
+    assert gc.llm.complete.call_count == 1
+    assert any(op.get("op") == "CreateEntity" for op in log)
+    assert not any(op.get("op") == "BatchSkipRecovery" for op in log)

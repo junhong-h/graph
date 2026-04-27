@@ -128,10 +128,11 @@ stated by the source. Keep any legacy "time" attr as a rough compatibility field
 7. Link/AddEdge: choose the correct family (entity-event / entity-entity / event-event). \
 Most factual links should be entity-event. Use entity-entity only for stable relationships, \
 and event-event only for real temporal, update, or causal links.
-8. Output Skip if the excerpt is pure pleasantries OR only generic opinion/value statements with \
-   no concrete personal fact to remember. Preserve factual details, but do not graph broad \
-   affirmations like "kindness matters", "animals are amazing", or "we should stay positive" \
-   unless the utterance also states a specific person, object, event, decision, or preference.
+8. Output Skip ONLY if every turn in the excerpt contains no concrete personal fact whatsoever. \
+   When in doubt, do NOT skip — extracting a low-value fact is recoverable, skipping a high-value \
+   fact is not. Preserve factual details, but do not graph broad affirmations like \
+   "kindness matters", "animals are amazing", or "we should stay positive" unless the utterance \
+   also states a specific person, object, event, decision, or preference.
 9. Do NOT output explanatory text — output ONLY the JSON array.
 10. VOCABULARY PRESERVATION: For emotional words, adjectives, metaphors, similes, and \
 direct quotes, copy the EXACT original wording into attrs — do NOT paraphrase or generalize. \
@@ -206,7 +207,35 @@ class GraphConstructor:
         """
         Prompt the LLM with turn_text + local_subgraph, parse the operations,
         execute them against self.graph, and return the executed operation log.
+
+        If the LLM returns a batch-level Skip (all ops are Skip) and the batch
+        contains multiple turns, retry per-turn so a single embedded fact does
+        not get dropped together with surrounding pleasantries.
         """
+        op_log = self._call_llm_and_execute(turn_text, local_subgraph, context)
+
+        if (
+            self._is_batch_skip(op_log)
+            and context is not None
+            and context.batch_turn_ids
+            and len(context.batch_turn_ids) > 1
+        ):
+            turn_blocks = self._split_batch_turns(turn_text)
+            if len(turn_blocks) > 1:
+                logger.debug(
+                    f"GraphConstructor: batch-level Skip detected for "
+                    f"{context.batch_id}; retrying per-turn ({len(turn_blocks)} turns)."
+                )
+                op_log = self._retry_per_turn(turn_blocks, local_subgraph, context, op_log)
+
+        return op_log
+
+    def _call_llm_and_execute(
+        self,
+        turn_text: str,
+        local_subgraph: Dict[str, Any],
+        context: ConstructionContext | None,
+    ) -> List[Dict]:
         subgraph_text = format_subgraph(local_subgraph) if local_subgraph.get("nodes") else "(empty)"
         messages = [
             {"role": "system", "content": _SYSTEM_PROMPT},
@@ -219,6 +248,46 @@ class GraphConstructor:
         ops = _parse_ops(response)
         logger.debug(f"GraphConstructor: {len(ops)} operations parsed.")
         return self._execute_ops(ops, local_subgraph, turn_text, context)
+
+    @staticmethod
+    def _is_batch_skip(op_log: List[Dict]) -> bool:
+        """True if op_log contains only Skip ops (batch-level skip)."""
+        if not op_log:
+            return False
+        return all(op.get("op") == "Skip" for op in op_log)
+
+    @staticmethod
+    def _split_batch_turns(turn_text: str) -> List[str]:
+        """Split a batch_text built by '\\n\\n'.join(turn_blocks) back into
+        individual turn blocks. Each block keeps its [turn_id=...] header."""
+        return [b for b in turn_text.split("\n\n") if b.strip()]
+
+    def _retry_per_turn(
+        self,
+        turn_blocks: List[str],
+        local_subgraph: Dict[str, Any],
+        context: ConstructionContext,
+        original_skip_log: List[Dict],
+    ) -> List[Dict]:
+        """Re-call the LLM independently for each turn in the batch.
+
+        local_subgraph is reused across per-turn calls; downstream graph state
+        (self.graph) is shared so later per-turn calls can still observe nodes
+        materialized by earlier per-turn calls via _execute_ops side effects.
+        """
+        merged: List[Dict] = []
+        merged.append({
+            "op": "BatchSkipRecovery",
+            "status": "ok",
+            "reason": (original_skip_log[0].get("reason", "") if original_skip_log else ""),
+            "n_turns": len(turn_blocks),
+        })
+        for turn_block in turn_blocks:
+            single_log = self._call_llm_and_execute(turn_block, local_subgraph, context)
+            for entry in single_log:
+                entry["per_turn_recovery"] = True
+            merged.extend(single_log)
+        return merged
 
     # ------------------------------------------------------------------
     # Execution
