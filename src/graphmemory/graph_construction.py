@@ -64,10 +64,9 @@ do NOT specify it.
 
 [Rules]
 1. Always reuse existing nodes before creating new ones. EnsureEntity/EnsureEvent are idempotent.
-2. EnsureEntity for every named person, animal, place, organization, or object mentioned \
-in the conversation — including secondary characters who are only mentioned, not the main speakers. \
-Examples: a friend's name, a pet's name, a city, a company. \
-Do NOT create Entity nodes for abstract virtues, slogans, or generic unnamed categories.
+2. EnsureEntity for every named entity in the conversation — anything referred to by a \
+proper name that could be a direct answer to a memory question. \
+Do NOT create Entity nodes for unnamed or generic concepts.
 3. EnsureEvent for concrete personal facts that may need to be recalled: activities, possessions, \
 trips, achievements, plans, relationships, health/work/school changes, dated occurrences. \
 attrs.fact is required — write a self-contained sentence that includes the session date as context. \
@@ -78,9 +77,8 @@ Do NOT create Events for: \
   (a) social reactions — thanking, praising, encouraging, admiring, or reacting to news; \
   (b) abstract values or beliefs — aspirations, life philosophies, general attitudes; \
   (c) conversational acts — sharing a photo, mentioning something, having a discussion.
-4. For any fact involving a named person or animal: always EnsureEntity for them first, \
-then create the Event, then Relate the Entity to the Event. Never bury a named character \
-only inside an Event's fact text — they must have their own Entity node.
+4. Every named entity involved in an event must have its own Entity node and be Related to \
+the Event. Do not bury named entities only inside an Event's fact text.
 5. Every EnsureEvent MUST be followed by at least one Relate to a relevant Entity. \
 Entity↔Event predicates: participant / experienced / owns / attended / visited / decided / \
 started / achieved / object_of. Event→Event predicates: before / after / updates / inspired.
