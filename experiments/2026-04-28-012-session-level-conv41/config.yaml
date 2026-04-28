@@ -1,0 +1,38 @@
+experiment:
+  id: "2026-04-28-012"
+  name: "session-level-conv41"
+  description: "以整个 session 为单位建图（k_turns=999），减少 LLM 调用次数，改善 entity 跨 turn 复用；conv-41 对比 011"
+  branch: "fact-first-construction"
+  commit: "85af0c8"
+  based_on: "2026-04-28-011"
+
+data_path: data/locomo/locomo10.json
+dataset_name: locomo
+sample_ids: [conv-41]
+
+build:
+  from_scratch: true
+  k_turns: 999
+
+graph:
+  seed_top_k: 5
+  max_hops: 2
+  max_nodes: 20
+  max_edges: 30
+  retrieval_max_hop: 3
+  jump_budget: 5
+  final_answer_compression: false
+
+memory:
+  retrieval_topk: 5
+
+llm:
+  model: qwen3-4b
+  base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+  temperature: 0.0
+  top_p: 0.7
+  seed: 42
+  max_retries: 5
+  disable_thinking: true
+  use_extra_body_thinking: true
+  # api_key: read from OPENAI_API_KEY env var
