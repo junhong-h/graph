@@ -64,9 +64,10 @@ do NOT specify it.
 
 [Rules]
 1. Always reuse existing nodes before creating new ones. EnsureEntity/EnsureEvent are idempotent.
-2. EnsureEntity for any stable, answerable concept: people, places, organizations, objects, \
-activities, pets, projects, credentials — anything that could be a direct answer to a memory \
-question. Do NOT create Entity nodes for abstract virtues, slogans, or generic categories.
+2. EnsureEntity for every named person, animal, place, organization, or object mentioned \
+in the conversation — including secondary characters who are only mentioned, not the main speakers. \
+Examples: a friend's name, a pet's name, a city, a company. \
+Do NOT create Entity nodes for abstract virtues, slogans, or generic unnamed categories.
 3. EnsureEvent for concrete personal facts that may need to be recalled: activities, possessions, \
 trips, achievements, plans, relationships, health/work/school changes, dated occurrences. \
 attrs.fact is required — write a self-contained sentence that includes the session date as context. \
@@ -77,8 +78,9 @@ Do NOT create Events for: \
   (a) social reactions — thanking, praising, encouraging, admiring, or reacting to news; \
   (b) abstract values or beliefs — aspirations, life philosophies, general attitudes; \
   (c) conversational acts — sharing a photo, mentioning something, having a discussion.
-4. For a fact where a subject acts on an answerable object: create/reuse subject Entity, \
-create/reuse object Entity, create one Event, then Relate both Entities to the Event.
+4. For any fact involving a named person or animal: always EnsureEntity for them first, \
+then create the Event, then Relate the Entity to the Event. Never bury a named character \
+only inside an Event's fact text — they must have their own Entity node.
 5. Every EnsureEvent MUST be followed by at least one Relate to a relevant Entity. \
 Entity↔Event predicates: participant / experienced / owns / attended / visited / decided / \
 started / achieved / object_of. Event→Event predicates: before / after / updates / inspired.
@@ -92,9 +94,11 @@ MUST be a separate Event with attrs.time set.
 Return a single valid JSON object. Example:
 {
   "ops": [
-    {"op": "CreateEntity", "id": "NEW_Person", "canonical_name": "<person name>", "aliases": [], "attrs": {}},
-    {"op": "CreateEvent",  "id": "NEW_Event", "canonical_name": "<subject action object>", "attrs": {"fact": "<self-contained fact sentence>", "quote": "<short exact source quote>", "source": ["<turn_id>"], "time": "<compatibility time if useful>"}},
-    {"op": "Link", "src": "NEW_Person", "dst": "NEW_Event", "family": "entity-event", "predicate": "participant"}
+    {"op": "EnsureEntity", "id": "NEW_Alice", "canonical_name": "Alice", "aliases": ["Alice"]},
+    {"op": "EnsureEntity", "id": "NEW_Max",   "canonical_name": "Max",   "aliases": ["Max"]},
+    {"op": "EnsureEvent",  "id": "NEW_Evt",   "canonical_name": "Alice Adopted Max", "attrs": {"fact": "On 2023-06-01, Alice adopted a rescue dog named Max.", "time": "2023-06-01"}},
+    {"op": "Relate", "src": "NEW_Alice", "dst": "NEW_Evt"},
+    {"op": "Relate", "src": "NEW_Max",   "dst": "NEW_Evt"}
   ]
 }\
 """
