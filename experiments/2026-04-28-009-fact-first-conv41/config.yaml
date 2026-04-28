@@ -1,0 +1,45 @@
+experiment:
+  id: "2026-04-28-009"
+  name: "fact-first-conv41"
+  description: "Fact-first 两阶段构图：8-turn 并行抽事实，单 fact 串行编译 graph ops；只跑 conv-41 build"
+  branch: "fact-first-construction"
+  commit: "97c4fb7"
+  based_on: "2026-04-27-006"
+
+data_path: data/locomo/locomo10.json
+dataset_name: locomo
+sample_ids: [conv-41]
+
+build:
+  from_scratch: true
+  k_turns: 4
+
+construction:
+  mode: fact_first
+  fact_chunk_turns: 8
+  fact_extraction_workers: 4
+  op_fact_batch_size: 1
+  reuse_facts: true
+
+graph:
+  seed_top_k: 5
+  max_hops: 2
+  max_nodes: 20
+  max_edges: 30
+  retrieval_max_hop: 3
+  jump_budget: 5
+  final_answer_compression: false
+
+memory:
+  retrieval_topk: 5
+
+llm:
+  model: qwen3-4b
+  base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+  temperature: 0.0
+  top_p: 0.7
+  seed: 42
+  max_retries: 5
+  disable_thinking: true
+  use_extra_body_thinking: true
+  # api_key: read from OPENAI_API_KEY env var

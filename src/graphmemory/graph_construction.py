@@ -45,116 +45,48 @@ from graphmemory.llm_client import LLMClient
 
 _SYSTEM_PROMPT = """\
 You are a graph-memory editor. Given a conversation excerpt and the current local subgraph, \
-output a sequence of graph edit operations.
+output graph edit operations as a JSON object {"ops": [...]}.
 
-[Node ID convention]
-Each node in the subgraph is shown as [XXXXXXXX] (first 8 chars of its UUID). \
-Use these 8-char prefixes when referencing existing nodes. \
-Use NEW_<name> when referencing a node you are about to create (e.g. NEW_Person, NEW_Event1).
+[Node IDs]
+Existing nodes are shown as [XXXXXXXX] (8-char UUID prefix) — use these to reference them. \
+Use NEW_<label> for nodes you are creating.
 
-[Available Operations — output as JSON]
-Output a single JSON object with key "ops". "ops" is an array of operation objects.
-Each operation object has an "op" field plus operation-specific fields.
+[Operations]
+{"op": "EnsureEntity", "id": "NEW_<label>", "canonical_name": "...", "aliases": [...]}
+{"op": "EnsureEvent",  "id": "NEW_<label>", "canonical_name": "...", "attrs": {"fact": "On <session date>, <speaker> <fact>.", "time": "<event date or period if known>"}}
+{"op": "Relate",       "src": "<id>", "dst": "<id>", "predicate": "..."}
+{"op": "AttachAttr",   "node": "<8-char-id>", "key": "...", "value": "..."}
+{"op": "MergeNode",    "src": "<8-char-id>", "dst": "<8-char-id>"}
+{"op": "Skip",         "reason": "..."}
 
-Construction (new structure):
-  {"op": "CreateEntity", "id": "NEW_<label>", "canonical_name": "...", "aliases": ["alt name", ...], "attrs": {"key": "value"}}
-  {"op": "CreateEvent",  "id": "NEW_<label>", "canonical_name": "...", "attrs": {"fact": "self-contained factual sentence", "quote": "short source quote", "source": ["turn_id"], "time": "YYYY-MM-DD or description", "key": "value"}}
-  {"op": "Link",         "src": "<id>", "dst": "<id>", "family": "entity-event|entity-entity|event-event", "predicate": "..."}
-  {"op": "AttachAttr",   "node": "<8-char-id>", "key": "...", "value": "..."}
-  {"op": "Skip",         "reason": "..."}
+Edge family (entity-event / event-event / entity-entity) is auto-inferred from node types — \
+do NOT specify it.
 
-Update (align with existing graph):
-  {"op": "MergeNode",    "src": "<8-char-id>", "dst": "<8-char-id>"}
-  {"op": "ReviseAttr",   "node": "<8-char-id>", "key": "...", "value": "..."}
-  {"op": "AddEdge",      "src": "<8-char-id>", "dst": "<8-char-id>", "family": "...", "predicate": "..."}
-  {"op": "DeleteEdge",   "edge": "<8-char-edge-id>"}
-  {"op": "PruneNode",    "node": "<8-char-id>"}
-  {"op": "KeepSeparate", "node_a": "<8-char-id>", "node_b": "<8-char-id>", "reason": "..."}
-
-[Decision rules]
-0. INPUT FORMAT: Each turn may be formatted as:
-   [turn_id=...; speaker=...; listener=...; session_time=...]
-   utterance text
-   The bracketed header is metadata only. Do NOT create Events for the header, speaker/listener,
-   or the act of talking. Use speaker as the default subject for first-person utterances, and use
-   session_time only as a time anchor/default when the utterance gives no better event time.
-   Extract graph facts only from the utterance text after the header.
-1. ALWAYS reuse existing nodes from the subgraph before creating new ones — check names carefully.
-2. CreateEntity for stable answerable objects or concepts, not only people. \
-Examples include classes, books, songs, cities, diseases, hobbies, projects, pets, family members, \
-organizations, causes, places, foods, certificates/degrees, and important objects. \
-If a phrase could be the direct answer to a QA question, you MUST create/reuse an Entity for it. \
-This includes named activities, named places, named pets, specific causes, specific items, and \
-specific credentials or awards.
-Do NOT create Entity nodes for generic categories, slogans, virtues, or verb phrases unless the \
-conversation names them as a specific reusable thing.
-2b. Do NOT create generic session-container nodes like "<Person A> and <Person B> chat on <date>". \
-Every CreateEvent MUST represent a SPECIFIC fact, activity, trip, or occurrence — not a session summary. \
-Bad:  {"op": "CreateEvent", "canonical_name": "<Person A> and <Person B> chat", ...} \
-Bad:  {"op": "CreateEvent", "canonical_name": "<date> conversation", ...} \
-Bad:  {"op": "CreateEvent", "canonical_name": "<Person A> and <Person B> discuss <topic>", ...} \
-Bad:  {"op": "CreateEvent", "canonical_name": "<Person A> speaks to <Person B>", ...} \
-Good: {"op": "CreateEvent", "canonical_name": "<subject> <action> <object>", "attrs": {"time": "<event time>", ...}} \
-If a turn only says that one speaker talked to another speaker, do NOT create an Event. If the turn \
-contains facts, extract those underlying facts as separate Events.
-2c. Event nodes represent "who did/experienced/said/planned what, when". \
-Entity nodes represent reusable answer values. \
-Create an Event only when the utterance contains a concrete personal fact, state change, plan, \
-achievement, preference, relationship, possession, trip, activity, or incident that may later need \
-to be recalled. Do NOT create Events for generic opinions, inspirational slogans, broad values, \
-or abstract agreement without a concrete answerable detail.
-For a statement where a subject does an activity involving an answerable object, create/reuse \
-the subject Entity, create/reuse the object Entity, then create one Event linking both.
-2d. NEVER store answerable activities/objects as comma-separated attrs on a person Entity. \
-Bad: AttachAttr <person> activity="<activity 1>, <activity 2>, <activity 3>". \
-Good: create/reuse each answerable activity/object as an Entity, create a specific Event for each \
-fact, and link the subject and object Entities to that Event.
-3. Every Event node MUST have attrs.fact, attrs.quote, and attrs.source. \
-fact is a self-contained factual sentence that can be understood without reading the original turn. \
-quote is the shortest exact source text that supports the fact. source is the supporting turn_id list.
-If the input header has session_time, attrs.fact MUST include that mention time as context, usually \
-as "On <session date/time>, <speaker> said ...". \
-3b. If the source uses relative time ("last night", "last month", "two weeks ago", "for 10 years"), \
-write the relation into attrs.fact with the mention date from the turn header. Do NOT rewrite a \
-relative-time fact as if it happened on the mention date. Do NOT infer exact dates unless directly \
-stated by the source. Keep any legacy "time" attr as a rough compatibility field only.
-4. For Event-Event edges with chronological order, use predicate "before" or "after". \
-   Use "updates" when an event revises a prior one. Use "inspired" only for causal/creative links.
-4b. For event-event edges ONLY use these predicates: before / after / updates / inspired. \
-    Do NOT use: discussed / mentions / followed_by / spoke_to / participated / related_to. \
-    If two events are temporally ordered, always prefer "before" or "after" over any other label.
-5. Use MergeNode when two nodes clearly refer to the same real-world object.
-6. Use KeepSeparate when nodes are similar but distinct — prevents future erroneous merges.
-7. Link/AddEdge: choose the correct family (entity-event / entity-entity / event-event). \
-Most factual links should be entity-event. Use entity-entity only for stable relationships, \
-and event-event only for real temporal, update, or causal links.
-8. Output Skip ONLY if every turn in the excerpt contains no concrete personal fact whatsoever. \
-   When in doubt, do NOT skip — extracting a low-value fact is recoverable, skipping a high-value \
-   fact is not. Preserve factual details, but do not graph broad affirmations like \
-   "kindness matters", "animals are amazing", or "we should stay positive" unless the utterance \
-   also states a specific person, object, event, decision, or preference.
-9. Do NOT output explanatory text — output ONLY the JSON array.
-10. VOCABULARY PRESERVATION: For emotional words, adjectives, metaphors, similes, and \
-direct quotes, copy the EXACT original wording into attrs — do NOT paraphrase or generalize. \
-Example: if the text says "makes me happy", store attrs: {"feeling": "happy"}, NOT \
-{"feeling": "fulfilling"} or {"feeling": "brings joy"}. \
-If the text says "magical", store "magical", not "stress relief" or "uplifting".
-11. TEMPORAL BEHAVIORS: Any activity or behavior mentioned with a temporal anchor \
-(a date, month, season, or relative marker like "started", "began", "since", "for the first time") \
-MUST become its own separate Event node with the time attr set — do NOT merge it into \
-a broader Event that would lose the time. \
-Example pattern: "<subject> started <activity> in <time>" → separate Event node with \
-attrs: {"time": "<time>", "activity": "<activity>"}.
-12. ENTITY-EVENT LINKING: Every CreateEvent MUST be followed by at least one Link operation \
-connecting it to the relevant Entity node(s) via entity-event family. \
-Choose a specific predicate that describes the relationship: \
-  participant / experienced / took / attended / visited / decided / launched / started / owns / achieved / object_of \
-Avoid generic predicates: spoke_to / discussed / related_to (no semantic value). \
-If an Event has an object that could be an answer value, link that object Entity to the Event too. \
-If you are unsure which entity to link to, create the event node first and link to the closest speaker/entity. \
-Bad:  {"op":"Link","src":"NEW_Person","dst":"NEW_Event","family":"entity-event","predicate":"spoke_to"} \
-Good: {"op":"Link","src":"NEW_Person","dst":"NEW_Event","family":"entity-event","predicate":"participant"} \
-Good: {"op":"Link","src":"NEW_Object","dst":"NEW_Event","family":"entity-event","predicate":"object_of"}
+[Rules]
+1. Always reuse existing nodes before creating new ones. EnsureEntity/EnsureEvent are idempotent.
+2. EnsureEntity for any stable, answerable concept: people, places, organizations, objects, \
+activities, pets, projects, credentials — anything that could be a direct answer to a memory \
+question. Do NOT create Entity nodes for abstract virtues, slogans, or generic categories.
+3. EnsureEvent for concrete personal facts that may need to be recalled: activities, possessions, \
+trips, achievements, plans, relationships, health/work/school changes, dated occurrences. \
+attrs.fact is required — write a self-contained sentence that includes the session date as context. \
+attrs.time is optional — set it when the event has its own specific date or period. \
+If the source uses relative time ("last week", "two years ago"), preserve that phrasing in \
+attrs.fact; do NOT infer or fabricate exact dates. \
+Do NOT create Events for: \
+  (a) social reactions — thanking, praising, encouraging, admiring, or reacting to news; \
+  (b) abstract values or beliefs — aspirations, life philosophies, general attitudes; \
+  (c) conversational acts — sharing a photo, mentioning something, having a discussion.
+4. For a fact where a subject acts on an answerable object: create/reuse subject Entity, \
+create/reuse object Entity, create one Event, then Relate both Entities to the Event.
+5. Every EnsureEvent MUST be followed by at least one Relate to a relevant Entity. \
+Entity↔Event predicates: participant / experienced / owns / attended / visited / decided / \
+started / achieved / object_of. Event→Event predicates: before / after / updates / inspired.
+6. Any activity with a temporal anchor (date, "started", "since", "for the first time") \
+MUST be a separate Event with attrs.time set.
+7. Use MergeNode when two nodes clearly refer to the same real-world object.
+8. Output Skip only when every turn contains only excluded content (a-c above).
+9. Output ONLY the JSON object — no explanatory text.
 
 [Output format]
 Return a single valid JSON object. Example:
@@ -314,7 +246,7 @@ class GraphConstructor:
         for op in ops:
             result = self._dispatch(op, id_map, local_subgraph)
             log.append(result)
-            if result.get("op") == "CreateEvent" and result.get("status") == "ok":
+            if result.get("op") in ("CreateEvent", "EnsureEvent") and result.get("status") == "ok":
                 created_event_ids.append(result["node_id"])
         if context and created_event_ids:
             log.extend(self._repair_created_events(
@@ -333,11 +265,13 @@ class GraphConstructor:
     ) -> Dict:
         name = op.get("op", "")
         try:
-            if name == "CreateEntity":
+            if name in ("EnsureEntity", "CreateEntity"):
                 return self._do_create_node("Entity", op, id_map)
-            elif name == "CreateEvent":
+            elif name in ("EnsureEvent", "CreateEvent"):
                 return self._do_create_node("Event", op, id_map)
-            elif name == "Link":
+            elif name == "Relate":
+                return self._do_relate(op, id_map)
+            elif name == "Link":                        # backward compat
                 return self._do_link(op, id_map)
             elif name == "AttachAttr":
                 return self._do_attach_attr(op, id_map)
@@ -345,18 +279,9 @@ class GraphConstructor:
                 return {"op": "Skip", "status": "ok", "reason": op.get("reason", "")}
             elif name == "MergeNode":
                 return self._do_merge(op, id_map)
-            elif name == "ReviseAttr":
-                return self._do_revise_attr(op, id_map)
-            elif name == "AddEdge":
-                return self._do_add_edge(op, id_map)
-            elif name == "DeleteEdge":
-                return self._do_delete_edge(op, local_subgraph)
-            elif name == "PruneNode":
-                return self._do_prune_node(op, id_map)
-            elif name == "KeepSeparate":
-                return {"op": "KeepSeparate", "status": "ok",
-                        "node_a": op.get("node_a"), "node_b": op.get("node_b"),
-                        "reason": op.get("reason", "")}
+            elif name in ("AddEdge", "ReviseAttr", "DeleteEdge", "PruneNode", "KeepSeparate"):
+                logger.debug(f"Deprecated op ignored: {name}")
+                return {"op": name, "status": "deprecated"}
             else:
                 logger.warning(f"Unknown op: {name}")
                 return {"op": name, "status": "unknown_op"}
@@ -407,6 +332,28 @@ class GraphConstructor:
         logger.debug(f"Created {node_type} '{c_name}' → {node_id[:8]}")
         return {"op": f"Create{node_type}", "status": "ok", "node_id": node_id,
                 "canonical_name": c_name}
+
+    def _do_relate(self, op: Dict, id_map: Dict[str, str]) -> Dict:
+        """Relate: like Link but auto-infers edge family from node types."""
+        src = _resolve(op.get("src", ""), id_map, self.graph)
+        dst = _resolve(op.get("dst", ""), id_map, self.graph)
+        if not src or not dst:
+            return {"op": "Relate", "status": "error",
+                    "error": f"unresolved id: src={op.get('src')} dst={op.get('dst')}"}
+        src_type = (self.graph.get_node(src) or {}).get("type", "")
+        dst_type = (self.graph.get_node(dst) or {}).get("type", "")
+        types = {src_type, dst_type}
+        if types == {"Event"}:
+            family = "event-event"
+        elif "Event" in types and "Entity" in types:
+            family = "entity-event"
+        else:
+            family = "entity-entity"
+        predicate = _normalize_predicate(family, op.get("predicate", "related"))
+        eid = self.graph.add_edge(src, dst, family, predicate)
+        if not eid:
+            return {"op": "Relate", "status": "error", "error": "edge rejected"}
+        return {"op": "Relate", "status": "ok", "edge_id": eid, "family": family}
 
     def _do_link(self, op: Dict, id_map: Dict[str, str]) -> Dict:
         src = _resolve(op.get("src", ""), id_map, self.graph)

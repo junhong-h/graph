@@ -105,18 +105,7 @@ class GraphBuilder:
 
             batch = turns[i : i + self.k_turns]
             batch_turn_ids = [t["turn_id"] for t in batch]
-
-            # Format batch text
-            lines: List[str] = []
-            for turn in batch:
-                spk   = turn.get("speaker", "Unknown")
-                other = speaker_b if spk == speaker_a else speaker_a
-                turn_id = turn.get("turn_id", "")
-                lines.append(
-                    f"[turn_id={turn_id}; speaker={spk}; listener={other}; "
-                    f"session_time={turn_datetime}]\n{turn.get('text', '')}"
-                )
-            batch_text = "\n\n".join(lines)
+            batch_text = _format_batch_text(batch, turn_datetime)
 
             self._process_batch(
                 batch_id=batch_id,
@@ -251,3 +240,17 @@ class GraphBuilder:
             record.update(extra)
         with self.traj_path.open("a", encoding="utf-8") as f:
             f.write(json.dumps(record, ensure_ascii=False, default=str) + "\n")
+
+
+def _format_batch_text(turns: List[Dict[str, Any]], session_time: str) -> str:
+    """Format a batch of turns as a clean dialogue with a single session-time header."""
+    lines: List[str] = []
+    if session_time:
+        lines.append(f"[{session_time}]")
+        lines.append("")
+    for turn in turns:
+        speaker = turn.get("speaker", "?")
+        text = turn.get("text", "").strip()
+        if text:
+            lines.append(f"{speaker}: {text}")
+    return "\n".join(lines)

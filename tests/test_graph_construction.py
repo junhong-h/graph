@@ -232,6 +232,38 @@ def test_link_new_nodes(tmp_path):
     assert graph.edge_count() == 1
 
 
+def test_relate_infers_family_entity_event(tmp_path):
+    ops_json = json.dumps([
+        {"op": "EnsureEntity", "id": "NEW_Jon", "canonical_name": "Jon", "aliases": []},
+        {"op": "EnsureEvent",  "id": "NEW_Mtg", "canonical_name": "Jon attends meeting",
+         "attrs": {"fact": "Jon attended a meeting.", "quote": "I attended a meeting", "source": ["t1"]}},
+        {"op": "Relate", "src": "NEW_Jon", "dst": "NEW_Mtg", "predicate": "attended"},
+    ])
+    gc, graph = _make_constructor(tmp_path, ops_json)
+    log = gc.run("Jon attended a meeting.", {"nodes": {}, "edges": []})
+
+    relate_log = [l for l in log if l["op"] == "Relate"]
+    assert relate_log[0]["status"] == "ok"
+    assert relate_log[0]["family"] == "entity-event"
+    assert graph.edge_count() == 1
+
+
+def test_relate_infers_family_event_event(tmp_path):
+    graph = _make_graph(tmp_path)
+    ev1 = graph.add_node("Event", "Event A")
+    ev2 = graph.add_node("Event", "Event B")
+    llm = MagicMock()
+    llm.complete.return_value = json.dumps([
+        {"op": "Relate", "src": ev1[:8], "dst": ev2[:8], "predicate": "before"},
+    ])
+    gc = GraphConstructor(llm, graph)
+    log = gc.run("A happened before B.", {"nodes": {ev1: graph.get_node(ev1), ev2: graph.get_node(ev2)}, "edges": []})
+
+    relate_log = [l for l in log if l["op"] == "Relate"]
+    assert relate_log[0]["status"] == "ok"
+    assert relate_log[0]["family"] == "event-event"
+
+
 def test_link_unresolved_id(tmp_path):
     ops_json = json.dumps([
         {"op": "Link", "src": "NONEXIST", "dst": "ALSO_MISSING", "family": "entity-event", "predicate": "x"},
@@ -390,7 +422,7 @@ def test_attach_attr_to_existing_node(tmp_path):
     assert graph.get_node(nid)["attrs"]["city"] == "NYC"
 
 
-def test_revise_attr(tmp_path):
+def test_revise_attr_deprecated(tmp_path):
     graph = _make_graph(tmp_path)
     nid = graph.add_node("Entity", "Jon", attrs={"job": "engineer"})
     prefix = nid[:8]
@@ -403,8 +435,8 @@ def test_revise_attr(tmp_path):
     subgraph = {"nodes": {nid: graph.get_node(nid)}, "edges": []}
     log = gc.run("Jon got promoted to manager.", subgraph)
 
-    assert log[0]["status"] == "ok"
-    assert graph.get_node(nid)["attrs"]["job"] == "manager"
+    assert log[0]["status"] == "deprecated"
+    assert graph.get_node(nid)["attrs"]["job"] == "engineer"  # not modified
 
 
 # ---------------------------------------------------------------------------
@@ -434,7 +466,7 @@ def test_merge_node(tmp_path):
 # DeleteEdge
 # ---------------------------------------------------------------------------
 
-def test_delete_edge(tmp_path):
+def test_delete_edge_deprecated(tmp_path):
     graph = _make_graph(tmp_path)
     a = graph.add_node("Entity", "A")
     b = graph.add_node("Event", "B")
@@ -450,15 +482,15 @@ def test_delete_edge(tmp_path):
                 "edges": graph.get_edges()}
     log = gc.run("Edge no longer valid.", subgraph)
 
-    assert log[0]["status"] == "ok"
-    assert graph.edge_count() == 0
+    assert log[0]["status"] == "deprecated"
+    assert graph.edge_count() == 1  # edge preserved
 
 
 # ---------------------------------------------------------------------------
 # PruneNode
 # ---------------------------------------------------------------------------
 
-def test_prune_node(tmp_path):
+def test_prune_node_deprecated(tmp_path):
     graph = _make_graph(tmp_path)
     nid = graph.add_node("Entity", "Redundant")
     prefix = nid[:8]
@@ -471,8 +503,8 @@ def test_prune_node(tmp_path):
     subgraph = {"nodes": {nid: graph.get_node(nid)}, "edges": []}
     log = gc.run("...", subgraph)
 
-    assert log[0]["status"] == "ok"
-    assert graph.get_node(nid) is None
+    assert log[0]["status"] == "deprecated"
+    assert graph.get_node(nid) is not None  # node preserved
 
 
 # ---------------------------------------------------------------------------
@@ -490,7 +522,7 @@ def test_skip(tmp_path):
 # KeepSeparate
 # ---------------------------------------------------------------------------
 
-def test_keep_separate(tmp_path):
+def test_keep_separate_deprecated(tmp_path):
     graph = _make_graph(tmp_path)
     a = graph.add_node("Entity", "Jon Smith")
     b = graph.add_node("Entity", "Jon Jones")
@@ -503,7 +535,7 @@ def test_keep_separate(tmp_path):
     gc = GraphConstructor(llm, graph)
     subgraph = {"nodes": {a: graph.get_node(a), b: graph.get_node(b)}, "edges": []}
     log = gc.run("...", subgraph)
-    assert log[0]["status"] == "ok"
+    assert log[0]["status"] == "deprecated"
     assert graph.node_count() == 2  # no merge happened
 
 
