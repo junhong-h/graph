@@ -1,0 +1,3341 @@
+{
+  "nodes": {
+    "8ce30230-2df6-4466-b3ca-db53fdbe9cbf": {
+      "type": "Entity",
+      "canonical_name": "John",
+      "aliases": [
+        "John"
+      ],
+      "attrs": {},
+      "created_at": "2026-04-28 13:24:23",
+      "updated_at": "2026-04-28 13:30:26"
+    },
+    "3391097b-14b9-42a8-8398-6dfb443f749d": {
+      "type": "Entity",
+      "canonical_name": "Maria",
+      "aliases": [
+        "Maria"
+      ],
+      "attrs": {},
+      "created_at": "2026-04-28 13:24:23",
+      "updated_at": "2026-04-28 13:30:43"
+    },
+    "fe65dc11-83d5-4975-895d-dddbfefb9522": {
+      "type": "Event",
+      "canonical_name": "John's interest in local politics",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2022-12-17, John said he is really hoping to get into local politics.",
+        "time": "2022-12-17",
+        "batch_id": "conv-41_conv_session_1_batch_1",
+        "source_turn_ids": [
+          "conv-41_conv_session_1_D1:5",
+          "conv-41_conv_session_1_D1:6",
+          "conv-41_conv_session_1_D1:7",
+          "conv-41_conv_session_1_D1:8"
+        ],
+        "source": [
+          "conv-41_conv_session_1_D1:5",
+          "conv-41_conv_session_1_D1:6",
+          "conv-41_conv_session_1_D1:7",
+          "conv-41_conv_session_1_D1:8"
+        ],
+        "original_text": "[11:01 am on 17 December, 2022]\n\nMaria: Cool, John. Kickboxing is a perfect way to stay in shape and de-stress. Do you have any goals you're working towards?\nJohn: Yeah Maria, I'm really hoping to get into local politics. I love helping the community and making it a better place.\nMaria: Woohoo, John! That's awesome! Any specific areas you want to tackle?\nJohn: I'm passionate about improving education and infrastructure in our community. Those are my main focuses."
+      },
+      "created_at": "2026-04-28 13:24:33",
+      "updated_at": "2026-04-28 13:24:33"
+    },
+    "6c0ca92f-c117-466b-85bd-072453bf870e": {
+      "type": "Event",
+      "canonical_name": "John's focus on community improvement",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2022-12-17, John said he is passionate about improving education and infrastructure in our community.",
+        "time": "2022-12-17",
+        "batch_id": "conv-41_conv_session_1_batch_1",
+        "source_turn_ids": [
+          "conv-41_conv_session_1_D1:5",
+          "conv-41_conv_session_1_D1:6",
+          "conv-41_conv_session_1_D1:7",
+          "conv-41_conv_session_1_D1:8"
+        ],
+        "source": [
+          "conv-41_conv_session_1_D1:5",
+          "conv-41_conv_session_1_D1:6",
+          "conv-41_conv_session_1_D1:7",
+          "conv-41_conv_session_1_D1:8"
+        ],
+        "original_text": "[11:01 am on 17 December, 2022]\n\nMaria: Cool, John. Kickboxing is a perfect way to stay in shape and de-stress. Do you have any goals you're working towards?\nJohn: Yeah Maria, I'm really hoping to get into local politics. I love helping the community and making it a better place.\nMaria: Woohoo, John! That's awesome! Any specific areas you want to tackle?\nJohn: I'm passionate about improving education and infrastructure in our community. Those are my main focuses."
+      },
+      "created_at": "2026-04-28 13:24:33",
+      "updated_at": "2026-04-28 13:24:33"
+    },
+    "70fdad7a-e674-4b70-83d1-1f917f455c38": {
+      "type": "Entity",
+      "canonical_name": "School",
+      "aliases": [
+        "School"
+      ],
+      "attrs": {},
+      "created_at": "2026-04-28 13:24:37",
+      "updated_at": "2026-04-28 13:24:37"
+    },
+    "c3cb5f7a-c11d-419c-880e-4a349417f2c2": {
+      "type": "Event",
+      "canonical_name": "School funding",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2022-12-17, John said the extra funding enabled needed repairs and renovations, making the learning environment safer and more modern for students.",
+        "time": "2022-12-17",
+        "batch_id": "conv-41_conv_session_1_batch_2",
+        "source_turn_ids": [
+          "conv-41_conv_session_1_D1:9",
+          "conv-41_conv_session_1_D1:10",
+          "conv-41_conv_session_1_D1:11",
+          "conv-41_conv_session_1_D1:12"
+        ],
+        "source": [
+          "conv-41_conv_session_1_D1:9",
+          "conv-41_conv_session_1_D1:10",
+          "conv-41_conv_session_1_D1:11",
+          "conv-41_conv_session_1_D1:12"
+        ],
+        "original_text": "[11:01 am on 17 December, 2022]\n\nMaria: Wow, John! It's great to hear that. Could you tell me what got you interested in those topics?\nJohn: Growing up, I saw how lack of education and crumbling infrastructure affected my neighborhood. I don't want future generations to go through that, so I think schools and infrastructure should be funded properly. Here's a pic of a school last year, after they got the funding.\nMaria: Looks good! How did the extra funding help with building the school?\nJohn: It enabled needed repairs and renovations, making the learning environment safer and more modern for students."
+      },
+      "created_at": "2026-04-28 13:24:37",
+      "updated_at": "2026-04-28 13:24:37"
+    },
+    "618536ea-6f22-4c2d-bcfc-f613ab44eaae": {
+      "type": "Entity",
+      "canonical_name": "Family",
+      "aliases": [
+        "Family"
+      ],
+      "attrs": {},
+      "created_at": "2026-04-28 13:24:56",
+      "updated_at": "2026-04-28 13:24:56"
+    },
+    "d938ba60-d402-4d9c-b43b-765c8df4979e": {
+      "type": "Event",
+      "canonical_name": "Family support",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2022-12-22, John said family's love grounds him and gives him strength, and their support boosts his motivation.",
+        "time": "2022-12-22",
+        "batch_id": "conv-41_conv_session_2_batch_3",
+        "source_turn_ids": [
+          "conv-41_conv_session_2_D2:13",
+          "conv-41_conv_session_2_D2:14",
+          "conv-41_conv_session_2_D2:15",
+          "conv-41_conv_session_2_D2:16"
+        ],
+        "source": [
+          "conv-41_conv_session_2_D2:13",
+          "conv-41_conv_session_2_D2:14",
+          "conv-41_conv_session_2_D2:15",
+          "conv-41_conv_session_2_D2:16"
+        ],
+        "original_text": "[6:10 pm on 22 December, 2022]\n\nMaria: Family's love really grounds us and gives us strength. Their support certainly boosts your motivation.\nJohn: Yeah, they are my rock in tough times and always cheer me on. I'm really thankful for their love. Family time means a lot to me.\nMaria: Wow, John, that playground looks cool! What kind of stuff do you and your family do there?\nJohn: Thanks, Maria! We love climbing, sliding, and playing games. It's an awesome way to connect and have a blast. What do you enjoy doing with your family?"
+      },
+      "created_at": "2026-04-28 13:24:56",
+      "updated_at": "2026-04-28 13:24:56"
+    },
+    "07cd6647-1321-443b-b0d6-74dfeda8422a": {
+      "type": "Event",
+      "canonical_name": "Playground activities",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2022-12-22, John said he and his family enjoy climbing, sliding, and playing games at the playground.",
+        "time": "2022-12-22",
+        "batch_id": "conv-41_conv_session_2_batch_3",
+        "source_turn_ids": [
+          "conv-41_conv_session_2_D2:13",
+          "conv-41_conv_session_2_D2:14",
+          "conv-41_conv_session_2_D2:15",
+          "conv-41_conv_session_2_D2:16"
+        ],
+        "source": [
+          "conv-41_conv_session_2_D2:13",
+          "conv-41_conv_session_2_D2:14",
+          "conv-41_conv_session_2_D2:15",
+          "conv-41_conv_session_2_D2:16"
+        ],
+        "original_text": "[6:10 pm on 22 December, 2022]\n\nMaria: Family's love really grounds us and gives us strength. Their support certainly boosts your motivation.\nJohn: Yeah, they are my rock in tough times and always cheer me on. I'm really thankful for their love. Family time means a lot to me.\nMaria: Wow, John, that playground looks cool! What kind of stuff do you and your family do there?\nJohn: Thanks, Maria! We love climbing, sliding, and playing games. It's an awesome way to connect and have a blast. What do you enjoy doing with your family?"
+      },
+      "created_at": "2026-04-28 13:24:56",
+      "updated_at": "2026-04-28 13:24:56"
+    },
+    "fe6659ac-e735-459b-b77d-4f71ddad3f97": {
+      "type": "Event",
+      "canonical_name": "Family time with Maria",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2022-12-22, Maria said she loves spending time with friends, watching movies, hiking, and having game nights at her place. John agreed that spending time with loved ones is important.",
+        "time": "2022-12-22",
+        "batch_id": "conv-41_conv_session_2_batch_4",
+        "source_turn_ids": [
+          "conv-41_conv_session_2_D2:17",
+          "conv-41_conv_session_2_D2:18",
+          "conv-41_conv_session_2_D2:19",
+          "conv-41_conv_session_2_D2:20"
+        ],
+        "source": [
+          "conv-41_conv_session_2_D2:17",
+          "conv-41_conv_session_2_D2:18",
+          "conv-41_conv_session_2_D2:19",
+          "conv-41_conv_session_2_D2:20"
+        ],
+        "original_text": "[6:10 pm on 22 December, 2022]\n\nMaria: My fam's small, but I love spending time with the friends I have. We usually watch movies, hike, and have game nights at my place. Quality connections matter most to me.\nJohn: Sounds nice, Maria! Spending time with loved ones is important.\nMaria: Definitely, John. They bring us joy, support, and a feeling of being part of something special. We should cherish every moment with them.\nJohn: Yeah Maria, making memories with family is priceless! Life is so much more meaningful when we spend time together. Here's a pic of us at dinner."
+      },
+      "created_at": "2026-04-28 13:25:00",
+      "updated_at": "2026-04-28 13:25:08"
+    },
+    "8f6a6efe-843b-457b-b6d9-62047f1c634c": {
+      "type": "Event",
+      "canonical_name": "Family time with Maria",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2022-12-22, Maria said she loves spending time with friends, watching movies, hiking, and having game nights at her place. John agreed that spending time with loved ones is important.",
+        "time": "2022-12-22",
+        "batch_id": "conv-41_conv_session_2_batch_5",
+        "source_turn_ids": [
+          "conv-41_conv_session_2_D2:21",
+          "conv-41_conv_session_2_D2:22",
+          "conv-41_conv_session_2_D2:23",
+          "conv-41_conv_session_2_D2:24"
+        ],
+        "source": [
+          "conv-41_conv_session_2_D2:21",
+          "conv-41_conv_session_2_D2:22",
+          "conv-41_conv_session_2_D2:23",
+          "conv-41_conv_session_2_D2:24"
+        ],
+        "original_text": "[6:10 pm on 22 December, 2022]\n\nMaria: Woah, that's a nice pic, John! You all obviously had a blast at dinner. Nothing beats getting together with loved ones for a good meal - it makes some awesome memories!\nJohn: Thanks, Maria! Meal times are always fun. Good food, laughs, and chats help us stay close.\nMaria: Yeah, John! It definitely builds a strong bond. Those shared meals really make life enjoyable and meaningful. What did you make?\nJohn: We made pizza! We had so much fun making them together. It was great picking out toppings and sharing a tasty meal with family. Have you made anything lately?"
+      },
+      "created_at": "2026-04-28 13:25:04",
+      "updated_at": "2026-04-28 13:25:08"
+    },
+    "7eb068ea-7ebd-4d3e-b2ab-fbf48e6cb6f8": {
+      "type": "Event",
+      "canonical_name": "John joined a service-focused online group",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-01-01, John said he joined a service-focused online group last week and it's been an emotional ride.",
+        "time": "last week",
+        "batch_id": "conv-41_conv_session_3_batch_0",
+        "source_turn_ids": [
+          "conv-41_conv_session_3_D3:1",
+          "conv-41_conv_session_3_D3:2",
+          "conv-41_conv_session_3_D3:3",
+          "conv-41_conv_session_3_D3:4"
+        ],
+        "source": [
+          "conv-41_conv_session_3_D3:1",
+          "conv-41_conv_session_3_D3:2",
+          "conv-41_conv_session_3_D3:3",
+          "conv-41_conv_session_3_D3:4"
+        ],
+        "original_text": "[8:30 pm on 1 January, 2023]\n\nJohn: Hey Maria, great to chat again! I joined a service-focused online group last week and it's been an emotional ride. Everyone there is incredible with their own inspiring stories. They've opened my eyes to new perspectives, and I'm feeling a sense of connection and purpose with them.\nMaria: Wow, John! That's amazing news. It's great to see you finding such a supportive community that is making a difference.\nJohn: Thanks, Maria! It's great to have a group of people with the same passion for serving. It's been really inspiring sharing stories, advice, and encouragement.\nMaria: That's great to hear! It's always inspiring to share thos things with like-minded individuals. By the way, have you had the chance to meet any of them in person?"
+      },
+      "created_at": "2026-04-28 13:25:14",
+      "updated_at": "2026-04-28 13:25:14"
+    },
+    "7fa6ce03-3830-4fa3-b06b-00e8da73a62f": {
+      "type": "Event",
+      "canonical_name": "John organized a homeless shelter event",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-01-01, John said we held some events and got to meet some people. We went to a homeless shelter to give out food and supplies. Seeing the smiles on their faces, we knew we made a real difference. We also organized a toy drive for kids in need. It was amazing seeing the community come together to spread some joy.",
+        "time": "2023-01-01",
+        "batch_id": "conv-41_conv_session_3_batch_1",
+        "source_turn_ids": [
+          "conv-41_conv_session_3_D3:5",
+          "conv-41_conv_session_3_D3:6",
+          "conv-41_conv_session_3_D3:7",
+          "conv-41_conv_session_3_D3:8"
+        ],
+        "source": [
+          "conv-41_conv_session_3_D3:5",
+          "conv-41_conv_session_3_D3:6",
+          "conv-41_conv_session_3_D3:7",
+          "conv-41_conv_session_3_D3:8"
+        ],
+        "original_text": "[8:30 pm on 1 January, 2023]\n\nJohn: We held some events and got to meet some people. We went to a homeless shelter to give out food and supplies. Seeing the smiles on their faces, we knew we made a real difference. We also organized a toy drive for kids in need. It was amazing seeing the community come together to spread some joy.\nMaria: That sounds great, John. It's nice to see the difference you're making. Do you have any ideas for future projects?\nJohn: We're brainstorming some to help underserved communities get access to education, mentorship, job training, and resume building. The goal is to empower individuals in achieving their aspirations.\nMaria: That's great, John! Empowering individuals through education and mentorship is crucial for helping them reach their goals. Can't wait to see the initiatives you come up with!"
+      },
+      "created_at": "2026-04-28 13:25:21",
+      "updated_at": "2026-04-28 13:25:21"
+    },
+    "7a0ac119-3755-441a-a8a3-7bc5253e580b": {
+      "type": "Event",
+      "canonical_name": "John brainstormed future projects",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-01-01, John said we're brainstorming some to help underserved communities get access to education, mentorship, job training, and resume building. The goal is to empower individuals in achieving their aspirations.",
+        "time": "2023-01-01",
+        "batch_id": "conv-41_conv_session_3_batch_1",
+        "source_turn_ids": [
+          "conv-41_conv_session_3_D3:5",
+          "conv-41_conv_session_3_D3:6",
+          "conv-41_conv_session_3_D3:7",
+          "conv-41_conv_session_3_D3:8"
+        ],
+        "source": [
+          "conv-41_conv_session_3_D3:5",
+          "conv-41_conv_session_3_D3:6",
+          "conv-41_conv_session_3_D3:7",
+          "conv-41_conv_session_3_D3:8"
+        ],
+        "original_text": "[8:30 pm on 1 January, 2023]\n\nJohn: We held some events and got to meet some people. We went to a homeless shelter to give out food and supplies. Seeing the smiles on their faces, we knew we made a real difference. We also organized a toy drive for kids in need. It was amazing seeing the community come together to spread some joy.\nMaria: That sounds great, John. It's nice to see the difference you're making. Do you have any ideas for future projects?\nJohn: We're brainstorming some to help underserved communities get access to education, mentorship, job training, and resume building. The goal is to empower individuals in achieving their aspirations.\nMaria: That's great, John! Empowering individuals through education and mentorship is crucial for helping them reach their goals. Can't wait to see the initiatives you come up with!"
+      },
+      "created_at": "2026-04-28 13:25:21",
+      "updated_at": "2026-04-28 13:25:21"
+    },
+    "1d2a9e26-697e-4dc3-b6bf-d630bdb29791": {
+      "type": "Event",
+      "canonical_name": "John failed military aptitude test",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-01-01, John said he failed the military aptitude test recently and has been feeling stressed out.",
+        "time": "recently",
+        "batch_id": "conv-41_conv_session_3_batch_2",
+        "source_turn_ids": [
+          "conv-41_conv_session_3_D3:9",
+          "conv-41_conv_session_3_D3:10",
+          "conv-41_conv_session_3_D3:11",
+          "conv-41_conv_session_3_D3:12"
+        ],
+        "source": [
+          "conv-41_conv_session_3_D3:9",
+          "conv-41_conv_session_3_D3:10",
+          "conv-41_conv_session_3_D3:11",
+          "conv-41_conv_session_3_D3:12"
+        ],
+        "original_text": "[8:30 pm on 1 January, 2023]\n\nJohn: Thanks, Maria! I'm really excited about them too. I believe that providing the right assistance and resources can make a lasting impact.\nMaria: Yep John, a bit of support can make an amazing change. You're spot on about it, it really is powerful. Keep doing what you're doing, it's really inspiring!\nJohn: Thanks, Maria! I really appreciate your support, It means a lot to me. Especially after I failed the military aptitude test recently, I've been feeling a bit stressed out.\nMaria: No worries, John. I'm here for you and I got your back. Nature's beauty reminds me to slow down and enjoy the small stuff."
+      },
+      "created_at": "2026-04-28 13:25:26",
+      "updated_at": "2026-04-28 13:25:26"
+    },
+    "c0cb9479-d296-4e1c-b281-518ff9c9a5fe": {
+      "type": "Event",
+      "canonical_name": "John handled military aptitude test",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-01-09, John said he tried to stay calm and asked for assistance, which helped him handle the situation and make it back safely.",
+        "time": "2023-01-09",
+        "batch_id": "conv-41_conv_session_4_batch_1",
+        "source_turn_ids": [
+          "conv-41_conv_session_4_D4:5",
+          "conv-41_conv_session_4_D4:6",
+          "conv-41_conv_session_4_D4:7",
+          "conv-41_conv_session_4_D4:8"
+        ],
+        "source": [
+          "conv-41_conv_session_4_D4:5",
+          "conv-41_conv_session_4_D4:6",
+          "conv-41_conv_session_4_D4:7",
+          "conv-41_conv_session_4_D4:8"
+        ],
+        "original_text": "[7:06 pm on 9 January, 2023]\n\nMaria: Yeah John, when stuff like that happens, it's good to tap into our own inner strength. How did you handle it?\nJohn: I tried to stay calm and asked for assistance, which helped me handle the situation and make it back safely.\nMaria: Hey, John that's awesome! You really showed your resilience and resourcefulness. How did you feel afterwards?\nJohn: I felt relieved and grateful to make it through without incident."
+      },
+      "created_at": "2026-04-28 13:26:02",
+      "updated_at": "2026-04-28 13:26:02"
+    },
+    "bf925a6e-5531-4a8c-90d8-3469ae793ff8": {
+      "type": "Event",
+      "canonical_name": "John felt after military aptitude test",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-01-09, John said he felt relieved and grateful to make it through without incident.",
+        "time": "2023-01-09",
+        "batch_id": "conv-41_conv_session_4_batch_1",
+        "source_turn_ids": [
+          "conv-41_conv_session_4_D4:5",
+          "conv-41_conv_session_4_D4:6",
+          "conv-41_conv_session_4_D4:7",
+          "conv-41_conv_session_4_D4:8"
+        ],
+        "source": [
+          "conv-41_conv_session_4_D4:5",
+          "conv-41_conv_session_4_D4:6",
+          "conv-41_conv_session_4_D4:7",
+          "conv-41_conv_session_4_D4:8"
+        ],
+        "original_text": "[7:06 pm on 9 January, 2023]\n\nMaria: Yeah John, when stuff like that happens, it's good to tap into our own inner strength. How did you handle it?\nJohn: I tried to stay calm and asked for assistance, which helped me handle the situation and make it back safely.\nMaria: Hey, John that's awesome! You really showed your resilience and resourcefulness. How did you feel afterwards?\nJohn: I felt relieved and grateful to make it through without incident."
+      },
+      "created_at": "2026-04-28 13:26:02",
+      "updated_at": "2026-04-28 13:26:02"
+    },
+    "d8dec116-a5d2-4b5a-9dc2-102513286d50": {
+      "type": "Event",
+      "canonical_name": "Shelter volunteering",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-01-28, Maria said she volunteered at a shelter during an event for kids last week.",
+        "time": "last week",
+        "batch_id": "conv-41_conv_session_5_batch_1",
+        "source_turn_ids": [
+          "conv-41_conv_session_5_D5:5",
+          "conv-41_conv_session_5_D5:6",
+          "conv-41_conv_session_5_D5:7",
+          "conv-41_conv_session_5_D5:8"
+        ],
+        "source": [
+          "conv-41_conv_session_5_D5:5",
+          "conv-41_conv_session_5_D5:6",
+          "conv-41_conv_session_5_D5:7",
+          "conv-41_conv_session_5_D5:8"
+        ],
+        "original_text": "[1:17 pm on 28 January, 2023]\n\nJohn: It's definitely isn't, Maria. My kids have so much and others don't. We really need to do something about it.\nMaria: Sure, it's not right that some kids get all they need while others have nothing to help them succeed. We gotta do something! Last week I volunteered at a shelter during an event for kids, and it's been a great experience.\nJohn: Wow, Maria! That's really making a big impact. What made you decide to get involved with that?\nMaria: I started volunteering to help make a difference. My aunt believed in volunteering, and used to help my family out when we were struggling, so I'm inspired by her. It makes me happy knowing I can brighten somebody's day."
+      },
+      "created_at": "2026-04-28 13:26:45",
+      "updated_at": "2026-04-28 13:26:45"
+    },
+    "8dd299e0-77f6-4855-ac53-7c9a99e60ad7": {
+      "type": "Entity",
+      "canonical_name": "Aunt",
+      "aliases": [],
+      "attrs": {},
+      "created_at": "2026-04-28 13:26:45",
+      "updated_at": "2026-04-28 13:26:45"
+    },
+    "8418f5b5-2b76-468e-8609-13e0558d919f": {
+      "type": "Event",
+      "canonical_name": "Aunt's support",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-01-28, Maria said her aunt believed in volunteering and used to help her family out when they were struggling.",
+        "time": "when they were struggling",
+        "batch_id": "conv-41_conv_session_5_batch_1",
+        "source_turn_ids": [
+          "conv-41_conv_session_5_D5:5",
+          "conv-41_conv_session_5_D5:6",
+          "conv-41_conv_session_5_D5:7",
+          "conv-41_conv_session_5_D5:8"
+        ],
+        "source": [
+          "conv-41_conv_session_5_D5:5",
+          "conv-41_conv_session_5_D5:6",
+          "conv-41_conv_session_5_D5:7",
+          "conv-41_conv_session_5_D5:8"
+        ],
+        "original_text": "[1:17 pm on 28 January, 2023]\n\nJohn: It's definitely isn't, Maria. My kids have so much and others don't. We really need to do something about it.\nMaria: Sure, it's not right that some kids get all they need while others have nothing to help them succeed. We gotta do something! Last week I volunteered at a shelter during an event for kids, and it's been a great experience.\nJohn: Wow, Maria! That's really making a big impact. What made you decide to get involved with that?\nMaria: I started volunteering to help make a difference. My aunt believed in volunteering, and used to help my family out when we were struggling, so I'm inspired by her. It makes me happy knowing I can brighten somebody's day."
+      },
+      "created_at": "2026-04-28 13:26:45",
+      "updated_at": "2026-04-28 13:26:45"
+    },
+    "702f2b04-f78c-49e1-b27f-6ee819a0c5fa": {
+      "type": "Entity",
+      "canonical_name": "Little Girl",
+      "aliases": [
+        "Little Girl"
+      ],
+      "attrs": {},
+      "created_at": "2026-04-28 13:26:52",
+      "updated_at": "2026-04-28 13:30:35"
+    },
+    "102406d9-6fe6-4dce-ad8b-3b1735658827": {
+      "type": "Event",
+      "canonical_name": "Maria helped a little girl",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-01-28, Maria said she noticed a little girl around 8 sitting all alone. She seemed so sad. So, I sat with her and we talked. Turns out she had no other family - it broke my heart. I was able to give her some comfort and a listening ear. We ended up laughing and having a good time.",
+        "time": "when she was alone",
+        "batch_id": "conv-41_conv_session_5_batch_2",
+        "source_turn_ids": [
+          "conv-41_conv_session_5_D5:9",
+          "conv-41_conv_session_5_D5:10",
+          "conv-41_conv_session_5_D5:11",
+          "conv-41_conv_session_5_D5:12"
+        ],
+        "source": [
+          "conv-41_conv_session_5_D5:9",
+          "conv-41_conv_session_5_D5:10",
+          "conv-41_conv_session_5_D5:11",
+          "conv-41_conv_session_5_D5:12"
+        ],
+        "original_text": "[1:17 pm on 28 January, 2023]\n\nJohn: Wow, Maria. That's amazing! I can imagine it's incredibly rewarding. Is there a particular moment that stands out to you as the most impactful?\nMaria: For me, it was when I noticed a little girl around 8 sitting all alone. She seemed so sad. So, I sat with her and we talked. Turns out she had no other family - it broke my heart. I was able to give her some comfort and a listening ear. We ended up laughing and having a good time.\nJohn: Wow, what a touching moment, Maria. I'm glad you were there for her when she needed someone. I'm sure it made a big impact.\nMaria: That's nice of you, John. What's the photo about?"
+      },
+      "created_at": "2026-04-28 13:26:52",
+      "updated_at": "2026-04-28 13:26:52"
+    },
+    "bfe77d22-da4f-4a88-9961-4d99cff0921b": {
+      "type": "Event",
+      "canonical_name": "Maria's charity event",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-02-05, Maria said she challenged herself last Friday and did a charity event. It was great! I truly felt the power of our collective effort to help people in need, so heartwarming.",
+        "time": "last Friday",
+        "description": "Charity event where Maria served meals and saw gratitude on faces",
+        "batch_id": "conv-41_conv_session_6_batch_0",
+        "source_turn_ids": [
+          "conv-41_conv_session_6_D6:1",
+          "conv-41_conv_session_6_D6:2",
+          "conv-41_conv_session_6_D6:3",
+          "conv-41_conv_session_6_D6:4"
+        ],
+        "source": [
+          "conv-41_conv_session_6_D6:1",
+          "conv-41_conv_session_6_D6:2",
+          "conv-41_conv_session_6_D6:3",
+          "conv-41_conv_session_6_D6:4"
+        ],
+        "original_text": "[2:33 pm on 5 February, 2023]\n\nMaria: Hey John! Long time no talk. I just wanted to let you know I challenged myself last Friday and did a charity event. It was great! I truly felt the power of our collective effort to help people in need, so heartwarming.\nJohn: Wow, Maria! Truly inspiring! It's so cool to see how our community can make a difference. How did it feel to be part of that event?\nMaria: Thanks, John! It was such a rewarding experience. Just the act of serving meals and seeing the gratitude on their faces was truly heartwarming. It reminded me of how powerful compassion can be. So, tell me, what made you get into politics?\nJohn: I feel a strong urge to serve my country and community. Running for office was my chance to make an impact. But anyway, tell me more about your charity event. Did something special happen that made it meaningful for you?"
+      },
+      "created_at": "2026-04-28 13:27:02",
+      "updated_at": "2026-04-28 13:27:02"
+    },
+    "f19010cb-5138-4d39-aebd-7ac05fe38956": {
+      "type": "Entity",
+      "canonical_name": "David",
+      "aliases": [],
+      "attrs": {},
+      "created_at": "2026-04-28 13:27:09",
+      "updated_at": "2026-04-28 13:27:09"
+    },
+    "fafe19a9-a406-4878-ac7f-78a2a4c3bca7": {
+      "type": "Event",
+      "canonical_name": "Maria linked David with an organization",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-02-05, Maria said she talked to David afterwards and linked him up with a nearby organization that offers housing and support for homeless individuals. Hopefully, he'll find the help he needs.",
+        "time": "2023-02-05",
+        "batch_id": "conv-41_conv_session_6_batch_1",
+        "source_turn_ids": [
+          "conv-41_conv_session_6_D6:5",
+          "conv-41_conv_session_6_D6:6",
+          "conv-41_conv_session_6_D6:7",
+          "conv-41_conv_session_6_D6:8"
+        ],
+        "source": [
+          "conv-41_conv_session_6_D6:5",
+          "conv-41_conv_session_6_D6:6",
+          "conv-41_conv_session_6_D6:7",
+          "conv-41_conv_session_6_D6:8"
+        ],
+        "original_text": "[2:33 pm on 5 February, 2023]\n\nMaria: Yeah, at the event, I had a conversation with someone named David. Hearing his story of hardship and how he ended up in difficult circumstances was so humbling. It just showed me that everyone has their own story and deserves understanding.\nJohn: Wow, that's powerful. It just shows that everyone has their own story and deserves understanding. Do you know any organizations or services that could help him out?\nMaria: Yeah, I did. I talked to him afterwards and linked him up with a nearby organization that offers housing and support for homeless individuals. Hopefully, he'll find the help he needs.\nJohn: Nice job, Maria! You really made an impact. It's important to help people find what they need. Have you ever been in a situation where you needed help?"
+      },
+      "created_at": "2026-04-28 13:27:09",
+      "updated_at": "2026-04-28 13:27:09"
+    },
+    "f235e3c0-dc88-43ec-845a-451443aa4c12": {
+      "type": "Entity",
+      "canonical_name": "Organization",
+      "aliases": [
+        "Organization"
+      ],
+      "attrs": {},
+      "created_at": "2026-04-28 13:27:09",
+      "updated_at": "2026-04-28 13:27:23"
+    },
+    "222a0f12-9157-4088-831d-02f1e391d702": {
+      "type": "Event",
+      "canonical_name": "Aunt's support",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-01-28, Maria said her aunt believed in volunteering and used to help her family out when they were struggling.",
+        "time": "when they were struggling",
+        "batch_id": "conv-41_conv_session_6_batch_2",
+        "source_turn_ids": [
+          "conv-41_conv_session_6_D6:9",
+          "conv-41_conv_session_6_D6:10",
+          "conv-41_conv_session_6_D6:11",
+          "conv-41_conv_session_6_D6:12"
+        ],
+        "source": [
+          "conv-41_conv_session_6_D6:9",
+          "conv-41_conv_session_6_D6:10",
+          "conv-41_conv_session_6_D6:11",
+          "conv-41_conv_session_6_D6:12"
+        ],
+        "original_text": "[2:33 pm on 5 February, 2023]\n\nMaria: Thanks, John. When I was younger, we had some money problems and had to rely on outside help from out auntie. It was a tough learning experience about the importance of helping others who struggle.\nJohn: Yeah, Maria, we learn a lot from our own struggles. I just started helping out with a food drive for folks who lost their jobs. Here's a picture of me at the food bank.\nMaria: Wow, John, that's incredible! What inspired you to get involved with something like this?\nJohn: Seeing the effect unemployment has on our neighbors made me decide to act. I wanted to help out in these tough times by doing a community food drive. We can all make a difference!"
+      },
+      "created_at": "2026-04-28 13:27:17",
+      "updated_at": "2026-04-28 13:27:18"
+    },
+    "81c54182-b6ae-4cc1-8ccd-b7520f559d74": {
+      "type": "Event",
+      "canonical_name": "Shelter volunteering",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-01-28, Maria said she volunteered at a shelter during an event for kids last week.",
+        "time": "last week",
+        "batch_id": "conv-41_conv_session_6_batch_2",
+        "source_turn_ids": [
+          "conv-41_conv_session_6_D6:9",
+          "conv-41_conv_session_6_D6:10",
+          "conv-41_conv_session_6_D6:11",
+          "conv-41_conv_session_6_D6:12"
+        ],
+        "source": [
+          "conv-41_conv_session_6_D6:9",
+          "conv-41_conv_session_6_D6:10",
+          "conv-41_conv_session_6_D6:11",
+          "conv-41_conv_session_6_D6:12"
+        ],
+        "original_text": "[2:33 pm on 5 February, 2023]\n\nMaria: Thanks, John. When I was younger, we had some money problems and had to rely on outside help from out auntie. It was a tough learning experience about the importance of helping others who struggle.\nJohn: Yeah, Maria, we learn a lot from our own struggles. I just started helping out with a food drive for folks who lost their jobs. Here's a picture of me at the food bank.\nMaria: Wow, John, that's incredible! What inspired you to get involved with something like this?\nJohn: Seeing the effect unemployment has on our neighbors made me decide to act. I wanted to help out in these tough times by doing a community food drive. We can all make a difference!"
+      },
+      "created_at": "2026-04-28 13:27:18",
+      "updated_at": "2026-04-28 13:27:18"
+    },
+    "cce58f16-fb63-4016-ad39-2beff517a14e": {
+      "type": "Event",
+      "canonical_name": "Maria's charity event",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-02-05, Maria said she challenged herself last Friday and did a charity event. It was great! I truly felt the power of our collective effort to help people in need, so heartwarming.",
+        "time": "last Friday",
+        "description": "Charity event where Maria served meals and saw gratitude on faces",
+        "batch_id": "conv-41_conv_session_6_batch_2",
+        "source_turn_ids": [
+          "conv-41_conv_session_6_D6:9",
+          "conv-41_conv_session_6_D6:10",
+          "conv-41_conv_session_6_D6:11",
+          "conv-41_conv_session_6_D6:12"
+        ],
+        "source": [
+          "conv-41_conv_session_6_D6:9",
+          "conv-41_conv_session_6_D6:10",
+          "conv-41_conv_session_6_D6:11",
+          "conv-41_conv_session_6_D6:12"
+        ],
+        "original_text": "[2:33 pm on 5 February, 2023]\n\nMaria: Thanks, John. When I was younger, we had some money problems and had to rely on outside help from out auntie. It was a tough learning experience about the importance of helping others who struggle.\nJohn: Yeah, Maria, we learn a lot from our own struggles. I just started helping out with a food drive for folks who lost their jobs. Here's a picture of me at the food bank.\nMaria: Wow, John, that's incredible! What inspired you to get involved with something like this?\nJohn: Seeing the effect unemployment has on our neighbors made me decide to act. I wanted to help out in these tough times by doing a community food drive. We can all make a difference!"
+      },
+      "created_at": "2026-04-28 13:27:18",
+      "updated_at": "2026-04-28 13:27:18"
+    },
+    "20972ae7-2326-40ea-8380-ca41efd69f62": {
+      "type": "Event",
+      "canonical_name": "John started an initiative to address unemployment",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-02-05, John said unemployment in their community was the reason behind starting the initiative.",
+        "time": "2023-02-05",
+        "batch_id": "conv-41_conv_session_6_batch_3",
+        "source_turn_ids": [
+          "conv-41_conv_session_6_D6:13",
+          "conv-41_conv_session_6_D6:14",
+          "conv-41_conv_session_6_D6:15",
+          "conv-41_conv_session_6_D6:16"
+        ],
+        "source": [
+          "conv-41_conv_session_6_D6:13",
+          "conv-41_conv_session_6_D6:14",
+          "conv-41_conv_session_6_D6:15",
+          "conv-41_conv_session_6_D6:16"
+        ],
+        "original_text": "[2:33 pm on 5 February, 2023]\n\nMaria: That's really great of you. What sparked your decision to start this initiative?\nJohn: Thanks, Maria. Unemployment in our community was the reason behind it.\nMaria: You did awesome! How's the response been to that?\nJohn: Thanks, Maria! We've been overwhelmed by the response and the volunteers. Here's a photo of them at a recent event."
+      },
+      "created_at": "2026-04-28 13:27:23",
+      "updated_at": "2026-04-28 13:27:23"
+    },
+    "ac01051c-53b7-4ed3-b2bb-2e3c6358f4af": {
+      "type": "Event",
+      "canonical_name": "Volunteers at a recent event",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-02-05, John said they've been overwhelmed by the response and the volunteers at a recent event.",
+        "time": "2023-02-05",
+        "batch_id": "conv-41_conv_session_6_batch_3",
+        "source_turn_ids": [
+          "conv-41_conv_session_6_D6:13",
+          "conv-41_conv_session_6_D6:14",
+          "conv-41_conv_session_6_D6:15",
+          "conv-41_conv_session_6_D6:16"
+        ],
+        "source": [
+          "conv-41_conv_session_6_D6:13",
+          "conv-41_conv_session_6_D6:14",
+          "conv-41_conv_session_6_D6:15",
+          "conv-41_conv_session_6_D6:16"
+        ],
+        "original_text": "[2:33 pm on 5 February, 2023]\n\nMaria: That's really great of you. What sparked your decision to start this initiative?\nJohn: Thanks, Maria. Unemployment in our community was the reason behind it.\nMaria: You did awesome! How's the response been to that?\nJohn: Thanks, Maria! We've been overwhelmed by the response and the volunteers. Here's a photo of them at a recent event."
+      },
+      "created_at": "2026-04-28 13:27:23",
+      "updated_at": "2026-04-28 13:27:23"
+    },
+    "397a9611-2f3a-451b-a6d7-61b2ea25b0b9": {
+      "type": "Event",
+      "canonical_name": "Maria supports community",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-02-05, Maria said seeing so many people support the community is awesome. I'd love to lend a hand with networking or helping out at future events.",
+        "time": "2023-02-05",
+        "batch_id": "conv-41_conv_session_6_batch_4",
+        "source_turn_ids": [
+          "conv-41_conv_session_6_D6:17",
+          "conv-41_conv_session_6_D6:18",
+          "conv-41_conv_session_6_D6:19",
+          "conv-41_conv_session_6_D6:20"
+        ],
+        "source": [
+          "conv-41_conv_session_6_D6:17",
+          "conv-41_conv_session_6_D6:18",
+          "conv-41_conv_session_6_D6:19",
+          "conv-41_conv_session_6_D6:20"
+        ],
+        "original_text": "[2:33 pm on 5 February, 2023]\n\nMaria: Seeing so many people support the community is awesome. I'd love to lend a hand with networking or helping out at future events.\nJohn: That'd be great, Maria! Thanks for offering to help. Your assistance would be really appreciated.\nMaria: No worries, John. Whenever you need help, just let me know.\nJohn: Yep, definitely. Your support really means a lot, Maria. Thanks for always being there for me."
+      },
+      "created_at": "2026-04-28 13:27:30",
+      "updated_at": "2026-04-28 13:27:31"
+    },
+    "5af3aff9-d670-40a0-9d1a-01a90ca8cf80": {
+      "type": "Event",
+      "canonical_name": "John thanks Maria",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-02-05, John said that'd be great, Maria! Thanks for offering to help. Your assistance would be really appreciated.",
+        "time": "2023-02-05",
+        "batch_id": "conv-41_conv_session_6_batch_4",
+        "source_turn_ids": [
+          "conv-41_conv_session_6_D6:17",
+          "conv-41_conv_session_6_D6:18",
+          "conv-41_conv_session_6_D6:19",
+          "conv-41_conv_session_6_D6:20"
+        ],
+        "source": [
+          "conv-41_conv_session_6_D6:17",
+          "conv-41_conv_session_6_D6:18",
+          "conv-41_conv_session_6_D6:19",
+          "conv-41_conv_session_6_D6:20"
+        ],
+        "original_text": "[2:33 pm on 5 February, 2023]\n\nMaria: Seeing so many people support the community is awesome. I'd love to lend a hand with networking or helping out at future events.\nJohn: That'd be great, Maria! Thanks for offering to help. Your assistance would be really appreciated.\nMaria: No worries, John. Whenever you need help, just let me know.\nJohn: Yep, definitely. Your support really means a lot, Maria. Thanks for always being there for me."
+      },
+      "created_at": "2026-04-28 13:27:30",
+      "updated_at": "2026-04-28 13:27:31"
+    },
+    "4c9d1b68-4a61-475c-851c-954a20c0e0b9": {
+      "type": "Event",
+      "canonical_name": "Maria offers help",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-02-05, Maria said no worries, John. Whenever you need help, just let me know.",
+        "time": "2023-02-05",
+        "batch_id": "conv-41_conv_session_6_batch_4",
+        "source_turn_ids": [
+          "conv-41_conv_session_6_D6:17",
+          "conv-41_conv_session_6_D6:18",
+          "conv-41_conv_session_6_D6:19",
+          "conv-41_conv_session_6_D6:20"
+        ],
+        "source": [
+          "conv-41_conv_session_6_D6:17",
+          "conv-41_conv_session_6_D6:18",
+          "conv-41_conv_session_6_D6:19",
+          "conv-41_conv_session_6_D6:20"
+        ],
+        "original_text": "[2:33 pm on 5 February, 2023]\n\nMaria: Seeing so many people support the community is awesome. I'd love to lend a hand with networking or helping out at future events.\nJohn: That'd be great, Maria! Thanks for offering to help. Your assistance would be really appreciated.\nMaria: No worries, John. Whenever you need help, just let me know.\nJohn: Yep, definitely. Your support really means a lot, Maria. Thanks for always being there for me."
+      },
+      "created_at": "2026-04-28 13:27:30",
+      "updated_at": "2026-04-28 13:27:31"
+    },
+    "8da771a1-2c25-472f-9e64-84ec141bfc90": {
+      "type": "Event",
+      "canonical_name": "John appreciates Maria",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-02-05, John said yeah, definitely. Your support really means a lot, Maria. Thanks for always being there for me.",
+        "time": "2023-02-05",
+        "batch_id": "conv-41_conv_session_6_batch_4",
+        "source_turn_ids": [
+          "conv-41_conv_session_6_D6:17",
+          "conv-41_conv_session_6_D6:18",
+          "conv-41_conv_session_6_D6:19",
+          "conv-41_conv_session_6_D6:20"
+        ],
+        "source": [
+          "conv-41_conv_session_6_D6:17",
+          "conv-41_conv_session_6_D6:18",
+          "conv-41_conv_session_6_D6:19",
+          "conv-41_conv_session_6_D6:20"
+        ],
+        "original_text": "[2:33 pm on 5 February, 2023]\n\nMaria: Seeing so many people support the community is awesome. I'd love to lend a hand with networking or helping out at future events.\nJohn: That'd be great, Maria! Thanks for offering to help. Your assistance would be really appreciated.\nMaria: No worries, John. Whenever you need help, just let me know.\nJohn: Yep, definitely. Your support really means a lot, Maria. Thanks for always being there for me."
+      },
+      "created_at": "2026-04-28 13:27:30",
+      "updated_at": "2026-04-28 13:27:31"
+    },
+    "563b5487-e7c5-4010-9804-71ed125f001e": {
+      "type": "Event",
+      "canonical_name": "Maria took a creative writing class",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-02-25, Maria said she took a creative writing class recently, and it was super enlightening.",
+        "time": "recently",
+        "batch_id": "conv-41_conv_session_7_batch_0",
+        "source_turn_ids": [
+          "conv-41_conv_session_7_D7:1",
+          "conv-41_conv_session_7_D7:2",
+          "conv-41_conv_session_7_D7:3",
+          "conv-41_conv_session_7_D7:4"
+        ],
+        "source": [
+          "conv-41_conv_session_7_D7:1",
+          "conv-41_conv_session_7_D7:2",
+          "conv-41_conv_session_7_D7:3",
+          "conv-41_conv_session_7_D7:4"
+        ],
+        "original_text": "[8:55 pm on 25 February, 2023]\n\nMaria: Hey John, how's it going? Just wanted to give you the heads up on what's been happening lately- I took a creative writing class recently, and it was super enlightening!\nJohn: Hey Maria! Wanted to let you know that I'm running for office again. It's been a wild ride, but I'm more excited than ever! How have you been?\nMaria: Congrats, John! What made you decide to run again? As for me, I've been volunteering at a homeless shelter and it's really rewarding.\nJohn: Thanks, Maria! After my last run, I saw the impact I could make in the community through politics. It's rewarding to work towards positive changes and a better future."
+      },
+      "created_at": "2026-04-28 13:27:50",
+      "updated_at": "2026-04-28 13:27:51"
+    },
+    "c752a59b-bb03-4372-a899-40972c97658e": {
+      "type": "Event",
+      "canonical_name": "John ran for office again",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-02-25, John said he's running for office again. It's been a wild ride, but he's more excited than ever.",
+        "time": "2023-02-25",
+        "batch_id": "conv-41_conv_session_7_batch_0",
+        "source_turn_ids": [
+          "conv-41_conv_session_7_D7:1",
+          "conv-41_conv_session_7_D7:2",
+          "conv-41_conv_session_7_D7:3",
+          "conv-41_conv_session_7_D7:4"
+        ],
+        "source": [
+          "conv-41_conv_session_7_D7:1",
+          "conv-41_conv_session_7_D7:2",
+          "conv-41_conv_session_7_D7:3",
+          "conv-41_conv_session_7_D7:4"
+        ],
+        "original_text": "[8:55 pm on 25 February, 2023]\n\nMaria: Hey John, how's it going? Just wanted to give you the heads up on what's been happening lately- I took a creative writing class recently, and it was super enlightening!\nJohn: Hey Maria! Wanted to let you know that I'm running for office again. It's been a wild ride, but I'm more excited than ever! How have you been?\nMaria: Congrats, John! What made you decide to run again? As for me, I've been volunteering at a homeless shelter and it's really rewarding.\nJohn: Thanks, Maria! After my last run, I saw the impact I could make in the community through politics. It's rewarding to work towards positive changes and a better future."
+      },
+      "created_at": "2026-04-28 13:27:50",
+      "updated_at": "2026-04-28 13:27:51"
+    },
+    "14bd2d20-37bf-4db9-b426-0c2b0634951b": {
+      "type": "Event",
+      "canonical_name": "Maria volunteered at a homeless shelter",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-02-25, Maria said she's been volunteering at a homeless shelter and it's really rewarding.",
+        "time": "2023-02-25",
+        "batch_id": "conv-41_conv_session_7_batch_0",
+        "source_turn_ids": [
+          "conv-41_conv_session_7_D7:1",
+          "conv-41_conv_session_7_D7:2",
+          "conv-41_conv_session_7_D7:3",
+          "conv-41_conv_session_7_D7:4"
+        ],
+        "source": [
+          "conv-41_conv_session_7_D7:1",
+          "conv-41_conv_session_7_D7:2",
+          "conv-41_conv_session_7_D7:3",
+          "conv-41_conv_session_7_D7:4"
+        ],
+        "original_text": "[8:55 pm on 25 February, 2023]\n\nMaria: Hey John, how's it going? Just wanted to give you the heads up on what's been happening lately- I took a creative writing class recently, and it was super enlightening!\nJohn: Hey Maria! Wanted to let you know that I'm running for office again. It's been a wild ride, but I'm more excited than ever! How have you been?\nMaria: Congrats, John! What made you decide to run again? As for me, I've been volunteering at a homeless shelter and it's really rewarding.\nJohn: Thanks, Maria! After my last run, I saw the impact I could make in the community through politics. It's rewarding to work towards positive changes and a better future."
+      },
+      "created_at": "2026-04-28 13:27:50",
+      "updated_at": "2026-04-28 13:27:51"
+    },
+    "edbf0015-0a9c-4152-8520-edcea937eb2d": {
+      "type": "Event",
+      "canonical_name": "John saw the impact of politics in the community",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-02-25, John said after his last run, he saw the impact he could make in the community through politics. It's rewarding to work towards positive changes and a better future.",
+        "time": "2023-02-25",
+        "batch_id": "conv-41_conv_session_7_batch_0",
+        "source_turn_ids": [
+          "conv-41_conv_session_7_D7:1",
+          "conv-41_conv_session_7_D7:2",
+          "conv-41_conv_session_7_D7:3",
+          "conv-41_conv_session_7_D7:4"
+        ],
+        "source": [
+          "conv-41_conv_session_7_D7:1",
+          "conv-41_conv_session_7_D7:2",
+          "conv-41_conv_session_7_D7:3",
+          "conv-41_conv_session_7_D7:4"
+        ],
+        "original_text": "[8:55 pm on 25 February, 2023]\n\nMaria: Hey John, how's it going? Just wanted to give you the heads up on what's been happening lately- I took a creative writing class recently, and it was super enlightening!\nJohn: Hey Maria! Wanted to let you know that I'm running for office again. It's been a wild ride, but I'm more excited than ever! How have you been?\nMaria: Congrats, John! What made you decide to run again? As for me, I've been volunteering at a homeless shelter and it's really rewarding.\nJohn: Thanks, Maria! After my last run, I saw the impact I could make in the community through politics. It's rewarding to work towards positive changes and a better future."
+      },
+      "created_at": "2026-04-28 13:27:51",
+      "updated_at": "2026-04-28 13:27:51"
+    },
+    "5ddb5313-575c-4fc1-a79c-12f01670e009": {
+      "type": "Entity",
+      "canonical_name": "Jean",
+      "aliases": [],
+      "attrs": {},
+      "created_at": "2026-04-28 13:27:56",
+      "updated_at": "2026-04-28 13:27:56"
+    },
+    "9f7fb3df-7f07-4f65-ac7a-98de07d1b21b": {
+      "type": "Event",
+      "canonical_name": "John attending a beginner's yoga class",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-02-25, John said let's do it, Maria! Together, we can make a real difference and bring a brighter future. And nothing too soon, but my colleague Rob invited me to a beginner's yoga class.",
+        "time": "2023-02-25",
+        "batch_id": "conv-41_conv_session_7_batch_3",
+        "source_turn_ids": [
+          "conv-41_conv_session_7_D7:13",
+          "conv-41_conv_session_7_D7:14",
+          "conv-41_conv_session_7_D7:15",
+          "conv-41_conv_session_7_D7:16"
+        ],
+        "source": [
+          "conv-41_conv_session_7_D7:13",
+          "conv-41_conv_session_7_D7:14",
+          "conv-41_conv_session_7_D7:15",
+          "conv-41_conv_session_7_D7:16"
+        ],
+        "original_text": "[8:55 pm on 25 February, 2023]\n\nMaria: Sure thing, John. Those things can really make a difference. Let's keep spreading positivity and making an impact together.\nJohn: I totally agree, Maria! Let's keep helping each other and make the world a better place.\nMaria: Sounds cool, John! Let's make some positive change and brighten up that place. Do you have anything fun coming up soon?\nJohn: Let's do it, Maria! Together, we can make a real difference and bring a brighter future. And nothing too soon, but my colleague Rob invited me to a beginner's yoga class."
+      },
+      "created_at": "2026-04-28 13:28:07",
+      "updated_at": "2026-04-28 13:28:08"
+    },
+    "0da3279c-510a-4a9c-a1d6-175a4364d2ba": {
+      "type": "Event",
+      "canonical_name": "Maria's grandma passed away",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-03-06, Maria said her grandma passed away last week and it's been really hard.",
+        "time": "last week",
+        "batch_id": "conv-41_conv_session_8_batch_0",
+        "source_turn_ids": [
+          "conv-41_conv_session_8_D8:1",
+          "conv-41_conv_session_8_D8:2",
+          "conv-41_conv_session_8_D8:3",
+          "conv-41_conv_session_8_D8:4"
+        ],
+        "source": [
+          "conv-41_conv_session_8_D8:1",
+          "conv-41_conv_session_8_D8:2",
+          "conv-41_conv_session_8_D8:3",
+          "conv-41_conv_session_8_D8:4"
+        ],
+        "original_text": "[6:03 pm on 6 March, 2023]\n\nMaria: Hey John, I haven't talked to you in a while. Last week, my grandma passed away and it's been really hard. I'm trying to stay positive, but it's tough. How're you doing?\nJohn: So sorry to hear about your loss, Maria. I'm here for you if you need anything. I'm doing well, I just had a picnic with the wife and kids.\nMaria: Thanks for your support, John. How's your family doing? That baby in the pic is adorable! What's their name?\nJohn: Thanks, Maria! They're doing great. Our one-year-old is so cute, his name is Kyle!"
+      },
+      "created_at": "2026-04-28 13:28:22",
+      "updated_at": "2026-04-28 13:28:22"
+    },
+    "efcdce8b-e253-40ed-a4d1-e973d79ecdd6": {
+      "type": "Event",
+      "canonical_name": "John had a picnic with family",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-03-06, John said he had a picnic with the wife and kids.",
+        "time": "2023-03-06",
+        "batch_id": "conv-41_conv_session_8_batch_0",
+        "source_turn_ids": [
+          "conv-41_conv_session_8_D8:1",
+          "conv-41_conv_session_8_D8:2",
+          "conv-41_conv_session_8_D8:3",
+          "conv-41_conv_session_8_D8:4"
+        ],
+        "source": [
+          "conv-41_conv_session_8_D8:1",
+          "conv-41_conv_session_8_D8:2",
+          "conv-41_conv_session_8_D8:3",
+          "conv-41_conv_session_8_D8:4"
+        ],
+        "original_text": "[6:03 pm on 6 March, 2023]\n\nMaria: Hey John, I haven't talked to you in a while. Last week, my grandma passed away and it's been really hard. I'm trying to stay positive, but it's tough. How're you doing?\nJohn: So sorry to hear about your loss, Maria. I'm here for you if you need anything. I'm doing well, I just had a picnic with the wife and kids.\nMaria: Thanks for your support, John. How's your family doing? That baby in the pic is adorable! What's their name?\nJohn: Thanks, Maria! They're doing great. Our one-year-old is so cute, his name is Kyle!"
+      },
+      "created_at": "2026-04-28 13:28:22",
+      "updated_at": "2026-04-28 13:28:22"
+    },
+    "a8c91db4-ef02-4bdd-b7d1-e946d0ddd47e": {
+      "type": "Entity",
+      "canonical_name": "Kyle",
+      "aliases": [
+        "Kyle"
+      ],
+      "attrs": {},
+      "created_at": "2026-04-28 13:28:22",
+      "updated_at": "2026-04-28 13:28:22"
+    },
+    "1f03dff6-3e32-4e63-adc1-090a6c7ed9d2": {
+      "type": "Event",
+      "canonical_name": "Kyle was born",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-03-06, John said their one-year-old is named Kyle.",
+        "time": "2022-03-06",
+        "batch_id": "conv-41_conv_session_8_batch_0",
+        "source_turn_ids": [
+          "conv-41_conv_session_8_D8:1",
+          "conv-41_conv_session_8_D8:2",
+          "conv-41_conv_session_8_D8:3",
+          "conv-41_conv_session_8_D8:4"
+        ],
+        "source": [
+          "conv-41_conv_session_8_D8:1",
+          "conv-41_conv_session_8_D8:2",
+          "conv-41_conv_session_8_D8:3",
+          "conv-41_conv_session_8_D8:4"
+        ],
+        "original_text": "[6:03 pm on 6 March, 2023]\n\nMaria: Hey John, I haven't talked to you in a while. Last week, my grandma passed away and it's been really hard. I'm trying to stay positive, but it's tough. How're you doing?\nJohn: So sorry to hear about your loss, Maria. I'm here for you if you need anything. I'm doing well, I just had a picnic with the wife and kids.\nMaria: Thanks for your support, John. How's your family doing? That baby in the pic is adorable! What's their name?\nJohn: Thanks, Maria! They're doing great. Our one-year-old is so cute, his name is Kyle!"
+      },
+      "created_at": "2026-04-28 13:28:22",
+      "updated_at": "2026-04-28 13:28:22"
+    },
+    "520fac8a-aa74-4221-a3de-d755ea309187": {
+      "type": "Event",
+      "canonical_name": "Parenting Experience",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-03-06, John said parenting has been a wonderful experience full of ups and downs, but the love and happiness outweigh it all.",
+        "time": "2023-03-06",
+        "batch_id": "conv-41_conv_session_8_batch_1",
+        "source_turn_ids": [
+          "conv-41_conv_session_8_D8:5",
+          "conv-41_conv_session_8_D8:6",
+          "conv-41_conv_session_8_D8:7",
+          "conv-41_conv_session_8_D8:8"
+        ],
+        "source": [
+          "conv-41_conv_session_8_D8:5",
+          "conv-41_conv_session_8_D8:6",
+          "conv-41_conv_session_8_D8:7",
+          "conv-41_conv_session_8_D8:8"
+        ],
+        "original_text": "[6:03 pm on 6 March, 2023]\n\nMaria: Sounds like parenting has been a wonderful experience for you - what has it been like?\nJohn: It's definitely been a wild ride! It's full of ups and downs, but the love and happiness outweigh it all.\nMaria: Parenting can be tough but rewarding. Do you take your kid to the park often?\nJohn: Yeah, we go a few times a week. It's great for family bonding and letting the kids run around. We had a great time last weekend - they really enjoyed the carefree joy."
+      },
+      "created_at": "2026-04-28 13:28:28",
+      "updated_at": "2026-04-28 13:28:28"
+    },
+    "e89b588b-8b5d-458d-8cfd-fcaa2b2a5c17": {
+      "type": "Event",
+      "canonical_name": "Park Visits",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-03-06, John said they go to the park a few times a week for family bonding and letting the kids run around.",
+        "time": "2023-03-06",
+        "batch_id": "conv-41_conv_session_8_batch_1",
+        "source_turn_ids": [
+          "conv-41_conv_session_8_D8:5",
+          "conv-41_conv_session_8_D8:6",
+          "conv-41_conv_session_8_D8:7",
+          "conv-41_conv_session_8_D8:8"
+        ],
+        "source": [
+          "conv-41_conv_session_8_D8:5",
+          "conv-41_conv_session_8_D8:6",
+          "conv-41_conv_session_8_D8:7",
+          "conv-41_conv_session_8_D8:8"
+        ],
+        "original_text": "[6:03 pm on 6 March, 2023]\n\nMaria: Sounds like parenting has been a wonderful experience for you - what has it been like?\nJohn: It's definitely been a wild ride! It's full of ups and downs, but the love and happiness outweigh it all.\nMaria: Parenting can be tough but rewarding. Do you take your kid to the park often?\nJohn: Yeah, we go a few times a week. It's great for family bonding and letting the kids run around. We had a great time last weekend - they really enjoyed the carefree joy."
+      },
+      "created_at": "2026-04-28 13:28:28",
+      "updated_at": "2026-04-28 13:28:28"
+    },
+    "bf1fbad6-c04a-4a23-80cf-5b3312b75b77": {
+      "type": "Event",
+      "canonical_name": "Last Weekend",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-03-06, John said they had a great time last weekend - the kids really enjoyed the carefree joy.",
+        "time": "last weekend",
+        "batch_id": "conv-41_conv_session_8_batch_1",
+        "source_turn_ids": [
+          "conv-41_conv_session_8_D8:5",
+          "conv-41_conv_session_8_D8:6",
+          "conv-41_conv_session_8_D8:7",
+          "conv-41_conv_session_8_D8:8"
+        ],
+        "source": [
+          "conv-41_conv_session_8_D8:5",
+          "conv-41_conv_session_8_D8:6",
+          "conv-41_conv_session_8_D8:7",
+          "conv-41_conv_session_8_D8:8"
+        ],
+        "original_text": "[6:03 pm on 6 March, 2023]\n\nMaria: Sounds like parenting has been a wonderful experience for you - what has it been like?\nJohn: It's definitely been a wild ride! It's full of ups and downs, but the love and happiness outweigh it all.\nMaria: Parenting can be tough but rewarding. Do you take your kid to the park often?\nJohn: Yeah, we go a few times a week. It's great for family bonding and letting the kids run around. We had a great time last weekend - they really enjoyed the carefree joy."
+      },
+      "created_at": "2026-04-28 13:28:28",
+      "updated_at": "2026-04-28 13:28:28"
+    },
+    "8c60a3fa-29d7-447a-a1f9-1406c6b432d2": {
+      "type": "Event",
+      "canonical_name": "Violin Concert",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-03-06, John said he found a violin concert that they all enjoyed.",
+        "time": "last week",
+        "batch_id": "conv-41_conv_session_8_batch_2",
+        "source_turn_ids": [
+          "conv-41_conv_session_8_D8:9",
+          "conv-41_conv_session_8_D8:10",
+          "conv-41_conv_session_8_D8:11",
+          "conv-41_conv_session_8_D8:12"
+        ],
+        "source": [
+          "conv-41_conv_session_8_D8:9",
+          "conv-41_conv_session_8_D8:10",
+          "conv-41_conv_session_8_D8:11",
+          "conv-41_conv_session_8_D8:12"
+        ],
+        "original_text": "[6:03 pm on 6 March, 2023]\n\nMaria: Looks like a blast! Did everyone get a chance to try it? Glad you're all having a great time!\nJohn: Yeah, everyone got a chance to swing. It's always fun coming up with activities for my family to enjoy.\nMaria: Wow, John, that's amazing! How do you come up with these ideas?\nJohn: I just try to find things that we'll have fun with, like a walk or picnic in the park, or finding events in our town and beyond. Just last week, I found a violin concert that we all enjoyed. It's all about making memories together."
+      },
+      "created_at": "2026-04-28 13:28:35",
+      "updated_at": "2026-04-28 13:28:35"
+    },
+    "ba114a51-dc46-4cea-afda-2f5cadc5179f": {
+      "type": "Event",
+      "canonical_name": "Picnic in Park",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-03-06, John said he tries to find things that they'll have fun with, like a picnic in the park.",
+        "time": "last week",
+        "batch_id": "conv-41_conv_session_8_batch_2",
+        "source_turn_ids": [
+          "conv-41_conv_session_8_D8:9",
+          "conv-41_conv_session_8_D8:10",
+          "conv-41_conv_session_8_D8:11",
+          "conv-41_conv_session_8_D8:12"
+        ],
+        "source": [
+          "conv-41_conv_session_8_D8:9",
+          "conv-41_conv_session_8_D8:10",
+          "conv-41_conv_session_8_D8:11",
+          "conv-41_conv_session_8_D8:12"
+        ],
+        "original_text": "[6:03 pm on 6 March, 2023]\n\nMaria: Looks like a blast! Did everyone get a chance to try it? Glad you're all having a great time!\nJohn: Yeah, everyone got a chance to swing. It's always fun coming up with activities for my family to enjoy.\nMaria: Wow, John, that's amazing! How do you come up with these ideas?\nJohn: I just try to find things that we'll have fun with, like a walk or picnic in the park, or finding events in our town and beyond. Just last week, I found a violin concert that we all enjoyed. It's all about making memories together."
+      },
+      "created_at": "2026-04-28 13:28:35",
+      "updated_at": "2026-04-28 13:28:35"
+    },
+    "196823f1-6ae3-459c-b537-b8a4028a545c": {
+      "type": "Event",
+      "canonical_name": "Walk",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-03-06, John said he tries to find things that they'll have fun with, like a walk.",
+        "time": "last week",
+        "batch_id": "conv-41_conv_session_8_batch_2",
+        "source_turn_ids": [
+          "conv-41_conv_session_8_D8:9",
+          "conv-41_conv_session_8_D8:10",
+          "conv-41_conv_session_8_D8:11",
+          "conv-41_conv_session_8_D8:12"
+        ],
+        "source": [
+          "conv-41_conv_session_8_D8:9",
+          "conv-41_conv_session_8_D8:10",
+          "conv-41_conv_session_8_D8:11",
+          "conv-41_conv_session_8_D8:12"
+        ],
+        "original_text": "[6:03 pm on 6 March, 2023]\n\nMaria: Looks like a blast! Did everyone get a chance to try it? Glad you're all having a great time!\nJohn: Yeah, everyone got a chance to swing. It's always fun coming up with activities for my family to enjoy.\nMaria: Wow, John, that's amazing! How do you come up with these ideas?\nJohn: I just try to find things that we'll have fun with, like a walk or picnic in the park, or finding events in our town and beyond. Just last week, I found a violin concert that we all enjoyed. It's all about making memories together."
+      },
+      "created_at": "2026-04-28 13:28:35",
+      "updated_at": "2026-04-28 13:28:35"
+    },
+    "43216ec9-b6a8-4575-92b6-110fa4b97502": {
+      "type": "Event",
+      "canonical_name": "Trip to England",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-03-06, Maria said she was mesmerized by the castles in England a few years ago and got the idea for her painting from that trip.",
+        "time": "a few years ago",
+        "batch_id": "conv-41_conv_session_8_batch_3",
+        "source_turn_ids": [
+          "conv-41_conv_session_8_D8:13",
+          "conv-41_conv_session_8_D8:14",
+          "conv-41_conv_session_8_D8:15",
+          "conv-41_conv_session_8_D8:16"
+        ],
+        "source": [
+          "conv-41_conv_session_8_D8:13",
+          "conv-41_conv_session_8_D8:14",
+          "conv-41_conv_session_8_D8:15",
+          "conv-41_conv_session_8_D8:16"
+        ],
+        "original_text": "[6:03 pm on 6 March, 2023]\n\nMaria: Wow, John, that's great! Making memories together is so valuable. I loved doing something similar with my siblings when I was young - it's amazing how something so simple can make such lasting memories.\nJohn: That pic is so cool! It looks like something from a storybook. What gave you the idea for this?\nMaria: Thanks, John! I got the idea from that trip to England a few years ago - I was mesmerized by the castles. I wanted to bring that same magic to my home, like a reminder of the world's beauty. I made a painting too!\nJohn: Wow, that looks great! Where in England was it?"
+      },
+      "created_at": "2026-04-28 13:28:39",
+      "updated_at": "2026-04-28 13:28:39"
+    },
+    "fc259a18-b6b1-4e4c-8ab6-5f09503fa6bc": {
+      "type": "Event",
+      "canonical_name": "Maria speaks about building connections",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-03-06, Maria said building those real connections and getting people to trust us is key. It's usually the little things, like taking the time to hear what they're saying, that make the biggest impact.",
+        "time": "6:03 pm on 6 March, 2023",
+        "batch_id": "conv-41_conv_session_8_batch_6",
+        "source_turn_ids": [
+          "conv-41_conv_session_8_D8:25",
+          "conv-41_conv_session_8_D8:26"
+        ],
+        "source": [
+          "conv-41_conv_session_8_D8:25",
+          "conv-41_conv_session_8_D8:26"
+        ],
+        "original_text": "[6:03 pm on 6 March, 2023]\n\nMaria: Yeah, building those real connections and getting people to trust us is key. It's usually the little things, like taking the time to hear what they're saying, that make the biggest impact.\nJohn: Yeah, Maria, I agree. That can really make a difference. It's important to make people feel noticed and listened to."
+      },
+      "created_at": "2026-04-28 13:29:06",
+      "updated_at": "2026-04-28 13:29:06"
+    },
+    "9d8eeeb8-0898-4e36-9225-0d2d3b8c7c11": {
+      "type": "Event",
+      "canonical_name": "Maria taking a poetry class",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-04-09, Maria said she's been taking a poetry class lately to help her put her feelings into words. It's been a rough ride, but it's been good.",
+        "time": "lately",
+        "batch_id": "conv-41_conv_session_9_batch_0",
+        "source_turn_ids": [
+          "conv-41_conv_session_9_D9:1",
+          "conv-41_conv_session_9_D9:2",
+          "conv-41_conv_session_9_D9:3",
+          "conv-41_conv_session_9_D9:4"
+        ],
+        "source": [
+          "conv-41_conv_session_9_D9:1",
+          "conv-41_conv_session_9_D9:2",
+          "conv-41_conv_session_9_D9:3",
+          "conv-41_conv_session_9_D9:4"
+        ],
+        "original_text": "[9:36 am on 2 April, 2023]\n\nMaria: Hey John, long time no see! I've been taking a poetry class lately to help me put my feelings into words. It's been a rough ride, but it's been good. How have you been?\nJohn: Hey Maria! Awesome to hear from you. Sounds like a great way to delve into your feelings. Since we spoke last, I've had quite the adventure!\nMaria: Congrats on finishing your degree, John! It must have been quite the adventure. How did it feel when you achieved such a big goal?\nJohn: Thanks, Maria! It was quite a journey, but definitely worth it. I graduated last week!"
+      },
+      "created_at": "2026-04-28 13:29:11",
+      "updated_at": "2026-04-28 13:29:11"
+    },
+    "f700acb1-ded6-4ced-8fb5-c9e8c2399faf": {
+      "type": "Event",
+      "canonical_name": "John graduating",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-04-09, John said he graduated last week.",
+        "time": "last week",
+        "batch_id": "conv-41_conv_session_9_batch_0",
+        "source_turn_ids": [
+          "conv-41_conv_session_9_D9:1",
+          "conv-41_conv_session_9_D9:2",
+          "conv-41_conv_session_9_D9:3",
+          "conv-41_conv_session_9_D9:4"
+        ],
+        "source": [
+          "conv-41_conv_session_9_D9:1",
+          "conv-41_conv_session_9_D9:2",
+          "conv-41_conv_session_9_D9:3",
+          "conv-41_conv_session_9_D9:4"
+        ],
+        "original_text": "[9:36 am on 2 April, 2023]\n\nMaria: Hey John, long time no see! I've been taking a poetry class lately to help me put my feelings into words. It's been a rough ride, but it's been good. How have you been?\nJohn: Hey Maria! Awesome to hear from you. Sounds like a great way to delve into your feelings. Since we spoke last, I've had quite the adventure!\nMaria: Congrats on finishing your degree, John! It must have been quite the adventure. How did it feel when you achieved such a big goal?\nJohn: Thanks, Maria! It was quite a journey, but definitely worth it. I graduated last week!"
+      },
+      "created_at": "2026-04-28 13:29:11",
+      "updated_at": "2026-04-28 13:29:12"
+    },
+    "e21ba570-1956-4100-a1cf-4c5f7574c80a": {
+      "type": "Event",
+      "canonical_name": "John attending a weekend yoga class",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-04-07, John said he started a weekend yoga class with a colleague - it's awesome! I feel great, both mentally and physically after each session. I'd been wanting to try yoga for a while and finally took the plunge. Simple stretching and breathing is having such a positive effect on my wellbeing. And the instructor is great too.",
+        "time": "2023-04-07",
+        "instructor": "NEW_Instructor",
+        "batch_id": "conv-41_conv_session_10_batch_0",
+        "source_turn_ids": [
+          "conv-41_conv_session_10_D10:1",
+          "conv-41_conv_session_10_D10:2",
+          "conv-41_conv_session_10_D10:3",
+          "conv-41_conv_session_10_D10:4"
+        ],
+        "source": [
+          "conv-41_conv_session_10_D10:1",
+          "conv-41_conv_session_10_D10:2",
+          "conv-41_conv_session_10_D10:3",
+          "conv-41_conv_session_10_D10:4"
+        ],
+        "original_text": "[12:24 am on 7 April, 2023]\n\nJohn: Hey Maria, I'm so excited to tell you I started a weekend yoga class with a colleague - it's awesome! I feel great, both mentally and physically after each session. I'd been wanting to try yoga for a while and finally took the plunge. Simple stretching and breathing is having such a positive effect on my wellbeing. And the instructor is great too.\nMaria: Wow, John, glad to hear that! It's amazing how something like stretching and breathing can have such a positive effect on our wellbeing. What can you tell me about your instructor that makes them so great?\nJohn: They're awesome - they make sure we do the poses properly and encourage us to listen to our bodies. They create a great, relaxed environment that makes everyone feel welcome. Here's a photo from our last class.\nMaria: Wow, that looks great! What kind of yoga is it?"
+      },
+      "created_at": "2026-04-28 13:29:47",
+      "updated_at": "2026-04-28 13:29:47"
+    },
+    "11d76cb0-3d74-4bdc-a77f-077debb02930": {
+      "type": "Entity",
+      "canonical_name": "Instructor",
+      "aliases": [],
+      "attrs": {},
+      "created_at": "2026-04-28 13:29:47",
+      "updated_at": "2026-04-28 13:29:47"
+    },
+    "fd36e089-d637-44c4-a7df-c2e55e5cef05": {
+      "type": "Event",
+      "canonical_name": "John yoga class session",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-04-07, John said they make sure we do the poses properly and encourage us to listen to our bodies. They create a great, relaxed environment that makes everyone feel welcome. Here's a photo from our last class.",
+        "time": "2023-04-07",
+        "batch_id": "conv-41_conv_session_10_batch_0",
+        "source_turn_ids": [
+          "conv-41_conv_session_10_D10:1",
+          "conv-41_conv_session_10_D10:2",
+          "conv-41_conv_session_10_D10:3",
+          "conv-41_conv_session_10_D10:4"
+        ],
+        "source": [
+          "conv-41_conv_session_10_D10:1",
+          "conv-41_conv_session_10_D10:2",
+          "conv-41_conv_session_10_D10:3",
+          "conv-41_conv_session_10_D10:4"
+        ],
+        "original_text": "[12:24 am on 7 April, 2023]\n\nJohn: Hey Maria, I'm so excited to tell you I started a weekend yoga class with a colleague - it's awesome! I feel great, both mentally and physically after each session. I'd been wanting to try yoga for a while and finally took the plunge. Simple stretching and breathing is having such a positive effect on my wellbeing. And the instructor is great too.\nMaria: Wow, John, glad to hear that! It's amazing how something like stretching and breathing can have such a positive effect on our wellbeing. What can you tell me about your instructor that makes them so great?\nJohn: They're awesome - they make sure we do the poses properly and encourage us to listen to our bodies. They create a great, relaxed environment that makes everyone feel welcome. Here's a photo from our last class.\nMaria: Wow, that looks great! What kind of yoga is it?"
+      },
+      "created_at": "2026-04-28 13:29:47",
+      "updated_at": "2026-04-28 13:29:47"
+    },
+    "10c7a9f3-e5c3-46d6-97df-35a99f9e324c": {
+      "type": "Event",
+      "canonical_name": "Maria participated in a 5K charity run for a homeless shelter",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-04-07, Maria said she participated in a 5K charity run for a homeless shelter last weekend. It was awesome being surrounded by people all there for the same cause. There's something special about the energy and sense of unity. It was truly rewarding and reminded her why she's passionate about charity work.",
+        "time": "last weekend",
+        "batch_id": "conv-41_conv_session_10_batch_2",
+        "source_turn_ids": [
+          "conv-41_conv_session_10_D10:9",
+          "conv-41_conv_session_10_D10:10",
+          "conv-41_conv_session_10_D10:11",
+          "conv-41_conv_session_10_D10:12"
+        ],
+        "source": [
+          "conv-41_conv_session_10_D10:9",
+          "conv-41_conv_session_10_D10:10",
+          "conv-41_conv_session_10_D10:11",
+          "conv-41_conv_session_10_D10:12"
+        ],
+        "original_text": "[12:24 am on 7 April, 2023]\n\nJohn: Thanks, Maria! I'm gonna keep it up. Not only for the physical benefits, but also for the peace of mind and mindfulness it brings. It's part of my daily routine now. Have you tried anything new lately that's had an impact on you?\nMaria: Last weekend I did something new that had an impact on me. I participated in a 5K charity run for a homeless shelter. It was awesome being surrounded by people all there for the same cause. There's something special about the energy and sense of unity. It was truly rewarding and reminded me why I'm passionate about charity work.\nJohn: Wow, Maria! It sounds awesome. I bet you felt so pumped running with everyone for the same cause. Events like these really energize us and remind us we can make a difference. Any pictures from the event?\nMaria: Here's a pic from the event! The energy was great, it was inspiring seeing everyone come together for a shared cause. It was awesome!"
+      },
+      "created_at": "2026-04-28 13:29:57",
+      "updated_at": "2026-04-28 13:29:58"
+    },
+    "7894358d-efd8-4c90-98a2-9805ace7c48f": {
+      "type": "Event",
+      "canonical_name": "Volunteering at a career fair at a local school",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-04-07, John said he volunteered at a career fair at a local school last weekend and it was incredible to see how lack of resources affects these kids' dreams. Being able to help them was such a rewarding experience.",
+        "time": "last weekend",
+        "batch_id": "conv-41_conv_session_10_batch_3",
+        "source_turn_ids": [
+          "conv-41_conv_session_10_D10:13",
+          "conv-41_conv_session_10_D10:14",
+          "conv-41_conv_session_10_D10:15",
+          "conv-41_conv_session_10_D10:16"
+        ],
+        "source": [
+          "conv-41_conv_session_10_D10:13",
+          "conv-41_conv_session_10_D10:14",
+          "conv-41_conv_session_10_D10:15",
+          "conv-41_conv_session_10_D10:16"
+        ],
+        "original_text": "[12:24 am on 7 April, 2023]\n\nJohn: What a photo! Seeing everyone come together for a shared cause must have been inspiring. Last weekend I had an experience that reminded me of the impact we can make. I got to volunteer at a career fair at a local school, and it was incredible to see how lack of resources affects these kids' dreams. Being able to help them was such a rewarding experience.\nMaria: Wow, John, what an amazing experience! It's so sad how a lack of resources can make such a difference in these kids' dreams. Being able to help them was an awesome experience. What does the sign say?\nJohn: The sign says, \"Always look on the bright side of life\". It reminds us that kids can reach their dreams with the right help.\nMaria: That's really cool. It's inspiring to see how these kids can do great things with support. You're doing awesome work by helping and motivating them. Keep it up!"
+      },
+      "created_at": "2026-04-28 13:30:06",
+      "updated_at": "2026-04-28 13:30:06"
+    },
+    "585b15bb-cf3d-4301-a697-3cced48f21e4": {
+      "type": "Event",
+      "canonical_name": "The sign at the career fair",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-04-07, John said the sign at the career fair says, 'Always look on the bright side of life'. It reminds us that kids can reach their dreams with the right help.",
+        "time": "last weekend",
+        "batch_id": "conv-41_conv_session_10_batch_3",
+        "source_turn_ids": [
+          "conv-41_conv_session_10_D10:13",
+          "conv-41_conv_session_10_D10:14",
+          "conv-41_conv_session_10_D10:15",
+          "conv-41_conv_session_10_D10:16"
+        ],
+        "source": [
+          "conv-41_conv_session_10_D10:13",
+          "conv-41_conv_session_10_D10:14",
+          "conv-41_conv_session_10_D10:15",
+          "conv-41_conv_session_10_D10:16"
+        ],
+        "original_text": "[12:24 am on 7 April, 2023]\n\nJohn: What a photo! Seeing everyone come together for a shared cause must have been inspiring. Last weekend I had an experience that reminded me of the impact we can make. I got to volunteer at a career fair at a local school, and it was incredible to see how lack of resources affects these kids' dreams. Being able to help them was such a rewarding experience.\nMaria: Wow, John, what an amazing experience! It's so sad how a lack of resources can make such a difference in these kids' dreams. Being able to help them was an awesome experience. What does the sign say?\nJohn: The sign says, \"Always look on the bright side of life\". It reminds us that kids can reach their dreams with the right help.\nMaria: That's really cool. It's inspiring to see how these kids can do great things with support. You're doing awesome work by helping and motivating them. Keep it up!"
+      },
+      "created_at": "2026-04-28 13:30:06",
+      "updated_at": "2026-04-28 13:30:06"
+    },
+    "d8d735f0-1246-4cda-ae87-781ed657f484": {
+      "type": "Event",
+      "canonical_name": "Reflection on the impact of volunteering",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-04-07, John said his experience at the career fair reminded him of the impact we can make.",
+        "time": "last weekend",
+        "batch_id": "conv-41_conv_session_10_batch_3",
+        "source_turn_ids": [
+          "conv-41_conv_session_10_D10:13",
+          "conv-41_conv_session_10_D10:14",
+          "conv-41_conv_session_10_D10:15",
+          "conv-41_conv_session_10_D10:16"
+        ],
+        "source": [
+          "conv-41_conv_session_10_D10:13",
+          "conv-41_conv_session_10_D10:14",
+          "conv-41_conv_session_10_D10:15",
+          "conv-41_conv_session_10_D10:16"
+        ],
+        "original_text": "[12:24 am on 7 April, 2023]\n\nJohn: What a photo! Seeing everyone come together for a shared cause must have been inspiring. Last weekend I had an experience that reminded me of the impact we can make. I got to volunteer at a career fair at a local school, and it was incredible to see how lack of resources affects these kids' dreams. Being able to help them was such a rewarding experience.\nMaria: Wow, John, what an amazing experience! It's so sad how a lack of resources can make such a difference in these kids' dreams. Being able to help them was an awesome experience. What does the sign say?\nJohn: The sign says, \"Always look on the bright side of life\". It reminds us that kids can reach their dreams with the right help.\nMaria: That's really cool. It's inspiring to see how these kids can do great things with support. You're doing awesome work by helping and motivating them. Keep it up!"
+      },
+      "created_at": "2026-04-28 13:30:06",
+      "updated_at": "2026-04-28 13:30:06"
+    },
+    "5754c9cc-5487-435a-90f2-8c21f530663d": {
+      "type": "Event",
+      "canonical_name": "John's car broke down",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-04-10, John said his car broke down last Fri on his way to work.",
+        "time": "last Fri",
+        "batch_id": "conv-41_conv_session_11_batch_0",
+        "source_turn_ids": [
+          "conv-41_conv_session_11_D11:1",
+          "conv-41_conv_session_11_D11:2",
+          "conv-41_conv_session_11_D11:3",
+          "conv-41_conv_session_11_D11:4"
+        ],
+        "source": [
+          "conv-41_conv_session_11_D11:1",
+          "conv-41_conv_session_11_D11:2",
+          "conv-41_conv_session_11_D11:3",
+          "conv-41_conv_session_11_D11:4"
+        ],
+        "original_text": "[6:13 pm on 10 April, 2023]\n\nJohn: Hey Maria, haven't talked for a few days. Had a wild week, my car broke down last Fri on my way to work. Trying to get it fixed but it's tough & putting a strain on my wallet. Staying positive & looking for a solution though.\nMaria: Aww John, bummer about that. No doubt it's been tough, but I'm impressed by how positive you're being. Keep it up - tough times pass, but you're tough enough to get through 'em!\nJohn: Thanks, Maria. Your kind words mean a lot. Yeah, it's been tough with car trouble and money problems, but I stay positive and find a way. This picture reminds me of a road trip we took last year; even with bumps along the way, there's still beauty and hope.\nMaria: Wow, great pic! Where did you go on that road trip?"
+      },
+      "created_at": "2026-04-28 13:30:27",
+      "updated_at": "2026-04-28 13:30:27"
+    },
+    "983ca941-cbdf-45d4-8006-c53d9d784b57": {
+      "type": "Event",
+      "canonical_name": "John's money problems",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-04-10, John said trying to get his car fixed is tough and putting a strain on his wallet.",
+        "time": "2023-04-10",
+        "batch_id": "conv-41_conv_session_11_batch_0",
+        "source_turn_ids": [
+          "conv-41_conv_session_11_D11:1",
+          "conv-41_conv_session_11_D11:2",
+          "conv-41_conv_session_11_D11:3",
+          "conv-41_conv_session_11_D11:4"
+        ],
+        "source": [
+          "conv-41_conv_session_11_D11:1",
+          "conv-41_conv_session_11_D11:2",
+          "conv-41_conv_session_11_D11:3",
+          "conv-41_conv_session_11_D11:4"
+        ],
+        "original_text": "[6:13 pm on 10 April, 2023]\n\nJohn: Hey Maria, haven't talked for a few days. Had a wild week, my car broke down last Fri on my way to work. Trying to get it fixed but it's tough & putting a strain on my wallet. Staying positive & looking for a solution though.\nMaria: Aww John, bummer about that. No doubt it's been tough, but I'm impressed by how positive you're being. Keep it up - tough times pass, but you're tough enough to get through 'em!\nJohn: Thanks, Maria. Your kind words mean a lot. Yeah, it's been tough with car trouble and money problems, but I stay positive and find a way. This picture reminds me of a road trip we took last year; even with bumps along the way, there's still beauty and hope.\nMaria: Wow, great pic! Where did you go on that road trip?"
+      },
+      "created_at": "2026-04-28 13:30:27",
+      "updated_at": "2026-04-28 13:30:27"
+    },
+    "f8fc163d-33c5-4c2f-bb2b-f33b1a6f4831": {
+      "type": "Event",
+      "canonical_name": "John's positive attitude",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-04-10, John said he stays positive and finds a way despite car trouble and money problems.",
+        "time": "2023-04-10",
+        "batch_id": "conv-41_conv_session_11_batch_0",
+        "source_turn_ids": [
+          "conv-41_conv_session_11_D11:1",
+          "conv-41_conv_session_11_D11:2",
+          "conv-41_conv_session_11_D11:3",
+          "conv-41_conv_session_11_D11:4"
+        ],
+        "source": [
+          "conv-41_conv_session_11_D11:1",
+          "conv-41_conv_session_11_D11:2",
+          "conv-41_conv_session_11_D11:3",
+          "conv-41_conv_session_11_D11:4"
+        ],
+        "original_text": "[6:13 pm on 10 April, 2023]\n\nJohn: Hey Maria, haven't talked for a few days. Had a wild week, my car broke down last Fri on my way to work. Trying to get it fixed but it's tough & putting a strain on my wallet. Staying positive & looking for a solution though.\nMaria: Aww John, bummer about that. No doubt it's been tough, but I'm impressed by how positive you're being. Keep it up - tough times pass, but you're tough enough to get through 'em!\nJohn: Thanks, Maria. Your kind words mean a lot. Yeah, it's been tough with car trouble and money problems, but I stay positive and find a way. This picture reminds me of a road trip we took last year; even with bumps along the way, there's still beauty and hope.\nMaria: Wow, great pic! Where did you go on that road trip?"
+      },
+      "created_at": "2026-04-28 13:30:27",
+      "updated_at": "2026-04-28 13:30:27"
+    },
+    "d28c4b13-bf9a-47b8-9042-f79624d85ff1": {
+      "type": "Event",
+      "canonical_name": "John's road trip",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-04-10, John said the picture reminds him of a road trip they took last year.",
+        "time": "last year",
+        "batch_id": "conv-41_conv_session_11_batch_0",
+        "source_turn_ids": [
+          "conv-41_conv_session_11_D11:1",
+          "conv-41_conv_session_11_D11:2",
+          "conv-41_conv_session_11_D11:3",
+          "conv-41_conv_session_11_D11:4"
+        ],
+        "source": [
+          "conv-41_conv_session_11_D11:1",
+          "conv-41_conv_session_11_D11:2",
+          "conv-41_conv_session_11_D11:3",
+          "conv-41_conv_session_11_D11:4"
+        ],
+        "original_text": "[6:13 pm on 10 April, 2023]\n\nJohn: Hey Maria, haven't talked for a few days. Had a wild week, my car broke down last Fri on my way to work. Trying to get it fixed but it's tough & putting a strain on my wallet. Staying positive & looking for a solution though.\nMaria: Aww John, bummer about that. No doubt it's been tough, but I'm impressed by how positive you're being. Keep it up - tough times pass, but you're tough enough to get through 'em!\nJohn: Thanks, Maria. Your kind words mean a lot. Yeah, it's been tough with car trouble and money problems, but I stay positive and find a way. This picture reminds me of a road trip we took last year; even with bumps along the way, there's still beauty and hope.\nMaria: Wow, great pic! Where did you go on that road trip?"
+      },
+      "created_at": "2026-04-28 13:30:27",
+      "updated_at": "2026-04-28 13:30:27"
+    },
+    "57e2e9f1-8558-49e7-8ac5-5d018d1c5e43": {
+      "type": "Event",
+      "canonical_name": "John's picture reminder",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-04-10, John said the picture reminds him of a road trip they took last year.",
+        "time": "2023-04-10",
+        "batch_id": "conv-41_conv_session_11_batch_0",
+        "source_turn_ids": [
+          "conv-41_conv_session_11_D11:1",
+          "conv-41_conv_session_11_D11:2",
+          "conv-41_conv_session_11_D11:3",
+          "conv-41_conv_session_11_D11:4"
+        ],
+        "source": [
+          "conv-41_conv_session_11_D11:1",
+          "conv-41_conv_session_11_D11:2",
+          "conv-41_conv_session_11_D11:3",
+          "conv-41_conv_session_11_D11:4"
+        ],
+        "original_text": "[6:13 pm on 10 April, 2023]\n\nJohn: Hey Maria, haven't talked for a few days. Had a wild week, my car broke down last Fri on my way to work. Trying to get it fixed but it's tough & putting a strain on my wallet. Staying positive & looking for a solution though.\nMaria: Aww John, bummer about that. No doubt it's been tough, but I'm impressed by how positive you're being. Keep it up - tough times pass, but you're tough enough to get through 'em!\nJohn: Thanks, Maria. Your kind words mean a lot. Yeah, it's been tough with car trouble and money problems, but I stay positive and find a way. This picture reminds me of a road trip we took last year; even with bumps along the way, there's still beauty and hope.\nMaria: Wow, great pic! Where did you go on that road trip?"
+      },
+      "created_at": "2026-04-28 13:30:27",
+      "updated_at": "2026-04-28 13:30:27"
+    },
+    "67d29fa2-9f5e-498a-8290-d8b097ba28e6": {
+      "type": "Event",
+      "canonical_name": "Maria encourages John",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-04-10, Maria said John's positive attitude was impressive and encouraged him to keep going.",
+        "time": "2023-04-10",
+        "batch_id": "conv-41_conv_session_11_batch_0",
+        "source_turn_ids": [
+          "conv-41_conv_session_11_D11:1",
+          "conv-41_conv_session_11_D11:2",
+          "conv-41_conv_session_11_D11:3",
+          "conv-41_conv_session_11_D11:4"
+        ],
+        "source": [
+          "conv-41_conv_session_11_D11:1",
+          "conv-41_conv_session_11_D11:2",
+          "conv-41_conv_session_11_D11:3",
+          "conv-41_conv_session_11_D11:4"
+        ],
+        "original_text": "[6:13 pm on 10 April, 2023]\n\nJohn: Hey Maria, haven't talked for a few days. Had a wild week, my car broke down last Fri on my way to work. Trying to get it fixed but it's tough & putting a strain on my wallet. Staying positive & looking for a solution though.\nMaria: Aww John, bummer about that. No doubt it's been tough, but I'm impressed by how positive you're being. Keep it up - tough times pass, but you're tough enough to get through 'em!\nJohn: Thanks, Maria. Your kind words mean a lot. Yeah, it's been tough with car trouble and money problems, but I stay positive and find a way. This picture reminds me of a road trip we took last year; even with bumps along the way, there's still beauty and hope.\nMaria: Wow, great pic! Where did you go on that road trip?"
+      },
+      "created_at": "2026-04-28 13:30:27",
+      "updated_at": "2026-04-28 13:30:28"
+    },
+    "3433357e-05be-454f-bfb6-535b85b5793d": {
+      "type": "Event",
+      "canonical_name": "John thanks Maria",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-04-10, John said Maria's kind words meant a lot to him.",
+        "time": "2023-04-10",
+        "batch_id": "conv-41_conv_session_11_batch_0",
+        "source_turn_ids": [
+          "conv-41_conv_session_11_D11:1",
+          "conv-41_conv_session_11_D11:2",
+          "conv-41_conv_session_11_D11:3",
+          "conv-41_conv_session_11_D11:4"
+        ],
+        "source": [
+          "conv-41_conv_session_11_D11:1",
+          "conv-41_conv_session_11_D11:2",
+          "conv-41_conv_session_11_D11:3",
+          "conv-41_conv_session_11_D11:4"
+        ],
+        "original_text": "[6:13 pm on 10 April, 2023]\n\nJohn: Hey Maria, haven't talked for a few days. Had a wild week, my car broke down last Fri on my way to work. Trying to get it fixed but it's tough & putting a strain on my wallet. Staying positive & looking for a solution though.\nMaria: Aww John, bummer about that. No doubt it's been tough, but I'm impressed by how positive you're being. Keep it up - tough times pass, but you're tough enough to get through 'em!\nJohn: Thanks, Maria. Your kind words mean a lot. Yeah, it's been tough with car trouble and money problems, but I stay positive and find a way. This picture reminds me of a road trip we took last year; even with bumps along the way, there's still beauty and hope.\nMaria: Wow, great pic! Where did you go on that road trip?"
+      },
+      "created_at": "2026-04-28 13:30:27",
+      "updated_at": "2026-04-28 13:30:28"
+    },
+    "a9970dd8-b868-45c0-9622-9735c5aa569d": {
+      "type": "Event",
+      "canonical_name": "Maria asks about road trip",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-04-10, Maria said the picture reminded John of a road trip they took last year and asked where they went.",
+        "time": "2023-04-10",
+        "batch_id": "conv-41_conv_session_11_batch_0",
+        "source_turn_ids": [
+          "conv-41_conv_session_11_D11:1",
+          "conv-41_conv_session_11_D11:2",
+          "conv-41_conv_session_11_D11:3",
+          "conv-41_conv_session_11_D11:4"
+        ],
+        "source": [
+          "conv-41_conv_session_11_D11:1",
+          "conv-41_conv_session_11_D11:2",
+          "conv-41_conv_session_11_D11:3",
+          "conv-41_conv_session_11_D11:4"
+        ],
+        "original_text": "[6:13 pm on 10 April, 2023]\n\nJohn: Hey Maria, haven't talked for a few days. Had a wild week, my car broke down last Fri on my way to work. Trying to get it fixed but it's tough & putting a strain on my wallet. Staying positive & looking for a solution though.\nMaria: Aww John, bummer about that. No doubt it's been tough, but I'm impressed by how positive you're being. Keep it up - tough times pass, but you're tough enough to get through 'em!\nJohn: Thanks, Maria. Your kind words mean a lot. Yeah, it's been tough with car trouble and money problems, but I stay positive and find a way. This picture reminds me of a road trip we took last year; even with bumps along the way, there's still beauty and hope.\nMaria: Wow, great pic! Where did you go on that road trip?"
+      },
+      "created_at": "2026-04-28 13:30:27",
+      "updated_at": "2026-04-28 13:30:28"
+    },
+    "7475100b-8600-47de-927a-2a8f4acc344f": {
+      "type": "Event",
+      "canonical_name": "Road Trip to Pacific Northwest",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-04-10, John said we explored the coast up in the Pacific Northwest and hit some cool national parks. The beauty of nature was absolutely breathtaking.",
+        "time": "2023-04-10",
+        "batch_id": "conv-41_conv_session_11_batch_1",
+        "source_turn_ids": [
+          "conv-41_conv_session_11_D11:5",
+          "conv-41_conv_session_11_D11:6",
+          "conv-41_conv_session_11_D11:7",
+          "conv-41_conv_session_11_D11:8"
+        ],
+        "source": [
+          "conv-41_conv_session_11_D11:5",
+          "conv-41_conv_session_11_D11:6",
+          "conv-41_conv_session_11_D11:7",
+          "conv-41_conv_session_11_D11:8"
+        ],
+        "original_text": "[6:13 pm on 10 April, 2023]\n\nJohn: Thanks! We explored the coast up in the Pacific Northwest and hit some cool national parks. The beauty of nature was absolutely breathtaking!\nMaria: Wow, that must've been great! It's so nice to appreciate nature and find peace. Lucky you got to experience that.\nJohn: Wow, it was amazing. The stunning views really make you think.\nMaria: Nature helps put things in perspective and reminds us of the beauty even during tough times. Hold onto those moments of peace."
+      },
+      "created_at": "2026-04-28 13:30:35",
+      "updated_at": "2026-04-28 13:30:36"
+    },
+    "763614d3-ac0e-4465-b49e-8da8fe313097": {
+      "type": "Event",
+      "canonical_name": "Nature Experience",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-04-10, Maria said it's so nice to appreciate nature and find peace. Lucky you got to experience that.",
+        "time": "2023-04-10",
+        "batch_id": "conv-41_conv_session_11_batch_1",
+        "source_turn_ids": [
+          "conv-41_conv_session_11_D11:5",
+          "conv-41_conv_session_11_D11:6",
+          "conv-41_conv_session_11_D11:7",
+          "conv-41_conv_session_11_D11:8"
+        ],
+        "source": [
+          "conv-41_conv_session_11_D11:5",
+          "conv-41_conv_session_11_D11:6",
+          "conv-41_conv_session_11_D11:7",
+          "conv-41_conv_session_11_D11:8"
+        ],
+        "original_text": "[6:13 pm on 10 April, 2023]\n\nJohn: Thanks! We explored the coast up in the Pacific Northwest and hit some cool national parks. The beauty of nature was absolutely breathtaking!\nMaria: Wow, that must've been great! It's so nice to appreciate nature and find peace. Lucky you got to experience that.\nJohn: Wow, it was amazing. The stunning views really make you think.\nMaria: Nature helps put things in perspective and reminds us of the beauty even during tough times. Hold onto those moments of peace."
+      },
+      "created_at": "2026-04-28 13:30:35",
+      "updated_at": "2026-04-28 13:30:36"
+    },
+    "5c3bc311-3036-49f1-a6cf-5ea3412a847a": {
+      "type": "Event",
+      "canonical_name": "Nature Reflection",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-04-10, John said the stunning views really make you think.",
+        "time": "2023-04-10",
+        "batch_id": "conv-41_conv_session_11_batch_1",
+        "source_turn_ids": [
+          "conv-41_conv_session_11_D11:5",
+          "conv-41_conv_session_11_D11:6",
+          "conv-41_conv_session_11_D11:7",
+          "conv-41_conv_session_11_D11:8"
+        ],
+        "source": [
+          "conv-41_conv_session_11_D11:5",
+          "conv-41_conv_session_11_D11:6",
+          "conv-41_conv_session_11_D11:7",
+          "conv-41_conv_session_11_D11:8"
+        ],
+        "original_text": "[6:13 pm on 10 April, 2023]\n\nJohn: Thanks! We explored the coast up in the Pacific Northwest and hit some cool national parks. The beauty of nature was absolutely breathtaking!\nMaria: Wow, that must've been great! It's so nice to appreciate nature and find peace. Lucky you got to experience that.\nJohn: Wow, it was amazing. The stunning views really make you think.\nMaria: Nature helps put things in perspective and reminds us of the beauty even during tough times. Hold onto those moments of peace."
+      },
+      "created_at": "2026-04-28 13:30:35",
+      "updated_at": "2026-04-28 13:30:36"
+    },
+    "c4a3d857-5481-4399-80a9-c629b717f9a8": {
+      "type": "Event",
+      "canonical_name": "Nature Perspective",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-04-10, Maria said nature helps put things in perspective and reminds us of the beauty even during tough times. Hold onto those moments of peace.",
+        "time": "2023-04-10",
+        "batch_id": "conv-41_conv_session_11_batch_1",
+        "source_turn_ids": [
+          "conv-41_conv_session_11_D11:5",
+          "conv-41_conv_session_11_D11:6",
+          "conv-41_conv_session_11_D11:7",
+          "conv-41_conv_session_11_D11:8"
+        ],
+        "source": [
+          "conv-41_conv_session_11_D11:5",
+          "conv-41_conv_session_11_D11:6",
+          "conv-41_conv_session_11_D11:7",
+          "conv-41_conv_session_11_D11:8"
+        ],
+        "original_text": "[6:13 pm on 10 April, 2023]\n\nJohn: Thanks! We explored the coast up in the Pacific Northwest and hit some cool national parks. The beauty of nature was absolutely breathtaking!\nMaria: Wow, that must've been great! It's so nice to appreciate nature and find peace. Lucky you got to experience that.\nJohn: Wow, it was amazing. The stunning views really make you think.\nMaria: Nature helps put things in perspective and reminds us of the beauty even during tough times. Hold onto those moments of peace."
+      },
+      "created_at": "2026-04-28 13:30:35",
+      "updated_at": "2026-04-28 13:30:36"
+    },
+    "52a65b8a-5a29-4ce2-b8e2-b073dde536f3": {
+      "type": "Event",
+      "canonical_name": "Maria gave talks at the homeless shelter",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-04-10, Maria said she recently gave a few talks at the homeless shelter she volunteers at. It was really fulfilling and she received lots of compliments from other volunteers. It was a great reminder about why connecting with and helping others is so important.",
+        "time": "2023-04-10",
+        "batch_id": "conv-41_conv_session_11_batch_2",
+        "source_turn_ids": [
+          "conv-41_conv_session_11_D11:9",
+          "conv-41_conv_session_11_D11:10",
+          "conv-41_conv_session_11_D11:11",
+          "conv-41_conv_session_11_D11:12"
+        ],
+        "source": [
+          "conv-41_conv_session_11_D11:9",
+          "conv-41_conv_session_11_D11:10",
+          "conv-41_conv_session_11_D11:11",
+          "conv-41_conv_session_11_D11:12"
+        ],
+        "original_text": "[6:13 pm on 10 April, 2023]\n\nJohn: Yeah, Maria. That peace and beauty are so needed, especially during tough times. They give us the power and inspiration to continue. Anything cool you're up to now?\nMaria: I recently gave a few talks at the homeless shelter I volunteer at. It was really fulfilling and I received lots of compliments from other volunteers. It was a great reminder about why connecting with and helping others is so important. And, I bought a cross necklace to feel closer to my faith- which has made me happy.\nJohn: Way to go, Maria! You're making a real difference. It's awesome how connecting with and helping others brings you so much joy. Keep it up!\nMaria: Thanks, John! It's so great to make a real difference. Seeing the impact and hearing the gratitude fills me with so much joy. The people at the shelter have become like family to me. I feel really blessed to know them."
+      },
+      "created_at": "2026-04-28 13:30:43",
+      "updated_at": "2026-04-28 13:30:44"
+    },
+    "ef06291a-f39e-46f6-94df-8c352b8aad16": {
+      "type": "Event",
+      "canonical_name": "Maria bought a cross necklace",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-04-10, Maria said she bought a cross necklace to feel closer to her faith- which has made her happy.",
+        "time": "2023-04-10",
+        "batch_id": "conv-41_conv_session_11_batch_2",
+        "source_turn_ids": [
+          "conv-41_conv_session_11_D11:9",
+          "conv-41_conv_session_11_D11:10",
+          "conv-41_conv_session_11_D11:11",
+          "conv-41_conv_session_11_D11:12"
+        ],
+        "source": [
+          "conv-41_conv_session_11_D11:9",
+          "conv-41_conv_session_11_D11:10",
+          "conv-41_conv_session_11_D11:11",
+          "conv-41_conv_session_11_D11:12"
+        ],
+        "original_text": "[6:13 pm on 10 April, 2023]\n\nJohn: Yeah, Maria. That peace and beauty are so needed, especially during tough times. They give us the power and inspiration to continue. Anything cool you're up to now?\nMaria: I recently gave a few talks at the homeless shelter I volunteer at. It was really fulfilling and I received lots of compliments from other volunteers. It was a great reminder about why connecting with and helping others is so important. And, I bought a cross necklace to feel closer to my faith- which has made me happy.\nJohn: Way to go, Maria! You're making a real difference. It's awesome how connecting with and helping others brings you so much joy. Keep it up!\nMaria: Thanks, John! It's so great to make a real difference. Seeing the impact and hearing the gratitude fills me with so much joy. The people at the shelter have become like family to me. I feel really blessed to know them."
+      },
+      "created_at": "2026-04-28 13:30:43",
+      "updated_at": "2026-04-28 13:30:44"
+    },
+    "5e1cc9a6-608d-4e0c-9cb1-c33613638086": {
+      "type": "Event",
+      "canonical_name": "Maria feels blessed to know people at the shelter",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-04-10, Maria said the people at the shelter have become like family to her. She feels really blessed to know them.",
+        "time": "2023-04-10",
+        "batch_id": "conv-41_conv_session_11_batch_2",
+        "source_turn_ids": [
+          "conv-41_conv_session_11_D11:9",
+          "conv-41_conv_session_11_D11:10",
+          "conv-41_conv_session_11_D11:11",
+          "conv-41_conv_session_11_D11:12"
+        ],
+        "source": [
+          "conv-41_conv_session_11_D11:9",
+          "conv-41_conv_session_11_D11:10",
+          "conv-41_conv_session_11_D11:11",
+          "conv-41_conv_session_11_D11:12"
+        ],
+        "original_text": "[6:13 pm on 10 April, 2023]\n\nJohn: Yeah, Maria. That peace and beauty are so needed, especially during tough times. They give us the power and inspiration to continue. Anything cool you're up to now?\nMaria: I recently gave a few talks at the homeless shelter I volunteer at. It was really fulfilling and I received lots of compliments from other volunteers. It was a great reminder about why connecting with and helping others is so important. And, I bought a cross necklace to feel closer to my faith- which has made me happy.\nJohn: Way to go, Maria! You're making a real difference. It's awesome how connecting with and helping others brings you so much joy. Keep it up!\nMaria: Thanks, John! It's so great to make a real difference. Seeing the impact and hearing the gratitude fills me with so much joy. The people at the shelter have become like family to me. I feel really blessed to know them."
+      },
+      "created_at": "2026-04-28 13:30:43",
+      "updated_at": "2026-04-28 13:30:44"
+    }
+  },
+  "edges": [
+    {
+      "edge_id": "77d9567c-66dd-435a-8034-bdbd3d675e9c",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "fe65dc11-83d5-4975-895d-dddbfefb9522",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:24:33"
+    },
+    {
+      "edge_id": "888f2261-b7ac-4d47-a66a-1f781c3e19cb",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "6c0ca92f-c117-466b-85bd-072453bf870e",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:24:33"
+    },
+    {
+      "edge_id": "f05cd81b-1f63-4983-aeb3-8d0683640378",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "c3cb5f7a-c11d-419c-880e-4a349417f2c2",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:24:37"
+    },
+    {
+      "edge_id": "a7db9b69-9486-43a7-b23b-7bdf9f02a0c6",
+      "src": "6c0ca92f-c117-466b-85bd-072453bf870e",
+      "dst": "c3cb5f7a-c11d-419c-880e-4a349417f2c2",
+      "family": "event-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-28 13:24:37"
+    },
+    {
+      "edge_id": "1091f062-7da3-4716-93b0-b340184bdb28",
+      "src": "fe65dc11-83d5-4975-895d-dddbfefb9522",
+      "dst": "c3cb5f7a-c11d-419c-880e-4a349417f2c2",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:24:37"
+    },
+    {
+      "edge_id": "2a448f31-8b50-4d5d-848f-771df7a93c90",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "fe65dc11-83d5-4975-895d-dddbfefb9522",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:24:40"
+    },
+    {
+      "edge_id": "cadd95ba-7d3d-4924-96ff-c997697d174b",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "6c0ca92f-c117-466b-85bd-072453bf870e",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:24:40"
+    },
+    {
+      "edge_id": "0cba8260-f0f6-4335-b477-d0f7e83272bf",
+      "src": "618536ea-6f22-4c2d-bcfc-f613ab44eaae",
+      "dst": "d938ba60-d402-4d9c-b43b-765c8df4979e",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:24:56"
+    },
+    {
+      "edge_id": "d70d18bc-89ed-42bd-89f6-d945ae172106",
+      "src": "618536ea-6f22-4c2d-bcfc-f613ab44eaae",
+      "dst": "07cd6647-1321-443b-b0d6-74dfeda8422a",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:24:56"
+    },
+    {
+      "edge_id": "de99df75-27e7-4e6e-a054-88b3aae35147",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "fe6659ac-e735-459b-b77d-4f71ddad3f97",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:25:00"
+    },
+    {
+      "edge_id": "8fbca117-77dc-414b-acbb-5c30fd572e58",
+      "src": "c3cb5f7a-c11d-419c-880e-4a349417f2c2",
+      "dst": "fe6659ac-e735-459b-b77d-4f71ddad3f97",
+      "family": "event-event",
+      "predicate": "related_to",
+      "created_at": "2026-04-28 13:25:00"
+    },
+    {
+      "edge_id": "7f2c76ab-6809-49b4-af45-ab0342739783",
+      "src": "6c0ca92f-c117-466b-85bd-072453bf870e",
+      "dst": "fe6659ac-e735-459b-b77d-4f71ddad3f97",
+      "family": "event-event",
+      "predicate": "related_to",
+      "created_at": "2026-04-28 13:25:00"
+    },
+    {
+      "edge_id": "c60c1bc9-55bd-4c6f-b7bd-0ad9b8687f2c",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "8f6a6efe-843b-457b-b6d9-62047f1c634c",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:25:04"
+    },
+    {
+      "edge_id": "43a36384-671e-4079-bcab-99ca34856307",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "8f6a6efe-843b-457b-b6d9-62047f1c634c",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:25:04"
+    },
+    {
+      "edge_id": "f6009284-fa2d-465f-9cb6-860e8d4fa7d5",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "8f6a6efe-843b-457b-b6d9-62047f1c634c",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:25:04"
+    },
+    {
+      "edge_id": "c60226d2-b589-4775-ab04-878111aa6486",
+      "src": "8f6a6efe-843b-457b-b6d9-62047f1c634c",
+      "dst": "6c0ca92f-c117-466b-85bd-072453bf870e",
+      "family": "event-event",
+      "predicate": "related_to",
+      "created_at": "2026-04-28 13:25:04"
+    },
+    {
+      "edge_id": "9d232ac2-7acd-4345-99ac-47bd334aa120",
+      "src": "8f6a6efe-843b-457b-b6d9-62047f1c634c",
+      "dst": "fe65dc11-83d5-4975-895d-dddbfefb9522",
+      "family": "event-event",
+      "predicate": "related_to",
+      "created_at": "2026-04-28 13:25:04"
+    },
+    {
+      "edge_id": "627c7aa3-5d94-439e-be55-5757a4a033df",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "fe6659ac-e735-459b-b77d-4f71ddad3f97",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:25:08"
+    },
+    {
+      "edge_id": "56ea2c47-9c14-4c1a-9943-858344464cd7",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "8f6a6efe-843b-457b-b6d9-62047f1c634c",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:25:08"
+    },
+    {
+      "edge_id": "b570c41d-4c6d-4093-ab41-282bbb0cd486",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "7eb068ea-7ebd-4d3e-b2ab-fbf48e6cb6f8",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:25:14"
+    },
+    {
+      "edge_id": "220e8816-52f1-484c-91e2-41daf7cd027a",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "7eb068ea-7ebd-4d3e-b2ab-fbf48e6cb6f8",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:25:14"
+    },
+    {
+      "edge_id": "4e25fadc-73eb-42c1-9d3a-0b1f784f47a6",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "7fa6ce03-3830-4fa3-b06b-00e8da73a62f",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:25:21"
+    },
+    {
+      "edge_id": "6a3a0d33-d35d-43fd-83e8-ec6c1d666b3e",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "7a0ac119-3755-441a-a8a3-7bc5253e580b",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:25:21"
+    },
+    {
+      "edge_id": "b7a88439-f56c-4460-b569-6ab30ce152cf",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "7fa6ce03-3830-4fa3-b06b-00e8da73a62f",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:25:21"
+    },
+    {
+      "edge_id": "a0799627-13af-4359-9ca0-145c0855daa0",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "7a0ac119-3755-441a-a8a3-7bc5253e580b",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:25:21"
+    },
+    {
+      "edge_id": "17044ccb-3453-40bd-b584-58022ce7803c",
+      "src": "7fa6ce03-3830-4fa3-b06b-00e8da73a62f",
+      "dst": "7a0ac119-3755-441a-a8a3-7bc5253e580b",
+      "family": "event-event",
+      "predicate": "updates",
+      "created_at": "2026-04-28 13:25:21"
+    },
+    {
+      "edge_id": "378fe224-71d2-432d-9064-792fe429a154",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "1d2a9e26-697e-4dc3-b6bf-d630bdb29791",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:25:26"
+    },
+    {
+      "edge_id": "e6624262-f4f9-4444-a9d1-f00a35656689",
+      "src": "1d2a9e26-697e-4dc3-b6bf-d630bdb29791",
+      "dst": "7a0ac119-3755-441a-a8a3-7bc5253e580b",
+      "family": "event-event",
+      "predicate": "related_to",
+      "created_at": "2026-04-28 13:25:26"
+    },
+    {
+      "edge_id": "ae3765b1-1a34-4902-b3b4-194cc0e080ab",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "7eb068ea-7ebd-4d3e-b2ab-fbf48e6cb6f8",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:25:32"
+    },
+    {
+      "edge_id": "933d3240-d3bf-42aa-95cd-6cd768aeb872",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "7a0ac119-3755-441a-a8a3-7bc5253e580b",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-28 13:25:32"
+    },
+    {
+      "edge_id": "3a4d6950-b77d-463b-ae4c-6dd9862c7e54",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "7fa6ce03-3830-4fa3-b06b-00e8da73a62f",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-28 13:25:32"
+    },
+    {
+      "edge_id": "6bd7abc8-0370-434a-9d3a-0c8bc26130b0",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "7eb068ea-7ebd-4d3e-b2ab-fbf48e6cb6f8",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-28 13:25:32"
+    },
+    {
+      "edge_id": "bd2f3c53-c5cb-4f1a-9e76-f901f0132398",
+      "src": "7a0ac119-3755-441a-a8a3-7bc5253e580b",
+      "dst": "7fa6ce03-3830-4fa3-b06b-00e8da73a62f",
+      "family": "event-event",
+      "predicate": "updates",
+      "created_at": "2026-04-28 13:25:32"
+    },
+    {
+      "edge_id": "320bd2cd-0414-4730-8725-047ddd159238",
+      "src": "7a0ac119-3755-441a-a8a3-7bc5253e580b",
+      "dst": "7eb068ea-7ebd-4d3e-b2ab-fbf48e6cb6f8",
+      "family": "event-event",
+      "predicate": "updates",
+      "created_at": "2026-04-28 13:25:32"
+    },
+    {
+      "edge_id": "d2cfd122-a7c4-47d6-ab52-ef5cea91c0fa",
+      "src": "7a0ac119-3755-441a-a8a3-7bc5253e580b",
+      "dst": "7fa6ce03-3830-4fa3-b06b-00e8da73a62f",
+      "family": "event-event",
+      "predicate": "related_to",
+      "created_at": "2026-04-28 13:25:32"
+    },
+    {
+      "edge_id": "39cb0e49-3b65-478c-941d-79234861162b",
+      "src": "7a0ac119-3755-441a-a8a3-7bc5253e580b",
+      "dst": "7eb068ea-7ebd-4d3e-b2ab-fbf48e6cb6f8",
+      "family": "event-event",
+      "predicate": "related_to",
+      "created_at": "2026-04-28 13:25:32"
+    },
+    {
+      "edge_id": "f4a17826-0cc7-450f-8b9c-66e1bc69d09c",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "7a0ac119-3755-441a-a8a3-7bc5253e580b",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:25:42"
+    },
+    {
+      "edge_id": "5fb5b4e8-598d-45b3-82df-661a3971d4cb",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "7fa6ce03-3830-4fa3-b06b-00e8da73a62f",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:25:42"
+    },
+    {
+      "edge_id": "abd8145e-3287-4f99-a374-6ced73d48976",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "6c0ca92f-c117-466b-85bd-072453bf870e",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-28 13:25:42"
+    },
+    {
+      "edge_id": "675feb38-1ed0-4376-8d21-f45034124a64",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "fe65dc11-83d5-4975-895d-dddbfefb9522",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-28 13:25:42"
+    },
+    {
+      "edge_id": "f12ff671-125f-4393-a55e-5cde61c96528",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "c3cb5f7a-c11d-419c-880e-4a349417f2c2",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-28 13:25:42"
+    },
+    {
+      "edge_id": "9224263e-df69-40aa-941e-44e1c57faa9f",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "1d2a9e26-697e-4dc3-b6bf-d630bdb29791",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-28 13:25:42"
+    },
+    {
+      "edge_id": "3cdaba99-2756-43e3-b5d5-cdb1a9ef9a22",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "c3cb5f7a-c11d-419c-880e-4a349417f2c2",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:25:42"
+    },
+    {
+      "edge_id": "91823a1c-c277-4b95-8acd-9f9d96540872",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "1d2a9e26-697e-4dc3-b6bf-d630bdb29791",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:25:42"
+    },
+    {
+      "edge_id": "2681b715-074e-4a3f-a93a-01d6e6a533a3",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "c0cb9479-d296-4e1c-b281-518ff9c9a5fe",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:26:02"
+    },
+    {
+      "edge_id": "71cbf577-1545-40ba-9879-fbd7b9e979db",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "bf925a6e-5531-4a8c-90d8-3469ae793ff8",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:26:02"
+    },
+    {
+      "edge_id": "8cd9fd3b-7000-4757-b60f-461a8ddd81a6",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "7a0ac119-3755-441a-a8a3-7bc5253e580b",
+      "family": "entity-event",
+      "predicate": "updates",
+      "created_at": "2026-04-28 13:26:08"
+    },
+    {
+      "edge_id": "e52da5ed-c0e0-49ae-b26b-7774ef3dd6a8",
+      "src": "7a0ac119-3755-441a-a8a3-7bc5253e580b",
+      "dst": "fe65dc11-83d5-4975-895d-dddbfefb9522",
+      "family": "event-event",
+      "predicate": "updates",
+      "created_at": "2026-04-28 13:26:23"
+    },
+    {
+      "edge_id": "572fff1e-c68a-4e4f-816f-3f8cbc1f2510",
+      "src": "7a0ac119-3755-441a-a8a3-7bc5253e580b",
+      "dst": "c3cb5f7a-c11d-419c-880e-4a349417f2c2",
+      "family": "event-event",
+      "predicate": "updates",
+      "created_at": "2026-04-28 13:26:23"
+    },
+    {
+      "edge_id": "e41fcbb2-4f92-46b6-ae32-bad390d44f2b",
+      "src": "7a0ac119-3755-441a-a8a3-7bc5253e580b",
+      "dst": "1d2a9e26-697e-4dc3-b6bf-d630bdb29791",
+      "family": "event-event",
+      "predicate": "updates",
+      "created_at": "2026-04-28 13:26:23"
+    },
+    {
+      "edge_id": "f7b26f43-c6af-468f-b451-649000fe3eaf",
+      "src": "7a0ac119-3755-441a-a8a3-7bc5253e580b",
+      "dst": "8f6a6efe-843b-457b-b6d9-62047f1c634c",
+      "family": "event-event",
+      "predicate": "updates",
+      "created_at": "2026-04-28 13:26:23"
+    },
+    {
+      "edge_id": "6635bb14-4243-4fb3-8a41-34921d4fd0e6",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "family": "entity-entity",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:26:30"
+    },
+    {
+      "edge_id": "dcf87568-e990-4b0a-93cf-df2bca04ccad",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "fe6659ac-e735-459b-b77d-4f71ddad3f97",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-28 13:26:30"
+    },
+    {
+      "edge_id": "d5f0ef53-f022-460b-bcb6-a2bd100986ca",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "8f6a6efe-843b-457b-b6d9-62047f1c634c",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-28 13:26:30"
+    },
+    {
+      "edge_id": "a114c482-e500-4cf9-8176-328ff5cacf89",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "family": "entity-entity",
+      "predicate": "object_of",
+      "created_at": "2026-04-28 13:26:30"
+    },
+    {
+      "edge_id": "d3b81ba1-a854-4e33-94b4-860dbdb9dc47",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "7fa6ce03-3830-4fa3-b06b-00e8da73a62f",
+      "family": "entity-event",
+      "predicate": "updates",
+      "created_at": "2026-04-28 13:26:39"
+    },
+    {
+      "edge_id": "62ec2086-59c2-4711-99c7-26ea03ec95b5",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "7eb068ea-7ebd-4d3e-b2ab-fbf48e6cb6f8",
+      "family": "entity-event",
+      "predicate": "updates",
+      "created_at": "2026-04-28 13:26:39"
+    },
+    {
+      "edge_id": "51e88add-be0b-43a0-a787-f98d52ab1501",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "bf925a6e-5531-4a8c-90d8-3469ae793ff8",
+      "family": "entity-event",
+      "predicate": "updates",
+      "created_at": "2026-04-28 13:26:39"
+    },
+    {
+      "edge_id": "3ea1abb0-eb47-4fe4-a366-d1a576e748fe",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "c0cb9479-d296-4e1c-b281-518ff9c9a5fe",
+      "family": "entity-event",
+      "predicate": "updates",
+      "created_at": "2026-04-28 13:26:39"
+    },
+    {
+      "edge_id": "fbdfd61f-fecd-4226-9f5c-25f4f49ac5ae",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "fe6659ac-e735-459b-b77d-4f71ddad3f97",
+      "family": "entity-event",
+      "predicate": "updates",
+      "created_at": "2026-04-28 13:26:39"
+    },
+    {
+      "edge_id": "dd24b53f-ec41-45d8-b0f0-c4a1645e7eba",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "8f6a6efe-843b-457b-b6d9-62047f1c634c",
+      "family": "entity-event",
+      "predicate": "updates",
+      "created_at": "2026-04-28 13:26:39"
+    },
+    {
+      "edge_id": "ba9bc553-5823-4472-98c4-cea71e4a776c",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "c3cb5f7a-c11d-419c-880e-4a349417f2c2",
+      "family": "entity-event",
+      "predicate": "updates",
+      "created_at": "2026-04-28 13:26:39"
+    },
+    {
+      "edge_id": "477563c4-e8dd-47cb-8663-31ed323a321e",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "fe65dc11-83d5-4975-895d-dddbfefb9522",
+      "family": "entity-event",
+      "predicate": "updates",
+      "created_at": "2026-04-28 13:26:39"
+    },
+    {
+      "edge_id": "4aa01897-a123-4e56-b757-377c3f2a0d99",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "1d2a9e26-697e-4dc3-b6bf-d630bdb29791",
+      "family": "entity-event",
+      "predicate": "updates",
+      "created_at": "2026-04-28 13:26:39"
+    },
+    {
+      "edge_id": "ab935af7-7c14-4b07-9003-49886505cd46",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "d8dec116-a5d2-4b5a-9dc2-102513286d50",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:26:45"
+    },
+    {
+      "edge_id": "c9195e49-95ad-4c3c-90d7-0d7e10d0f82a",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "8418f5b5-2b76-468e-8609-13e0558d919f",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:26:45"
+    },
+    {
+      "edge_id": "2a2b26e1-b98b-434b-8a02-c0be1bc752c1",
+      "src": "8dd299e0-77f6-4855-ac53-7c9a99e60ad7",
+      "dst": "8418f5b5-2b76-468e-8609-13e0558d919f",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:26:45"
+    },
+    {
+      "edge_id": "fb823f32-c607-409c-8194-e1b65dd0934d",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "102406d9-6fe6-4dce-ad8b-3b1735658827",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:26:52"
+    },
+    {
+      "edge_id": "706af45d-cfb7-4e94-9460-b0e697b52186",
+      "src": "702f2b04-f78c-49e1-b27f-6ee819a0c5fa",
+      "dst": "102406d9-6fe6-4dce-ad8b-3b1735658827",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:26:52"
+    },
+    {
+      "edge_id": "52903116-523c-4a7b-a97b-1733b2e8aabb",
+      "src": "102406d9-6fe6-4dce-ad8b-3b1735658827",
+      "dst": "8418f5b5-2b76-468e-8609-13e0558d919f",
+      "family": "event-event",
+      "predicate": "updates",
+      "created_at": "2026-04-28 13:26:52"
+    },
+    {
+      "edge_id": "bda44163-e235-4410-a5bf-5d59ea32f057",
+      "src": "102406d9-6fe6-4dce-ad8b-3b1735658827",
+      "dst": "d8dec116-a5d2-4b5a-9dc2-102513286d50",
+      "family": "event-event",
+      "predicate": "updates",
+      "created_at": "2026-04-28 13:26:52"
+    },
+    {
+      "edge_id": "2e509bd6-9cc6-46e3-afb2-33ddf284b941",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "702f2b04-f78c-49e1-b27f-6ee819a0c5fa",
+      "family": "entity-entity",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:26:57"
+    },
+    {
+      "edge_id": "9c8927e4-c694-4d40-993c-165a7ca7c3fc",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "702f2b04-f78c-49e1-b27f-6ee819a0c5fa",
+      "family": "entity-entity",
+      "predicate": "object_of",
+      "created_at": "2026-04-28 13:26:57"
+    },
+    {
+      "edge_id": "67ef12a5-20b7-408b-a592-524beed766f2",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "702f2b04-f78c-49e1-b27f-6ee819a0c5fa",
+      "family": "entity-entity",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:26:57"
+    },
+    {
+      "edge_id": "64d43f0b-9b6e-4c77-baa8-f7ff533608f9",
+      "src": "702f2b04-f78c-49e1-b27f-6ee819a0c5fa",
+      "dst": "102406d9-6fe6-4dce-ad8b-3b1735658827",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-28 13:26:57"
+    },
+    {
+      "edge_id": "81fb5a3c-972a-4018-978d-c2c7772edd97",
+      "src": "702f2b04-f78c-49e1-b27f-6ee819a0c5fa",
+      "dst": "102406d9-6fe6-4dce-ad8b-3b1735658827",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:26:57"
+    },
+    {
+      "edge_id": "5fd95423-1408-4ce1-8ccb-6ba517db1a76",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "bfe77d22-da4f-4a88-9961-4d99cff0921b",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:27:02"
+    },
+    {
+      "edge_id": "693e50aa-11af-4ad2-b61b-b91906e58c67",
+      "src": "bfe77d22-da4f-4a88-9961-4d99cff0921b",
+      "dst": "7a0ac119-3755-441a-a8a3-7bc5253e580b",
+      "family": "event-event",
+      "predicate": "related_to",
+      "created_at": "2026-04-28 13:27:02"
+    },
+    {
+      "edge_id": "25412a63-1f38-4fda-b3a1-53f75733b055",
+      "src": "bfe77d22-da4f-4a88-9961-4d99cff0921b",
+      "dst": "8418f5b5-2b76-468e-8609-13e0558d919f",
+      "family": "event-event",
+      "predicate": "updates",
+      "created_at": "2026-04-28 13:27:02"
+    },
+    {
+      "edge_id": "24446f76-fe94-4b32-85cb-9d30ddf99b31",
+      "src": "bfe77d22-da4f-4a88-9961-4d99cff0921b",
+      "dst": "d8dec116-a5d2-4b5a-9dc2-102513286d50",
+      "family": "event-event",
+      "predicate": "updates",
+      "created_at": "2026-04-28 13:27:02"
+    },
+    {
+      "edge_id": "fa34b4aa-4234-4382-a5a6-2e91a3dc4e81",
+      "src": "f235e3c0-dc88-43ec-845a-451443aa4c12",
+      "dst": "fafe19a9-a406-4878-ac7f-78a2a4c3bca7",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-28 13:27:09"
+    },
+    {
+      "edge_id": "792c1b18-d009-4186-bbe4-8b3fed031bc1",
+      "src": "f235e3c0-dc88-43ec-845a-451443aa4c12",
+      "dst": "fafe19a9-a406-4878-ac7f-78a2a4c3bca7",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:27:09"
+    },
+    {
+      "edge_id": "1446d614-ca3f-4993-9d43-6d11adfba81d",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "702f2b04-f78c-49e1-b27f-6ee819a0c5fa",
+      "family": "entity-entity",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:27:18"
+    },
+    {
+      "edge_id": "5471556b-b3c0-486f-a4d4-c754a53bbcfa",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "702f2b04-f78c-49e1-b27f-6ee819a0c5fa",
+      "family": "entity-entity",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:27:18"
+    },
+    {
+      "edge_id": "f29e7107-372b-41d3-b718-718979035862",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "d8dec116-a5d2-4b5a-9dc2-102513286d50",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:27:18"
+    },
+    {
+      "edge_id": "6eec7521-4694-4d5f-ae04-9f863ba1f196",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "bfe77d22-da4f-4a88-9961-4d99cff0921b",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:27:18"
+    },
+    {
+      "edge_id": "e1efb4a5-af32-4a90-8483-1e68bfcb6608",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "222a0f12-9157-4088-831d-02f1e391d702",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:27:18"
+    },
+    {
+      "edge_id": "7e814a89-c1a1-4551-8445-eebc7c1ff088",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "81c54182-b6ae-4cc1-8ccd-b7520f559d74",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:27:18"
+    },
+    {
+      "edge_id": "6987a23b-fc95-4ce0-94b4-dcb512836c4b",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "cce58f16-fb63-4016-ad39-2beff517a14e",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:27:18"
+    },
+    {
+      "edge_id": "d8abc88c-ef20-4a06-998e-80e05e4603a7",
+      "src": "f235e3c0-dc88-43ec-845a-451443aa4c12",
+      "dst": "20972ae7-2326-40ea-8380-ca41efd69f62",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-28 13:27:23"
+    },
+    {
+      "edge_id": "5524d0ac-8036-4cf9-9839-19f085c76a3a",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "20972ae7-2326-40ea-8380-ca41efd69f62",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:27:23"
+    },
+    {
+      "edge_id": "3ee97629-423b-4765-a084-51ac02c09b86",
+      "src": "20972ae7-2326-40ea-8380-ca41efd69f62",
+      "dst": "ac01051c-53b7-4ed3-b2bb-2e3c6358f4af",
+      "family": "event-event",
+      "predicate": "before",
+      "created_at": "2026-04-28 13:27:23"
+    },
+    {
+      "edge_id": "1ceee8ba-83af-47e2-a8cb-a82ba80b2c35",
+      "src": "ac01051c-53b7-4ed3-b2bb-2e3c6358f4af",
+      "dst": "20972ae7-2326-40ea-8380-ca41efd69f62",
+      "family": "event-event",
+      "predicate": "after",
+      "created_at": "2026-04-28 13:27:23"
+    },
+    {
+      "edge_id": "4f5a6d9f-d9ff-4b6c-b15f-76805540a022",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "ac01051c-53b7-4ed3-b2bb-2e3c6358f4af",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:27:24"
+    },
+    {
+      "edge_id": "396a807c-6fe2-4415-a80b-ee36202ba59f",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "397a9611-2f3a-451b-a6d7-61b2ea25b0b9",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:27:30"
+    },
+    {
+      "edge_id": "8fa0a54b-1ff5-4945-a29b-cfa21e4045ed",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "5af3aff9-d670-40a0-9d1a-01a90ca8cf80",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:27:30"
+    },
+    {
+      "edge_id": "4a16ecbb-aae8-4a85-b691-d033ea6803aa",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "4c9d1b68-4a61-475c-851c-954a20c0e0b9",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:27:30"
+    },
+    {
+      "edge_id": "1a567526-223d-4149-8224-9b17d8b87ec7",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "8da771a1-2c25-472f-9e64-84ec141bfc90",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:27:31"
+    },
+    {
+      "edge_id": "603580fe-ea7f-4b25-a611-49cac9bb90c5",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "bfe77d22-da4f-4a88-9961-4d99cff0921b",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:27:42"
+    },
+    {
+      "edge_id": "8ad458e2-4cab-42f2-a46f-27fa52214d3b",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "8418f5b5-2b76-468e-8609-13e0558d919f",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:27:42"
+    },
+    {
+      "edge_id": "4457476f-4d93-4611-bd51-8e5137decba3",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "102406d9-6fe6-4dce-ad8b-3b1735658827",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:27:42"
+    },
+    {
+      "edge_id": "e65f84a2-e88d-430b-b426-c8b42cebbbbc",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "397a9611-2f3a-451b-a6d7-61b2ea25b0b9",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:27:42"
+    },
+    {
+      "edge_id": "8b058094-a27a-4abc-8f9a-240cf148657d",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "fe6659ac-e735-459b-b77d-4f71ddad3f97",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:27:42"
+    },
+    {
+      "edge_id": "30c75dd3-d2b9-4e8c-8a71-ef15a00edb2e",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "4c9d1b68-4a61-475c-851c-954a20c0e0b9",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:27:42"
+    },
+    {
+      "edge_id": "9d7088be-39d6-4993-8df1-7f9de20d4a8c",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "d8dec116-a5d2-4b5a-9dc2-102513286d50",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:27:42"
+    },
+    {
+      "edge_id": "14fd0afd-9969-4e80-9cf0-0bcf279dfdb5",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "397a9611-2f3a-451b-a6d7-61b2ea25b0b9",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-28 13:27:42"
+    },
+    {
+      "edge_id": "b6d370b1-c560-4a68-9768-76a83981fc7f",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "4c9d1b68-4a61-475c-851c-954a20c0e0b9",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-28 13:27:42"
+    },
+    {
+      "edge_id": "8a9b98f9-5c41-4454-a545-d122ea5ce279",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "d8dec116-a5d2-4b5a-9dc2-102513286d50",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-28 13:27:42"
+    },
+    {
+      "edge_id": "b8064507-e676-47ee-b9e9-5fc246a339be",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "563b5487-e7c5-4010-9804-71ed125f001e",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:27:50"
+    },
+    {
+      "edge_id": "147eda77-3380-4129-ae13-de82e1a531a9",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "c752a59b-bb03-4372-a899-40972c97658e",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:27:50"
+    },
+    {
+      "edge_id": "7d131e16-382d-4dd5-9f6c-84b58ff1a1c9",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "14bd2d20-37bf-4db9-b426-0c2b0634951b",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:27:51"
+    },
+    {
+      "edge_id": "c4c859ae-6c70-45c1-9545-f50ea9ead127",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "edbf0015-0a9c-4152-8520-edcea937eb2d",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:27:51"
+    },
+    {
+      "edge_id": "8a31fcca-2d8d-4854-b54d-7579a839bf27",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "9f7fb3df-7f07-4f65-ac7a-98de07d1b21b",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:28:08"
+    },
+    {
+      "edge_id": "25d8c754-199a-4ecf-bdb8-d655b32be5b6",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "7fa6ce03-3830-4fa3-b06b-00e8da73a62f",
+      "family": "entity-event",
+      "predicate": "supports",
+      "created_at": "2026-04-28 13:28:13"
+    },
+    {
+      "edge_id": "b0a7c3c0-3bcd-45ad-be05-b39e142dbe8f",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "cce58f16-fb63-4016-ad39-2beff517a14e",
+      "family": "entity-event",
+      "predicate": "supports",
+      "created_at": "2026-04-28 13:28:13"
+    },
+    {
+      "edge_id": "19bfa2dd-b45d-4dd3-9ef3-6c00fc68f58d",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "397a9611-2f3a-451b-a6d7-61b2ea25b0b9",
+      "family": "entity-event",
+      "predicate": "supports",
+      "created_at": "2026-04-28 13:28:13"
+    },
+    {
+      "edge_id": "ae7b0eeb-6e98-4a24-8d98-f97c76116ce5",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "4c9d1b68-4a61-475c-851c-954a20c0e0b9",
+      "family": "entity-event",
+      "predicate": "supports",
+      "created_at": "2026-04-28 13:28:13"
+    },
+    {
+      "edge_id": "4d1a6d7f-8af6-4d5a-bc97-5282204e8c83",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "8f6a6efe-843b-457b-b6d9-62047f1c634c",
+      "family": "entity-event",
+      "predicate": "supports",
+      "created_at": "2026-04-28 13:28:13"
+    },
+    {
+      "edge_id": "d43b0c53-7727-4097-b5c0-2fe296c592db",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "222a0f12-9157-4088-831d-02f1e391d702",
+      "family": "entity-event",
+      "predicate": "supports",
+      "created_at": "2026-04-28 13:28:13"
+    },
+    {
+      "edge_id": "fcc8f6c1-0f8c-463b-b769-e12b83334077",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "81c54182-b6ae-4cc1-8ccd-b7520f559d74",
+      "family": "entity-event",
+      "predicate": "supports",
+      "created_at": "2026-04-28 13:28:13"
+    },
+    {
+      "edge_id": "3bdd0f63-5d3b-4a2a-9433-22e4ea9d45ef",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "6c0ca92f-c117-466b-85bd-072453bf870e",
+      "family": "entity-event",
+      "predicate": "supports",
+      "created_at": "2026-04-28 13:28:13"
+    },
+    {
+      "edge_id": "8eab9c96-1f77-4beb-8719-3395418b5fdc",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "0da3279c-510a-4a9c-a1d6-175a4364d2ba",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:28:22"
+    },
+    {
+      "edge_id": "4de0f48e-2629-48d2-8a4b-1d791dc127e3",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "efcdce8b-e253-40ed-a4d1-e973d79ecdd6",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:28:22"
+    },
+    {
+      "edge_id": "ba51e506-8770-4523-97fb-020a3c7c8bf8",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "a8c91db4-ef02-4bdd-b7d1-e946d0ddd47e",
+      "family": "entity-entity",
+      "predicate": "object_of",
+      "created_at": "2026-04-28 13:28:22"
+    },
+    {
+      "edge_id": "a18e8975-2607-4b4b-9071-a065bdce97c4",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "1f03dff6-3e32-4e63-adc1-090a6c7ed9d2",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:28:22"
+    },
+    {
+      "edge_id": "f28cec5b-4c3b-4232-aa16-a3dde285144c",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "520fac8a-aa74-4221-a3de-d755ea309187",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:28:28"
+    },
+    {
+      "edge_id": "7c059611-8d59-4c63-9741-f4227dab99ad",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "e89b588b-8b5d-458d-8cfd-fcaa2b2a5c17",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:28:28"
+    },
+    {
+      "edge_id": "6012c51a-6ad2-47ae-b107-bcd429c2bf33",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "bf1fbad6-c04a-4a23-80cf-5b3312b75b77",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:28:28"
+    },
+    {
+      "edge_id": "3325f3a4-e9f6-404a-bdff-f548b224b2ce",
+      "src": "e89b588b-8b5d-458d-8cfd-fcaa2b2a5c17",
+      "dst": "bf1fbad6-c04a-4a23-80cf-5b3312b75b77",
+      "family": "event-event",
+      "predicate": "before",
+      "created_at": "2026-04-28 13:28:28"
+    },
+    {
+      "edge_id": "92251a43-f795-49e8-825d-b25981579a5d",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "8c60a3fa-29d7-447a-a1f9-1406c6b432d2",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:28:35"
+    },
+    {
+      "edge_id": "91a17a29-f443-400f-aa24-e065605c5630",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "ba114a51-dc46-4cea-afda-2f5cadc5179f",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:28:35"
+    },
+    {
+      "edge_id": "4e8b3041-6f3e-4b86-b3c5-51e542668d53",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "196823f1-6ae3-459c-b537-b8a4028a545c",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:28:35"
+    },
+    {
+      "edge_id": "061ca1b4-0890-4f12-bf8a-d5a3dcb0d4a8",
+      "src": "8c60a3fa-29d7-447a-a1f9-1406c6b432d2",
+      "dst": "ba114a51-dc46-4cea-afda-2f5cadc5179f",
+      "family": "event-event",
+      "predicate": "before",
+      "created_at": "2026-04-28 13:28:35"
+    },
+    {
+      "edge_id": "1644d925-6510-442f-9667-cb591b6e1938",
+      "src": "ba114a51-dc46-4cea-afda-2f5cadc5179f",
+      "dst": "196823f1-6ae3-459c-b537-b8a4028a545c",
+      "family": "event-event",
+      "predicate": "before",
+      "created_at": "2026-04-28 13:28:35"
+    },
+    {
+      "edge_id": "66bf55ec-95b3-4560-91cb-60f848976d03",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "43216ec9-b6a8-4575-92b6-110fa4b97502",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:28:40"
+    },
+    {
+      "edge_id": "06435496-6fbb-4098-89af-daa3501d3fa2",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "43216ec9-b6a8-4575-92b6-110fa4b97502",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:28:52"
+    },
+    {
+      "edge_id": "9f6da3b4-fd11-45d3-b35d-744382200098",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "c0cb9479-d296-4e1c-b281-518ff9c9a5fe",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:28:52"
+    },
+    {
+      "edge_id": "edc305a0-a281-4f56-b62c-783eeb50f1b6",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "6c0ca92f-c117-466b-85bd-072453bf870e",
+      "family": "entity-event",
+      "predicate": "updates",
+      "created_at": "2026-04-28 13:28:52"
+    },
+    {
+      "edge_id": "dad5bfbb-d918-43f7-9984-7f256320c5b6",
+      "src": "8f6a6efe-843b-457b-b6d9-62047f1c634c",
+      "dst": "397a9611-2f3a-451b-a6d7-61b2ea25b0b9",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:00"
+    },
+    {
+      "edge_id": "1ae28301-8cf4-487e-89fa-1e58eed4f0ea",
+      "src": "8f6a6efe-843b-457b-b6d9-62047f1c634c",
+      "dst": "4c9d1b68-4a61-475c-851c-954a20c0e0b9",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:00"
+    },
+    {
+      "edge_id": "985f97fb-506e-44cd-b4db-aafc4b28f1a6",
+      "src": "8f6a6efe-843b-457b-b6d9-62047f1c634c",
+      "dst": "222a0f12-9157-4088-831d-02f1e391d702",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:00"
+    },
+    {
+      "edge_id": "1cb55f25-6096-40ba-9baf-21dc2be6691e",
+      "src": "8f6a6efe-843b-457b-b6d9-62047f1c634c",
+      "dst": "7fa6ce03-3830-4fa3-b06b-00e8da73a62f",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:00"
+    },
+    {
+      "edge_id": "572d1923-7c70-4d03-a1a4-ab180be68e29",
+      "src": "8f6a6efe-843b-457b-b6d9-62047f1c634c",
+      "dst": "bf925a6e-5531-4a8c-90d8-3469ae793ff8",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:00"
+    },
+    {
+      "edge_id": "1f32667e-33c2-4d01-85f9-733fa679c727",
+      "src": "8f6a6efe-843b-457b-b6d9-62047f1c634c",
+      "dst": "6c0ca92f-c117-466b-85bd-072453bf870e",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:00"
+    },
+    {
+      "edge_id": "85f8f247-d505-4409-acb5-f1e0f94468b6",
+      "src": "8f6a6efe-843b-457b-b6d9-62047f1c634c",
+      "dst": "7a0ac119-3755-441a-a8a3-7bc5253e580b",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:00"
+    },
+    {
+      "edge_id": "33010c0e-58ae-4d65-a171-453a4b39998a",
+      "src": "8f6a6efe-843b-457b-b6d9-62047f1c634c",
+      "dst": "7eb068ea-7ebd-4d3e-b2ab-fbf48e6cb6f8",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:00"
+    },
+    {
+      "edge_id": "5ae585c6-492c-4f30-9e7f-503c2b56b6b3",
+      "src": "8f6a6efe-843b-457b-b6d9-62047f1c634c",
+      "dst": "fe65dc11-83d5-4975-895d-dddbfefb9522",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:00"
+    },
+    {
+      "edge_id": "9c0212ab-90e9-434f-acaa-95c46d96b1c3",
+      "src": "8f6a6efe-843b-457b-b6d9-62047f1c634c",
+      "dst": "1d2a9e26-697e-4dc3-b6bf-d630bdb29791",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:00"
+    },
+    {
+      "edge_id": "5140452b-7ada-4a8d-bc7b-da3c6908698a",
+      "src": "8f6a6efe-843b-457b-b6d9-62047f1c634c",
+      "dst": "c0cb9479-d296-4e1c-b281-518ff9c9a5fe",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:00"
+    },
+    {
+      "edge_id": "fd45316a-f125-469b-8c45-2e438d47549e",
+      "src": "8f6a6efe-843b-457b-b6d9-62047f1c634c",
+      "dst": "5af3aff9-d670-40a0-9d1a-01a90ca8cf80",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:00"
+    },
+    {
+      "edge_id": "f23bc990-fceb-48fb-9f4a-db6633d24c57",
+      "src": "8f6a6efe-843b-457b-b6d9-62047f1c634c",
+      "dst": "8da771a1-2c25-472f-9e64-84ec141bfc90",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:00"
+    },
+    {
+      "edge_id": "b10873f2-a45e-4769-a669-f0f823d81c8e",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "fc259a18-b6b1-4e4c-8ab6-5f09503fa6bc",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:06"
+    },
+    {
+      "edge_id": "d6284c60-9664-4b79-82c7-53f0f9ebd898",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "9d8eeeb8-0898-4e36-9225-0d2d3b8c7c11",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:29:11"
+    },
+    {
+      "edge_id": "ec59859b-200d-4593-85a5-74fe77ca515f",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "f700acb1-ded6-4ced-8fb5-c9e8c2399faf",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:11"
+    },
+    {
+      "edge_id": "9b253885-5cdf-407c-9803-4581c999485f",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "20972ae7-2326-40ea-8380-ca41efd69f62",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:18"
+    },
+    {
+      "edge_id": "4bef8e6f-937a-488e-ba37-d8074b973dd1",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "cce58f16-fb63-4016-ad39-2beff517a14e",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:18"
+    },
+    {
+      "edge_id": "4ca1efd4-6425-4387-b69b-7cbd54b15f75",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "81c54182-b6ae-4cc1-8ccd-b7520f559d74",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:18"
+    },
+    {
+      "edge_id": "d9c55a89-cbca-421f-ba7a-823ea31124c8",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "222a0f12-9157-4088-831d-02f1e391d702",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:18"
+    },
+    {
+      "edge_id": "042f5404-1998-4471-a681-13ed7c75d20e",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "5af3aff9-d670-40a0-9d1a-01a90ca8cf80",
+      "family": "entity-event",
+      "predicate": "appreciates",
+      "created_at": "2026-04-28 13:29:28"
+    },
+    {
+      "edge_id": "ba161622-0c13-46ba-8663-d0cf3b165a92",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "8f6a6efe-843b-457b-b6d9-62047f1c634c",
+      "family": "entity-event",
+      "predicate": "appreciates",
+      "created_at": "2026-04-28 13:29:28"
+    },
+    {
+      "edge_id": "5695858d-dc2e-4ed7-93c6-9e2718cba605",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "397a9611-2f3a-451b-a6d7-61b2ea25b0b9",
+      "family": "entity-event",
+      "predicate": "supports",
+      "created_at": "2026-04-28 13:29:28"
+    },
+    {
+      "edge_id": "2df70725-f760-4afa-afef-e62611b0e124",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "4c9d1b68-4a61-475c-851c-954a20c0e0b9",
+      "family": "entity-event",
+      "predicate": "offers_help",
+      "created_at": "2026-04-28 13:29:28"
+    },
+    {
+      "edge_id": "21896539-d032-4c41-a0a0-86e0e230abca",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "e21ba570-1956-4100-a1cf-4c5f7574c80a",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:29:47"
+    },
+    {
+      "edge_id": "ce34fa98-91e9-48e5-b570-6a59dddc86ba",
+      "src": "11d76cb0-3d74-4bdc-a77f-077debb02930",
+      "dst": "e21ba570-1956-4100-a1cf-4c5f7574c80a",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:47"
+    },
+    {
+      "edge_id": "51df5897-7d43-4648-880e-e4c7e3ea5605",
+      "src": "e21ba570-1956-4100-a1cf-4c5f7574c80a",
+      "dst": "fd36e089-d637-44c4-a7df-c2e55e5cef05",
+      "family": "event-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-28 13:29:47"
+    },
+    {
+      "edge_id": "8328ce80-c595-4712-959d-fda54edac794",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "fd36e089-d637-44c4-a7df-c2e55e5cef05",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:29:47"
+    },
+    {
+      "edge_id": "841b2d89-2064-4e86-a62e-7b75fe05d362",
+      "src": "e21ba570-1956-4100-a1cf-4c5f7574c80a",
+      "dst": "9f7fb3df-7f07-4f65-ac7a-98de07d1b21b",
+      "family": "event-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:29:54"
+    },
+    {
+      "edge_id": "11b4b990-db43-4334-ad34-4277cb09211b",
+      "src": "e21ba570-1956-4100-a1cf-4c5f7574c80a",
+      "dst": "fd36e089-d637-44c4-a7df-c2e55e5cef05",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:54"
+    },
+    {
+      "edge_id": "bd628e97-c8e3-41b9-a4ed-7e643a8baa6c",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "e21ba570-1956-4100-a1cf-4c5f7574c80a",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:54"
+    },
+    {
+      "edge_id": "91ebe439-822a-43da-9b0e-ccc852966348",
+      "src": "e21ba570-1956-4100-a1cf-4c5f7574c80a",
+      "dst": "7eb068ea-7ebd-4d3e-b2ab-fbf48e6cb6f8",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:54"
+    },
+    {
+      "edge_id": "0ebf59e7-7636-434e-a172-c305f56a151c",
+      "src": "e21ba570-1956-4100-a1cf-4c5f7574c80a",
+      "dst": "9d8eeeb8-0898-4e36-9225-0d2d3b8c7c11",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:54"
+    },
+    {
+      "edge_id": "15b3f6a6-d1d4-42b5-bab5-499da78f5d23",
+      "src": "e21ba570-1956-4100-a1cf-4c5f7574c80a",
+      "dst": "5af3aff9-d670-40a0-9d1a-01a90ca8cf80",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:54"
+    },
+    {
+      "edge_id": "9fad5cb7-68b1-4d2a-afe6-8a0b35bb963c",
+      "src": "e21ba570-1956-4100-a1cf-4c5f7574c80a",
+      "dst": "7fa6ce03-3830-4fa3-b06b-00e8da73a62f",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:54"
+    },
+    {
+      "edge_id": "5c561a4d-12b8-4b3b-ae5c-1ce0a4d84498",
+      "src": "702f2b04-f78c-49e1-b27f-6ee819a0c5fa",
+      "dst": "e21ba570-1956-4100-a1cf-4c5f7574c80a",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:54"
+    },
+    {
+      "edge_id": "06f30d48-1c0c-44b5-82cd-3e51f3b3348f",
+      "src": "e21ba570-1956-4100-a1cf-4c5f7574c80a",
+      "dst": "222a0f12-9157-4088-831d-02f1e391d702",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:54"
+    },
+    {
+      "edge_id": "ea023efd-9cdc-4226-86dd-7b18530a3773",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "10c7a9f3-e5c3-46d6-97df-35a99f9e324c",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:29:58"
+    },
+    {
+      "edge_id": "9710db67-a265-4c74-8902-43e890d90804",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "7894358d-efd8-4c90-98a2-9805ace7c48f",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:30:06"
+    },
+    {
+      "edge_id": "eea56df0-104e-4c9e-8c74-07df2cdccca9",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "585b15bb-cf3d-4301-a697-3cced48f21e4",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-28 13:30:06"
+    },
+    {
+      "edge_id": "c0534483-e7bb-4894-bb0e-095352b62316",
+      "src": "7894358d-efd8-4c90-98a2-9805ace7c48f",
+      "dst": "d8d735f0-1246-4cda-ae87-781ed657f484",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:30:06"
+    },
+    {
+      "edge_id": "e48d9be2-8fe5-4bd5-8d27-29d8a4d86867",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "d8d735f0-1246-4cda-ae87-781ed657f484",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:30:07"
+    },
+    {
+      "edge_id": "df54c867-bac2-4aee-915e-ae7f80b961e0",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "4c9d1b68-4a61-475c-851c-954a20c0e0b9",
+      "family": "entity-event",
+      "predicate": "supports",
+      "created_at": "2026-04-28 13:30:12"
+    },
+    {
+      "edge_id": "04c297b9-063a-41ba-859e-d77049907cd0",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "fc259a18-b6b1-4e4c-8ab6-5f09503fa6bc",
+      "family": "entity-event",
+      "predicate": "supports",
+      "created_at": "2026-04-28 13:30:12"
+    },
+    {
+      "edge_id": "1786cedc-b184-477b-aba6-464e67dac62d",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "8f6a6efe-843b-457b-b6d9-62047f1c634c",
+      "family": "entity-event",
+      "predicate": "supports",
+      "created_at": "2026-04-28 13:30:12"
+    },
+    {
+      "edge_id": "7141e0d5-5136-4098-83e5-781c4b2714ed",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "5754c9cc-5487-435a-90f2-8c21f530663d",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:30:27"
+    },
+    {
+      "edge_id": "695f7290-3f65-4978-aceb-254d6ba3a9ab",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "983ca941-cbdf-45d4-8006-c53d9d784b57",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:30:27"
+    },
+    {
+      "edge_id": "fba915ab-4ab9-49bf-bc88-bb831af6b1e9",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "f8fc163d-33c5-4c2f-bb2b-f33b1a6f4831",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:30:27"
+    },
+    {
+      "edge_id": "8fde0319-dd4e-40c3-a12e-7939cb735e44",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "d28c4b13-bf9a-47b8-9042-f79624d85ff1",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:30:27"
+    },
+    {
+      "edge_id": "725be934-dea1-44b5-bc9a-8f048c0fcdfd",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "57e2e9f1-8558-49e7-8ac5-5d018d1c5e43",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:30:27"
+    },
+    {
+      "edge_id": "f31049d6-97b8-43b2-a476-eb8fbe601c1b",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "67d29fa2-9f5e-498a-8290-d8b097ba28e6",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:30:27"
+    },
+    {
+      "edge_id": "3884c584-56c1-4299-b218-46ad8ca6e396",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "3433357e-05be-454f-bfb6-535b85b5793d",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:30:27"
+    },
+    {
+      "edge_id": "6c50c362-cdbf-4564-953c-a24c9ff7ad82",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "a9970dd8-b868-45c0-9622-9735c5aa569d",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:30:27"
+    },
+    {
+      "edge_id": "8ef8260f-029c-4bf2-98de-8dc01c8c78f6",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "7475100b-8600-47de-927a-2a8f4acc344f",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:30:35"
+    },
+    {
+      "edge_id": "16603ea1-d43f-4161-8e83-2eb80a4a4d59",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "763614d3-ac0e-4465-b49e-8da8fe313097",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:30:35"
+    },
+    {
+      "edge_id": "bad47988-04e7-42bf-9db2-1ea3c8e1baff",
+      "src": "8ce30230-2df6-4466-b3ca-db53fdbe9cbf",
+      "dst": "5c3bc311-3036-49f1-a6cf-5ea3412a847a",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:30:35"
+    },
+    {
+      "edge_id": "8f88d37a-94d3-40ff-890d-df41f9b6eb25",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "c4a3d857-5481-4399-80a9-c629b717f9a8",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:30:36"
+    },
+    {
+      "edge_id": "e1861a2a-acc7-45bd-83e3-5ffe69ecc42e",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "52a65b8a-5a29-4ce2-b8e2-b073dde536f3",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:30:43"
+    },
+    {
+      "edge_id": "51714bec-94f4-4b5d-ae95-1f1302348ef4",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "ef06291a-f39e-46f6-94df-8c352b8aad16",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:30:43"
+    },
+    {
+      "edge_id": "bb4cda64-d5f4-4e19-b46d-903f0d575c6e",
+      "src": "3391097b-14b9-42a8-8398-6dfb443f749d",
+      "dst": "5e1cc9a6-608d-4e0c-9cb1-c33613638086",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:30:44"
+    }
+  ]
+}

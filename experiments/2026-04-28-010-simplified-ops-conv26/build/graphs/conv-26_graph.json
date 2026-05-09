@@ -1,0 +1,2816 @@
+{
+  "nodes": {
+    "efe300ce-e267-4400-b042-6308350ad572": {
+      "type": "Entity",
+      "canonical_name": "Caroline",
+      "aliases": [
+        "Caroline"
+      ],
+      "attrs": {
+        "description": "Friend and admirer of Melanie's art."
+      },
+      "created_at": "2026-04-28 13:22:58",
+      "updated_at": "2026-04-28 13:29:04"
+    },
+    "1d4eb279-9978-4cbd-b709-864652afa71f": {
+      "type": "Entity",
+      "canonical_name": "Melanie",
+      "aliases": [
+        "Melanie"
+      ],
+      "attrs": {
+        "description": "Artist and creator of the painting."
+      },
+      "created_at": "2026-04-28 13:22:59",
+      "updated_at": "2026-04-28 13:29:04"
+    },
+    "217a27c7-8a7b-45d8-911c-0602d07478c9": {
+      "type": "Event",
+      "canonical_name": "Caroline attended LGBTQ support group",
+      "aliases": [
+        "Caroline attended LGBTQ support group"
+      ],
+      "attrs": {
+        "fact": "On 2023-05-08, Caroline attended LGBTQ support group.",
+        "time": "yesterday",
+        "batch_id": "conv-26_conv_session_1_batch_0",
+        "source_turn_ids": [
+          "conv-26_conv_session_1_D1:1",
+          "conv-26_conv_session_1_D1:2",
+          "conv-26_conv_session_1_D1:3",
+          "conv-26_conv_session_1_D1:4"
+        ],
+        "source": [
+          "conv-26_conv_session_1_D1:1",
+          "conv-26_conv_session_1_D1:2",
+          "conv-26_conv_session_1_D1:3",
+          "conv-26_conv_session_1_D1:4"
+        ],
+        "original_text": "[1:56 pm on 8 May, 2023]\n\nCaroline: Hey Mel! Good to see you! How have you been?\nMelanie: Hey Caroline! Good to see you! I'm swamped with the kids & work. What's up with you? Anything new?\nCaroline: I went to a LGBTQ support group yesterday and it was so powerful.\nMelanie: Wow, that's cool, Caroline! What happened that was so awesome? Did you hear any inspiring stories?"
+      },
+      "created_at": "2026-04-28 13:23:02",
+      "updated_at": "2026-04-28 13:23:17"
+    },
+    "0eb6834e-3442-454e-bc47-a73e05ea4769": {
+      "type": "Event",
+      "canonical_name": "Caroline's career planning",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-05-08, Caroline discussed career options and expressed interest in counseling or mental health work.",
+        "time": "yesterday",
+        "batch_id": "conv-26_conv_session_1_batch_2",
+        "source_turn_ids": [
+          "conv-26_conv_session_1_D1:9",
+          "conv-26_conv_session_1_D1:10",
+          "conv-26_conv_session_1_D1:11",
+          "conv-26_conv_session_1_D1:12"
+        ],
+        "source": [
+          "conv-26_conv_session_1_D1:9",
+          "conv-26_conv_session_1_D1:10",
+          "conv-26_conv_session_1_D1:11",
+          "conv-26_conv_session_1_D1:12"
+        ],
+        "original_text": "[1:56 pm on 8 May, 2023]\n\nCaroline: Gonna continue my edu and check out career options, which is pretty exciting!\nMelanie: Wow, Caroline! What kinda jobs are you thinkin' of? Anything that stands out?\nCaroline: I'm keen on counseling or working in mental health - I'd love to support those with similar issues.\nMelanie: You'd be a great counselor! Your empathy and understanding will really help the people you work with. By the way, take a look at this."
+      },
+      "created_at": "2026-04-28 13:23:12",
+      "updated_at": "2026-04-28 13:24:30"
+    },
+    "ba578284-d218-4242-8e32-5d00b35bc885": {
+      "type": "Event",
+      "canonical_name": "Caroline attended LGBTQ support group",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-05-08, Caroline attended LGBTQ support group.",
+        "time": "yesterday",
+        "batch_id": "conv-26_conv_session_1_batch_3",
+        "source_turn_ids": [
+          "conv-26_conv_session_1_D1:13",
+          "conv-26_conv_session_1_D1:14",
+          "conv-26_conv_session_1_D1:15",
+          "conv-26_conv_session_1_D1:16"
+        ],
+        "source": [
+          "conv-26_conv_session_1_D1:13",
+          "conv-26_conv_session_1_D1:14",
+          "conv-26_conv_session_1_D1:15",
+          "conv-26_conv_session_1_D1:16"
+        ],
+        "original_text": "[1:56 pm on 8 May, 2023]\n\nCaroline: Thanks, Melanie! That's really sweet. Is this your own painting?\nMelanie: Yeah, I painted that lake sunrise last year! It's special to me.\nCaroline: Wow, Melanie! The colors really blend nicely. Painting looks like a great outlet for expressing yourself.\nMelanie: Thanks, Caroline! Painting's a fun way to express my feelings and get creative. It's a great way to relax after a long day."
+      },
+      "created_at": "2026-04-28 13:23:17",
+      "updated_at": "2026-04-28 13:24:30"
+    },
+    "151ab852-4696-4192-b027-9c4356e73d98": {
+      "type": "Event",
+      "canonical_name": "Melanie painted lake sunrise",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-05-08, Melanie painted lake sunrise.",
+        "time": "last year",
+        "batch_id": "conv-26_conv_session_1_batch_3",
+        "source_turn_ids": [
+          "conv-26_conv_session_1_D1:13",
+          "conv-26_conv_session_1_D1:14",
+          "conv-26_conv_session_1_D1:15",
+          "conv-26_conv_session_1_D1:16"
+        ],
+        "source": [
+          "conv-26_conv_session_1_D1:13",
+          "conv-26_conv_session_1_D1:14",
+          "conv-26_conv_session_1_D1:15",
+          "conv-26_conv_session_1_D1:16"
+        ],
+        "original_text": "[1:56 pm on 8 May, 2023]\n\nCaroline: Thanks, Melanie! That's really sweet. Is this your own painting?\nMelanie: Yeah, I painted that lake sunrise last year! It's special to me.\nCaroline: Wow, Melanie! The colors really blend nicely. Painting looks like a great outlet for expressing yourself.\nMelanie: Thanks, Caroline! Painting's a fun way to express my feelings and get creative. It's a great way to relax after a long day."
+      },
+      "created_at": "2026-04-28 13:23:17",
+      "updated_at": "2026-04-28 13:24:30"
+    },
+    "6ecfef89-940c-4be1-a3ef-b8f5e06c2e96": {
+      "type": "Event",
+      "canonical_name": "Melanie ran charity race for mental health",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-05-25, Melanie ran charity race for mental health.",
+        "time": "last Friday",
+        "batch_id": "conv-26_conv_session_2_batch_0",
+        "source_turn_ids": [
+          "conv-26_conv_session_2_D2:1",
+          "conv-26_conv_session_2_D2:2",
+          "conv-26_conv_session_2_D2:3",
+          "conv-26_conv_session_2_D2:4"
+        ],
+        "source": [
+          "conv-26_conv_session_2_D2:1",
+          "conv-26_conv_session_2_D2:2",
+          "conv-26_conv_session_2_D2:3",
+          "conv-26_conv_session_2_D2:4"
+        ],
+        "original_text": "[1:14 pm on 25 May, 2023]\n\nMelanie: Hey Caroline, since we last chatted, I've had a lot of things happening to me. I ran a charity race for mental health last Saturday – it was really rewarding. Really made me think about taking care of our minds.\nCaroline: That charity race sounds great, Mel! Making a difference & raising awareness for mental health is super rewarding - I'm really proud of you for taking part!\nMelanie: Thanks, Caroline! The event was really thought-provoking. I'm starting to realize that self-care is really important. It's a journey for me, but when I look after myself, I'm able to better look after my family.\nCaroline: I totally agree, Melanie. Taking care of ourselves is so important - even if it's not always easy. Great that you're prioritizing self-care."
+      },
+      "created_at": "2026-04-28 13:23:27",
+      "updated_at": "2026-04-28 13:26:26"
+    },
+    "29854e70-ea39-4178-bede-f80e9003587a": {
+      "type": "Event",
+      "canonical_name": "Melanie ran charity race for mental health",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-05-25, Melanie ran charity race for mental health.",
+        "time": "last Saturday",
+        "batch_id": "conv-26_conv_session_2_batch_1",
+        "source_turn_ids": [
+          "conv-26_conv_session_2_D2:5",
+          "conv-26_conv_session_2_D2:6",
+          "conv-26_conv_session_2_D2:7",
+          "conv-26_conv_session_2_D2:8"
+        ],
+        "source": [
+          "conv-26_conv_session_2_D2:5",
+          "conv-26_conv_session_2_D2:6",
+          "conv-26_conv_session_2_D2:7",
+          "conv-26_conv_session_2_D2:8"
+        ],
+        "original_text": "[1:14 pm on 25 May, 2023]\n\nMelanie: Yeah, it's tough. So I'm carving out some me-time each day - running, reading, or playing my violin - which refreshes me and helps me stay present for my fam!\nCaroline: That's great, Mel! Taking time for yourself is so important. You're doing an awesome job looking after yourself and your family!\nMelanie: Thanks, Caroline. It's still a work in progress, but I'm doing my best. My kids are so excited about summer break! We're thinking about going camping next month. Any fun plans for the summer?\nCaroline: Researching adoption agencies — it's been a dream to have a family and give a loving home to kids who need it."
+      },
+      "created_at": "2026-04-28 13:23:32",
+      "updated_at": "2026-04-28 13:24:30"
+    },
+    "9dd50aee-e2d0-4b17-9fde-84b8540539a8": {
+      "type": "Event",
+      "canonical_name": "Melanie painted lake sunrise",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-05-08, Melanie painted lake sunrise.",
+        "time": "last year",
+        "batch_id": "conv-26_conv_session_2_batch_1",
+        "source_turn_ids": [
+          "conv-26_conv_session_2_D2:5",
+          "conv-26_conv_session_2_D2:6",
+          "conv-26_conv_session_2_D2:7",
+          "conv-26_conv_session_2_D2:8"
+        ],
+        "source": [
+          "conv-26_conv_session_2_D2:5",
+          "conv-26_conv_session_2_D2:6",
+          "conv-26_conv_session_2_D2:7",
+          "conv-26_conv_session_2_D2:8"
+        ],
+        "original_text": "[1:14 pm on 25 May, 2023]\n\nMelanie: Yeah, it's tough. So I'm carving out some me-time each day - running, reading, or playing my violin - which refreshes me and helps me stay present for my fam!\nCaroline: That's great, Mel! Taking time for yourself is so important. You're doing an awesome job looking after yourself and your family!\nMelanie: Thanks, Caroline. It's still a work in progress, but I'm doing my best. My kids are so excited about summer break! We're thinking about going camping next month. Any fun plans for the summer?\nCaroline: Researching adoption agencies — it's been a dream to have a family and give a loving home to kids who need it."
+      },
+      "created_at": "2026-04-28 13:23:33",
+      "updated_at": "2026-04-28 13:24:30"
+    },
+    "77a1a29c-3336-41e5-a9e4-4bb7684bcb1b": {
+      "type": "Entity",
+      "canonical_name": "Necklace",
+      "aliases": [
+        "necklace"
+      ],
+      "attrs": {},
+      "created_at": "2026-04-28 13:24:34",
+      "updated_at": "2026-04-28 13:24:34"
+    },
+    "bbf390c2-7cda-4922-bc1d-42a024da176c": {
+      "type": "Entity",
+      "canonical_name": "Grandma",
+      "aliases": [
+        "grandma"
+      ],
+      "attrs": {},
+      "created_at": "2026-04-28 13:24:34",
+      "updated_at": "2026-04-28 13:24:34"
+    },
+    "4193e8d1-4763-44e3-9e6e-c665cc97e45d": {
+      "type": "Event",
+      "canonical_name": "Caroline received necklace as gift",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-06-27, Caroline received necklace as gift from her grandma in Sweden.",
+        "time": "last week",
+        "batch_id": "conv-26_conv_session_4_batch_0",
+        "source_turn_ids": [
+          "conv-26_conv_session_4_D4:1",
+          "conv-26_conv_session_4_D4:2",
+          "conv-26_conv_session_4_D4:3",
+          "conv-26_conv_session_4_D4:4"
+        ],
+        "source": [
+          "conv-26_conv_session_4_D4:1",
+          "conv-26_conv_session_4_D4:2",
+          "conv-26_conv_session_4_D4:3",
+          "conv-26_conv_session_4_D4:4"
+        ],
+        "original_text": "[10:37 am on 27 June, 2023]\n\nCaroline: Hey Melanie! Long time no talk! A lot's been going on in my life! Take a look at this.\nMelanie: Hey, Caroline! Nice to hear from you! Love the necklace, any special meaning to it?\nCaroline: Thanks, Melanie! This necklace is super special to me - a gift from my grandma in my home country, Sweden. She gave it to me when I was young, and it stands for love, faith and strength. It's like a reminder of my roots and all the love and support I get from my family.\nMelanie: That's gorgeous, Caroline! It's awesome what items can mean so much to us, right? Got any other objects that you treasure, like that necklace?"
+      },
+      "created_at": "2026-04-28 13:24:34",
+      "updated_at": "2026-04-28 13:24:34"
+    },
+    "20f79240-7722-4e8f-98e7-33f3e6e77a93": {
+      "type": "Entity",
+      "canonical_name": "Hand-painted bowl",
+      "aliases": [
+        "bowl",
+        "hand-painted bowl"
+      ],
+      "attrs": {
+        "description": "Hand-painted bowl made for Caroline's 18th birthday ten years ago."
+      },
+      "created_at": "2026-04-28 13:24:42",
+      "updated_at": "2026-04-28 13:24:42"
+    },
+    "032e3389-bb7c-4cc6-8388-9244ef2d2287": {
+      "type": "Event",
+      "canonical_name": "Caroline received hand-painted bowl",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-06-27, Caroline received hand-painted bowl from a friend for her 18th birthday ten years ago.",
+        "time": "last week",
+        "batch_id": "conv-26_conv_session_4_batch_1",
+        "source_turn_ids": [
+          "conv-26_conv_session_4_D4:5",
+          "conv-26_conv_session_4_D4:6",
+          "conv-26_conv_session_4_D4:7",
+          "conv-26_conv_session_4_D4:8"
+        ],
+        "source": [
+          "conv-26_conv_session_4_D4:5",
+          "conv-26_conv_session_4_D4:6",
+          "conv-26_conv_session_4_D4:7",
+          "conv-26_conv_session_4_D4:8"
+        ],
+        "original_text": "[10:37 am on 27 June, 2023]\n\nCaroline: Yep, Melanie! I've got some other stuff with sentimental value, like my hand-painted bowl. A friend made it for my 18th birthday ten years ago. The pattern and colors are awesome-- it reminds me of art and self-expression.\nMelanie: That sounds great, Caroline! It's awesome having stuff around that make us think of good connections and times. Actually, I just took my fam camping in the mountains last week - it was a really nice time together!\nCaroline: Sounds great, Mel. Glad you made some new family mems. How was it? Anything fun?\nMelanie: It was an awesome time, Caroline! We explored nature, roasted marshmallows around the campfire and even went on a hike. The view from the top was amazing! The 2 younger kids love nature. It was so special having these moments together as a family - I'll never forget it!"
+      },
+      "created_at": "2026-04-28 13:24:42",
+      "updated_at": "2026-04-28 13:24:55"
+    },
+    "0617b23f-29ad-4444-a70e-356cfeba9e73": {
+      "type": "Event",
+      "canonical_name": "Melanie's family camping trip",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-06-27, Melanie took her fam camping in the mountains last week.",
+        "time": "last week",
+        "batch_id": "conv-26_conv_session_4_batch_1",
+        "source_turn_ids": [
+          "conv-26_conv_session_4_D4:5",
+          "conv-26_conv_session_4_D4:6",
+          "conv-26_conv_session_4_D4:7",
+          "conv-26_conv_session_4_D4:8"
+        ],
+        "source": [
+          "conv-26_conv_session_4_D4:5",
+          "conv-26_conv_session_4_D4:6",
+          "conv-26_conv_session_4_D4:7",
+          "conv-26_conv_session_4_D4:8"
+        ],
+        "original_text": "[10:37 am on 27 June, 2023]\n\nCaroline: Yep, Melanie! I've got some other stuff with sentimental value, like my hand-painted bowl. A friend made it for my 18th birthday ten years ago. The pattern and colors are awesome-- it reminds me of art and self-expression.\nMelanie: That sounds great, Caroline! It's awesome having stuff around that make us think of good connections and times. Actually, I just took my fam camping in the mountains last week - it was a really nice time together!\nCaroline: Sounds great, Mel. Glad you made some new family mems. How was it? Anything fun?\nMelanie: It was an awesome time, Caroline! We explored nature, roasted marshmallows around the campfire and even went on a hike. The view from the top was amazing! The 2 younger kids love nature. It was so special having these moments together as a family - I'll never forget it!"
+      },
+      "created_at": "2026-04-28 13:24:42",
+      "updated_at": "2026-04-28 13:24:42"
+    },
+    "4bd08858-ab02-4604-a5d1-ee91270c8375": {
+      "type": "Event",
+      "canonical_name": "Melanie's family hike",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-06-27, Melanie's family went on a hike during their camping trip.",
+        "time": "last week",
+        "batch_id": "conv-26_conv_session_4_batch_1",
+        "source_turn_ids": [
+          "conv-26_conv_session_4_D4:5",
+          "conv-26_conv_session_4_D4:6",
+          "conv-26_conv_session_4_D4:7",
+          "conv-26_conv_session_4_D4:8"
+        ],
+        "source": [
+          "conv-26_conv_session_4_D4:5",
+          "conv-26_conv_session_4_D4:6",
+          "conv-26_conv_session_4_D4:7",
+          "conv-26_conv_session_4_D4:8"
+        ],
+        "original_text": "[10:37 am on 27 June, 2023]\n\nCaroline: Yep, Melanie! I've got some other stuff with sentimental value, like my hand-painted bowl. A friend made it for my 18th birthday ten years ago. The pattern and colors are awesome-- it reminds me of art and self-expression.\nMelanie: That sounds great, Caroline! It's awesome having stuff around that make us think of good connections and times. Actually, I just took my fam camping in the mountains last week - it was a really nice time together!\nCaroline: Sounds great, Mel. Glad you made some new family mems. How was it? Anything fun?\nMelanie: It was an awesome time, Caroline! We explored nature, roasted marshmallows around the campfire and even went on a hike. The view from the top was amazing! The 2 younger kids love nature. It was so special having these moments together as a family - I'll never forget it!"
+      },
+      "created_at": "2026-04-28 13:24:42",
+      "updated_at": "2026-04-28 13:24:42"
+    },
+    "65e9dfd5-de28-49d9-b169-ae64a3835d29": {
+      "type": "Event",
+      "canonical_name": "Melanie's family roasted marshmallows",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-06-27, Melanie's family roasted marshmallows around the campfire.",
+        "time": "last week",
+        "batch_id": "conv-26_conv_session_4_batch_1",
+        "source_turn_ids": [
+          "conv-26_conv_session_4_D4:5",
+          "conv-26_conv_session_4_D4:6",
+          "conv-26_conv_session_4_D4:7",
+          "conv-26_conv_session_4_D4:8"
+        ],
+        "source": [
+          "conv-26_conv_session_4_D4:5",
+          "conv-26_conv_session_4_D4:6",
+          "conv-26_conv_session_4_D4:7",
+          "conv-26_conv_session_4_D4:8"
+        ],
+        "original_text": "[10:37 am on 27 June, 2023]\n\nCaroline: Yep, Melanie! I've got some other stuff with sentimental value, like my hand-painted bowl. A friend made it for my 18th birthday ten years ago. The pattern and colors are awesome-- it reminds me of art and self-expression.\nMelanie: That sounds great, Caroline! It's awesome having stuff around that make us think of good connections and times. Actually, I just took my fam camping in the mountains last week - it was a really nice time together!\nCaroline: Sounds great, Mel. Glad you made some new family mems. How was it? Anything fun?\nMelanie: It was an awesome time, Caroline! We explored nature, roasted marshmallows around the campfire and even went on a hike. The view from the top was amazing! The 2 younger kids love nature. It was so special having these moments together as a family - I'll never forget it!"
+      },
+      "created_at": "2026-04-28 13:24:42",
+      "updated_at": "2026-04-28 13:24:42"
+    },
+    "53ac98d9-050d-438c-881a-fd4cacd23d20": {
+      "type": "Event",
+      "canonical_name": "Working with trans people",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-06-27, Caroline is thinking of working with trans people, helping them accept themselves and supporting their mental health.",
+        "time": "last week",
+        "batch_id": "conv-26_conv_session_4_batch_3",
+        "source_turn_ids": [
+          "conv-26_conv_session_4_D4:13",
+          "conv-26_conv_session_4_D4:14",
+          "conv-26_conv_session_4_D4:15",
+          "conv-26_conv_session_4_D4:16"
+        ],
+        "source": [
+          "conv-26_conv_session_4_D4:13",
+          "conv-26_conv_session_4_D4:14",
+          "conv-26_conv_session_4_D4:15",
+          "conv-26_conv_session_4_D4:16"
+        ],
+        "original_text": "[10:37 am on 27 June, 2023]\n\nCaroline: I'm still figuring out the details, but I'm thinking of working with trans people, helping them accept themselves and supporting their mental health. Last Friday, I went to an LGBTQ+ counseling workshop and it was really enlightening. They talked about different therapeutic methods and how to best work with trans people. Seeing how passionate these pros were about making a safe space for people like me was amazing.\nMelanie: Woah, Caroline, it sounds like you're doing some impressive work. It's inspiring to see your dedication to helping others. What motivated you to pursue counseling?\nCaroline: Thanks, Melanie. It really mattered. My own journey and the support I got made a huge difference. Now I want to help people go through it too. I saw how counseling and support groups improved my life, so I started caring more about mental health and understanding myself. Now I'm passionate about creating a safe, inviting place for people to grow.\nMelanie: Wow, Caroline! You've gained so much from your own experience. Your passion and hard work to help others is awesome. Keep it up, you're making a big impact!"
+      },
+      "created_at": "2026-04-28 13:24:52",
+      "updated_at": "2026-04-28 13:24:53"
+    },
+    "b02f486b-2427-4b48-b1a5-dac5c743254d": {
+      "type": "Event",
+      "canonical_name": "LGBTQ+ counseling workshop",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-06-27, Caroline went to an LGBTQ+ counseling workshop and it was really enlightening.",
+        "time": "last week",
+        "batch_id": "conv-26_conv_session_4_batch_3",
+        "source_turn_ids": [
+          "conv-26_conv_session_4_D4:13",
+          "conv-26_conv_session_4_D4:14",
+          "conv-26_conv_session_4_D4:15",
+          "conv-26_conv_session_4_D4:16"
+        ],
+        "source": [
+          "conv-26_conv_session_4_D4:13",
+          "conv-26_conv_session_4_D4:14",
+          "conv-26_conv_session_4_D4:15",
+          "conv-26_conv_session_4_D4:16"
+        ],
+        "original_text": "[10:37 am on 27 June, 2023]\n\nCaroline: I'm still figuring out the details, but I'm thinking of working with trans people, helping them accept themselves and supporting their mental health. Last Friday, I went to an LGBTQ+ counseling workshop and it was really enlightening. They talked about different therapeutic methods and how to best work with trans people. Seeing how passionate these pros were about making a safe space for people like me was amazing.\nMelanie: Woah, Caroline, it sounds like you're doing some impressive work. It's inspiring to see your dedication to helping others. What motivated you to pursue counseling?\nCaroline: Thanks, Melanie. It really mattered. My own journey and the support I got made a huge difference. Now I want to help people go through it too. I saw how counseling and support groups improved my life, so I started caring more about mental health and understanding myself. Now I'm passionate about creating a safe, inviting place for people to grow.\nMelanie: Wow, Caroline! You've gained so much from your own experience. Your passion and hard work to help others is awesome. Keep it up, you're making a big impact!"
+      },
+      "created_at": "2026-04-28 13:24:53",
+      "updated_at": "2026-04-28 13:24:53"
+    },
+    "9ed57ec3-c953-4799-8f7c-8d4e116e147b": {
+      "type": "Entity",
+      "canonical_name": "Becoming Nicole",
+      "aliases": [
+        "Becoming Nicole",
+        "Becoming Nicole by Amy Ellis Nutt"
+      ],
+      "attrs": {
+        "description": "A real inspiring true story about a trans girl and her family."
+      },
+      "created_at": "2026-04-28 13:26:02",
+      "updated_at": "2026-04-28 13:26:07"
+    },
+    "8af1bf26-6bcb-48e3-8922-c2080acca84f": {
+      "type": "Event",
+      "canonical_name": "Caroline read Becoming Nicole",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-07-12, Caroline read Becoming Nicole by Amy Ellis Nutt, a real inspiring true story about a trans girl and her family. It made her feel connected and gave her a lot of hope for her own path.",
+        "time": "last month",
+        "batch_id": "conv-26_conv_session_7_batch_2",
+        "source_turn_ids": [
+          "conv-26_conv_session_7_D7:9",
+          "conv-26_conv_session_7_D7:10",
+          "conv-26_conv_session_7_D7:11",
+          "conv-26_conv_session_7_D7:12"
+        ],
+        "source": [
+          "conv-26_conv_session_7_D7:9",
+          "conv-26_conv_session_7_D7:10",
+          "conv-26_conv_session_7_D7:11",
+          "conv-26_conv_session_7_D7:12"
+        ],
+        "original_text": "[4:33 pm on 12 July, 2023]\n\nCaroline: Thanks so much, Mel! Seeing this pic just made me appreciate my love of reading even more. Books guide me, motivate me and help me discover who I am. They're a huge part of my journey, and this one's reminding me to keep going and never give up!\nMelanie: Wow, Caroline! Books have such an awesome power! Which one has been your favorite guide?\nCaroline: I loved \"Becoming Nicole\" by Amy Ellis Nutt. It's a real inspiring true story about a trans girl and her family. It made me feel connected and gave me a lot of hope for my own path. Highly recommend it for sure!\nMelanie: That sounds awesome! What did you take away from it to use in your life?"
+      },
+      "created_at": "2026-04-28 13:26:02",
+      "updated_at": "2026-04-28 13:26:02"
+    },
+    "67b74892-2b6c-4499-9821-9012110c5a63": {
+      "type": "Event",
+      "canonical_name": "Caroline read Becoming Nicole",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-07-12, Caroline read Becoming Nicole by Amy Ellis Nutt, a real inspiring true story about a trans girl and her family. It made her feel connected and gave her a lot of hope for her own path.",
+        "time": "last month",
+        "batch_id": "conv-26_conv_session_7_batch_3",
+        "source_turn_ids": [
+          "conv-26_conv_session_7_D7:13",
+          "conv-26_conv_session_7_D7:14",
+          "conv-26_conv_session_7_D7:15",
+          "conv-26_conv_session_7_D7:16"
+        ],
+        "source": [
+          "conv-26_conv_session_7_D7:13",
+          "conv-26_conv_session_7_D7:14",
+          "conv-26_conv_session_7_D7:15",
+          "conv-26_conv_session_7_D7:16"
+        ],
+        "original_text": "[4:33 pm on 12 July, 2023]\n\nCaroline: It taught me self-acceptance and how to find support. It also showed me that tough times don't last - hope and love exist. Pets bring so much joy too, though.\nMelanie: Caroline, those lessons are great - self-acceptance and finding support are key. Plus pets are awesome for joy and comfort, can't agree more!\nCaroline: That's so nice! What pet do you have?\nMelanie: We've got a pup and a kitty. That's the dog, and here's our cat! They brighten up our day and always make us smile."
+      },
+      "created_at": "2026-04-28 13:26:07",
+      "updated_at": "2026-04-28 13:26:07"
+    },
+    "ba7c5097-685a-4fe2-81a0-7ba84fdac5cd": {
+      "type": "Entity",
+      "canonical_name": "Pet",
+      "aliases": [],
+      "attrs": {},
+      "created_at": "2026-04-28 13:26:13",
+      "updated_at": "2026-04-28 13:26:13"
+    },
+    "ae55641c-799f-429f-84a8-0f69d3673072": {
+      "type": "Event",
+      "canonical_name": "Caroline saw Luna and Oliver",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-07-12, Caroline saw Luna and Oliver, who are adorable pets that bring joy to the house.",
+        "time": "last month",
+        "batch_id": "conv-26_conv_session_7_batch_4",
+        "source_turn_ids": [
+          "conv-26_conv_session_7_D7:17",
+          "conv-26_conv_session_7_D7:18",
+          "conv-26_conv_session_7_D7:19",
+          "conv-26_conv_session_7_D7:20"
+        ],
+        "source": [
+          "conv-26_conv_session_7_D7:17",
+          "conv-26_conv_session_7_D7:18",
+          "conv-26_conv_session_7_D7:19",
+          "conv-26_conv_session_7_D7:20"
+        ],
+        "original_text": "[4:33 pm on 12 July, 2023]\n\nCaroline: Ah, they're adorable! What are their names? Pets sure do bring so much joy to us!\nMelanie: Luna and Oliver! They are so sweet and playful - they really liven up the house! Just got some new shoes, too!\nCaroline: Love that purple color! For walking or running?\nMelanie: Thanks, Caroline! These are for running. Been running longer since our last chat - a great way to destress and clear my mind."
+      },
+      "created_at": "2026-04-28 13:26:14",
+      "updated_at": "2026-04-28 13:26:14"
+    },
+    "8e1449d9-ba34-4099-8630-bca808f00d78": {
+      "type": "Entity",
+      "canonical_name": "Luna",
+      "aliases": [],
+      "attrs": {},
+      "created_at": "2026-04-28 13:26:14",
+      "updated_at": "2026-04-28 13:26:14"
+    },
+    "a800fac4-be34-49e0-a060-13a412740bfd": {
+      "type": "Entity",
+      "canonical_name": "Oliver",
+      "aliases": [],
+      "attrs": {},
+      "created_at": "2026-04-28 13:26:14",
+      "updated_at": "2026-04-28 13:26:14"
+    },
+    "fa839e64-2f1c-4572-a2d4-99144dae5257": {
+      "type": "Entity",
+      "canonical_name": "Shoe",
+      "aliases": [],
+      "attrs": {},
+      "created_at": "2026-04-28 13:26:14",
+      "updated_at": "2026-04-28 13:26:14"
+    },
+    "1574c03a-5d23-40b8-8800-0cd33137eab8": {
+      "type": "Event",
+      "canonical_name": "Melanie got new running shoes",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-07-12, Melanie got new running shoes, which are purple and suitable for running.",
+        "time": "last month",
+        "batch_id": "conv-26_conv_session_7_batch_4",
+        "source_turn_ids": [
+          "conv-26_conv_session_7_D7:17",
+          "conv-26_conv_session_7_D7:18",
+          "conv-26_conv_session_7_D7:19",
+          "conv-26_conv_session_7_D7:20"
+        ],
+        "source": [
+          "conv-26_conv_session_7_D7:17",
+          "conv-26_conv_session_7_D7:18",
+          "conv-26_conv_session_7_D7:19",
+          "conv-26_conv_session_7_D7:20"
+        ],
+        "original_text": "[4:33 pm on 12 July, 2023]\n\nCaroline: Ah, they're adorable! What are their names? Pets sure do bring so much joy to us!\nMelanie: Luna and Oliver! They are so sweet and playful - they really liven up the house! Just got some new shoes, too!\nCaroline: Love that purple color! For walking or running?\nMelanie: Thanks, Caroline! These are for running. Been running longer since our last chat - a great way to destress and clear my mind."
+      },
+      "created_at": "2026-04-28 13:26:14",
+      "updated_at": "2026-04-28 13:26:14"
+    },
+    "bc545b9a-18ad-46d1-99fb-4faf52f4c0da": {
+      "type": "Entity",
+      "canonical_name": "Pottery Workshop",
+      "aliases": [
+        "Pottery Workshop",
+        "Pottery Workshop for Kids"
+      ],
+      "attrs": {
+        "description": "Pottery workshop where Melanie and her kids made their own pots."
+      },
+      "created_at": "2026-04-28 13:26:26",
+      "updated_at": "2026-04-28 13:26:26"
+    },
+    "8cfc7078-ea29-492d-bdc4-7b317a24a304": {
+      "type": "Event",
+      "canonical_name": "Caroline felt inspired by community support",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-07-15, Caroline felt inspired by community support during her time at the event.",
+        "time": "2023-07-15",
+        "batch_id": "conv-26_conv_session_8_batch_5",
+        "source_turn_ids": [
+          "conv-26_conv_session_8_D8:21",
+          "conv-26_conv_session_8_D8:22",
+          "conv-26_conv_session_8_D8:23",
+          "conv-26_conv_session_8_D8:24"
+        ],
+        "source": [
+          "conv-26_conv_session_8_D8:21",
+          "conv-26_conv_session_8_D8:22",
+          "conv-26_conv_session_8_D8:23",
+          "conv-26_conv_session_8_D8:24"
+        ],
+        "original_text": "[1:51 pm on 15 July, 2023]\n\nCaroline: I felt so proud and grateful - the vibes were amazing and it was comforting to know I'm not alone and have a great community around me.\nMelanie: Wow, Caroline! That's huge! How did it feel to be around so much love and acceptance?\nCaroline: It was awesome, Melanie! Being around people who embrace and back me up is beyond words. It really inspired me.\nMelanie: Wow, that sounds awesome! Your friends and community really have your back. What's been the best part of it?"
+      },
+      "created_at": "2026-04-28 13:27:08",
+      "updated_at": "2026-04-28 13:27:08"
+    },
+    "2a0f211f-d572-4cd9-bcc6-03e66b0d979f": {
+      "type": "Event",
+      "canonical_name": "Caroline realized she can be herself without fear",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-07-15, Caroline realized she can be herself without fear and having the courage to transition was the best part. It's so freeing to express herself authentically and have people back her up.",
+        "time": "2023-07-15",
+        "batch_id": "conv-26_conv_session_8_batch_6",
+        "source_turn_ids": [
+          "conv-26_conv_session_8_D8:25",
+          "conv-26_conv_session_8_D8:26",
+          "conv-26_conv_session_8_D8:27",
+          "conv-26_conv_session_8_D8:28"
+        ],
+        "source": [
+          "conv-26_conv_session_8_D8:25",
+          "conv-26_conv_session_8_D8:26",
+          "conv-26_conv_session_8_D8:27",
+          "conv-26_conv_session_8_D8:28"
+        ],
+        "original_text": "[1:51 pm on 15 July, 2023]\n\nCaroline: Realizing I can be me without fear and having the courage to transition was the best part. It's so freeing to express myself authentically and have people back me up.\nMelanie: That's awesome, Caro! You've found the courage to be yourself - that's important for our mental health and finding peace.\nCaroline: Thanks, Melanie! Been a long road, but I'm proud of how far I've come. How're you doing finding peace?\nMelanie: I'm getting there, Caroline. Creativity and family keep me at peace."
+      },
+      "created_at": "2026-04-28 13:27:16",
+      "updated_at": "2026-04-28 13:27:16"
+    },
+    "8af52090-4cb8-4cec-aead-12c86e69985a": {
+      "type": "Event",
+      "canonical_name": "Melanie is finding peace through creativity and family",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-07-15, Melanie is getting there, Caroline. Creativity and family keep her at peace.",
+        "time": "2023-07-15",
+        "batch_id": "conv-26_conv_session_8_batch_6",
+        "source_turn_ids": [
+          "conv-26_conv_session_8_D8:25",
+          "conv-26_conv_session_8_D8:26",
+          "conv-26_conv_session_8_D8:27",
+          "conv-26_conv_session_8_D8:28"
+        ],
+        "source": [
+          "conv-26_conv_session_8_D8:25",
+          "conv-26_conv_session_8_D8:26",
+          "conv-26_conv_session_8_D8:27",
+          "conv-26_conv_session_8_D8:28"
+        ],
+        "original_text": "[1:51 pm on 15 July, 2023]\n\nCaroline: Realizing I can be me without fear and having the courage to transition was the best part. It's so freeing to express myself authentically and have people back me up.\nMelanie: That's awesome, Caro! You've found the courage to be yourself - that's important for our mental health and finding peace.\nCaroline: Thanks, Melanie! Been a long road, but I'm proud of how far I've come. How're you doing finding peace?\nMelanie: I'm getting there, Caroline. Creativity and family keep me at peace."
+      },
+      "created_at": "2026-04-28 13:27:16",
+      "updated_at": "2026-04-28 13:27:16"
+    },
+    "19783bd1-0a2a-49ee-bfdb-062e03b47163": {
+      "type": "Event",
+      "canonical_name": "Caroline's LGBTQ art show",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-07-17, Caroline is having an LGBTQ art show with her paintings next month.",
+        "time": "next month",
+        "batch_id": "conv-26_conv_session_9_batch_2",
+        "source_turn_ids": [
+          "conv-26_conv_session_9_D9:9",
+          "conv-26_conv_session_9_D9:10",
+          "conv-26_conv_session_9_D9:11",
+          "conv-26_conv_session_9_D9:12"
+        ],
+        "source": [
+          "conv-26_conv_session_9_D9:9",
+          "conv-26_conv_session_9_D9:10",
+          "conv-26_conv_session_9_D9:11",
+          "conv-26_conv_session_9_D9:12"
+        ],
+        "original_text": "[2:31 pm on 17 July, 2023]\n\nMelanie: Wow! What's the best part you remember from it?\nCaroline: Seeing my mentee's face light up when they saw the support was the best! Such a special moment.\nMelanie: Wow, Caroline! They must have felt so appreciated. It's awesome to see the difference we can make in each other's lives. Any other exciting LGBTQ advocacy stuff coming up?\nCaroline: Yay! Next month I'm having an LGBTQ art show with my paintings - can't wait!"
+      },
+      "created_at": "2026-04-28 13:27:56",
+      "updated_at": "2026-04-28 13:28:00"
+    },
+    "d47d9d2d-e89d-46bc-a58f-2dec7fd88bb0": {
+      "type": "Entity",
+      "canonical_name": "Painting",
+      "aliases": [
+        "artwork",
+        "painting"
+      ],
+      "attrs": {
+        "description": "A painting created by Melanie that conveys unity and strength."
+      },
+      "created_at": "2026-04-28 13:28:04",
+      "updated_at": "2026-04-28 13:30:48"
+    },
+    "e36e618c-eace-4690-a4c3-87f57130e081": {
+      "type": "Event",
+      "canonical_name": "Youngest Took First Steps",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-07-15, Melanie remembers the day her youngest took her first steps, which made her realize how fleeting life is and how lucky she is to share these moments.",
+        "time": "2023-07-15",
+        "batch_id": "conv-26_conv_session_10_batch_4",
+        "source_turn_ids": [
+          "conv-26_conv_session_10_D10:17",
+          "conv-26_conv_session_10_D10:18",
+          "conv-26_conv_session_10_D10:19",
+          "conv-26_conv_session_10_D10:20"
+        ],
+        "source": [
+          "conv-26_conv_session_10_D10:17",
+          "conv-26_conv_session_10_D10:18",
+          "conv-26_conv_session_10_D10:19",
+          "conv-26_conv_session_10_D10:20"
+        ],
+        "original_text": "[8:56 pm on 20 July, 2023]\n\nCaroline: Wow, Mel. That must've been breathtaking!\nMelanie: It was one of those moments where I felt tiny and in awe of the universe. Reminds me how awesome life is - so many little moments like that.\nCaroline: That's great, Mel! What other good memories do you have that make you feel thankful for life?\nMelanie: I'll never forget the day my youngest took her first steps. Seeing her wobble as she took those initial steps really put into perspective how fleeting life is and how lucky I am to be able to share these moments."
+      },
+      "created_at": "2026-04-28 13:28:28",
+      "updated_at": "2026-04-28 13:28:29"
+    },
+    "cbe425d0-ab37-489f-b948-e0c1011fd054": {
+      "type": "Entity",
+      "canonical_name": "Art",
+      "aliases": [],
+      "attrs": {},
+      "created_at": "2026-04-28 13:28:49",
+      "updated_at": "2026-04-28 13:28:49"
+    },
+    "09c2ade9-5e00-47d1-b836-91dd6fe271cf": {
+      "type": "Event",
+      "canonical_name": "Caroline created 'Embracing Identity'",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-08-14, Caroline created 'Embracing Identity', an art piece about finding comfort and love in being yourself. The woman in the painting stands for the journey of acceptance.",
+        "time": "2023-08-14",
+        "batch_id": "conv-26_conv_session_11_batch_2",
+        "source_turn_ids": [
+          "conv-26_conv_session_11_D11:9",
+          "conv-26_conv_session_11_D11:10",
+          "conv-26_conv_session_11_D11:11",
+          "conv-26_conv_session_11_D11:12"
+        ],
+        "source": [
+          "conv-26_conv_session_11_D11:9",
+          "conv-26_conv_session_11_D11:10",
+          "conv-26_conv_session_11_D11:11",
+          "conv-26_conv_session_11_D11:12"
+        ],
+        "original_text": "[2:24 pm on 14 August, 2023]\n\nMelanie: Wow, that rocks! What's the main idea of your art?\nCaroline: My art is about expressing my trans experience. It's my way of showing my story and helping people understand the trans community.\nMelanie: Your art's amazing, Caroline. I love how you use it to tell your stories and teach people about trans folks. I'd love to see another painting of yours!\nCaroline: Thanks, Melanie. Here's one- 'Embracing Identity' is all about finding comfort and love in being yourself. The woman in the painting stands for the journey of acceptance. My aim was to show warmth, love and self-acceptance."
+      },
+      "created_at": "2026-04-28 13:28:49",
+      "updated_at": "2026-04-28 13:28:49"
+    },
+    "9e0d0496-5994-4935-8d1f-702dbdf25054": {
+      "type": "Event",
+      "canonical_name": "DiscussionAboutArt",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 17 August, 2023, at 1:50 pm, Caroline praised Melanie's painting and discussed the creative process and emotional impact of art.",
+        "time": "17 August, 2023",
+        "batch_id": "conv-26_conv_session_12_batch_1",
+        "source_turn_ids": [
+          "conv-26_conv_session_12_D12:5",
+          "conv-26_conv_session_12_D12:6",
+          "conv-26_conv_session_12_D12:7",
+          "conv-26_conv_session_12_D12:8"
+        ],
+        "source": [
+          "conv-26_conv_session_12_D12:5",
+          "conv-26_conv_session_12_D12:6",
+          "conv-26_conv_session_12_D12:7",
+          "conv-26_conv_session_12_D12:8"
+        ],
+        "original_text": "[1:50 pm on 17 August, 2023]\n\nCaroline: That bowl is awesome, Mel! What gave you the idea for all the colors and patterns?\nMelanie: Thanks, Caroline! I'm obsessed with those, so I made something to catch the eye and make people smile. Plus, painting helps me express my feelings and be creative. Each stroke carries a part of me.\nCaroline: That's amazing! You put so much effort and passion into it. Your creativity really shines. Seeing how art can be a source of self-expression and growth is truly inspiring. You're killing it!\nMelanie: Thanks, Caroline! Your words really mean a lot. I've always felt a strong connection to art, and it's been a huge learning experience. It's both a sanctuary and a source of comfort. I'm so glad to have something that brings me so much happiness and fulfillment."
+      },
+      "created_at": "2026-04-28 13:29:04",
+      "updated_at": "2026-04-28 13:29:05"
+    },
+    "78322929-f62c-4988-b125-fc412f019704": {
+      "type": "Event",
+      "canonical_name": "Caroline applied to adoption agencies",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-08-23, Caroline applied to adoption agencies. It's a big decision, but she thinks she's ready to give all her love to a child. She got lots of help from this adoption advice/assistance group she attended.",
+        "time": "this week",
+        "batch_id": "conv-26_conv_session_13_batch_0",
+        "source_turn_ids": [
+          "conv-26_conv_session_13_D13:1",
+          "conv-26_conv_session_13_D13:2",
+          "conv-26_conv_session_13_D13:3",
+          "conv-26_conv_session_13_D13:4"
+        ],
+        "source": [
+          "conv-26_conv_session_13_D13:1",
+          "conv-26_conv_session_13_D13:2",
+          "conv-26_conv_session_13_D13:3",
+          "conv-26_conv_session_13_D13:4"
+        ],
+        "original_text": "[3:31 pm on 23 August, 2023]\n\nCaroline: Hi Melanie! Hope you're doing good. Guess what I did this week? I took the first step towards becoming a mom - I applied to adoption agencies! It's a big decision, but I think I'm ready to give all my love to a child. I got lots of help from this adoption advice/assistance group I attended. It was great!\nMelanie: Caroline, congrats! So proud of you for taking this step. How does it feel? Also, do you have any pets?\nCaroline: Thanks, Mel! Exciting but kinda nerve-wracking. Parenting's such a big responsibility. And yup, I do- Oscar, my guinea pig. He's been great. How are your pets?\nMelanie: Yeah, it's normal to be both excited and nervous with a big decision. And thanks for asking, they're good- we got another cat named Bailey too. Here's a pic of Oliver. Can you show me one of Oscar?"
+      },
+      "created_at": "2026-04-28 13:29:33",
+      "updated_at": "2026-04-28 13:29:33"
+    },
+    "75fe859a-61da-490b-9812-7ae0010b10e2": {
+      "type": "Event",
+      "canonical_name": "Caroline attended adoption advice group",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-08-23, Caroline attended adoption advice group. It was great.",
+        "time": "this week",
+        "batch_id": "conv-26_conv_session_13_batch_0",
+        "source_turn_ids": [
+          "conv-26_conv_session_13_D13:1",
+          "conv-26_conv_session_13_D13:2",
+          "conv-26_conv_session_13_D13:3",
+          "conv-26_conv_session_13_D13:4"
+        ],
+        "source": [
+          "conv-26_conv_session_13_D13:1",
+          "conv-26_conv_session_13_D13:2",
+          "conv-26_conv_session_13_D13:3",
+          "conv-26_conv_session_13_D13:4"
+        ],
+        "original_text": "[3:31 pm on 23 August, 2023]\n\nCaroline: Hi Melanie! Hope you're doing good. Guess what I did this week? I took the first step towards becoming a mom - I applied to adoption agencies! It's a big decision, but I think I'm ready to give all my love to a child. I got lots of help from this adoption advice/assistance group I attended. It was great!\nMelanie: Caroline, congrats! So proud of you for taking this step. How does it feel? Also, do you have any pets?\nCaroline: Thanks, Mel! Exciting but kinda nerve-wracking. Parenting's such a big responsibility. And yup, I do- Oscar, my guinea pig. He's been great. How are your pets?\nMelanie: Yeah, it's normal to be both excited and nervous with a big decision. And thanks for asking, they're good- we got another cat named Bailey too. Here's a pic of Oliver. Can you show me one of Oscar?"
+      },
+      "created_at": "2026-04-28 13:29:33",
+      "updated_at": "2026-04-28 13:29:33"
+    },
+    "921e432d-8a88-41fa-b309-a84a8ea84e07": {
+      "type": "Entity",
+      "canonical_name": "Oscar",
+      "aliases": [
+        "Oscar",
+        "guinea pig"
+      ],
+      "attrs": {
+        "description": "Caroline's guinea pig."
+      },
+      "created_at": "2026-04-28 13:29:33",
+      "updated_at": "2026-04-28 13:29:33"
+    },
+    "665e7987-746b-4c89-bb19-b08944e2e68a": {
+      "type": "Entity",
+      "canonical_name": "Bailey",
+      "aliases": [
+        "Bailey",
+        "cat"
+      ],
+      "attrs": {
+        "description": "Melanie's cat."
+      },
+      "created_at": "2026-04-28 13:29:33",
+      "updated_at": "2026-04-28 13:29:33"
+    },
+    "5ac2d73c-83b9-496c-8a41-ab36ebec73b8": {
+      "type": "Event",
+      "canonical_name": "Caroline applied to adoption agencies",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-08-23, Caroline applied to adoption agencies. It's a big decision, but she thinks she's ready to give all her love to a child. She got lots of help from this adoption advice/assistance group she attended.",
+        "time": "this week",
+        "batch_id": "conv-26_conv_session_13_batch_4",
+        "source_turn_ids": [
+          "conv-26_conv_session_13_D13:17",
+          "conv-26_conv_session_13_D13:18"
+        ],
+        "source": [
+          "conv-26_conv_session_13_D13:17",
+          "conv-26_conv_session_13_D13:18"
+        ],
+        "original_text": "[3:31 pm on 23 August, 2023]"
+      },
+      "created_at": "2026-04-28 13:30:01",
+      "updated_at": "2026-04-28 13:30:02"
+    },
+    "c1a848dd-c363-4207-951d-95cc48f2f3cb": {
+      "type": "Entity",
+      "canonical_name": "Stained Glass Window",
+      "aliases": [
+        "Stained Glass Window"
+      ],
+      "attrs": {
+        "description": "A stained glass window created by Caroline to remind others of the key to discovering their true potential and living their best life."
+      },
+      "created_at": "2026-04-28 13:30:37",
+      "updated_at": "2026-04-28 13:30:37"
+    },
+    "a9f54ff1-deba-4935-87ef-4c87d3215f44": {
+      "type": "Event",
+      "canonical_name": "Caroline made a stained glass window",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 2023-08-25, Caroline made a stained glass window to remind herself and others that within us all is the key to discovering our true potential and living our best life.",
+        "time": "2023-08-25",
+        "batch_id": "conv-26_conv_session_14_batch_4",
+        "source_turn_ids": [
+          "conv-26_conv_session_14_D14:17",
+          "conv-26_conv_session_14_D14:18",
+          "conv-26_conv_session_14_D14:19",
+          "conv-26_conv_session_14_D14:20"
+        ],
+        "source": [
+          "conv-26_conv_session_14_D14:17",
+          "conv-26_conv_session_14_D14:18",
+          "conv-26_conv_session_14_D14:19",
+          "conv-26_conv_session_14_D14:20"
+        ],
+        "original_text": "[1:33 pm on 25 August, 2023]\n\nCaroline: Thanks, Mel! I made this stained glass window to remind myself and others that within us all is the key to discovering our true potential and living our best life.\nMelanie: Wow, Caroline, that looks amazing! What inspired it?\nCaroline: Thanks! It was made for a local church and shows time changing our lives. I made it to show my own journey as a transgender woman and how we should accept growth and change.\nMelanie: Wow, Caroline!  All those colors are incredible and the story it tells is so inspiring."
+      },
+      "created_at": "2026-04-28 13:30:37",
+      "updated_at": "2026-04-28 13:30:37"
+    },
+    "c57a8864-8250-41b4-8375-d679ff68afc9": {
+      "type": "Event",
+      "canonical_name": "DiscussionAboutArt",
+      "aliases": [],
+      "attrs": {
+        "fact": "On 25 August, 2023, Caroline praised Melanie's painting and discussed the creative process and emotional impact of art.",
+        "time": "25 August, 2023",
+        "batch_id": "conv-26_conv_session_14_batch_6",
+        "source_turn_ids": [
+          "conv-26_conv_session_14_D14:25",
+          "conv-26_conv_session_14_D14:26",
+          "conv-26_conv_session_14_D14:27",
+          "conv-26_conv_session_14_D14:28"
+        ],
+        "source": [
+          "conv-26_conv_session_14_D14:25",
+          "conv-26_conv_session_14_D14:26",
+          "conv-26_conv_session_14_D14:27",
+          "conv-26_conv_session_14_D14:28"
+        ],
+        "original_text": "[1:33 pm on 25 August, 2023]\n\nCaroline: Agreed, Mel! Art can be a real mood-booster - I saw someone drawing on the ground the other day and it made me so happy. Creativity sure can lighten someone's day.\nMelanie: Wow, Caroline, that's so nice! The colors are so bright and the flowers are so pretty. Art is such a source of joy.\nCaroline: Thanks, Mel! Art gives me so much joy. It helps me show my feelings and freeze gorgeous moments, like a bouquet of flowers.\nMelanie: Wow, did you make that? It looks so real!"
+      },
+      "created_at": "2026-04-28 13:30:48",
+      "updated_at": "2026-04-28 13:30:48"
+    }
+  },
+  "edges": [
+    {
+      "edge_id": "c67d17ac-edb9-4d3a-af79-7e0fb2f70bb0",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "217a27c7-8a7b-45d8-911c-0602d07478c9",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:23:03"
+    },
+    {
+      "edge_id": "984eadbf-d6c3-4836-8efb-0d7784704cbd",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:23:12"
+    },
+    {
+      "edge_id": "0d96929f-16cf-46ad-88ad-e315a5a44edd",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "ba578284-d218-4242-8e32-5d00b35bc885",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:23:17"
+    },
+    {
+      "edge_id": "9c4625e6-9bdb-4748-851d-5687740853b5",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "151ab852-4696-4192-b027-9c4356e73d98",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:23:17"
+    },
+    {
+      "edge_id": "99c594ef-1ab5-4b86-afca-8e0a01f469be",
+      "src": "151ab852-4696-4192-b027-9c4356e73d98",
+      "dst": "ba578284-d218-4242-8e32-5d00b35bc885",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:23:17"
+    },
+    {
+      "edge_id": "7b856393-5747-4425-808a-4b1c2296f292",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "151ab852-4696-4192-b027-9c4356e73d98",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:23:22"
+    },
+    {
+      "edge_id": "84e15ef0-6326-4e9f-b285-ce6d906c6b49",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "ba578284-d218-4242-8e32-5d00b35bc885",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:23:22"
+    },
+    {
+      "edge_id": "cfdc714f-73c3-4a72-b431-a7d00c5b5bc1",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "6ecfef89-940c-4be1-a3ef-b8f5e06c2e96",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:23:27"
+    },
+    {
+      "edge_id": "605a4c3c-6dff-479b-a04b-4c0fd290d790",
+      "src": "6ecfef89-940c-4be1-a3ef-b8f5e06c2e96",
+      "dst": "151ab852-4696-4192-b027-9c4356e73d98",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:23:27"
+    },
+    {
+      "edge_id": "8662be54-343e-43e1-bc9e-46b8ad28b4e5",
+      "src": "6ecfef89-940c-4be1-a3ef-b8f5e06c2e96",
+      "dst": "29854e70-ea39-4178-bede-f80e9003587a",
+      "family": "event-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:23:33"
+    },
+    {
+      "edge_id": "dfdb379b-1031-496c-b001-b47e608fc734",
+      "src": "6ecfef89-940c-4be1-a3ef-b8f5e06c2e96",
+      "dst": "9dd50aee-e2d0-4b17-9fde-84b8540539a8",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:23:33"
+    },
+    {
+      "edge_id": "cd31431f-ee94-41ce-a00a-ee8b5b592db1",
+      "src": "9dd50aee-e2d0-4b17-9fde-84b8540539a8",
+      "dst": "ba578284-d218-4242-8e32-5d00b35bc885",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:23:33"
+    },
+    {
+      "edge_id": "583c0fd4-5d7e-4ae6-a58e-49b41c76b962",
+      "src": "ba578284-d218-4242-8e32-5d00b35bc885",
+      "dst": "9dd50aee-e2d0-4b17-9fde-84b8540539a8",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:23:33"
+    },
+    {
+      "edge_id": "fb442ca2-d26a-47f6-b0cf-2a91d37b3e46",
+      "src": "29854e70-ea39-4178-bede-f80e9003587a",
+      "dst": "9dd50aee-e2d0-4b17-9fde-84b8540539a8",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:23:33"
+    },
+    {
+      "edge_id": "d5c5093d-8869-4ead-b096-2a0eb20de508",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "29854e70-ea39-4178-bede-f80e9003587a",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:23:33"
+    },
+    {
+      "edge_id": "2a3caddb-ae45-4be6-8518-e1077684fc60",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "9dd50aee-e2d0-4b17-9fde-84b8540539a8",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:23:33"
+    },
+    {
+      "edge_id": "0b601244-7da2-4273-80b1-4d6634f6b769",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "6ecfef89-940c-4be1-a3ef-b8f5e06c2e96",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:23:38"
+    },
+    {
+      "edge_id": "fdfb8271-6d29-47be-af76-9384b426e4d8",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "9dd50aee-e2d0-4b17-9fde-84b8540539a8",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:23:38"
+    },
+    {
+      "edge_id": "393e6e9d-9895-4857-822d-b6bec4ab66bf",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "29854e70-ea39-4178-bede-f80e9003587a",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:23:38"
+    },
+    {
+      "edge_id": "a2b5dac0-38da-4976-8a01-7e9d5cfc0d88",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "217a27c7-8a7b-45d8-911c-0602d07478c9",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:23:38"
+    },
+    {
+      "edge_id": "e597c345-7d78-4295-89af-d35c11a20d06",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "efe300ce-e267-4400-b042-6308350ad572",
+      "family": "entity-entity",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:23:38"
+    },
+    {
+      "edge_id": "01175cac-49b5-4c98-9501-7b7efb386526",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:23:38"
+    },
+    {
+      "edge_id": "1183d6b2-51ff-4b59-8711-d3706811ce30",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "6ecfef89-940c-4be1-a3ef-b8f5e06c2e96",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:23:42"
+    },
+    {
+      "edge_id": "ee9078db-2ed8-4a54-b7d1-65f35e7f9b94",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "ba578284-d218-4242-8e32-5d00b35bc885",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:23:55"
+    },
+    {
+      "edge_id": "aa70a425-3b62-42b5-8b36-227ca6706408",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:23:55"
+    },
+    {
+      "edge_id": "288ee4a9-4503-416e-9704-fefa12646f61",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "family": "entity-entity",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:23:55"
+    },
+    {
+      "edge_id": "ecc88ddd-3d9e-4e8f-8170-bd30b2fe7f23",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "151ab852-4696-4192-b027-9c4356e73d98",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:23:55"
+    },
+    {
+      "edge_id": "64fb6064-c048-4de3-9947-a53eb699ebb4",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "ba578284-d218-4242-8e32-5d00b35bc885",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:24:09"
+    },
+    {
+      "edge_id": "67705f78-41de-4082-b0ef-dd05ec16b60e",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "6ecfef89-940c-4be1-a3ef-b8f5e06c2e96",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:24:09"
+    },
+    {
+      "edge_id": "6b5af93b-ac48-46e7-a617-3b7ca550f5c9",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "9dd50aee-e2d0-4b17-9fde-84b8540539a8",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:24:17"
+    },
+    {
+      "edge_id": "3a919f06-0448-4169-9bd1-c522bc970978",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:24:30"
+    },
+    {
+      "edge_id": "68a272ac-e5c8-423b-ab40-7f97612bc687",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "29854e70-ea39-4178-bede-f80e9003587a",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:24:30"
+    },
+    {
+      "edge_id": "55a45c57-822e-412a-a843-135942dc33c5",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "217a27c7-8a7b-45d8-911c-0602d07478c9",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:24:30"
+    },
+    {
+      "edge_id": "1d60c086-43c9-42f4-8a17-575f1279b044",
+      "src": "bbf390c2-7cda-4922-bc1d-42a024da176c",
+      "dst": "77a1a29c-3336-41e5-a9e4-4bb7684bcb1b",
+      "family": "entity-entity",
+      "predicate": "gave",
+      "created_at": "2026-04-28 13:24:34"
+    },
+    {
+      "edge_id": "949eb706-a083-496d-bc90-28c24d2d1d52",
+      "src": "77a1a29c-3336-41e5-a9e4-4bb7684bcb1b",
+      "dst": "efe300ce-e267-4400-b042-6308350ad572",
+      "family": "entity-entity",
+      "predicate": "owns",
+      "created_at": "2026-04-28 13:24:34"
+    },
+    {
+      "edge_id": "a812b27a-5721-4a19-be63-51a0f9369154",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "4193e8d1-4763-44e3-9e6e-c665cc97e45d",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:24:34"
+    },
+    {
+      "edge_id": "01c7665b-7989-4307-8896-c92f516a852b",
+      "src": "20f79240-7722-4e8f-98e7-33f3e6e77a93",
+      "dst": "032e3389-bb7c-4cc6-8388-9244ef2d2287",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-28 13:24:42"
+    },
+    {
+      "edge_id": "2ddb4e49-47ba-411a-835b-5dfbe61d03b9",
+      "src": "20f79240-7722-4e8f-98e7-33f3e6e77a93",
+      "dst": "efe300ce-e267-4400-b042-6308350ad572",
+      "family": "entity-entity",
+      "predicate": "owns",
+      "created_at": "2026-04-28 13:24:42"
+    },
+    {
+      "edge_id": "2d714742-59b0-4340-926f-9bc4246002d1",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "0617b23f-29ad-4444-a70e-356cfeba9e73",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:24:42"
+    },
+    {
+      "edge_id": "cd66bf8e-a219-4aa7-98fe-8a5a5d1cd2c4",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "0617b23f-29ad-4444-a70e-356cfeba9e73",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:24:42"
+    },
+    {
+      "edge_id": "6658fee4-4731-4eb0-97c0-1d17ece67061",
+      "src": "0617b23f-29ad-4444-a70e-356cfeba9e73",
+      "dst": "4bd08858-ab02-4604-a5d1-ee91270c8375",
+      "family": "event-event",
+      "predicate": "updates",
+      "created_at": "2026-04-28 13:24:42"
+    },
+    {
+      "edge_id": "cd1e1328-2bfd-4e58-862a-21cd338e22dc",
+      "src": "0617b23f-29ad-4444-a70e-356cfeba9e73",
+      "dst": "65e9dfd5-de28-49d9-b169-ae64a3835d29",
+      "family": "event-event",
+      "predicate": "updates",
+      "created_at": "2026-04-28 13:24:42"
+    },
+    {
+      "edge_id": "cfb719cf-b597-4f28-b6c1-755833071f84",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "4bd08858-ab02-4604-a5d1-ee91270c8375",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:24:42"
+    },
+    {
+      "edge_id": "70a67398-41cf-4e27-bddb-157dea48beca",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "65e9dfd5-de28-49d9-b169-ae64a3835d29",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:24:42"
+    },
+    {
+      "edge_id": "27422997-31dc-4665-944d-9280d23628d2",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "6ecfef89-940c-4be1-a3ef-b8f5e06c2e96",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:24:49"
+    },
+    {
+      "edge_id": "eb201514-b3b3-43b9-a948-4a38cb685c8b",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "53ac98d9-050d-438c-881a-fd4cacd23d20",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:24:53"
+    },
+    {
+      "edge_id": "4545e6a6-f3e2-41ba-af8a-7e63bf6c6010",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "b02f486b-2427-4b48-b1a5-dac5c743254d",
+      "family": "entity-event",
+      "predicate": "attended",
+      "created_at": "2026-04-28 13:24:53"
+    },
+    {
+      "edge_id": "36774308-1ad0-4884-821e-79ce1775f68c",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "032e3389-bb7c-4cc6-8388-9244ef2d2287",
+      "family": "entity-event",
+      "predicate": "owns",
+      "created_at": "2026-04-28 13:24:56"
+    },
+    {
+      "edge_id": "572dbdd7-4097-4dd8-9825-49bebdcc7eeb",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "217a27c7-8a7b-45d8-911c-0602d07478c9",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:25:00"
+    },
+    {
+      "edge_id": "9a9e02dd-a4e1-4eb8-bf1e-bfe4fbc495e9",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "53ac98d9-050d-438c-881a-fd4cacd23d20",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:25:00"
+    },
+    {
+      "edge_id": "b6144ca9-bac4-449e-87c5-a708382618d3",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "b02f486b-2427-4b48-b1a5-dac5c743254d",
+      "family": "event-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:25:00"
+    },
+    {
+      "edge_id": "dced6612-71d3-4a75-b87c-baaa1f3418d2",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "032e3389-bb7c-4cc6-8388-9244ef2d2287",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:25:00"
+    },
+    {
+      "edge_id": "48507e08-5c8d-4d57-b1e4-ff5291991dce",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "ba578284-d218-4242-8e32-5d00b35bc885",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:25:07"
+    },
+    {
+      "edge_id": "bdcdf812-aa6c-4a59-9002-dbc484086192",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "20f79240-7722-4e8f-98e7-33f3e6e77a93",
+      "family": "entity-entity",
+      "predicate": "owns",
+      "created_at": "2026-04-28 13:25:07"
+    },
+    {
+      "edge_id": "2875ed99-67c3-4762-aa44-8e7c8ba5bff2",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "77a1a29c-3336-41e5-a9e4-4bb7684bcb1b",
+      "family": "entity-entity",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:25:07"
+    },
+    {
+      "edge_id": "1e14c0ce-24aa-47aa-83d2-bb2ce65bc3fb",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "53ac98d9-050d-438c-881a-fd4cacd23d20",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:25:07"
+    },
+    {
+      "edge_id": "20d6bbb1-3281-4875-a8cc-28988031c0f9",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "b02f486b-2427-4b48-b1a5-dac5c743254d",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:25:07"
+    },
+    {
+      "edge_id": "2176117e-543e-4a80-8601-cd5c8f5b2df1",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "0617b23f-29ad-4444-a70e-356cfeba9e73",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:25:07"
+    },
+    {
+      "edge_id": "d0d388f1-9f74-43d3-a9a7-df295774cdb7",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "65e9dfd5-de28-49d9-b169-ae64a3835d29",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:25:07"
+    },
+    {
+      "edge_id": "a9274c24-6ec2-41a8-894a-b05ed53c49fa",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "9dd50aee-e2d0-4b17-9fde-84b8540539a8",
+      "family": "event-event",
+      "predicate": "owns",
+      "created_at": "2026-04-28 13:25:15"
+    },
+    {
+      "edge_id": "aa79e938-9f61-4805-bfb7-0ea83b15c106",
+      "src": "77a1a29c-3336-41e5-a9e4-4bb7684bcb1b",
+      "dst": "4193e8d1-4763-44e3-9e6e-c665cc97e45d",
+      "family": "entity-event",
+      "predicate": "owns",
+      "created_at": "2026-04-28 13:25:15"
+    },
+    {
+      "edge_id": "5d64ceae-b166-4b5d-9fe0-e4cbfbf0ce04",
+      "src": "77a1a29c-3336-41e5-a9e4-4bb7684bcb1b",
+      "dst": "b02f486b-2427-4b48-b1a5-dac5c743254d",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:25:15"
+    },
+    {
+      "edge_id": "1422a824-b9eb-4326-8463-9ed90670a573",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "217a27c7-8a7b-45d8-911c-0602d07478c9",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:25:15"
+    },
+    {
+      "edge_id": "73d7d00d-d9cd-4d05-af49-9d3ad6c44f7b",
+      "src": "77a1a29c-3336-41e5-a9e4-4bb7684bcb1b",
+      "dst": "65e9dfd5-de28-49d9-b169-ae64a3835d29",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:25:15"
+    },
+    {
+      "edge_id": "4a49d17e-4d59-4abf-b4df-24a1d7b2caff",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "6ecfef89-940c-4be1-a3ef-b8f5e06c2e96",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:25:15"
+    },
+    {
+      "edge_id": "67c392bb-7fbb-42db-bbf3-88b237f96b3e",
+      "src": "77a1a29c-3336-41e5-a9e4-4bb7684bcb1b",
+      "dst": "0617b23f-29ad-4444-a70e-356cfeba9e73",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:25:15"
+    },
+    {
+      "edge_id": "5135efb9-d405-4338-8115-2fed733c94ac",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "b02f486b-2427-4b48-b1a5-dac5c743254d",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:25:23"
+    },
+    {
+      "edge_id": "6e98a426-0457-47cd-976c-3102eda603d6",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "4193e8d1-4763-44e3-9e6e-c665cc97e45d",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:25:23"
+    },
+    {
+      "edge_id": "51cb08a6-32b9-43c0-a518-e59b62788f97",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "032e3389-bb7c-4cc6-8388-9244ef2d2287",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:25:23"
+    },
+    {
+      "edge_id": "87d6fdc8-28ad-44f9-8bea-a8d41b69c3d7",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "032e3389-bb7c-4cc6-8388-9244ef2d2287",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:25:28"
+    },
+    {
+      "edge_id": "7addb256-9486-4375-9af3-da8971d0db80",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "0617b23f-29ad-4444-a70e-356cfeba9e73",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:25:28"
+    },
+    {
+      "edge_id": "6d4c1014-28eb-4b41-9ac2-d8ae5c6e7e5b",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "217a27c7-8a7b-45d8-911c-0602d07478c9",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:25:28"
+    },
+    {
+      "edge_id": "cb9a27c2-0ae3-4921-b6e5-f0ace529f21f",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "b02f486b-2427-4b48-b1a5-dac5c743254d",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:25:28"
+    },
+    {
+      "edge_id": "ded53d1d-788c-4be2-a2a3-5018cd53b27c",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "53ac98d9-050d-438c-881a-fd4cacd23d20",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:25:28"
+    },
+    {
+      "edge_id": "938815db-b170-4726-b0ff-c689525faec3",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "4193e8d1-4763-44e3-9e6e-c665cc97e45d",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:25:28"
+    },
+    {
+      "edge_id": "15dbae99-ed32-4d85-be6b-7f452b9fc83f",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "ba578284-d218-4242-8e32-5d00b35bc885",
+      "family": "event-event",
+      "predicate": "owns",
+      "created_at": "2026-04-28 13:25:33"
+    },
+    {
+      "edge_id": "d3842a59-e43e-4efd-8334-f17d3ede70ef",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "032e3389-bb7c-4cc6-8388-9244ef2d2287",
+      "family": "event-event",
+      "predicate": "owns",
+      "created_at": "2026-04-28 13:25:33"
+    },
+    {
+      "edge_id": "af979837-3b8e-465c-9deb-a942548f2bf3",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "b02f486b-2427-4b48-b1a5-dac5c743254d",
+      "family": "event-event",
+      "predicate": "attended",
+      "created_at": "2026-04-28 13:25:33"
+    },
+    {
+      "edge_id": "5f5961fc-f668-419c-be1e-f99cf41dca63",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "ba578284-d218-4242-8e32-5d00b35bc885",
+      "family": "entity-event",
+      "predicate": "owns",
+      "created_at": "2026-04-28 13:25:33"
+    },
+    {
+      "edge_id": "80b98fcc-47a7-41bb-b86b-3e3a4e59bc9a",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "032e3389-bb7c-4cc6-8388-9244ef2d2287",
+      "family": "entity-event",
+      "predicate": "owns",
+      "created_at": "2026-04-28 13:25:33"
+    },
+    {
+      "edge_id": "163f2acf-2f32-42b3-8fa8-d33cf9e95cd7",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "b02f486b-2427-4b48-b1a5-dac5c743254d",
+      "family": "entity-event",
+      "predicate": "attended",
+      "created_at": "2026-04-28 13:25:33"
+    },
+    {
+      "edge_id": "f6689920-5bc5-4bcf-a1d5-a5fc0f54db62",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "032e3389-bb7c-4cc6-8388-9244ef2d2287",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:25:39"
+    },
+    {
+      "edge_id": "346fab8d-5676-4b6b-9c6d-d952dde61016",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "65e9dfd5-de28-49d9-b169-ae64a3835d29",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:25:39"
+    },
+    {
+      "edge_id": "2b9f2fd0-b680-437e-b91b-bdb4e4a04661",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "032e3389-bb7c-4cc6-8388-9244ef2d2287",
+      "family": "event-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:25:45"
+    },
+    {
+      "edge_id": "e713e48b-e0eb-4c69-9740-05cc3d21e738",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "4193e8d1-4763-44e3-9e6e-c665cc97e45d",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:25:45"
+    },
+    {
+      "edge_id": "c8dfbcc5-9f18-43da-9307-81d2630a767b",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "20f79240-7722-4e8f-98e7-33f3e6e77a93",
+      "family": "entity-entity",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:25:45"
+    },
+    {
+      "edge_id": "a2f93f99-4c78-4c3c-a132-9a47d160fa01",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "032e3389-bb7c-4cc6-8388-9244ef2d2287",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:25:50"
+    },
+    {
+      "edge_id": "646c5a7f-47c0-4903-b57e-907b305c7713",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "65e9dfd5-de28-49d9-b169-ae64a3835d29",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:25:50"
+    },
+    {
+      "edge_id": "01a08c99-544b-4a25-9d2e-58722ecb3394",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "efe300ce-e267-4400-b042-6308350ad572",
+      "family": "entity-entity",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:25:57"
+    },
+    {
+      "edge_id": "b84c8e64-32e6-4616-b604-d15b7f1eac7d",
+      "src": "9ed57ec3-c953-4799-8f7c-8d4e116e147b",
+      "dst": "8af1bf26-6bcb-48e3-8922-c2080acca84f",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-28 13:26:02"
+    },
+    {
+      "edge_id": "58c972de-adcc-4758-abc3-752106605db2",
+      "src": "9ed57ec3-c953-4799-8f7c-8d4e116e147b",
+      "dst": "efe300ce-e267-4400-b042-6308350ad572",
+      "family": "entity-entity",
+      "predicate": "inspired_by",
+      "created_at": "2026-04-28 13:26:02"
+    },
+    {
+      "edge_id": "673ddad5-64bd-43e7-ad37-9f3f0a39eab0",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "67b74892-2b6c-4499-9821-9012110c5a63",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:26:07"
+    },
+    {
+      "edge_id": "9f6ed589-39f4-4cc9-a7b4-0d946c38c08b",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "ae55641c-799f-429f-84a8-0f69d3673072",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:26:14"
+    },
+    {
+      "edge_id": "a2906cf0-f703-47a3-a455-b6baed50fdfa",
+      "src": "a800fac4-be34-49e0-a060-13a412740bfd",
+      "dst": "ae55641c-799f-429f-84a8-0f69d3673072",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-28 13:26:14"
+    },
+    {
+      "edge_id": "5fb45502-f1f6-400d-8b9c-f09058cc5c75",
+      "src": "8af1bf26-6bcb-48e3-8922-c2080acca84f",
+      "dst": "1574c03a-5d23-40b8-8800-0cd33137eab8",
+      "family": "event-event",
+      "predicate": "inspired_by",
+      "created_at": "2026-04-28 13:26:14"
+    },
+    {
+      "edge_id": "9dd4c339-84cd-41fe-b110-44f5bdd7e058",
+      "src": "fa839e64-2f1c-4572-a2d4-99144dae5257",
+      "dst": "1574c03a-5d23-40b8-8800-0cd33137eab8",
+      "family": "entity-event",
+      "predicate": "owns",
+      "created_at": "2026-04-28 13:26:14"
+    },
+    {
+      "edge_id": "5cec6cf9-64ff-427a-a1ad-4969aee72d57",
+      "src": "9ed57ec3-c953-4799-8f7c-8d4e116e147b",
+      "dst": "1574c03a-5d23-40b8-8800-0cd33137eab8",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-28 13:26:17"
+    },
+    {
+      "edge_id": "eb509e65-1545-4b75-a723-b165dacb4f18",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "29854e70-ea39-4178-bede-f80e9003587a",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:26:22"
+    },
+    {
+      "edge_id": "da29b32f-2fde-49c4-9f67-eca1540edff7",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "151ab852-4696-4192-b027-9c4356e73d98",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:26:22"
+    },
+    {
+      "edge_id": "a4dfe3c9-76db-4723-b309-08dd3b00a7d6",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "65e9dfd5-de28-49d9-b169-ae64a3835d29",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:26:22"
+    },
+    {
+      "edge_id": "66e113e6-f472-400d-a067-7324aa6d2565",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "ba578284-d218-4242-8e32-5d00b35bc885",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:26:22"
+    },
+    {
+      "edge_id": "5aec45b2-535b-43c2-85df-694734c977d9",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "67b74892-2b6c-4499-9821-9012110c5a63",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:26:22"
+    },
+    {
+      "edge_id": "77560c28-7d08-4824-bd01-458779012528",
+      "src": "bc545b9a-18ad-46d1-99fb-4faf52f4c0da",
+      "dst": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "family": "entity-entity",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:26:26"
+    },
+    {
+      "edge_id": "89cefe77-6a80-42e0-b886-cacaa564c8e6",
+      "src": "bc545b9a-18ad-46d1-99fb-4faf52f4c0da",
+      "dst": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:26:26"
+    },
+    {
+      "edge_id": "4493e9ed-3d4b-4c23-b4a7-17d31afbd6c7",
+      "src": "151ab852-4696-4192-b027-9c4356e73d98",
+      "dst": "ba578284-d218-4242-8e32-5d00b35bc885",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:26:30"
+    },
+    {
+      "edge_id": "d1ca8841-04dd-4ebf-a731-3275aae4294f",
+      "src": "ba578284-d218-4242-8e32-5d00b35bc885",
+      "dst": "032e3389-bb7c-4cc6-8388-9244ef2d2287",
+      "family": "event-event",
+      "predicate": "owns",
+      "created_at": "2026-04-28 13:26:30"
+    },
+    {
+      "edge_id": "490ee317-5d3d-4f65-ac4f-b2b9e746b190",
+      "src": "032e3389-bb7c-4cc6-8388-9244ef2d2287",
+      "dst": "67b74892-2b6c-4499-9821-9012110c5a63",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:26:30"
+    },
+    {
+      "edge_id": "7801e608-d30a-4a17-9121-c7ba65d9443a",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "ae55641c-799f-429f-84a8-0f69d3673072",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:26:45"
+    },
+    {
+      "edge_id": "3cffd96b-95bb-44e7-9a10-b5bff15b4bc1",
+      "src": "ae55641c-799f-429f-84a8-0f69d3673072",
+      "dst": "ba578284-d218-4242-8e32-5d00b35bc885",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:26:45"
+    },
+    {
+      "edge_id": "86f0a5ff-2dd4-4b50-ae52-101369052a93",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "4bd08858-ab02-4604-a5d1-ee91270c8375",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:26:45"
+    },
+    {
+      "edge_id": "df43c1a4-7212-4f7c-badd-dee372561f2b",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "20f79240-7722-4e8f-98e7-33f3e6e77a93",
+      "family": "entity-entity",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:26:45"
+    },
+    {
+      "edge_id": "f34dc0e2-755f-4dcd-a0a1-46744b5a28fa",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "77a1a29c-3336-41e5-a9e4-4bb7684bcb1b",
+      "family": "entity-entity",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:26:45"
+    },
+    {
+      "edge_id": "168a1469-da23-4120-84e5-c3902fddd68b",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "ba578284-d218-4242-8e32-5d00b35bc885",
+      "family": "entity-event",
+      "predicate": "owns",
+      "created_at": "2026-04-28 13:26:53"
+    },
+    {
+      "edge_id": "7a3cf8f3-809d-46ca-aee3-fb7b1fac1c25",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "032e3389-bb7c-4cc6-8388-9244ef2d2287",
+      "family": "entity-event",
+      "predicate": "received",
+      "created_at": "2026-04-28 13:26:53"
+    },
+    {
+      "edge_id": "4e0c6107-4505-427c-a79a-3edda1f50284",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "bc545b9a-18ad-46d1-99fb-4faf52f4c0da",
+      "family": "entity-entity",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:26:53"
+    },
+    {
+      "edge_id": "163cf0ac-2dfc-47fc-b666-36763b1de074",
+      "src": "20f79240-7722-4e8f-98e7-33f3e6e77a93",
+      "dst": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:27:06"
+    },
+    {
+      "edge_id": "b11dd066-1470-48d8-b8f9-a68fed94470b",
+      "src": "ba578284-d218-4242-8e32-5d00b35bc885",
+      "dst": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "family": "event-event",
+      "predicate": "gave",
+      "created_at": "2026-04-28 13:27:06"
+    },
+    {
+      "edge_id": "4e1c4789-a127-47e0-be35-0754f892f24f",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "67b74892-2b6c-4499-9821-9012110c5a63",
+      "family": "event-event",
+      "predicate": "read",
+      "created_at": "2026-04-28 13:27:06"
+    },
+    {
+      "edge_id": "56592df1-faca-4e67-b725-9c097b8a3229",
+      "src": "67b74892-2b6c-4499-9821-9012110c5a63",
+      "dst": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:27:06"
+    },
+    {
+      "edge_id": "bcafdc51-319e-4c4f-ab29-82d98e8dd1fe",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "217a27c7-8a7b-45d8-911c-0602d07478c9",
+      "family": "event-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:27:06"
+    },
+    {
+      "edge_id": "9c37b2cb-9da4-48b8-89c6-e7f8c7e1c76b",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "9dd50aee-e2d0-4b17-9fde-84b8540539a8",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:27:06"
+    },
+    {
+      "edge_id": "1e7f1a43-b4d2-4a60-b4de-cb25725127f8",
+      "src": "9ed57ec3-c953-4799-8f7c-8d4e116e147b",
+      "dst": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:27:06"
+    },
+    {
+      "edge_id": "21c59947-f2bc-451f-a823-e588155203d8",
+      "src": "20f79240-7722-4e8f-98e7-33f3e6e77a93",
+      "dst": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:27:06"
+    },
+    {
+      "edge_id": "44d85e74-74dc-45d3-a0d4-5516686dd2d2",
+      "src": "8cfc7078-ea29-492d-bdc4-7b317a24a304",
+      "dst": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:27:08"
+    },
+    {
+      "edge_id": "b2abacf9-e862-4b34-832f-0be5efa6ba2b",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "8cfc7078-ea29-492d-bdc4-7b317a24a304",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:27:08"
+    },
+    {
+      "edge_id": "f7cc45ef-1656-4e0e-b11b-b190664f3057",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "2a0f211f-d572-4cd9-bcc6-03e66b0d979f",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:27:16"
+    },
+    {
+      "edge_id": "3e4bdaab-10ca-406e-8a56-34bf7a633bd7",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "8af52090-4cb8-4cec-aead-12c86e69985a",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:27:16"
+    },
+    {
+      "edge_id": "c0f14fdb-74e5-4352-a25e-b20ca16c543b",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "2a0f211f-d572-4cd9-bcc6-03e66b0d979f",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:27:21"
+    },
+    {
+      "edge_id": "4462a6ca-496e-462e-8a26-35e389ec8334",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "8af52090-4cb8-4cec-aead-12c86e69985a",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:27:21"
+    },
+    {
+      "edge_id": "1c4f9987-85f5-42b1-b1e6-a06bed1f888c",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "20f79240-7722-4e8f-98e7-33f3e6e77a93",
+      "family": "entity-entity",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:27:21"
+    },
+    {
+      "edge_id": "5845cdca-ad06-4162-8fbf-40bcaab0112b",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "ba578284-d218-4242-8e32-5d00b35bc885",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:27:21"
+    },
+    {
+      "edge_id": "98dccf42-ed36-4c78-9000-a788e79569e3",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "4bd08858-ab02-4604-a5d1-ee91270c8375",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:27:21"
+    },
+    {
+      "edge_id": "54c4b7ad-58d8-4f53-ab07-eea2bf5d09e8",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "4bd08858-ab02-4604-a5d1-ee91270c8375",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:27:27"
+    },
+    {
+      "edge_id": "6f09618a-b507-466b-89c0-c14ee3774e54",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "8cfc7078-ea29-492d-bdc4-7b317a24a304",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:27:27"
+    },
+    {
+      "edge_id": "7b44b4df-df9a-4bdf-9d38-50155970caf7",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "8af52090-4cb8-4cec-aead-12c86e69985a",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:27:27"
+    },
+    {
+      "edge_id": "a8bd03db-0435-438c-a748-0139d489a4d7",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "4193e8d1-4763-44e3-9e6e-c665cc97e45d",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:27:32"
+    },
+    {
+      "edge_id": "b054cd62-31ed-4806-ab7e-4bcdaf744fd6",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "67b74892-2b6c-4499-9821-9012110c5a63",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:27:46"
+    },
+    {
+      "edge_id": "3a882692-b537-483e-9cd3-5a5c71206bb7",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "9ed57ec3-c953-4799-8f7c-8d4e116e147b",
+      "family": "entity-entity",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:27:46"
+    },
+    {
+      "edge_id": "118dec28-e4ac-430d-9129-2717c82b2dde",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "bc545b9a-18ad-46d1-99fb-4faf52f4c0da",
+      "family": "entity-entity",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:27:46"
+    },
+    {
+      "edge_id": "27d72df3-67cc-498e-a619-dd304ebdb471",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "77a1a29c-3336-41e5-a9e4-4bb7684bcb1b",
+      "family": "entity-entity",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:27:46"
+    },
+    {
+      "edge_id": "d1e9aa25-162d-4035-a0ed-8d52ded30133",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "8cfc7078-ea29-492d-bdc4-7b317a24a304",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:27:52"
+    },
+    {
+      "edge_id": "1a2f7442-79f3-4c5a-86b0-438f3aeaa128",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "032e3389-bb7c-4cc6-8388-9244ef2d2287",
+      "family": "entity-event",
+      "predicate": "received",
+      "created_at": "2026-04-28 13:27:52"
+    },
+    {
+      "edge_id": "bc3b0665-42c6-4068-9c19-2e986be913e4",
+      "src": "2a0f211f-d572-4cd9-bcc6-03e66b0d979f",
+      "dst": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:27:56"
+    },
+    {
+      "edge_id": "ea445bb3-c016-47c0-aece-ae01841bcaa9",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "19783bd1-0a2a-49ee-bfdb-062e03b47163",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:27:56"
+    },
+    {
+      "edge_id": "d9b52206-66a7-442f-abb8-27465a4a3dcc",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "19783bd1-0a2a-49ee-bfdb-062e03b47163",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:28:00"
+    },
+    {
+      "edge_id": "ec6ed2e6-4652-4165-b167-8726133ba652",
+      "src": "ba578284-d218-4242-8e32-5d00b35bc885",
+      "dst": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:28:09"
+    },
+    {
+      "edge_id": "1880a3d4-c869-4b7e-b0b5-3e8430b88196",
+      "src": "20f79240-7722-4e8f-98e7-33f3e6e77a93",
+      "dst": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:28:09"
+    },
+    {
+      "edge_id": "b515ad83-79f0-4868-b7a2-1c411ab1a98c",
+      "src": "53ac98d9-050d-438c-881a-fd4cacd23d20",
+      "dst": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:28:09"
+    },
+    {
+      "edge_id": "e24dd0c1-e2a6-4f59-a9d6-a7e07a099277",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "19783bd1-0a2a-49ee-bfdb-062e03b47163",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:28:09"
+    },
+    {
+      "edge_id": "3dff8fc7-8631-41e9-af18-002a81702cd0",
+      "src": "19783bd1-0a2a-49ee-bfdb-062e03b47163",
+      "dst": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:28:09"
+    },
+    {
+      "edge_id": "86546713-66e6-4849-86cf-63c36db1ae20",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "65e9dfd5-de28-49d9-b169-ae64a3835d29",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:28:19"
+    },
+    {
+      "edge_id": "f732176e-00b5-4bce-a0f2-992a41110520",
+      "src": "65e9dfd5-de28-49d9-b169-ae64a3835d29",
+      "dst": "8af52090-4cb8-4cec-aead-12c86e69985a",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:28:19"
+    },
+    {
+      "edge_id": "ec7999a2-6911-4952-b9a9-fbff42ea632e",
+      "src": "65e9dfd5-de28-49d9-b169-ae64a3835d29",
+      "dst": "2a0f211f-d572-4cd9-bcc6-03e66b0d979f",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:28:19"
+    },
+    {
+      "edge_id": "bed9e70b-2b06-412e-93bf-ae0e88504da5",
+      "src": "65e9dfd5-de28-49d9-b169-ae64a3835d29",
+      "dst": "ba578284-d218-4242-8e32-5d00b35bc885",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:28:19"
+    },
+    {
+      "edge_id": "60abf490-e54b-41db-a10c-57381f8cdc72",
+      "src": "65e9dfd5-de28-49d9-b169-ae64a3835d29",
+      "dst": "032e3389-bb7c-4cc6-8388-9244ef2d2287",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:28:19"
+    },
+    {
+      "edge_id": "b37fb446-ed04-4963-a24f-560c8af43a87",
+      "src": "6ecfef89-940c-4be1-a3ef-b8f5e06c2e96",
+      "dst": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:28:25"
+    },
+    {
+      "edge_id": "9525e056-a0b5-4efc-a326-0736c6152d6c",
+      "src": "6ecfef89-940c-4be1-a3ef-b8f5e06c2e96",
+      "dst": "65e9dfd5-de28-49d9-b169-ae64a3835d29",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:28:25"
+    },
+    {
+      "edge_id": "2bafbfb3-39ef-4981-b668-12a7b5751fd6",
+      "src": "6ecfef89-940c-4be1-a3ef-b8f5e06c2e96",
+      "dst": "8af52090-4cb8-4cec-aead-12c86e69985a",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:28:25"
+    },
+    {
+      "edge_id": "f2f4d62f-c1c3-4012-8aad-73d5d93bf084",
+      "src": "6ecfef89-940c-4be1-a3ef-b8f5e06c2e96",
+      "dst": "53ac98d9-050d-438c-881a-fd4cacd23d20",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:28:25"
+    },
+    {
+      "edge_id": "44aec7ed-d520-4447-bea5-5f6547ea23dc",
+      "src": "6ecfef89-940c-4be1-a3ef-b8f5e06c2e96",
+      "dst": "4193e8d1-4763-44e3-9e6e-c665cc97e45d",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:28:25"
+    },
+    {
+      "edge_id": "b6e9cc45-8d0e-45f7-b025-160eb9f1dce9",
+      "src": "6ecfef89-940c-4be1-a3ef-b8f5e06c2e96",
+      "dst": "217a27c7-8a7b-45d8-911c-0602d07478c9",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:28:25"
+    },
+    {
+      "edge_id": "0d322ed1-564d-4216-9ac9-7c46ce8b134d",
+      "src": "bc545b9a-18ad-46d1-99fb-4faf52f4c0da",
+      "dst": "6ecfef89-940c-4be1-a3ef-b8f5e06c2e96",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:28:25"
+    },
+    {
+      "edge_id": "211817bb-7437-4e0d-94d6-d7335bb001c3",
+      "src": "6ecfef89-940c-4be1-a3ef-b8f5e06c2e96",
+      "dst": "032e3389-bb7c-4cc6-8388-9244ef2d2287",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:28:25"
+    },
+    {
+      "edge_id": "124788b8-490d-4876-ba35-8cb1124b9ba4",
+      "src": "77a1a29c-3336-41e5-a9e4-4bb7684bcb1b",
+      "dst": "6ecfef89-940c-4be1-a3ef-b8f5e06c2e96",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:28:25"
+    },
+    {
+      "edge_id": "0eb0e1cc-8c44-426a-9b79-bc7d4db2804e",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "e36e618c-eace-4690-a4c3-87f57130e081",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:28:29"
+    },
+    {
+      "edge_id": "d73bcea9-2724-4d69-b4a0-a3a13be20551",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "2a0f211f-d572-4cd9-bcc6-03e66b0d979f",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:28:34"
+    },
+    {
+      "edge_id": "2ff10622-acad-482c-b993-d65021c2b1fd",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "e36e618c-eace-4690-a4c3-87f57130e081",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:28:34"
+    },
+    {
+      "edge_id": "bd14542f-9802-427f-8767-742cb30aa645",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "8cfc7078-ea29-492d-bdc4-7b317a24a304",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:28:46"
+    },
+    {
+      "edge_id": "9d4ccac2-4c4c-4aef-823f-56993978e050",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "19783bd1-0a2a-49ee-bfdb-062e03b47163",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:28:46"
+    },
+    {
+      "edge_id": "87facc26-1391-47e4-94a5-b091e3fde3e2",
+      "src": "cbe425d0-ab37-489f-b948-e0c1011fd054",
+      "dst": "09c2ade9-5e00-47d1-b836-91dd6fe271cf",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-28 13:28:49"
+    },
+    {
+      "edge_id": "fd8ce316-323e-42dc-8daf-918e61858cc9",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "09c2ade9-5e00-47d1-b836-91dd6fe271cf",
+      "family": "entity-event",
+      "predicate": "inspired_by",
+      "created_at": "2026-04-28 13:28:49"
+    },
+    {
+      "edge_id": "1f32417c-f4b2-46f0-9563-838f5a95dd53",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "09c2ade9-5e00-47d1-b836-91dd6fe271cf",
+      "family": "event-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-28 13:28:53"
+    },
+    {
+      "edge_id": "1ed198d1-8c26-454b-89ef-7010cb038aab",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "2a0f211f-d572-4cd9-bcc6-03e66b0d979f",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:28:53"
+    },
+    {
+      "edge_id": "adc3702f-1d9e-4377-a2cf-eea3d55c174d",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "77a1a29c-3336-41e5-a9e4-4bb7684bcb1b",
+      "family": "entity-entity",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:00"
+    },
+    {
+      "edge_id": "8bec31cd-0059-4802-9f28-0b12e73db77a",
+      "src": "d47d9d2d-e89d-46bc-a58f-2dec7fd88bb0",
+      "dst": "9e0d0496-5994-4935-8d1f-702dbdf25054",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-28 13:29:05"
+    },
+    {
+      "edge_id": "7261929b-8995-4868-9837-cbef0bd1d4fa",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "9e0d0496-5994-4935-8d1f-702dbdf25054",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:29:05"
+    },
+    {
+      "edge_id": "76f5dc5d-e1c9-4cef-82d9-64cc9fa213e0",
+      "src": "9e0d0496-5994-4935-8d1f-702dbdf25054",
+      "dst": "8af52090-4cb8-4cec-aead-12c86e69985a",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:11"
+    },
+    {
+      "edge_id": "360217fd-cbb2-41f3-8d49-40bbd3769e1e",
+      "src": "9e0d0496-5994-4935-8d1f-702dbdf25054",
+      "dst": "2a0f211f-d572-4cd9-bcc6-03e66b0d979f",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:29:11"
+    },
+    {
+      "edge_id": "ab344666-b280-43b9-956b-a0f5aee7a9b0",
+      "src": "9e0d0496-5994-4935-8d1f-702dbdf25054",
+      "dst": "8cfc7078-ea29-492d-bdc4-7b317a24a304",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:29:11"
+    },
+    {
+      "edge_id": "ef55dc2a-6857-45dc-b828-651d4550ca20",
+      "src": "9e0d0496-5994-4935-8d1f-702dbdf25054",
+      "dst": "6ecfef89-940c-4be1-a3ef-b8f5e06c2e96",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:29:11"
+    },
+    {
+      "edge_id": "13282980-855a-465f-8851-76c541df7b79",
+      "src": "9e0d0496-5994-4935-8d1f-702dbdf25054",
+      "dst": "e36e618c-eace-4690-a4c3-87f57130e081",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:29:11"
+    },
+    {
+      "edge_id": "2a524ddf-bdc9-43c7-bcc0-f59046cd01d7",
+      "src": "9e0d0496-5994-4935-8d1f-702dbdf25054",
+      "dst": "4bd08858-ab02-4604-a5d1-ee91270c8375",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:29:11"
+    },
+    {
+      "edge_id": "be07b532-b047-4909-9bb0-b995c50f7b23",
+      "src": "9e0d0496-5994-4935-8d1f-702dbdf25054",
+      "dst": "ba578284-d218-4242-8e32-5d00b35bc885",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:11"
+    },
+    {
+      "edge_id": "0570c809-3111-4f0a-b77e-88baa087895a",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "9e0d0496-5994-4935-8d1f-702dbdf25054",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:17"
+    },
+    {
+      "edge_id": "479f1d3f-7a3c-47c8-b52d-6f15d2406803",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "d47d9d2d-e89d-46bc-a58f-2dec7fd88bb0",
+      "family": "entity-entity",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:22"
+    },
+    {
+      "edge_id": "147c6f1f-a376-41b9-acbf-97af2bf050ca",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "d47d9d2d-e89d-46bc-a58f-2dec7fd88bb0",
+      "family": "entity-entity",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:29:26"
+    },
+    {
+      "edge_id": "2edc0967-c0df-4aa4-82b4-68f9e889a30d",
+      "src": "78322929-f62c-4988-b125-fc412f019704",
+      "dst": "ae55641c-799f-429f-84a8-0f69d3673072",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:29:33"
+    },
+    {
+      "edge_id": "e25e6e40-b45d-43ec-a558-3bf5859794bd",
+      "src": "75fe859a-61da-490b-9812-7ae0010b10e2",
+      "dst": "ae55641c-799f-429f-84a8-0f69d3673072",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:29:33"
+    },
+    {
+      "edge_id": "c9b5dac0-821b-4a23-a2ae-75c1ed4d5750",
+      "src": "921e432d-8a88-41fa-b309-a84a8ea84e07",
+      "dst": "ae55641c-799f-429f-84a8-0f69d3673072",
+      "family": "entity-event",
+      "predicate": "owns",
+      "created_at": "2026-04-28 13:29:33"
+    },
+    {
+      "edge_id": "d600eb44-84a6-44ea-9ee1-2248f846cb9f",
+      "src": "665e7987-746b-4c89-bb19-b08944e2e68a",
+      "dst": "6ecfef89-940c-4be1-a3ef-b8f5e06c2e96",
+      "family": "entity-event",
+      "predicate": "owns",
+      "created_at": "2026-04-28 13:29:33"
+    },
+    {
+      "edge_id": "10b277cf-03eb-4a2d-8dbf-1b34ca6bae0d",
+      "src": "6ecfef89-940c-4be1-a3ef-b8f5e06c2e96",
+      "dst": "ae55641c-799f-429f-84a8-0f69d3673072",
+      "family": "event-event",
+      "predicate": "visited",
+      "created_at": "2026-04-28 13:29:33"
+    },
+    {
+      "edge_id": "e07df75a-7f68-4218-a84f-090862f0f265",
+      "src": "ae55641c-799f-429f-84a8-0f69d3673072",
+      "dst": "6ecfef89-940c-4be1-a3ef-b8f5e06c2e96",
+      "family": "event-event",
+      "predicate": "visited",
+      "created_at": "2026-04-28 13:29:33"
+    },
+    {
+      "edge_id": "9902e8dc-bcfb-4c35-a8bc-104df23c3b7f",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "78322929-f62c-4988-b125-fc412f019704",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:29:33"
+    },
+    {
+      "edge_id": "95d59e3a-d834-431b-ba0b-8cd353c827b1",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "75fe859a-61da-490b-9812-7ae0010b10e2",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:29:33"
+    },
+    {
+      "edge_id": "9438c388-3ea0-4fa3-a8f1-837ee9ee763b",
+      "src": "ae55641c-799f-429f-84a8-0f69d3673072",
+      "dst": "9e0d0496-5994-4935-8d1f-702dbdf25054",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:39"
+    },
+    {
+      "edge_id": "ee45fc9d-643d-4c70-959e-5a4d222edf6a",
+      "src": "ae55641c-799f-429f-84a8-0f69d3673072",
+      "dst": "75fe859a-61da-490b-9812-7ae0010b10e2",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:29:39"
+    },
+    {
+      "edge_id": "d7a5cdbe-3b02-4fb0-a4ba-982cbda15dca",
+      "src": "ae55641c-799f-429f-84a8-0f69d3673072",
+      "dst": "217a27c7-8a7b-45d8-911c-0602d07478c9",
+      "family": "event-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:29:39"
+    },
+    {
+      "edge_id": "0907573e-2e34-4d79-a8dd-822a883a5c31",
+      "src": "ae55641c-799f-429f-84a8-0f69d3673072",
+      "dst": "032e3389-bb7c-4cc6-8388-9244ef2d2287",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:39"
+    },
+    {
+      "edge_id": "e917ca58-33e1-4643-8556-e30d6c7b373c",
+      "src": "ae55641c-799f-429f-84a8-0f69d3673072",
+      "dst": "0617b23f-29ad-4444-a70e-356cfeba9e73",
+      "family": "event-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:29:39"
+    },
+    {
+      "edge_id": "149c1acc-82ed-4beb-9226-0341383a9474",
+      "src": "ae55641c-799f-429f-84a8-0f69d3673072",
+      "dst": "4bd08858-ab02-4604-a5d1-ee91270c8375",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:29:39"
+    },
+    {
+      "edge_id": "3daac679-bdf1-436e-ab3a-1397d7755b31",
+      "src": "ae55641c-799f-429f-84a8-0f69d3673072",
+      "dst": "4193e8d1-4763-44e3-9e6e-c665cc97e45d",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:39"
+    },
+    {
+      "edge_id": "8e22e922-235c-418e-a2e4-e23863914ee4",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "ae55641c-799f-429f-84a8-0f69d3673072",
+      "family": "entity-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:29:39"
+    },
+    {
+      "edge_id": "137442e6-3517-48b3-9d6c-1635ac539823",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "09c2ade9-5e00-47d1-b836-91dd6fe271cf",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:49"
+    },
+    {
+      "edge_id": "e49f44fb-da20-46b7-b3ab-f2e659f526f5",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "2a0f211f-d572-4cd9-bcc6-03e66b0d979f",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:49"
+    },
+    {
+      "edge_id": "9ce7772c-30f2-4f59-8ae7-f89c51014e72",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "8af52090-4cb8-4cec-aead-12c86e69985a",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:29:49"
+    },
+    {
+      "edge_id": "35308b2c-fd18-4d2d-a164-60ef61ea6ba3",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "4bd08858-ab02-4604-a5d1-ee91270c8375",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:29:49"
+    },
+    {
+      "edge_id": "ac2ed187-b35a-4f0c-9325-35198736fae2",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "4193e8d1-4763-44e3-9e6e-c665cc97e45d",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:29:49"
+    },
+    {
+      "edge_id": "e7866a8e-5df5-4283-9bb1-a1dc24ae6d8c",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "9e0d0496-5994-4935-8d1f-702dbdf25054",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:29:49"
+    },
+    {
+      "edge_id": "1c23ae7b-f52d-4e5f-8500-5703c0fd7218",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "9e0d0496-5994-4935-8d1f-702dbdf25054",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:55"
+    },
+    {
+      "edge_id": "bdc5ac02-3e41-4e32-8db1-3eb6a6a5ca37",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "78322929-f62c-4988-b125-fc412f019704",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:29:55"
+    },
+    {
+      "edge_id": "6db38a5d-0adc-4060-a05b-e1b9c6e8e5e2",
+      "src": "77a1a29c-3336-41e5-a9e4-4bb7684bcb1b",
+      "dst": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:29:55"
+    },
+    {
+      "edge_id": "904cf2df-2fe6-4815-a03e-f9a7cf37f23b",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "5ac2d73c-83b9-496c-8a41-ab36ebec73b8",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:30:02"
+    },
+    {
+      "edge_id": "fd377cad-d834-4d96-a1f4-4a444a803eff",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "ba578284-d218-4242-8e32-5d00b35bc885",
+      "family": "entity-event",
+      "predicate": "received",
+      "created_at": "2026-04-28 13:30:12"
+    },
+    {
+      "edge_id": "60740da5-b65c-4c67-8d85-44ea667827c9",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "032e3389-bb7c-4cc6-8388-9244ef2d2287",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:30:12"
+    },
+    {
+      "edge_id": "9c393e60-13e1-463b-b4af-7b2dd6252b3b",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "b02f486b-2427-4b48-b1a5-dac5c743254d",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:30:12"
+    },
+    {
+      "edge_id": "6b701da6-f54d-4b78-869c-24e8ad54232f",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "4bd08858-ab02-4604-a5d1-ee91270c8375",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:30:20"
+    },
+    {
+      "edge_id": "77d4675a-d9b8-41aa-9cd5-b27eb534a56f",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "9dd50aee-e2d0-4b17-9fde-84b8540539a8",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:30:20"
+    },
+    {
+      "edge_id": "b6fa0c0f-22f9-4a4f-a620-4e6fddf28da3",
+      "src": "65e9dfd5-de28-49d9-b169-ae64a3835d29",
+      "dst": "78322929-f62c-4988-b125-fc412f019704",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:30:27"
+    },
+    {
+      "edge_id": "04a5d628-faad-4986-b1a6-0f7dfd72d761",
+      "src": "78322929-f62c-4988-b125-fc412f019704",
+      "dst": "2a0f211f-d572-4cd9-bcc6-03e66b0d979f",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:30:27"
+    },
+    {
+      "edge_id": "98d42b73-d0fd-4059-a6b7-fc7d2b3bea4d",
+      "src": "78322929-f62c-4988-b125-fc412f019704",
+      "dst": "9e0d0496-5994-4935-8d1f-702dbdf25054",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:30:27"
+    },
+    {
+      "edge_id": "7fc43974-f06f-4b1c-a9c8-4919b0285578",
+      "src": "78322929-f62c-4988-b125-fc412f019704",
+      "dst": "ba578284-d218-4242-8e32-5d00b35bc885",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:30:27"
+    },
+    {
+      "edge_id": "945cce04-2d72-4e0d-a013-9cf890b5efeb",
+      "src": "78322929-f62c-4988-b125-fc412f019704",
+      "dst": "217a27c7-8a7b-45d8-911c-0602d07478c9",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:30:27"
+    },
+    {
+      "edge_id": "0a543e39-94e0-4052-8ee8-1fe9ae56e4ca",
+      "src": "77a1a29c-3336-41e5-a9e4-4bb7684bcb1b",
+      "dst": "78322929-f62c-4988-b125-fc412f019704",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:30:27"
+    },
+    {
+      "edge_id": "fc437416-62b5-4399-b2e2-f2601cd3aca0",
+      "src": "78322929-f62c-4988-b125-fc412f019704",
+      "dst": "4bd08858-ab02-4604-a5d1-ee91270c8375",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:30:27"
+    },
+    {
+      "edge_id": "8c36937c-248f-4125-b694-e1accf1b437a",
+      "src": "2a0f211f-d572-4cd9-bcc6-03e66b0d979f",
+      "dst": "09c2ade9-5e00-47d1-b836-91dd6fe271cf",
+      "family": "event-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:30:33"
+    },
+    {
+      "edge_id": "6a17ed34-e198-47f7-805e-fdf5cd62e411",
+      "src": "2a0f211f-d572-4cd9-bcc6-03e66b0d979f",
+      "dst": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:30:33"
+    },
+    {
+      "edge_id": "f249a185-9988-48d5-889b-e73f4b43dfc0",
+      "src": "2a0f211f-d572-4cd9-bcc6-03e66b0d979f",
+      "dst": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "family": "event-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:30:33"
+    },
+    {
+      "edge_id": "e5a686a6-cb36-4055-9bfd-e1a1ad7167f3",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "09c2ade9-5e00-47d1-b836-91dd6fe271cf",
+      "family": "event-event",
+      "predicate": "inspired",
+      "created_at": "2026-04-28 13:30:33"
+    },
+    {
+      "edge_id": "e9029bcb-8c28-4522-bac7-4331b9e4f4be",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:30:33"
+    },
+    {
+      "edge_id": "40da8bf5-8b1e-4dd6-a6d9-4967ec84852c",
+      "src": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "dst": "2a0f211f-d572-4cd9-bcc6-03e66b0d979f",
+      "family": "event-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:30:33"
+    },
+    {
+      "edge_id": "0494f4ce-a809-46cd-a037-4a746cfa8b68",
+      "src": "c1a848dd-c363-4207-951d-95cc48f2f3cb",
+      "dst": "a9f54ff1-deba-4935-87ef-4c87d3215f44",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-28 13:30:37"
+    },
+    {
+      "edge_id": "3c22619c-0c7a-47ee-997a-d71c1282168a",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "a9f54ff1-deba-4935-87ef-4c87d3215f44",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:30:37"
+    },
+    {
+      "edge_id": "9eb17c20-f72f-4ff8-a476-e29de6106ead",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "a9f54ff1-deba-4935-87ef-4c87d3215f44",
+      "family": "entity-event",
+      "predicate": "inspired_by",
+      "created_at": "2026-04-28 13:30:37"
+    },
+    {
+      "edge_id": "e319f1e3-bffd-4321-8203-ddc28da8cb5e",
+      "src": "d47d9d2d-e89d-46bc-a58f-2dec7fd88bb0",
+      "dst": "0eb6834e-3442-454e-bc47-a73e05ea4769",
+      "family": "entity-event",
+      "predicate": "object_of",
+      "created_at": "2026-04-28 13:30:48"
+    },
+    {
+      "edge_id": "574f69d7-8cbe-4fb7-8aee-2f8ba665244a",
+      "src": "efe300ce-e267-4400-b042-6308350ad572",
+      "dst": "c57a8864-8250-41b4-8375-d679ff68afc9",
+      "family": "entity-event",
+      "predicate": "participant",
+      "created_at": "2026-04-28 13:30:48"
+    },
+    {
+      "edge_id": "44dee471-8641-4768-a71d-7c61d6925a36",
+      "src": "1d4eb279-9978-4cbd-b709-864652afa71f",
+      "dst": "c57a8864-8250-41b4-8375-d679ff68afc9",
+      "family": "entity-event",
+      "predicate": "experienced",
+      "created_at": "2026-04-28 13:30:48"
+    }
+  ]
+}
