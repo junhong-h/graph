@@ -53,6 +53,7 @@ class GraphStore:
     def __init__(self, graph_path: Path, vector_store: VectorStore, sample_id: str):
         self._path = Path(graph_path)
         self._store = vector_store
+        self.sample_id = sample_id
         self._node_col = f"{sample_id}_nodes"
         self._path.parent.mkdir(parents=True, exist_ok=True)
 

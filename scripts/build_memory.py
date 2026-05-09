@@ -94,6 +94,7 @@ def _build_one_sample(
         reasoning_effort = cfg.llm.reasoning_effort,
         disable_thinking = cfg.llm.disable_thinking,
         use_extra_body_thinking = cfg.llm.use_extra_body_thinking,
+        call_log_path = run_dir / f"llm_calls_{sample_id}.jsonl",
     )
     # from_scratch=False for workers: cleanup already done in the main process
     store   = ChromaStore(path=cfg.vector_store.path, from_scratch=False)
@@ -211,6 +212,7 @@ def main() -> None:
             reasoning_effort = cfg.llm.reasoning_effort,
             disable_thinking = cfg.llm.disable_thinking,
             use_extra_body_thinking = cfg.llm.use_extra_body_thinking,
+            call_log_path = run_dir / "llm_calls.jsonl",
         )
         store   = ChromaStore(path=cfg.vector_store.path, from_scratch=False)
         trigger = GraphTrigger(llm)

@@ -141,7 +141,16 @@ class GraphBuilder:
 
         # ── Step 2: GraphTrigger ──────────────────────────────────────
         graph_summary = f"{self.graph.node_count()} nodes, {self.graph.edge_count()} edges"
-        triggered = self.trigger.should_trigger(batch_text, graph_summary)
+        call_meta = {
+            "sample_id": self.graph.sample_id,
+            "batch_id": batch_id,
+            "session_id": session_id,
+        }
+        triggered = self.trigger.should_trigger(
+            batch_text,
+            graph_summary,
+            metadata={**call_meta, "phase": "trigger"},
+        )
         self._log(batch_id, session_id, "trigger", op_id,
                   extra={"triggered": triggered, "graph_summary": graph_summary})
 
@@ -173,6 +182,9 @@ class GraphBuilder:
                 turn_time=turn_time,
                 speaker_a=speaker_a,
                 speaker_b=speaker_b,
+                sample_id=self.graph.sample_id,
+                session_id=session_id,
+                phase="construction",
             ),
         )
         self._log(batch_id, session_id, "construction", op_id,

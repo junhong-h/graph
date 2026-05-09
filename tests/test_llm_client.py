@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from types import SimpleNamespace
 from unittest.mock import MagicMock
+import json
 
 from graphmemory.llm_client import OpenAIClient
 
@@ -70,3 +71,27 @@ def test_complete_retries_without_seed_when_provider_rejects_it():
     assert client.complete([{"role": "user", "content": "hi"}]) == "ok"
     assert create.call_args_list[0].kwargs["seed"] == 42
     assert "seed" not in create.call_args_list[1].kwargs
+
+
+def test_complete_writes_call_log(tmp_path):
+    log_path = tmp_path / "llm_calls.jsonl"
+    client = OpenAIClient(
+        model="qwen3-4b",
+        api_key="test",
+        base_url="http://example.test/v1",
+        call_log_path=log_path,
+    )
+    create = MagicMock(return_value=_response("ok"))
+    client.client.chat.completions.create = create
+
+    assert client.complete(
+        [{"role": "user", "content": "hi"}],
+        metadata={"phase": "trigger", "batch_id": "b1"},
+    ) == "ok"
+
+    records = [json.loads(line) for line in log_path.read_text().splitlines()]
+    assert len(records) == 1
+    assert records[0]["metadata"]["phase"] == "trigger"
+    assert records[0]["metadata"]["batch_id"] == "b1"
+    assert records[0]["request"]["messages"][0]["content"] == "hi"
+    assert records[0]["response"] == "ok"

@@ -52,53 +52,77 @@ Existing nodes are shown as [XXXXXXXX] (8-char UUID prefix) — use these to ref
 Use NEW_<label> for nodes you are creating.
 
 [Operations]
-{"op": "EnsureEntity", "id": "NEW_<label>", "canonical_name": "...", "aliases": [...]}
-{"op": "EnsureEvent",  "id": "NEW_<label>", "canonical_name": "...", "attrs": {"fact": "On <session date>, <speaker> <fact>.", "time": "<event date or period if known>"}}
-{"op": "Relate",       "src": "<id>", "dst": "<id>", "predicate": "..."}
+{"op": "EnsureEntity", "id": "NEW_<label>", "canonical_name": "...", "aliases": []}
+{"op": "EnsureEvent",  "id": "NEW_<label>", "canonical_name": "...", "attrs": {"fact": "...", "time": "<event date or period if known>"}}
+{"op": "Relate",       "src": "<id>", "dst": "<id>", "predicate": "experienced|planned|object_of|participant|before|after|updates|inspired"}
 {"op": "AttachAttr",   "node": "<8-char-id>", "key": "...", "value": "..."}
 {"op": "MergeNode",    "src": "<8-char-id>", "dst": "<8-char-id>"}
 {"op": "Skip",         "reason": "..."}
 
-Edge family (entity-event / event-event / entity-entity) is auto-inferred from node types — \
-do NOT specify it.
+[Goal]
+Build a retrieval-friendly memory graph. Facts do not need to be perfectly paraphrased, and extra \
+Events are acceptable. The critical requirements are: key information is present, and Entity→Event \
+edges correctly connect subjects and named objects/companions to the right Event.
+Use the current local subgraph only to reuse existing IDs or merge/update existing nodes. Do not extract \
+new Event facts from the local subgraph. New EnsureEvent facts must be supported by the current Input excerpt.
 
-[Rules]
-1. Always reuse existing nodes before creating new ones. EnsureEntity/EnsureEvent are idempotent.
-2. EnsureEntity for every named entity in the conversation — anything referred to by a \
-proper name that could be a direct answer to a memory question. \
-Do NOT create Entity nodes for unnamed or generic concepts.
-3. EnsureEvent for concrete personal facts that may need to be recalled: activities, possessions, \
-trips, achievements, plans, relationships, health/work/school changes, dated occurrences. \
-attrs.fact is required — write a self-contained sentence that includes the session date as context. \
-attrs.time is optional — set it when the event has its own specific date or period. \
-If the source uses relative time ("last week", "two years ago"), preserve that phrasing in \
-attrs.fact; do NOT infer or fabricate exact dates. \
-Do NOT create Events for: \
-  (a) social reactions — thanking, praising, encouraging, admiring, or reacting to news; \
-  (b) abstract values or beliefs — aspirations, life philosophies, general attitudes; \
-  (c) conversational acts — sharing a photo, mentioning something, having a discussion.
-4. Every named entity involved in an event must have its own Entity node and be Related to \
-the Event. Do not bury named entities only inside an Event's fact text.
-5. Every EnsureEvent MUST be followed by at least one Relate to a relevant Entity. \
-Entity↔Event predicates: participant / experienced / owns / attended / visited / decided / \
-started / achieved / object_of. Event→Event predicates: before / after / updates / inspired.
-6. Any activity with a temporal anchor (date, "started", "since", "for the first time") \
-MUST be a separate Event with attrs.time set.
-7. Use MergeNode when two nodes clearly refer to the same real-world object.
-8. Output Skip only when every turn contains only excluded content (a-c above).
-9. Output ONLY the JSON object — no explanatory text.
+[Entity rules]
+1. Reuse existing nodes before creating new ones.
+2. Reuse an existing node only when its displayed type and name match what you need. If the local subgraph \
+shows [XXXXXXXX] Event "...", that ID is an Event ID and must never be used as an Entity.
+3. Create/reuse Entity nodes for concrete retrieval anchors: named people, named animals, named places, \
+named organizations, and concrete named objects.
+4. If a named subject or named object from the excerpt is not present as an Entity in the local subgraph, \
+create it with EnsureEntity. Do not substitute a related Event node for that Entity.
+5. Do not create vague generic Entities such as Experience, Reflection, Idea, Positivity, Nature, \
+CampingTrip, Pet, or VolunteeringIdeas when a named subject/object is available.
 
-[Output format]
-Return a single valid JSON object. Example:
-{
-  "ops": [
-    {"op": "EnsureEntity", "id": "NEW_Alice", "canonical_name": "Alice", "aliases": ["Alice"]},
-    {"op": "EnsureEntity", "id": "NEW_Max",   "canonical_name": "Max",   "aliases": ["Max"]},
-    {"op": "EnsureEvent",  "id": "NEW_Evt",   "canonical_name": "Alice Adopted Max", "attrs": {"fact": "On 2023-06-01, Alice adopted a rescue dog named Max.", "time": "2023-06-01"}},
-    {"op": "Relate", "src": "NEW_Alice", "dst": "NEW_Evt"},
-    {"op": "Relate", "src": "NEW_Max",   "dst": "NEW_Evt"}
-  ]
-}\
+[Event rules]
+6. Create Events for concrete personal facts worth retrieving: possessions/acquisitions, trips or \
+activities with named companions, concrete plans/intentions, relationships, health/work/school changes, \
+dated occurrences, and durable current personal states/problems.
+7. attrs.fact must be one self-contained memory fact that includes the main subject by name. Include \
+important named objects or companions by name in the fact text itself when they are part of the memory; \
+do not rely on edges alone to preserve those names.
+8. Preserve relative time phrases from the dialogue, such as "two weeks ago" or "last summer"; do not \
+fabricate exact dates from relative time.
+9. Prefer durable facts over low-value dialogue acts such as thanking, praising, encouraging, reacting, \
+asking, seeing/sharing a photo, mentioning something, or having a discussion. Low-value Events are allowed \
+only if they are connected correctly and do not replace the durable facts.
+10. Do not classify considering, exploring options, researching, joining organizations, volunteering, or \
+future actions as low-value dialogue acts. These are plan/intention Events and should use planned.
+11. Do not create or repeat an Event from the local subgraph unless the current Input excerpt states that \
+same fact again or updates it.
+
+[Edge rules]
+12. Do not create Entity→Entity Relate operations.
+13. For Entity→Event edges, src must be an Entity ID and dst must be an Event ID. Never use an existing \
+Event ID as the src for experienced, planned, participant, or object_of.
+14. Every Event has a main subject. Immediately after each EnsureEvent, output a Relate from that subject \
+Entity to that Event before starting another EnsureEvent.
+15. The subject edge must use the Entity whose canonical_name matches the subject named in attrs.fact. \
+If attrs.fact says "Maria ...", the subject src must be Maria's Entity. If attrs.fact says "John ...", \
+the subject src must be John's Entity.
+16. Use experienced for past/current subject facts and states. Past relative times such as last summer, \
+last weekend, yesterday, or two weeks ago are experienced, not planned.
+17. Use planned for plans, intentions, considering, exploring options, researching, joining, volunteering, \
+or future actions. If the Event fact has any of those meanings, the subject edge must be planned.
+18. If an Event fact names an animal/person/object besides the subject, create/reuse that Entity and relate \
+it to the same Event. Use participant when the named entity actively participated; use object_of when it is \
+the object/topic/pet/item in the memory.
+19. Do not connect the listener unless the fact itself says the listener participated or is the direct object.
+20. Output Skip only when the excerpt contains no useful durable memory.
+
+[Final silent checklist]
+- Key durable facts are present.
+- New Event facts are supported by the current Input excerpt, not merely by the local subgraph.
+- Every Event has a subject Entity→Event edge.
+- The subject Entity name matches the subject named in attrs.fact.
+- Every important named object/companion has an Entity→Event edge to the same Event.
+- Planned/intention/exploration facts use planned.
+- Existing Event IDs are never used where an Entity ID is required.
+- No Entity→Entity Relate exists.
+- Output ONLY the JSON object, with no explanatory text.\
 """
 
 _USER_PROMPT = """\
@@ -123,6 +147,9 @@ class ConstructionContext:
     turn_time: str = ""
     speaker_a: str = ""
     speaker_b: str = ""
+    sample_id: str = ""
+    session_id: str = ""
+    phase: str = "construction"
 
 
 class GraphConstructor:
@@ -178,7 +205,15 @@ class GraphConstructor:
                 turn_text=turn_text,
             )},
         ]
-        response = self.llm.complete(messages, json_mode=True)
+        metadata = {}
+        if context:
+            metadata = {
+                "sample_id": context.sample_id,
+                "batch_id": context.batch_id,
+                "session_id": context.session_id,
+                "phase": context.phase,
+            }
+        response = self.llm.complete(messages, json_mode=True, metadata=metadata)
         ops = _parse_ops(response)
         logger.debug(f"GraphConstructor: {len(ops)} operations parsed.")
         return self._execute_ops(ops, local_subgraph, turn_text, context)
@@ -352,6 +387,12 @@ class GraphConstructor:
         else:
             family = "entity-entity"
         predicate = _normalize_predicate(family, op.get("predicate", "related"))
+        if not _is_allowed_predicate(family, predicate):
+            return {"op": "Relate", "status": "rejected",
+                    "error": f"invalid predicate for {family}: {predicate}"}
+        invalid_entity_edge = self._invalid_entity_event_edge(src, dst, family, predicate)
+        if invalid_entity_edge:
+            return {"op": "Relate", "status": "rejected", "error": invalid_entity_edge}
         eid = self.graph.add_edge(src, dst, family, predicate)
         if not eid:
             return {"op": "Relate", "status": "error", "error": "edge rejected"}
@@ -364,6 +405,12 @@ class GraphConstructor:
             return {"op": "Link", "status": "error", "error": f"unresolved id: src={op.get('src')} dst={op.get('dst')}"}
         family = op.get("family", "entity-entity")
         predicate = _normalize_predicate(family, op.get("predicate", "related"))
+        if not _is_allowed_predicate(family, predicate):
+            return {"op": "Link", "status": "rejected",
+                    "error": f"invalid predicate for {family}: {predicate}"}
+        invalid_entity_edge = self._invalid_entity_event_edge(src, dst, family, predicate)
+        if invalid_entity_edge:
+            return {"op": "Link", "status": "rejected", "error": invalid_entity_edge}
         eid = self.graph.add_edge(src, dst, family, predicate)
         if not eid:
             return {"op": "Link", "status": "error", "error": "edge rejected"}
@@ -401,6 +448,12 @@ class GraphConstructor:
             return {"op": "AddEdge", "status": "error", "error": "unresolved ids"}
         family = op.get("family", "entity-entity")
         predicate = _normalize_predicate(family, op.get("predicate", "related"))
+        if not _is_allowed_predicate(family, predicate):
+            return {"op": "AddEdge", "status": "rejected",
+                    "error": f"invalid predicate for {family}: {predicate}"}
+        invalid_entity_edge = self._invalid_entity_event_edge(src, dst, family, predicate)
+        if invalid_entity_edge:
+            return {"op": "AddEdge", "status": "rejected", "error": invalid_entity_edge}
         eid = self.graph.add_edge(src, dst, family, predicate)
         if not eid:
             return {"op": "AddEdge", "status": "error", "error": "edge rejected"}
@@ -458,17 +511,7 @@ class GraphConstructor:
 
             if self._has_entity_event_edge(event_id):
                 continue
-            speaker = _first_speaker(turn_text) or context.speaker_a or context.speaker_b
-            entity_id = self._find_best_entity_for_event(event_id, speaker)
-            if not entity_id and speaker:
-                entity_id = self.graph.add_node("Entity", speaker, aliases=[speaker])
-                id_map[entity_id[:8]] = entity_id
-                logs.append({
-                    "op": "RepairCreateEntity",
-                    "status": "ok",
-                    "node_id": entity_id,
-                    "canonical_name": speaker,
-                })
+            entity_id = self._find_best_entity_for_event(event_id)
             if entity_id:
                 eid = self.graph.add_edge(entity_id, event_id, "entity-event", "participant")
                 logs.append({
@@ -478,31 +521,51 @@ class GraphConstructor:
                     "src": entity_id,
                     "dst": event_id,
                 })
+            else:
+                logs.append({
+                    "op": "RepairEventLink",
+                    "status": "skipped",
+                    "node_id": event_id,
+                    "reason": "no entity name found in event text",
+                })
         return logs
 
     def _has_entity_event_edge(self, event_id: str) -> bool:
         return any(e.get("family") == "entity-event" for e in self.graph.get_edges(node_id=event_id))
 
-    def _find_best_entity_for_event(self, event_id: str, preferred_name: str = "") -> Optional[str]:
+    def _invalid_entity_event_edge(
+        self,
+        src: str,
+        dst: str,
+        family: str,
+        predicate: str,
+    ) -> str:
+        if family not in {"entity-event", "event-entity"}:
+            return ""
+        src_node = self.graph.get_node(src) or {}
+        dst_node = self.graph.get_node(dst) or {}
+        if src_node.get("type") == "Entity" and dst_node.get("type") == "Event":
+            entity, event = src_node, dst_node
+        elif src_node.get("type") == "Event" and dst_node.get("type") == "Entity":
+            entity, event = dst_node, src_node
+        else:
+            return ""
+        if not _entity_name_in_event_text(entity, event):
+            return (
+                f"entity-event predicate {predicate} requires entity name in "
+                "event canonical_name or fact"
+            )
+        return ""
+
+    def _find_best_entity_for_event(self, event_id: str) -> Optional[str]:
         event = self.graph.get_node(event_id) or {}
-        haystack = " ".join([
-            event.get("canonical_name", ""),
-            " ".join(str(v) for v in event.get("attrs", {}).values()),
-            preferred_name,
-        ]).lower()
         entities = [
             (nid, node)
             for nid, node in self.graph.get_all_nodes().items()
             if node.get("type") == "Entity"
         ]
-        if preferred_name:
-            for nid, node in entities:
-                if node.get("canonical_name", "").lower() == preferred_name.lower():
-                    return nid
-            return None
         for nid, node in entities:
-            names = [node.get("canonical_name", "")] + node.get("aliases", [])
-            if any(name and name.lower() in haystack for name in names):
+            if _entity_name_in_event_text(node, event):
                 return nid
         return None
 
@@ -641,6 +704,43 @@ def _normalize_predicate(family: str, predicate: str) -> str:
     return pred
 
 
+def _is_allowed_predicate(family: str, predicate: str) -> bool:
+    """Reject low-information or type-invalid predicates before persistence."""
+    family = str(family or "").strip()
+    pred = str(predicate or "").strip().lower()
+    if not pred or pred == "related":
+        return False
+    allowed = {
+        "entity-event": {
+            "participant",
+            "experienced",
+            "owns",
+            "attended",
+            "visited",
+            "decided",
+            "started",
+            "planned",
+            "achieved",
+            "object_of",
+        },
+        "event-entity": {
+            "participant",
+            "experienced",
+            "owns",
+            "attended",
+            "visited",
+            "decided",
+            "started",
+            "planned",
+            "achieved",
+            "object_of",
+        },
+        "event-event": {"before", "after", "updates", "inspired"},
+        "entity-entity": {"same_as", "family_of", "friend_of", "colleague_of", "owns"},
+    }
+    return pred in allowed.get(family, set())
+
+
 def _resolve(ref: str, id_map: Dict[str, str], graph: GraphStore | None = None) -> Optional[str]:
     """Resolve a NEW_label or 8-char prefix to a full node_id."""
     if not ref:
@@ -686,6 +786,23 @@ def _candidate_ref_names(ref: str) -> List[str]:
 
 def _normalize_name(name: str) -> str:
     return re.sub(r"[^a-z0-9]+", "", str(name or "").lower())
+
+
+def _entity_name_in_event_text(entity: Dict[str, Any], event: Dict[str, Any]) -> bool:
+    text = " ".join([
+        str(event.get("canonical_name", "")),
+        str((event.get("attrs", {}) or {}).get("fact", "")),
+    ]).lower()
+    if not text.strip():
+        return False
+    names = [entity.get("canonical_name", "")] + list(entity.get("aliases", []) or [])
+    for name in names:
+        clean = str(name or "").strip().lower()
+        if not clean:
+            continue
+        if re.search(rf"(?<![a-z0-9]){re.escape(clean)}(?![a-z0-9])", text):
+            return True
+    return False
 
 
 def _find_existing_entity(canonical_name: str, graph: GraphStore) -> Optional[str]:

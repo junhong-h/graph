@@ -3,10 +3,13 @@
 from __future__ import annotations
 
 import random
+import json
 import time
 from abc import ABC, abstractmethod
 from copy import deepcopy
+from pathlib import Path
 from typing import Dict, List, Optional, Union
+import uuid
 
 from loguru import logger
 from openai import OpenAI
@@ -19,6 +22,7 @@ class LLMClient(ABC):
         messages: List[Dict],
         json_mode: bool = False,
         stop: Optional[List[str]] = None,
+        metadata: Optional[Dict] = None,
     ) -> str: ...
 
 
@@ -35,6 +39,7 @@ class OpenAIClient(LLMClient):
         reasoning_effort: str = "",
         disable_thinking: bool = False,
         use_extra_body_thinking: bool = False,
+        call_log_path: str | Path = "",
     ):
         self.model = model
         self.temperature = temperature
@@ -44,6 +49,9 @@ class OpenAIClient(LLMClient):
         self.reasoning_effort = reasoning_effort or None
         self.disable_thinking = disable_thinking
         self.use_extra_body_thinking = use_extra_body_thinking
+        self.call_log_path = Path(call_log_path) if call_log_path else None
+        if self.call_log_path:
+            self.call_log_path.parent.mkdir(parents=True, exist_ok=True)
         self.client = OpenAI(
             api_key=api_key or None,
             base_url=base_url or None,
@@ -54,7 +62,10 @@ class OpenAIClient(LLMClient):
         messages: List[Dict],
         json_mode: bool = False,
         stop: Optional[List[str]] = None,
+        metadata: Optional[Dict] = None,
     ) -> str:
+        call_id = str(uuid.uuid4())
+        started = time.time()
         response_format = {"type": "json_object"} if json_mode else {"type": "text"}
         payload_messages = self._prepare_messages(messages)
         if json_mode:
@@ -87,7 +98,17 @@ class OpenAIClient(LLMClient):
 
                 resp = self.client.chat.completions.create(**request)
                 content = resp.choices[0].message.content or ""
-                return self._normalize_content(content)
+                normalized = self._normalize_content(content)
+                self._log_call(
+                    call_id=call_id,
+                    started=started,
+                    metadata=metadata,
+                    request=request,
+                    response=normalized,
+                    raw_response=content,
+                    error="",
+                )
+                return normalized
             except Exception as exc:
                 if self.seed is not None and not unsupported_seed and "seed" in str(exc).lower():
                     unsupported_seed = True
@@ -101,7 +122,52 @@ class OpenAIClient(LLMClient):
                 attempt += 1
 
         logger.error("Max retries reached, returning empty string.")
+        self._log_call(
+            call_id=call_id,
+            started=started,
+            metadata=metadata,
+            request={
+                "model": self.model,
+                "messages": payload_messages,
+                "response_format": response_format,
+                "temperature": self.temperature,
+                "top_p": self.top_p,
+                "stop": stop or None,
+            },
+            response="",
+            raw_response="",
+            error="max retries reached",
+        )
         return ""
+
+    def _log_call(
+        self,
+        call_id: str,
+        started: float,
+        metadata: Optional[Dict],
+        request: Dict,
+        response: str,
+        raw_response: str,
+        error: str,
+    ) -> None:
+        if not self.call_log_path:
+            return
+        safe_request = deepcopy(request)
+        if "extra_body" in safe_request:
+            safe_request["extra_body"] = deepcopy(safe_request["extra_body"])
+        record = {
+            "ts": time.strftime("%Y-%m-%d %H:%M:%S"),
+            "call_id": call_id,
+            "duration_s": round(time.time() - started, 3),
+            "metadata": metadata or {},
+            "model": self.model,
+            "request": safe_request,
+            "response": response,
+            "raw_response": raw_response,
+            "error": error,
+        }
+        with self.call_log_path.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(record, ensure_ascii=False) + "\n")
 
     def _retry_wait_seconds(self, exc: Exception, attempt: int) -> float:
         message = str(exc).lower()

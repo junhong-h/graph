@@ -63,10 +63,15 @@ class GraphTrigger:
     def __init__(self, llm: LLMClient):
         self.llm = llm
 
-    def should_trigger(self, turn_text: str, graph_summary: str = "") -> bool:
+    def should_trigger(
+        self,
+        turn_text: str,
+        graph_summary: str = "",
+        metadata: Dict | None = None,
+    ) -> bool:
         """Return True if the input should enter the graph write path."""
         messages = self._build_messages(turn_text, graph_summary)
-        response = self.llm.complete(messages).strip().upper()
+        response = self.llm.complete(messages, metadata=metadata).strip().upper()
         logger.debug(f"GraphTrigger response: {response!r}")
         triggered = self._parse(response)
         logger.info(f"GraphTrigger → {'TRIGGER' if triggered else 'SKIP'}")

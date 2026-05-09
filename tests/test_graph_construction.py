@@ -221,7 +221,8 @@ def test_create_event_keeps_concrete_pet_fact(tmp_path):
 def test_link_new_nodes(tmp_path):
     ops_json = json.dumps([
         {"op": "CreateEntity", "id": "NEW_Jon", "canonical_name": "Jon", "aliases": [], "attrs": {}},
-        {"op": "CreateEvent",  "id": "NEW_Mtg", "canonical_name": "Meeting", "aliases": [], "attrs": {}},
+        {"op": "CreateEvent",  "id": "NEW_Mtg", "canonical_name": "Jon Meeting", "aliases": [],
+         "attrs": {"fact": "Jon attended a meeting."}},
         {"op": "Link", "src": "NEW_Jon", "dst": "NEW_Mtg", "family": "entity-event", "predicate": "attended"},
     ])
     gc, graph = _make_constructor(tmp_path, ops_json)
@@ -264,6 +265,68 @@ def test_relate_infers_family_event_event(tmp_path):
     assert relate_log[0]["family"] == "event-event"
 
 
+def test_relate_rejects_missing_predicate(tmp_path):
+    ops_json = json.dumps([
+        {"op": "EnsureEntity", "id": "NEW_Jon", "canonical_name": "Jon", "aliases": []},
+        {"op": "EnsureEvent", "id": "NEW_Mtg", "canonical_name": "Jon attends meeting",
+         "attrs": {"fact": "Jon attended a meeting."}},
+        {"op": "Relate", "src": "NEW_Jon", "dst": "NEW_Mtg"},
+    ])
+    gc, graph = _make_constructor(tmp_path, ops_json)
+    log = gc.run("Jon attended a meeting.", {"nodes": {}, "edges": []})
+
+    relate_log = [l for l in log if l["op"] == "Relate"]
+    assert relate_log[0]["status"] == "rejected"
+    assert graph.edge_count() == 0
+
+
+def test_relate_rejects_invalid_event_event_predicate(tmp_path):
+    graph = _make_graph(tmp_path)
+    ev1 = graph.add_node("Event", "Event A")
+    ev2 = graph.add_node("Event", "Event B")
+    llm = MagicMock()
+    llm.complete.return_value = json.dumps([
+        {"op": "Relate", "src": ev1[:8], "dst": ev2[:8], "predicate": "experienced"},
+    ])
+    gc = GraphConstructor(llm, graph)
+    log = gc.run("A and B are related.", {"nodes": {ev1: graph.get_node(ev1), ev2: graph.get_node(ev2)}, "edges": []})
+
+    relate_log = [l for l in log if l["op"] == "Relate"]
+    assert relate_log[0]["status"] == "rejected"
+    assert graph.edge_count() == 0
+
+
+def test_relate_rejects_entity_not_named_in_event(tmp_path):
+    ops_json = json.dumps([
+        {"op": "EnsureEntity", "id": "NEW_Jon", "canonical_name": "Jon", "aliases": []},
+        {"op": "EnsureEntity", "id": "NEW_Maria", "canonical_name": "Maria", "aliases": []},
+        {"op": "EnsureEvent", "id": "NEW_Mtg", "canonical_name": "Jon attends meeting",
+         "attrs": {"fact": "Jon attended a meeting."}},
+        {"op": "Relate", "src": "NEW_Maria", "dst": "NEW_Mtg", "predicate": "experienced"},
+    ])
+    gc, graph = _make_constructor(tmp_path, ops_json)
+    log = gc.run("Jon told Maria he attended a meeting.", {"nodes": {}, "edges": []})
+
+    relate_log = [l for l in log if l["op"] == "Relate"]
+    assert relate_log[0]["status"] == "rejected"
+    assert graph.edge_count() == 0
+
+
+def test_relate_accepts_planned_entity_event(tmp_path):
+    ops_json = json.dumps([
+        {"op": "EnsureEntity", "id": "NEW_Maria", "canonical_name": "Maria", "aliases": []},
+        {"op": "EnsureEvent", "id": "NEW_Plan", "canonical_name": "Maria plans shelter volunteering",
+         "attrs": {"fact": "Maria planned to volunteer at shelters next month."}},
+        {"op": "Relate", "src": "NEW_Maria", "dst": "NEW_Plan", "predicate": "planned"},
+    ])
+    gc, graph = _make_constructor(tmp_path, ops_json)
+    log = gc.run("Maria planned to volunteer at shelters next month.", {"nodes": {}, "edges": []})
+
+    relate_log = [l for l in log if l["op"] == "Relate"]
+    assert relate_log[0]["status"] == "ok"
+    assert graph.edge_count() == 1
+
+
 def test_link_unresolved_id(tmp_path):
     ops_json = json.dumps([
         {"op": "Link", "src": "NONEXIST", "dst": "ALSO_MISSING", "family": "entity-event", "predicate": "x"},
@@ -276,7 +339,7 @@ def test_link_unresolved_id(tmp_path):
 def test_link_resolves_bracketed_existing_id(tmp_path):
     graph = _make_graph(tmp_path)
     jon = graph.add_node("Entity", "Jon")
-    mtg = graph.add_node("Event", "Meeting")
+    mtg = graph.add_node("Event", "Jon Meeting", attrs={"fact": "Jon attended a meeting."})
     llm = MagicMock()
     llm.complete.return_value = json.dumps([
         {"op": "Link", "src": f"[{jon[:8]}]", "dst": f"[{mtg[:8]}]", "family": "entity-event", "predicate": "attended"},
@@ -289,7 +352,7 @@ def test_link_resolves_bracketed_existing_id(tmp_path):
     assert graph.edge_count() == 1
 
 
-def test_created_event_repair_adds_source_attrs_and_speaker_link(tmp_path):
+def test_created_event_repair_adds_source_attrs_and_named_entity_link(tmp_path):
     ops_json = json.dumps([{
         "op": "CreateEvent",
         "id": "NEW_Class",
@@ -297,6 +360,7 @@ def test_created_event_repair_adds_source_attrs_and_speaker_link(tmp_path):
         "attrs": {},
     }])
     gc, graph = _make_constructor(tmp_path, ops_json)
+    graph.add_node("Entity", "Maria")
     context = ConstructionContext(
         batch_id="batch-1",
         batch_turn_ids=["D1"],
@@ -367,7 +431,7 @@ def test_first_speaker_reads_structured_turn_header():
     assert _first_speaker(text) == "Maria"
 
 
-def test_repair_creates_speaker_instead_of_linking_object_entity(tmp_path):
+def test_repair_links_existing_entity_named_in_event(tmp_path):
     ops_json = json.dumps([{
         "op": "CreateEvent",
         "id": "NEW_Donation",
@@ -375,6 +439,7 @@ def test_repair_creates_speaker_instead_of_linking_object_entity(tmp_path):
         "attrs": {},
     }])
     gc, graph = _make_constructor(tmp_path, ops_json)
+    graph.add_node("Entity", "Maria")
     graph.add_node("Entity", "Homeless Shelter")
     context = ConstructionContext(
         batch_id="batch-1",
@@ -399,6 +464,36 @@ def test_repair_creates_speaker_instead_of_linking_object_entity(tmp_path):
         for edge in edges
     }
     assert "Maria" in linked_names
+
+
+def test_repair_does_not_blindly_create_first_speaker(tmp_path):
+    ops_json = json.dumps([{
+        "op": "CreateEvent",
+        "id": "NEW_Plan",
+        "canonical_name": "Maria planned shelter volunteering",
+        "attrs": {},
+    }])
+    gc, graph = _make_constructor(tmp_path, ops_json)
+    context = ConstructionContext(
+        batch_id="batch-1",
+        batch_turn_ids=["D1"],
+        turn_time="9:00 am on 1 January, 2023",
+        speaker_a="John",
+        speaker_b="Maria",
+    )
+
+    log = gc.run(
+        "[turn_id=D1; speaker=John; listener=Maria; session_time=9:00 am on 1 January, 2023]\nMaria planned to volunteer at shelters.",
+        {"nodes": {}, "edges": []},
+        context=context,
+    )
+
+    event_id = next(item["node_id"] for item in log if item["op"] == "CreateEvent")
+    assert graph.get_edges(node_id=event_id, family="entity-event") == []
+    assert not any(
+        item.get("op") == "RepairCreateEntity" and item.get("canonical_name") == "John"
+        for item in log
+    )
 
 
 # ---------------------------------------------------------------------------
